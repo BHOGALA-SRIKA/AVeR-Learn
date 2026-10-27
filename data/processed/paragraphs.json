@@ -1,0 +1,226 @@
+[
+  {
+    "paragraph_id": "unit1_topic1_p00001",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 1,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 1"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00002",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 1,
+    "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+    "text": "Unit 1 – Introduction & Computer System Organization"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00003",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 1,
+    "heading_path": "Introduction",
+    "text": "Operating Systems (OS) form the backbone of modern computing systems. Every application program, from a simple calculator to complex AI software, relies on the operating system to interact with the hardware. Without an operating system, application developers would need to write hardware-specific code, making software development extremely complex and impractical."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00004",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 1,
+    "heading_path": "Need for an Operating System",
+    "text": "If an operating system were not developed, application developers would need to directly interact with hardware components such as the CPU, memory, disk, and I/O devices. This would require detailed knowledge of hardware architecture, device protocols, and low-level instructions. The operating system abstracts hardware complexity and provides a standardized interface, allowing developers to focus on solving problems rather than managing hardware."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00005",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 1,
+    "heading_path": "General Definition of an Operating System",
+    "text": "An Operating System is a program that acts as an intermediary between the user and the computer hardware. It provides a user-friendly environment in which users can easily develop and execute programs. Without an operating system: • Hardware knowledge would be mandatory for programming • Software portability would be extremely limited • Resource conflicts would be difficult to manage"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00006",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 1,
+    "heading_path": "Genesis of Operating Systems",
+    "text": "Early computers did not have operating systems. Programs were loaded manually, and only one program could run at a time. Over time, as hardware became more powerful and users demanded multitasking, operating systems evolved to manage resources efficiently and provide better usability."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00007",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 2,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 2 Operating System Goals The primary goals of an operating system are: • Execute user programs and make solving user problems easier • Make the computer system convenient to use • Use hardware efficiently • Manage system resources, including: o Memory o Processor(s) o Input/Output devices An effective OS balances user convenience with efficient hardware utilization. Why Study Operating Systems? Although only a small percentage of computer professionals design or modify operating systems, almost all software runs on top of an OS. Understanding operating systems is crucial for: • Writing efficient programs • Developing secure applications"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00008",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 2,
+    "heading_path": "",
+    "text": "• Debugging performance issues • Understanding resource behavior such as memory usage and CPU scheduling Knowledge of OS fundamentals leads to proper, efficient, effective, and secure programming. Four Components of a Computer System (Abstract View) A computer system can be divided into four major components: 1. Hardware - Provides basic computing resources such as: o CPU o Main memory"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00009",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 3,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 3 o I/O devices 2. Operating System - Controls and coordinates the use of hardware among various applications and users. 3. Application Programs - Define how system resources are used to solve user problems Examples: o Word processors o Compilers o Web browsers o Database systems o Video games 4. Users - Can be people, machines, or other computers."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00010",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 3,
+    "heading_path": "Computer System Structure",
+    "text": "The operating system sits between hardware and application programs, ensuring safe and efficient usage of system resources. What Operating Systems Do (User vs System View) From the user’s perspective: • Desire convenience • Want ease of use • Expect good performance • Do not care much about resource utilization From the system’s perspective: • Especially in shared systems (mainframes, minicomputers) • Must ensure fair resource allocation • Must maximize utilization of: o CPU time o Memory o I/O devices • No single user should monopolize resources What Operating Systems Do (Different Environments) • Dedicated systems (workstations): Have dedicated resources but"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00011",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 3,
+    "heading_path": "Computer System Structure",
+    "text": "still rely on shared servers (file, print, compute servers) • Handheld devices: Resource-constrained, optimized for: o Battery life o Usability"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00012",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 4,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 4 • Embedded systems: Often have little or no user interface Examples: o Automobiles o Medical devices o Home appliances Operating systems are designed to balance usability and resource efficiency based on the system type. System View of Operating System From a system viewpoint, the operating system serves two major roles: 1. Resource Allocator o Manages all system resources o Resolves conflicting resource requests o Ensures fairness and efficiency 2. Control Program o Controls execution of programs o Prevents errors o Prevents improper use of the computer Defining the Operating System The fundamental goal of a"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00013",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 4,
+    "heading_path": "",
+    "text": "computer system is to execute user programs and solve user problems. The operating system combines: • Resource allocation • Control mechanisms into a single piece of software. The kernel is: • The core part of the OS • The only program running at all times Everything else is either: • A system program (ships with OS) • An application program Computer System Organization A computer system consists of: • One or more CPUs"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00014",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 5,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 5 • Device controllers • Shared main memory • Common system bus The CPU and device controllers can execute concurrently, competing for memory cycles. A memory controller synchronizes access to shared memory."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00015",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 5,
+    "heading_path": "A Modern Computer System",
+    "text": "Modern systems support parallelism, concurrency, and high-speed I/O operations."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00016",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 5,
+    "heading_path": "Computer System Operation",
+    "text": "Key points: • CPU and I/O devices execute concurrently • Each device controller manages a specific device • Device controller contains: o Local buffer o Registers for control actions • Data transfer occurs: o Device → Controller buffer → Main memory After completing an operation, the device controller signals the CPU by generating an interrupt."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00017",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 5,
+    "heading_path": "Booting the System",
+    "text": "When the system starts: • The first program executed is the Bootstrap program • Stored in ROM or EEPROM • Also called firmware Functions of bootstrap: • Initializes CPU registers • Initializes memory • Initializes device controllers"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00018",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 6,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 6 • Loads the operating system kernel into memory After booting: • The first user-level process created is init • init waits for events and starts system services"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00019",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 6,
+    "heading_path": "Interrupts",
+    "text": "An operating system is interrupt-driven. • Interrupt transfers control to an Interrupt Service Routine (ISR) • Uses an interrupt vector containing addresses of service routines • CPU state (program counter, registers) is saved A trap or exception is a software-generated interrupt caused by: • Errors • User requests (system calls)"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00020",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 6,
+    "heading_path": "Interrupt Handling",
+    "text": "Steps in interrupt handling: 1. Save current CPU state 2. Identify interrupt type 3. Execute appropriate interrupt service routine 4. Restore CPU state 5. Resume execution Interrupt identification methods: • Polling • Vectored interrupt systems"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00021",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 6,
+    "heading_path": "Interrupt Timeline",
+    "text": "Shows how a single process performing output is interrupted and resumed."
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00022",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 7,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 7 Main memory: • Only large storage directly accessible by CPU • Random Access Memory (RAM) • Typically volatile Implemented using DRAM. Other memory types: •"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00023",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 7,
+    "heading_path": "ROM",
+    "text": "• EEPROM (used in smartphones to store factory-installed programs) Program Execution Model Typical instruction execution follows the Fetch–Decode–Execute cycle: 1. Fetch instruction from memory 2. Decode instruction 3. Execute instruction This repeats until program termination. This model is known as the Von Neumann architecture. Secondary Storage Secondary storage: • Extension of main memory • Non-volatile • Large capacity Types: • Hard disks o Platters, tracks, sectors o Managed by disk controller • Solid State Drives (SSD) o Faster o Non-volatile"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00024",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 8,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 8 • Flash memory o Used in cameras, PDAs"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00025",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 8,
+    "heading_path": "Storage Hierarchy",
+    "text": "Storage systems are organized based on: • Speed • Cost • Volatility Caching Caching is a fundamental principle used at many levels: • Hardware • Operating system • Software Key ideas: • Frequently used data copied to faster storage • Cache checked first • If data not present → fetched from slower storage Challenges: • Cache size • Replacement policy • Cache management I/O Structure • Storage is treated as an I/O device"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00026",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 9,
+    "heading_path": "",
+    "text": "Pavan A C (pavanac@pes.edu) 9 • Large portion of OS code manages I/O • Focus on reliability and performance Components: • CPUs • Multiple device controllers • Common system bus Each device controller has: • Device driver • Uniform interface to kernel"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00027",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 9,
+    "heading_path": "I/O Operation Flow",
+    "text": "• Device controller maintains local buffer • Transfers data between device and memory • CPU resumes execution after I/O completion interrupt Two models: 1. CPU waits for I/O completion 2. CPU continues execution while I/O proceeds"
+  },
+  {
+    "paragraph_id": "unit1_topic1_p00028",
+    "document_id": "unit1_topic1",
+    "subject": "UNKNOWN",
+    "page_number": 9,
+    "heading_path": "Direct Memory Access (DMA)",
+    "text": "Used for high-speed I/O devices. • Data transferred directly between device and main memory • CPU involvement minimized • Only one interrupt per block transfer Improves performance significantly."
+  }
+]
