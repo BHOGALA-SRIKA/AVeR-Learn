@@ -1,0 +1,2992 @@
+[
+  {
+    "mcq_id": "MCQ-001",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Application Programs",
+    "question": "In \"Four Components of a Computer System\", which term matches this description: \"Define how system resources are used to solve user problems\"?",
+    "options": [
+      "Hardware",
+      "Operating System",
+      "Dedicated systems (workstations)",
+      "Application Programs"
+    ],
+    "answer": "D",
+    "answer_text": "Application Programs",
+    "evidence": {
+      "pid": "unit1_topic1-s06",
+      "heading": "Four Components of a Computer System (Abstract View)",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Application Programs: Define how system resources are used to solve user problems",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "Hardware",
+        "really_about": "Hardware",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s06"
+      },
+      {
+        "option": "Operating System",
+        "really_about": "Operating System",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s06"
+      },
+      {
+        "option": "Dedicated systems (workstations)",
+        "really_about": "Dedicated systems (workstations)",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Operating System",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-002",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Hardware",
+    "question": "In \"Four Components of a Computer System\", which term matches this description: \"Provides basic computing resources such as: CPU, Main memory, I/O devices\"?",
+    "options": [
+      "Operating System",
+      "Application Programs",
+      "Hardware",
+      "Dedicated systems (workstations)"
+    ],
+    "answer": "C",
+    "answer_text": "Hardware",
+    "evidence": {
+      "pid": "unit1_topic1-s06",
+      "heading": "Four Components of a Computer System (Abstract View)",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Hardware: Provides basic computing resources such as: CPU, Main memory, I/O devices",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "Operating System",
+        "really_about": "Operating System",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s06"
+      },
+      {
+        "option": "Application Programs",
+        "really_about": "Application Programs",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s06"
+      },
+      {
+        "option": "Dedicated systems (workstations)",
+        "really_about": "Dedicated systems (workstations)",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-003",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Operating System",
+    "question": "In \"Four Components of a Computer System\", which term matches this description: \"Controls and coordinates the use of hardware among various applications and users.\"?",
+    "options": [
+      "Interrupts",
+      "Control Program",
+      "Application Programs",
+      "Operating System"
+    ],
+    "answer": "D",
+    "answer_text": "Operating System",
+    "evidence": {
+      "pid": "unit1_topic1-s06",
+      "heading": "Four Components of a Computer System (Abstract View)",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Operating System: Controls and coordinates the use of hardware among various applications and users.",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "Application Programs",
+        "really_about": "Application Programs",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s06"
+      },
+      {
+        "option": "Control Program",
+        "really_about": "Control Program",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Interrupts",
+        "really_about": "Interrupts",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Application Programs",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-004",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Dedicated systems (workstations)",
+    "question": "In \"What Operating Systems Do\", which term matches this description: \"Have dedicated resources but still rely on shared servers (file, print, compute servers)\"?",
+    "options": [
+      "Operating System",
+      "Hardware",
+      "Dedicated systems (workstations)",
+      "Handheld devices"
+    ],
+    "answer": "C",
+    "answer_text": "Dedicated systems (workstations)",
+    "evidence": {
+      "pid": "unit1_topic1-s09",
+      "heading": "What Operating Systems Do (Different Environments)",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Dedicated systems (workstations): Have dedicated resources but still rely on shared servers (file, print, compute servers)",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Handheld devices",
+        "really_about": "Handheld devices",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s09"
+      },
+      {
+        "option": "Operating System",
+        "really_about": "Operating System",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Hardware",
+        "really_about": "Hardware",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-005",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Handheld devices",
+    "question": "In \"What Operating Systems Do\", which term matches this description: \"Resource-constrained, optimized for: Battery life, Usability\"?",
+    "options": [
+      "Operating System",
+      "Handheld devices",
+      "Resource Allocator",
+      "Dedicated systems (workstations)"
+    ],
+    "answer": "B",
+    "answer_text": "Handheld devices",
+    "evidence": {
+      "pid": "unit1_topic1-s09",
+      "heading": "What Operating Systems Do (Different Environments)",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Handheld devices: Resource-constrained, optimized for: Battery life, Usability",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Dedicated systems (workstations)",
+        "really_about": "Dedicated systems (workstations)",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s09"
+      },
+      {
+        "option": "Operating System",
+        "really_about": "Operating System",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Resource Allocator",
+        "really_about": "Resource Allocator",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-006",
+    "kind": "define",
+    "difficulty": "medium",
+    "concept": "Control Program",
+    "question": "In \"System View of Operating System\", what does \"Control Program\" refer to?",
+    "options": [
+      "Controls execution of programs; Prevents errors; Prevents improper use of the computer",
+      "Controls and coordinates the use of hardware among various applications and users.",
+      "Manages all system resources; Resolves conflicting resource requests; Ensures fairness and efficiency",
+      "Define how system resources are used to solve user problems"
+    ],
+    "answer": "A",
+    "answer_text": "Controls execution of programs; Prevents errors; Prevents improper use of the computer",
+    "evidence": {
+      "pid": "unit1_topic1-s10",
+      "heading": "System View of Operating System",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Control Program: Controls execution of programs; Prevents errors; Prevents improper use of the computer",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Manages all system resources; Resolves conflicting resource requests; Ensures fairness and efficiency",
+        "really_about": "Resource Allocator",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s10"
+      },
+      {
+        "option": "Controls and coordinates the use of hardware among various applications and users.",
+        "really_about": "Operating System",
+        "how_found": "lexical",
+        "pid": "unit1_topic1-s06"
+      },
+      {
+        "option": "Define how system resources are used to solve user problems",
+        "really_about": "Application Programs",
+        "how_found": "lexical",
+        "pid": "unit1_topic1-s06"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-007",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Resource Allocator",
+    "question": "In \"System View of Operating System\", which term matches this description: \"Manages all system resources; Resolves conflicting resource requests; Ensures fairness and efficiency\"?",
+    "options": [
+      "Dedicated systems (workstations)",
+      "Control Program",
+      "Application Programs",
+      "Resource Allocator"
+    ],
+    "answer": "D",
+    "answer_text": "Resource Allocator",
+    "evidence": {
+      "pid": "unit1_topic1-s10",
+      "heading": "System View of Operating System",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Resource Allocator: Manages all system resources; Resolves conflicting resource requests; Ensures fairness and efficiency",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Control Program",
+        "really_about": "Control Program",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s10"
+      },
+      {
+        "option": "Application Programs",
+        "really_about": "Application Programs",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Dedicated systems (workstations)",
+        "really_about": "Dedicated systems (workstations)",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-008",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Interrupts",
+    "question": "Which of the following do the notes describe as: \"An operating system is interrupt-driven.\"?",
+    "options": [
+      "Interrupts",
+      "Dedicated systems (workstations)",
+      "Application Programs",
+      "Direct Memory Access"
+    ],
+    "answer": "A",
+    "answer_text": "Interrupts",
+    "evidence": {
+      "pid": "unit1_topic1-s16",
+      "heading": "Interrupts",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "An operating system is interrupt-driven.",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "distractor_sources": [
+      {
+        "option": "Direct Memory Access",
+        "really_about": "Direct Memory Access",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Dedicated systems (workstations)",
+        "really_about": "Dedicated systems (workstations)",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Application Programs",
+        "really_about": "Application Programs",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.33,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-009",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Flash memory",
+    "question": "In \"Secondary Storage\", which term matches this description: \"Used in cameras, PDAs\"?",
+    "options": [
+      "Hard disks",
+      "Flash memory",
+      "Solid State Drives (SSD)",
+      "Caching"
+    ],
+    "answer": "B",
+    "answer_text": "Flash memory",
+    "evidence": {
+      "pid": "unit1_topic1-s21",
+      "heading": "Secondary Storage",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Flash memory: Used in cameras, PDAs",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 7,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Hard disks",
+        "really_about": "Hard disks",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s21"
+      },
+      {
+        "option": "Solid State Drives (SSD)",
+        "really_about": "Solid State Drives (SSD)",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s21"
+      },
+      {
+        "option": "Caching",
+        "really_about": "Caching",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-010",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Hard disks",
+    "question": "In \"Secondary Storage\", which term matches this description: \"Platters, tracks, sectors; Managed by disk controller\"?",
+    "options": [
+      "Caching",
+      "Flash memory",
+      "Hard disks",
+      "Solid State Drives (SSD)"
+    ],
+    "answer": "C",
+    "answer_text": "Hard disks",
+    "evidence": {
+      "pid": "unit1_topic1-s21",
+      "heading": "Secondary Storage",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Hard disks: Platters, tracks, sectors; Managed by disk controller",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 7,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Solid State Drives (SSD)",
+        "really_about": "Solid State Drives (SSD)",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s21"
+      },
+      {
+        "option": "Flash memory",
+        "really_about": "Flash memory",
+        "how_found": "sibling",
+        "pid": "unit1_topic1-s21"
+      },
+      {
+        "option": "Caching",
+        "really_about": "Caching",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-011",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Caching",
+    "question": "Which of the following do the notes describe as: \"Frequently used data copied to faster storage\"?",
+    "options": [
+      "Solid State Drives (SSD)",
+      "Flash memory",
+      "Caching",
+      "Direct Memory Access"
+    ],
+    "answer": "C",
+    "answer_text": "Caching",
+    "evidence": {
+      "pid": "unit1_topic1-s23",
+      "heading": "Caching",
+      "chapter": "Unit 1 – Introduction & Computer System Organization",
+      "quote": "Frequently used data copied to faster storage",
+      "source_pdf": "unit1_topic1.pdf",
+      "page_start": 8,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Solid State Drives (SSD)",
+        "really_about": "Solid State Drives (SSD)",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Direct Memory Access",
+        "really_about": "Direct Memory Access",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Flash memory",
+        "really_about": "Flash memory",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.33,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-012",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "CPU burst",
+    "question": "In \"Alternating Sequence of CPU and I/O Bursts\", which term matches this description: \"process is executing instructions\"?",
+    "options": [
+      "I/O burst",
+      "CPU-bound processes",
+      "CPU burst",
+      "I/O-bound processes"
+    ],
+    "answer": "C",
+    "answer_text": "CPU burst",
+    "evidence": {
+      "pid": "unit1_topic2-s03",
+      "heading": "Alternating Sequence of CPU and I/O Bursts",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "CPU burst: process is executing instructions",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "I/O burst",
+        "really_about": "I/O burst",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s03"
+      },
+      {
+        "option": "I/O-bound processes",
+        "really_about": "I/O-bound processes",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU-bound processes",
+        "really_about": "CPU-bound processes",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "I/O burst",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-013",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "I/O burst",
+    "question": "In \"Alternating Sequence of CPU and I/O Bursts\", which term matches this description: \"process is waiting for I/O completion\"?",
+    "options": [
+      "I/O-bound processes",
+      "CPU burst",
+      "I/O burst",
+      "CPU-bound processes"
+    ],
+    "answer": "C",
+    "answer_text": "I/O burst",
+    "evidence": {
+      "pid": "unit1_topic2-s03",
+      "heading": "Alternating Sequence of CPU and I/O Bursts",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "I/O burst: process is waiting for I/O completion",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "CPU burst",
+        "really_about": "CPU burst",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s03"
+      },
+      {
+        "option": "I/O-bound processes",
+        "really_about": "I/O-bound processes",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU-bound processes",
+        "really_about": "CPU-bound processes",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "CPU burst",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-014",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "CPU-bound processes",
+    "question": "In \"Histogram of CPU-Burst Times\", which term matches this description: \"Few long CPU bursts\"?",
+    "options": [
+      "CPU Scheduler",
+      "CPU-bound processes",
+      "I/O burst",
+      "CPU Utilization"
+    ],
+    "answer": "B",
+    "answer_text": "CPU-bound processes",
+    "evidence": {
+      "pid": "unit1_topic2-s06",
+      "heading": "Observations",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "CPU-bound processes: Few long CPU bursts",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "I/O burst",
+        "really_about": "I/O burst",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU Utilization",
+        "really_about": "CPU Utilization",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU Scheduler",
+        "really_about": "CPU Scheduler",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-015",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "I/O-bound processes",
+    "question": "In \"Histogram of CPU-Burst Times\", which term matches this description: \"Many short CPU bursts\"?",
+    "options": [
+      "CPU Scheduler",
+      "I/O burst",
+      "CPU Utilization",
+      "I/O-bound processes"
+    ],
+    "answer": "D",
+    "answer_text": "I/O-bound processes",
+    "evidence": {
+      "pid": "unit1_topic2-s06",
+      "heading": "Observations",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "I/O-bound processes: Many short CPU bursts",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "I/O burst",
+        "really_about": "I/O burst",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU Utilization",
+        "really_about": "CPU Utilization",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU Scheduler",
+        "really_about": "CPU Scheduler",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-016",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Macintosh OS",
+    "question": "In \"Issues in Preemptive Scheduling\", which term matches this description: \"Uses preemptive scheduling\"?",
+    "options": [
+      "Windows 3.x",
+      "Cases 1 and 4",
+      "Macintosh OS",
+      "CPU Scheduler"
+    ],
+    "answer": "C",
+    "answer_text": "Macintosh OS",
+    "evidence": {
+      "pid": "unit1_topic2-s12",
+      "heading": "Examples",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "Macintosh OS: Uses preemptive scheduling",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "Windows 3.x",
+        "really_about": "Windows 3.x",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s12"
+      },
+      {
+        "option": "Cases 1 and 4",
+        "really_about": "Cases 1 and 4",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU Scheduler",
+        "really_about": "CPU Scheduler",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Windows 3.x",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-017",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Dispatcher",
+    "question": "Which of the following do the notes describe as: \"Gives control of the CPU to the process selected by the short-term scheduler\"?",
+    "options": [
+      "CPU-bound processes",
+      "CPU burst",
+      "Dispatcher",
+      "I/O-bound processes"
+    ],
+    "answer": "C",
+    "answer_text": "Dispatcher",
+    "evidence": {
+      "pid": "unit1_topic2-s16",
+      "heading": "Dispatcher",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "Gives control of the CPU to the process selected by the short-term scheduler",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "CPU-bound processes",
+        "really_about": "CPU-bound processes",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU burst",
+        "really_about": "CPU burst",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "I/O-bound processes",
+        "really_about": "I/O-bound processes",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Dispatch Latency",
+          "reason": "means the same as the answer"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-018",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "CPU Utilization",
+    "question": "In \"Scheduling Criteria\", which term matches this description: \"Percentage of time CPU is busy\"?",
+    "options": [
+      "Throughput",
+      "Waiting Time",
+      "Turnaround Time",
+      "CPU Utilization"
+    ],
+    "answer": "D",
+    "answer_text": "CPU Utilization",
+    "evidence": {
+      "pid": "unit1_topic2-s19",
+      "heading": "Scheduling Criteria",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "CPU Utilization: Percentage of time CPU is busy",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Throughput",
+        "really_about": "Throughput",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Turnaround Time",
+        "really_about": "Turnaround Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Waiting Time",
+        "really_about": "Waiting Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-019",
+    "kind": "define",
+    "difficulty": "hard",
+    "concept": "Response Time",
+    "question": "In \"Scheduling Criteria\", what does \"Response Time\" refer to?",
+    "options": [
+      "Total time a process spends waiting in the ready queue",
+      "Number of processes completed per unit time",
+      "Percentage of time CPU is busy",
+      "Time from request submission to first response; Important in time-sharing systems"
+    ],
+    "answer": "D",
+    "answer_text": "Time from request submission to first response; Important in time-sharing systems",
+    "evidence": {
+      "pid": "unit1_topic2-s19",
+      "heading": "Scheduling Criteria",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "Response Time: Time from request submission to first response; Important in time-sharing systems",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Percentage of time CPU is busy",
+        "really_about": "CPU Utilization",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Number of processes completed per unit time",
+        "really_about": "Throughput",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Total time a process spends waiting in the ready queue",
+        "really_about": "Waiting Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.57,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Time from submission to completion of a process",
+          "reason": "means the same as the answer"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-020",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Throughput",
+    "question": "In \"Scheduling Criteria\", which term matches this description: \"Number of processes completed per unit time\"?",
+    "options": [
+      "Throughput",
+      "Response Time",
+      "Waiting Time",
+      "CPU Utilization"
+    ],
+    "answer": "A",
+    "answer_text": "Throughput",
+    "evidence": {
+      "pid": "unit1_topic2-s19",
+      "heading": "Scheduling Criteria",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "Throughput: Number of processes completed per unit time",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "CPU Utilization",
+        "really_about": "CPU Utilization",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Waiting Time",
+        "really_about": "Waiting Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Response Time",
+        "really_about": "Response Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-021",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Turnaround Time",
+    "question": "In \"Scheduling Criteria\", which term matches this description: \"Time from submission to completion of a process\"?",
+    "options": [
+      "CPU Utilization",
+      "Waiting Time",
+      "CPU Scheduler",
+      "Turnaround Time"
+    ],
+    "answer": "D",
+    "answer_text": "Turnaround Time",
+    "evidence": {
+      "pid": "unit1_topic2-s19",
+      "heading": "Scheduling Criteria",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "Turnaround Time: Time from submission to completion of a process",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "CPU Utilization",
+        "really_about": "CPU Utilization",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Waiting Time",
+        "really_about": "Waiting Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "CPU Scheduler",
+        "really_about": "CPU Scheduler",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-022",
+    "kind": "define",
+    "difficulty": "hard",
+    "concept": "Waiting Time",
+    "question": "In \"Scheduling Criteria\", what does \"Waiting Time\" refer to?",
+    "options": [
+      "Time from submission to completion of a process",
+      "Total time a process spends waiting in the ready queue",
+      "Number of processes completed per unit time",
+      "Percentage of time CPU is busy"
+    ],
+    "answer": "B",
+    "answer_text": "Total time a process spends waiting in the ready queue",
+    "evidence": {
+      "pid": "unit1_topic2-s19",
+      "heading": "Scheduling Criteria",
+      "chapter": "Unit 1 – CPU Scheduling",
+      "quote": "Waiting Time: Total time a process spends waiting in the ready queue",
+      "source_pdf": "unit1_topic2.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Percentage of time CPU is busy",
+        "really_about": "CPU Utilization",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Number of processes completed per unit time",
+        "really_about": "Throughput",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      },
+      {
+        "option": "Time from submission to completion of a process",
+        "really_about": "Turnaround Time",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s19"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.43,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-023",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Time-shared systems",
+    "question": "In \"Process Concept\", which term matches this description: \"execute user programs or tasks\"?",
+    "options": [
+      "Process",
+      "Program",
+      "Batch systems",
+      "Time-shared systems"
+    ],
+    "answer": "D",
+    "answer_text": "Time-shared systems",
+    "evidence": {
+      "pid": "unit1_topic3-s00",
+      "heading": "Process Concept",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Time-shared systems: execute user programs or tasks",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "distractor_sources": [
+      {
+        "option": "Batch systems",
+        "really_about": "Batch systems",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s00"
+      },
+      {
+        "option": "Process",
+        "really_about": "Process",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Program",
+        "really_about": "Program",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 2.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-024",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Process",
+    "question": "In \"Process vs Program\", which term matches this description: \"active entity; A program in execution\"?",
+    "options": [
+      "Program counter",
+      "Process",
+      "Text Section",
+      "Current Activity"
+    ],
+    "answer": "B",
+    "answer_text": "Process",
+    "evidence": {
+      "pid": "unit1_topic3-s01",
+      "heading": "Process vs Program",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Process: active entity; A program in execution",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "distractor_sources": [
+      {
+        "option": "Current Activity",
+        "really_about": "Current Activity",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Text Section",
+        "really_about": "Text Section",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-025",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Program",
+    "question": "In \"Process vs Program\", which term matches this description: \"passive entity; Stored on disk as an executable file\"?",
+    "options": [
+      "Process",
+      "Text Section",
+      "Program",
+      "Time-shared systems"
+    ],
+    "answer": "C",
+    "answer_text": "Program",
+    "evidence": {
+      "pid": "unit1_topic3-s01",
+      "heading": "Process vs Program",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Program: passive entity; Stored on disk as an executable file",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "distractor_sources": [
+      {
+        "option": "Process",
+        "really_about": "Process",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s01"
+      },
+      {
+        "option": "Text Section",
+        "really_about": "Text Section",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Time-shared systems",
+        "really_about": "Time-shared systems",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Process",
+          "reason": "repeats another option"
+        },
+        {
+          "option": "Program counter",
+          "reason": "means the same as the answer"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-026",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Current Activity",
+    "question": "In \"Process Concept – Memory Representation\", which term matches this description: \"Program Counter; Processor Registers\"?",
+    "options": [
+      "Stack",
+      "Current Activity",
+      "Data Section",
+      "Text Section"
+    ],
+    "answer": "B",
+    "answer_text": "Current Activity",
+    "evidence": {
+      "pid": "unit1_topic3-s03",
+      "heading": "Process Concept – Memory Representation",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Current Activity: Program Counter; Processor Registers",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "Text Section",
+        "really_about": "Text Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Stack",
+        "really_about": "Stack",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Data Section",
+        "really_about": "Data Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-027",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Data Section",
+    "question": "In \"Process Concept – Memory Representation\", which term matches this description: \"Global and static variables\"?",
+    "options": [
+      "Text Section",
+      "Data Section",
+      "Stack",
+      "Current Activity"
+    ],
+    "answer": "B",
+    "answer_text": "Data Section",
+    "evidence": {
+      "pid": "unit1_topic3-s03",
+      "heading": "Process Concept – Memory Representation",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Data Section: Global and static variables",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "Text Section",
+        "really_about": "Text Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Current Activity",
+        "really_about": "Current Activity",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Stack",
+        "really_about": "Stack",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-028",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Heap",
+    "question": "In \"Process Concept – Memory Representation\", which term matches this description: \"Dynamically allocated memory during runtime\"?",
+    "options": [
+      "Text Section",
+      "Heap",
+      "Current Activity",
+      "Stack"
+    ],
+    "answer": "B",
+    "answer_text": "Heap",
+    "evidence": {
+      "pid": "unit1_topic3-s03",
+      "heading": "Process Concept – Memory Representation",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Heap: Dynamically allocated memory during runtime",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "Text Section",
+        "really_about": "Text Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Current Activity",
+        "really_about": "Current Activity",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Stack",
+        "really_about": "Stack",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-029",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Stack",
+    "question": "In \"Process Concept – Memory Representation\", which term matches this description: \"Temporary data; Function parameters; Return addresses; Local variables\"?",
+    "options": [
+      "Current Activity",
+      "Text Section",
+      "Data Section",
+      "Stack"
+    ],
+    "answer": "D",
+    "answer_text": "Stack",
+    "evidence": {
+      "pid": "unit1_topic3-s03",
+      "heading": "Process Concept – Memory Representation",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Stack: Temporary data; Function parameters; Return addresses; Local variables",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "Text Section",
+        "really_about": "Text Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Current Activity",
+        "really_about": "Current Activity",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Data Section",
+        "really_about": "Data Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-030",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Text Section",
+    "question": "In \"Process Concept – Memory Representation\", which term matches this description: \"Program code; Instructions to be executed\"?",
+    "options": [
+      "Data Section",
+      "Text Section",
+      "Current Activity",
+      "Stack"
+    ],
+    "answer": "B",
+    "answer_text": "Text Section",
+    "evidence": {
+      "pid": "unit1_topic3-s03",
+      "heading": "Process Concept – Memory Representation",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Text Section: Program code; Instructions to be executed",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "distractor_sources": [
+      {
+        "option": "Current Activity",
+        "really_about": "Current Activity",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Stack",
+        "really_about": "Stack",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      },
+      {
+        "option": "Data Section",
+        "really_about": "Data Section",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s03"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-031",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "New",
+    "question": "In \"Common Process States\", which term matches this description: \"Process is being created\"?",
+    "options": [
+      "Ready",
+      "New",
+      "Waiting",
+      "Running"
+    ],
+    "answer": "B",
+    "answer_text": "New",
+    "evidence": {
+      "pid": "unit1_topic3-s06",
+      "heading": "Common Process States",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "New: Process is being created",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "Running",
+        "really_about": "Running",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Waiting",
+        "really_about": "Waiting",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Ready",
+        "really_about": "Ready",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-032",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Ready",
+    "question": "In \"Common Process States\", which term matches this description: \"Process is waiting to be assigned to a CPU\"?",
+    "options": [
+      "Ready",
+      "Running",
+      "New",
+      "Terminated"
+    ],
+    "answer": "A",
+    "answer_text": "Ready",
+    "evidence": {
+      "pid": "unit1_topic3-s06",
+      "heading": "Common Process States",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Ready: Process is waiting to be assigned to a CPU",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "New",
+        "really_about": "New",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Running",
+        "really_about": "Running",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Terminated",
+        "really_about": "Terminated",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-033",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Running",
+    "question": "In \"Common Process States\", which term matches this description: \"Instructions are currently being executed\"?",
+    "options": [
+      "Waiting",
+      "New",
+      "Ready",
+      "Running"
+    ],
+    "answer": "D",
+    "answer_text": "Running",
+    "evidence": {
+      "pid": "unit1_topic3-s06",
+      "heading": "Common Process States",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Running: Instructions are currently being executed",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "New",
+        "really_about": "New",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Waiting",
+        "really_about": "Waiting",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Ready",
+        "really_about": "Ready",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-034",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Terminated",
+    "question": "In \"Common Process States\", which term matches this description: \"Process has finished execution\"?",
+    "options": [
+      "Running",
+      "Waiting",
+      "New",
+      "Terminated"
+    ],
+    "answer": "D",
+    "answer_text": "Terminated",
+    "evidence": {
+      "pid": "unit1_topic3-s06",
+      "heading": "Common Process States",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Terminated: Process has finished execution",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "distractor_sources": [
+      {
+        "option": "New",
+        "really_about": "New",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Running",
+        "really_about": "Running",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      },
+      {
+        "option": "Waiting",
+        "really_about": "Waiting",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s06"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-035",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Accounting information",
+    "question": "In \"Process Control Block\", which term matches this description: \"CPU time used; Elapsed time; Time limits\"?",
+    "options": [
+      "Accounting information",
+      "Program counter",
+      "Process state",
+      "CPU registers"
+    ],
+    "answer": "A",
+    "answer_text": "Accounting information",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Accounting information: CPU time used; Elapsed time; Time limits",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Process state",
+        "really_about": "Process state",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-036",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "CPU registers",
+    "question": "In \"Process Control Block\", which term matches this description: \"Contents of all process-specific registers\"?",
+    "options": [
+      "CPU scheduling information",
+      "Process state",
+      "CPU registers",
+      "Program counter"
+    ],
+    "answer": "C",
+    "answer_text": "CPU registers",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "CPU registers: Contents of all process-specific registers",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Process state",
+        "really_about": "Process state",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU scheduling information",
+        "really_about": "CPU scheduling information",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-037",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "CPU scheduling information",
+    "question": "In \"Process Control Block\", which term matches this description: \"Priority; Scheduling queue pointers\"?",
+    "options": [
+      "CPU scheduling information",
+      "Process state",
+      "CPU registers",
+      "Program counter"
+    ],
+    "answer": "A",
+    "answer_text": "CPU scheduling information",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "CPU scheduling information: Priority; Scheduling queue pointers",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Process state",
+        "really_about": "Process state",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-038",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "I/O status information",
+    "question": "In \"Process Control Block\", which term matches this description: \"I/O devices allocated; List of open files\"?",
+    "options": [
+      "I/O status information",
+      "Program counter",
+      "CPU registers",
+      "Process state"
+    ],
+    "answer": "A",
+    "answer_text": "I/O status information",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "I/O status information: I/O devices allocated; List of open files",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Process state",
+        "really_about": "Process state",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-039",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Memory-management information",
+    "question": "In \"Process Control Block\", which term matches this description: \"Memory allocated to the process\"?",
+    "options": [
+      "Memory-management information",
+      "Process state",
+      "Program counter",
+      "CPU registers"
+    ],
+    "answer": "A",
+    "answer_text": "Memory-management information",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Memory-management information: Memory allocated to the process",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Process state",
+        "really_about": "Process state",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-040",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Process state",
+    "question": "In \"Process Control Block\", which term matches this description: \"New, ready, running, waiting, terminated\"?",
+    "options": [
+      "Process state",
+      "CPU scheduling information",
+      "Program counter",
+      "CPU registers"
+    ],
+    "answer": "A",
+    "answer_text": "Process state",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Process state: New, ready, running, waiting, terminated",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Program counter",
+        "really_about": "Program counter",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU scheduling information",
+        "really_about": "CPU scheduling information",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-041",
+    "kind": "identify",
+    "difficulty": "hard",
+    "concept": "Program counter",
+    "question": "In \"Process Control Block\", which term matches this description: \"Address of next instruction to execute\"?",
+    "options": [
+      "Process state",
+      "Program counter",
+      "CPU scheduling information",
+      "CPU registers"
+    ],
+    "answer": "B",
+    "answer_text": "Program counter",
+    "evidence": {
+      "pid": "unit1_topic3-s08",
+      "heading": "Contents of Process Control Block",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Program counter: Address of next instruction to execute",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "distractor_sources": [
+      {
+        "option": "Process state",
+        "really_about": "Process state",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      },
+      {
+        "option": "CPU scheduling information",
+        "really_about": "CPU scheduling information",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s08"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-042",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Device Queues",
+    "question": "In \"Scheduling Queues\", which term matches this description: \"Processes waiting for I/O devices\"?",
+    "options": [
+      "Process Control Block",
+      "Job Queue",
+      "Ready Queue",
+      "Device Queues"
+    ],
+    "answer": "D",
+    "answer_text": "Device Queues",
+    "evidence": {
+      "pid": "unit1_topic3-s11",
+      "heading": "Scheduling Queues",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Device Queues: Processes waiting for I/O devices",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Job Queue",
+        "really_about": "Job Queue",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s11"
+      },
+      {
+        "option": "Ready Queue",
+        "really_about": "Ready Queue",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s11"
+      },
+      {
+        "option": "Process Control Block",
+        "really_about": "Process Control Block",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-043",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Job Queue",
+    "question": "In \"Scheduling Queues\", which term matches this description: \"All processes in the system\"?",
+    "options": [
+      "Device Queues",
+      "Job Queue",
+      "CPU scheduling information",
+      "Ready Queue"
+    ],
+    "answer": "B",
+    "answer_text": "Job Queue",
+    "evidence": {
+      "pid": "unit1_topic3-s11",
+      "heading": "Scheduling Queues",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Job Queue: All processes in the system",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Ready Queue",
+        "really_about": "Ready Queue",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s11"
+      },
+      {
+        "option": "Device Queues",
+        "really_about": "Device Queues",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s11"
+      },
+      {
+        "option": "CPU scheduling information",
+        "really_about": "CPU scheduling information",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-044",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Ready Queue",
+    "question": "In \"Scheduling Queues\", which term matches this description: \"Processes in main memory; Ready to execute\"?",
+    "options": [
+      "Device Queues",
+      "Ready Queue",
+      "Job Queue",
+      "Long-Term Scheduler"
+    ],
+    "answer": "B",
+    "answer_text": "Ready Queue",
+    "evidence": {
+      "pid": "unit1_topic3-s11",
+      "heading": "Scheduling Queues",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Ready Queue: Processes in main memory; Ready to execute",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Job Queue",
+        "really_about": "Job Queue",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s11"
+      },
+      {
+        "option": "Device Queues",
+        "really_about": "Device Queues",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s11"
+      },
+      {
+        "option": "Long-Term Scheduler",
+        "really_about": "Long-Term Scheduler",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-045",
+    "kind": "fact",
+    "difficulty": "hard",
+    "concept": "CPU Scheduler",
+    "question": "Which of the following is correct about the CPU scheduler?",
+    "options": [
+      "May be slow",
+      "Invoked very frequently (milliseconds)",
+      "Invoked infrequently (seconds or minutes)",
+      "Controls the degree of multiprogramming"
+    ],
+    "answer": "B",
+    "answer_text": "Invoked very frequently (milliseconds)",
+    "evidence": {
+      "pid": "unit1_topic3-s14",
+      "heading": "Short-Term Scheduler (CPU Scheduler)",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Invoked very frequently (milliseconds)",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "distractor_sources": [
+      {
+        "option": "Invoked infrequently (seconds or minutes)",
+        "really_about": "Long-Term Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s15"
+      },
+      {
+        "option": "Controls the degree of multiprogramming",
+        "really_about": "Long-Term Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s15"
+      },
+      {
+        "option": "May be slow",
+        "really_about": "Long-Term Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s15"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.8,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Selects processes to be admitted into the ready queue",
+          "reason": "true for the asked concept"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-046",
+    "kind": "fact",
+    "difficulty": "hard",
+    "concept": "Long-Term Scheduler",
+    "question": "Which of the following is correct about the long-term scheduler?",
+    "options": [
+      "Selects the next process to execute on the CPU",
+      "Invoked very frequently (milliseconds)",
+      "Must be extremely fast",
+      "Invoked infrequently (seconds or minutes)"
+    ],
+    "answer": "D",
+    "answer_text": "Invoked infrequently (seconds or minutes)",
+    "evidence": {
+      "pid": "unit1_topic3-s15",
+      "heading": "Long-Term Scheduler (Job Scheduler)",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Invoked infrequently (seconds or minutes)",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "distractor_sources": [
+      {
+        "option": "Selects the next process to execute on the CPU",
+        "really_about": "CPU Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s07"
+      },
+      {
+        "option": "Invoked very frequently (milliseconds)",
+        "really_about": "CPU Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s07"
+      },
+      {
+        "option": "Must be extremely fast",
+        "really_about": "CPU Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s07"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.25,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Selects a process from the ready queue",
+          "reason": "true for the asked concept"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-047",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "CPU-Bound Process",
+    "question": "In \"Types of Processes\", which term matches this description: \"Spends more time doing computation; Few long CPU bursts\"?",
+    "options": [
+      "Accounting information",
+      "CPU-Bound Process",
+      "Process Control Block",
+      "Long-Term Scheduler"
+    ],
+    "answer": "B",
+    "answer_text": "CPU-Bound Process",
+    "evidence": {
+      "pid": "unit1_topic3-s16",
+      "heading": "Types of Processes",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "CPU-Bound Process: Spends more time doing computation; Few long CPU bursts",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "distractor_sources": [
+      {
+        "option": "Accounting information",
+        "really_about": "Accounting information",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Long-Term Scheduler",
+        "really_about": "Long-Term Scheduler",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Process Control Block",
+        "really_about": "Process Control Block",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-048",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "I/O-Bound Process",
+    "question": "In \"Types of Processes\", which term matches this description: \"Spends more time doing I/O; Many short CPU bursts\"?",
+    "options": [
+      "Context Switch",
+      "Accounting information",
+      "I/O-Bound Process",
+      "Process Control Block"
+    ],
+    "answer": "C",
+    "answer_text": "I/O-Bound Process",
+    "evidence": {
+      "pid": "unit1_topic3-s16",
+      "heading": "Types of Processes",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "I/O-Bound Process: Spends more time doing I/O; Many short CPU bursts",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "distractor_sources": [
+      {
+        "option": "Process Control Block",
+        "really_about": "Process Control Block",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Accounting information",
+        "really_about": "Accounting information",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Context Switch",
+        "really_about": "Context Switch",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-049",
+    "kind": "fact",
+    "difficulty": "hard",
+    "concept": "Medium-Term Scheduler",
+    "question": "Which of the following is correct about the medium-term scheduler?",
+    "options": [
+      "Reduce the degree of multiprogramming",
+      "Selects a process from the ready queue",
+      "Invoked very frequently (milliseconds)",
+      "Selects the next process to execute on the CPU"
+    ],
+    "answer": "A",
+    "answer_text": "Reduce the degree of multiprogramming",
+    "evidence": {
+      "pid": "unit1_topic3-s17",
+      "heading": "Medium-Term Scheduler",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Reduce the degree of multiprogramming",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "distractor_sources": [
+      {
+        "option": "Selects a process from the ready queue",
+        "really_about": "CPU Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s07"
+      },
+      {
+        "option": "Selects the next process to execute on the CPU",
+        "really_about": "CPU Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s07"
+      },
+      {
+        "option": "Invoked very frequently (milliseconds)",
+        "really_about": "CPU Scheduler",
+        "how_found": "sibling",
+        "pid": "unit1_topic2-s07"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.71,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-050",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Context Switch",
+    "question": "Which of the following do the notes describe as: \"CPU switches from one process to another\"?",
+    "options": [
+      "CPU registers",
+      "Context Switch",
+      "Swapping",
+      "CPU-Bound Process"
+    ],
+    "answer": "B",
+    "answer_text": "Context Switch",
+    "evidence": {
+      "pid": "unit1_topic3-s19",
+      "heading": "Context Switch",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "CPU switches from one process to another",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "distractor_sources": [
+      {
+        "option": "Swapping",
+        "really_about": "Swapping",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU-Bound Process",
+        "really_about": "CPU-Bound Process",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "CPU registers",
+        "really_about": "CPU registers",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-051",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "exec()",
+    "question": "In \"UNIX Example\", which term matches this description: \"loads new program into child\"?",
+    "options": [
+      "fork()",
+      "Process Creation",
+      "exec()",
+      "Orphan process"
+    ],
+    "answer": "C",
+    "answer_text": "exec()",
+    "evidence": {
+      "pid": "unit1_topic3-s26",
+      "heading": "UNIX Example",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "exec(): loads new program into child",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 7,
+      "page_end": 7
+    },
+    "distractor_sources": [
+      {
+        "option": "fork()",
+        "really_about": "fork()",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s26"
+      },
+      {
+        "option": "Orphan process",
+        "really_about": "Orphan process",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Process Creation",
+        "really_about": "Process Creation",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "fork()",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-052",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "fork()",
+    "question": "In \"UNIX Example\", which term matches this description: \"creates child process\"?",
+    "options": [
+      "Zombie process",
+      "exec()",
+      "fork()",
+      "Cascading Termination"
+    ],
+    "answer": "C",
+    "answer_text": "fork()",
+    "evidence": {
+      "pid": "unit1_topic3-s26",
+      "heading": "UNIX Example",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "fork(): creates child process",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 7,
+      "page_end": 7
+    },
+    "distractor_sources": [
+      {
+        "option": "exec()",
+        "really_about": "exec()",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s26"
+      },
+      {
+        "option": "Zombie process",
+        "really_about": "Zombie process",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Cascading Termination",
+        "really_about": "Cascading Termination",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.5,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "exec()",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-053",
+    "kind": "fact",
+    "difficulty": "hard",
+    "concept": "Process Termination",
+    "question": "Which of the following is correct about process termination?",
+    "options": [
+      "Initiated by the operating system",
+      "If parent terminates → all children terminate",
+      "Calls the exit() system call",
+      "Some operating systems do not allow a child to exist without a parent."
+    ],
+    "answer": "C",
+    "answer_text": "Calls the exit() system call",
+    "evidence": {
+      "pid": "unit1_topic3-s28",
+      "heading": "Process Termination",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Calls the exit() system call",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 8,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Some operating systems do not allow a child to exist without a parent.",
+        "really_about": "Cascading Termination",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s31"
+      },
+      {
+        "option": "If parent terminates → all children terminate",
+        "really_about": "Cascading Termination",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s31"
+      },
+      {
+        "option": "Initiated by the operating system",
+        "really_about": "Cascading Termination",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s31"
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 0.71,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-054",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Cascading Termination",
+    "question": "Which of the following do the notes describe as: \"Some operating systems do not allow a child to exist without a parent.\"?",
+    "options": [
+      "Process Creation",
+      "Zombie process",
+      "Cascading Termination",
+      "Orphan process"
+    ],
+    "answer": "C",
+    "answer_text": "Cascading Termination",
+    "evidence": {
+      "pid": "unit1_topic3-s31",
+      "heading": "Cascading Termination",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Some operating systems do not allow a child to exist without a parent.",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 8,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Orphan process",
+        "really_about": "Orphan process",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Zombie process",
+        "really_about": "Zombie process",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Process Creation",
+        "really_about": "Process Creation",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-055",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Orphan process",
+    "question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Parent terminates before child; Child is adopted by init/system process\"?",
+    "options": [
+      "Orphan process",
+      "exec()",
+      "Cascading Termination",
+      "Zombie process"
+    ],
+    "answer": "A",
+    "answer_text": "Orphan process",
+    "evidence": {
+      "pid": "unit1_topic3-s32",
+      "heading": "Zombie and Orphan Processes",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Orphan process: Parent terminates before child; Child is adopted by init/system process",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 8,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Zombie process",
+        "really_about": "Zombie process",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s32"
+      },
+      {
+        "option": "Cascading Termination",
+        "really_about": "Cascading Termination",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "exec()",
+        "really_about": "exec()",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Zombie process",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  },
+  {
+    "mcq_id": "MCQ-056",
+    "kind": "identify",
+    "difficulty": "medium",
+    "concept": "Zombie process",
+    "question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Child terminates; Parent has not called wait()\"?",
+    "options": [
+      "Zombie process",
+      "Common Process States",
+      "Terminated",
+      "Orphan process"
+    ],
+    "answer": "A",
+    "answer_text": "Zombie process",
+    "evidence": {
+      "pid": "unit1_topic3-s32",
+      "heading": "Zombie and Orphan Processes",
+      "chapter": "Unit 1 – Process Concept (Process Management)",
+      "quote": "Zombie process: Child terminates; Parent has not called wait()",
+      "source_pdf": "unit1_topic3.pdf",
+      "page_start": 8,
+      "page_end": 8
+    },
+    "distractor_sources": [
+      {
+        "option": "Orphan process",
+        "really_about": "Orphan process",
+        "how_found": "sibling",
+        "pid": "unit1_topic3-s32"
+      },
+      {
+        "option": "Terminated",
+        "really_about": "Terminated",
+        "how_found": "lexical",
+        "pid": ""
+      },
+      {
+        "option": "Common Process States",
+        "really_about": "Common Process States",
+        "how_found": "lexical",
+        "pid": ""
+      }
+    ],
+    "checks": {
+      "answer_in_notes": true,
+      "options_distinct": true,
+      "answer_length_vs_others": 1.0,
+      "length_gives_answer_away": false,
+      "rejected_options": [
+        {
+          "option": "Orphan process",
+          "reason": "repeats another option"
+        },
+        {
+          "option": "Process Termination",
+          "reason": "repeats another option"
+        }
+      ],
+      "human_review": "needed"
+    }
+  }
+]

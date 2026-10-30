@@ -1,0 +1,53 @@
+You are writing multiple-choice questions for a student, using ONLY the course notes below.
+Topic: PCB
+Number of questions: 3
+Difficulty: hard - Ask the student to tell apart closely related concepts (use the related terms as wrong options).
+Related terms you may use as wrong options: Process state, Program counter, CPU registers, CPU scheduling information, Memory-management information, Accounting information, I/O status information, Computer System Organization, Ready Queue Organization, Process Control Block, Context Switch
+Rules:
+- Exactly 4 options, exactly one correct.
+- The correct answer must be stated in the notes. Do not use outside knowledge.
+- Wrong options must be clearly wrong according to the notes, but believable.
+- evidence_quote must be copied exactly from the notes and must support the answer.
+Reply with only a JSON list, each item:
+{"question": "...", "options": ["...", "...", "...", "..."], "answer": "A", "explanation": "...", "evidence_quote": "...", "source": "[pid]"}
+
+NOTES:
+[unit1_topic3-s07] Unit 1 – Process Concept (Process Management) > Process Control Block (PCB) (unit1_topic3.pdf, p3)
+Each process is represented in the operating system by a Process Control Block (PCB)
+(also called Task Control Block).
+
+[unit1_topic2-s08] Unit 1 – CPU Scheduling > Ready Queue Organization (unit1_topic2.pdf, p3)
+The ready queue may be organized in various ways:
+• FIFO queue
+• Priority queue
+• Tree
+• Unordered linked list
+Each entry in the queue is a Process Control Block (PCB).
+
+[unit1_topic3-s08] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)
+The PCB contains all information needed to manage a process:
+• Process state
+o New, ready, running, waiting, terminated
+• Program counter
+o Address of next instruction to execute
+• CPU registers
+o Contents of all process-specific registers
+• CPU scheduling information
+o Priority
+o Scheduling queue pointers
+• Memory-management information
+o Memory allocated to the process
+• Accounting information
+o CPU time used
+o Elapsed time
+o Time limits
+• I/O status information
+o I/O devices allocated
+o List of open files
+
+[unit1_topic3-s19] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)
+A context switch occurs when:
+• CPU switches from one process to another
+Steps involved:
+1.Save the state of the current process in its PCB
+2.Load the saved state of the next process

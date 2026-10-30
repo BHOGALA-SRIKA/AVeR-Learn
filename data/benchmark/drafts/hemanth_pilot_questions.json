@@ -1,408 +1,474 @@
 [
   {
     "qid": "HEM-001",
-    "question": "What are the advantages of multiprocessor systems?",
+    "question": "What criteria are used to evaluate CPU scheduling algorithms?",
     "type": "factual",
     "split": "unassigned",
-    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
     "student_wording": false,
     "source_visible": true,
-    "reference_answer": "Multiprocessor (parallel) systems give increased throughput, economy of scale, and increased reliability through graceful degradation or fault tolerance.",
+    "reference_answer": "CPU utilization (percentage of time the CPU is busy), throughput (processes completed per unit time), turnaround time (submission to completion), waiting time (total time in the ready queue) and response time (request to first response). A good algorithm maximizes utilization and throughput and minimizes turnaround, waiting and response time.",
     "key_points": [
-      "increased throughput",
-      "economy of scale",
-      "increased reliability / graceful degradation or fault tolerance"
+      "CPU utilization",
+      "throughput",
+      "turnaround time",
+      "waiting time",
+      "response time"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Increased throughput • Economy of scale • Increased reliability – graceful degradation or fault tolerance",
+        "quote": "Scheduling algorithms are evaluated based on the following criteria: 1. CPU Utilization o Percentage of time CPU is busy 2. Throughput o Number of processes completed per unit time",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 4
+      },
+      {
+        "quote": "3. Turnaround Time o Time from submission to completion of a process 4. Waiting Time o Total time a process spends waiting in the ready queue",
+        "grade": 2,
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 4
+      },
+      {
+        "quote": "Time from request submission to first response",
+        "grade": 2,
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 5
+      },
+      {
+        "quote": "An ideal scheduling algorithm should aim to: • Maximize o CPU utilization o Throughput • Minimize",
+        "grade": 1,
+        "source_pdf": "unit1_topic2.pdf",
         "page": 5
       }
     ]
   },
   {
     "qid": "HEM-002",
-    "question": "How is symmetric multiprocessing different from asymmetric multiprocessing?",
-    "type": "comparative",
+    "question": "Why is CPU time wasted if the OS runs only one program until it finishes?",
+    "type": "conceptual",
     "split": "unassigned",
-    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
-    "student_wording": false,
+    "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+    "student_wording": true,
     "source_visible": true,
-    "reference_answer": "In asymmetric multiprocessing each processor is assigned a specific task; in symmetric multiprocessing (SMP) every processor performs all tasks as peers, with no boss-worker relationship, sharing physical memory.",
+    "reference_answer": "Without multiprogramming, a process runs until it must wait (usually for I/O); during that wait the CPU stays idle and no useful work is done. Multiprogramming lets the OS switch the CPU to another ready process so the waiting time is used productively.",
     "key_points": [
-      "asymmetric: each processor has a specific task",
-      "symmetric: each processor performs all tasks",
-      "SMP processors are peers, no boss-worker relationship"
+      "process waits for I/O",
+      "CPU stays idle during the wait",
+      "multiprogramming switches the CPU to another ready process"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Asymmetric Multiprocessing – each processor is assigned a specific task. 2. Symmetric Multiprocessing – each processor performs all tasks",
+        "quote": "During this waiting period, the CPU remains idle • CPU time is wasted and no useful work is done",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 6
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 1
       },
       {
-        "quote": "In SMP all processors are peers; no boss– worker relationship exists between processors.",
-        "grade": 1,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 7
+        "quote": "Multiprogramming allows the OS to: • Switch the CPU to another ready process • Use waiting time productively",
+        "grade": 2,
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 1
       }
     ]
   },
   {
     "qid": "HEM-003",
-    "question": "Why is putting two cores on one chip better than using two separate CPU chips?",
-    "type": "conceptual",
+    "question": "How is the dispatcher different from the CPU scheduler?",
+    "type": "comparative",
     "split": "unassigned",
-    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
-    "student_wording": true,
+    "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+    "student_wording": false,
     "source_visible": true,
-    "reference_answer": "On-chip communication is faster than communication between chips, and one multicore chip uses significantly less power than several single-core chips.",
+    "reference_answer": "The CPU (short-term) scheduler selects a process from the ready queue and allocates the CPU to it. The dispatcher then gives control of the CPU to that selected process: it performs the context switch, switches to user mode and jumps to the right place in the user program. The time this takes is the dispatch latency.",
     "key_points": [
-      "on-chip communication is faster",
-      "uses less power"
+      "scheduler selects a process from the ready queue",
+      "dispatcher gives the CPU to the selected process",
+      "dispatcher: context switch, user mode, jump to program location"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "on-chip communication is faster than between-chip communication",
+        "quote": "The CPU scheduler (short-term scheduler): • Selects a process from the ready queue • Allocates the CPU to that process",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 8
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 3
       },
       {
-        "quote": "One chip with multiple cores uses significantly less power than multiple single-core chips",
+        "quote": "The dispatcher is a module that: • Gives control of the CPU to the process selected by the short-term scheduler",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 8
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 4
+      },
+      {
+        "quote": "Performs context switch • Switches CPU to user mode • Jumps to the correct location in the user program",
+        "grade": 2,
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 4
       }
     ]
   },
   {
     "qid": "HEM-004",
-    "question": "If my program gets stuck in an infinite loop, how does the OS stop it from using the CPU forever?",
-    "type": "application",
+    "question": "When does a CPU scheduling decision happen, and which of those cases are preemptive?",
+    "type": "multi-step",
     "split": "unassigned",
-    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
-    "student_wording": true,
+    "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+    "student_wording": false,
     "source_visible": true,
-    "reference_answer": "The OS sets a timer (a counter decremented on each clock tick) that interrupts the computer after a specified period; when it reaches zero an interrupt occurs and the OS can terminate the program.",
+    "reference_answer": "Scheduling decisions occur when a process (1) switches from running to waiting, (2) switches from running to ready, (3) switches from waiting to ready, or (4) terminates. Cases 1 and 4 are non-preemptive; cases 2 and 3 are preemptive.",
     "key_points": [
-      "timer interrupt after a specified period",
-      "counter decremented every clock tick",
-      "OS regains control and can terminate the program"
+      "four situations: running→waiting, running→ready, waiting→ready, terminates",
+      "cases 1 and 4 non-preemptive",
+      "cases 2 and 3 preemptive"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Timer can be used to prevent a user program from running too long (terminate the program)",
+        "quote": "1. Switches from running → waiting 2. Switches from running → ready 3. Switches from waiting → ready 4. Terminates",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 17
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 3
       },
       {
-        "quote": "When counter reaches zero, an interrupt occurs",
+        "quote": "Cases 1 and 4 → Non-preemptive • Cases 2 and 3 → Preemptive",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 17
-      },
-      {
-        "quote": "Other process problems include infinite loop",
-        "grade": 1,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 14
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 3
       }
     ]
   },
   {
     "qid": "HEM-005",
-    "question": "What happens to the mode bit when a user program makes a system call, and what happens when the call returns?",
-    "type": "multi-step",
+    "question": "Why can preemption mess up shared data, and how do operating systems avoid it?",
+    "type": "application",
     "split": "unassigned",
-    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
-    "student_wording": false,
+    "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+    "student_wording": true,
     "source_visible": true,
-    "reference_answer": "A system call (trap) switches the hardware from user mode to kernel mode by setting the mode bit to 0; when the request is fulfilled the system sets the mode bit back to 1 (user mode) before returning control to the user program.",
+    "reference_answer": "Preemptive scheduling can cause race conditions: one process is preempted while updating shared data and another process then reads inconsistent data. Preemptive kernels prevent this with mutex locks and other synchronization mechanisms.",
     "key_points": [
-      "system call switches to kernel mode",
-      "mode bit set to 0 in kernel mode",
-      "mode bit set back to 1 (user mode) before returning"
+      "race conditions",
+      "preempted while updating shared data, another reads inconsistent data",
+      "mutex locks / synchronization"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "System call changes mode to kernel, return from call resets it to user",
+        "quote": "Problems with Preemptive Scheduling • Can cause race conditions",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 15
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 3
       },
       {
-        "quote": "hardware switches from user mode to kernel mode (changes the state of the mode bit to 0)",
+        "quote": "One process is preempted while updating shared data o Another process accesses inconsistent data",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 16
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 4
+      },
+      {
+        "quote": "Preemptive kernels use: o Mutex locks o Other synchronization mechanisms",
+        "grade": 2,
+        "source_pdf": "unit1_topic2.pdf",
+        "page": 4
       }
     ]
   },
   {
     "qid": "HEM-006",
-    "question": "What is the difference between multiprogramming and multitasking?",
+    "question": "What is the difference between a program and a process?",
     "type": "comparative",
     "split": "unassigned",
-    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "chapter": "Unit 1 – Topic 3: Process Concept",
     "student_wording": false,
     "source_visible": true,
-    "reference_answer": "Multiprogramming keeps several jobs in memory so the CPU always has one to execute, switching when a job waits (e.g. for I/O). Multitasking (time sharing) switches between jobs so frequently that users can interact with each job while it runs, giving response times under a second.",
+    "reference_answer": "A program is a passive entity, an executable file stored on disk. A process is an active entity, a program in execution. A program becomes a process when its executable is loaded into memory and execution begins, and one program can have several processes.",
     "key_points": [
-      "multiprogramming: CPU always has a job, switches when a job waits",
-      "multitasking: switches so often that users interact with each job",
-      "response time under 1 second"
+      "program: passive, executable file on disk",
+      "process: active, program in execution",
+      "becomes a process when loaded into memory and run"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Multiprogramming organizes jobs (code and data) so CPU always has one to execute",
+        "quote": "A program is a passive entity o Stored on disk as an executable file • A process is an active entity o A program in execution",
         "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 12
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 1
       },
       {
-        "quote": "CPU switches jobs so frequently that users can interact with each job while it is running",
-        "grade": 2,
-        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
-        "page": 13
+        "quote": "A program becomes a process when: • Its executable file is loaded into memory",
+        "grade": 1,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 1
       }
     ]
   },
   {
     "qid": "HEM-007",
-    "question": "How can the OS keep track of which disk blocks are free without using much memory?",
-    "type": "application",
+    "question": "What information is stored in a Process Control Block?",
+    "type": "factual",
     "split": "unassigned",
-    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
-    "student_wording": true,
+    "chapter": "Unit 1 – Topic 3: Process Concept",
+    "student_wording": false,
     "source_visible": true,
-    "reference_answer": "With a bitmap: a string of n binary digits where each bit gives the status of one resource (0 = available, 1 = unavailable). It is commonly used for large numbers of resources such as disk blocks.",
+    "reference_answer": "The PCB holds everything needed to manage a process: process state, program counter, CPU registers, CPU-scheduling information (priority, queue pointers), memory-management information, accounting information (CPU time used, time limits) and I/O status information (allocated devices, open files).",
     "key_points": [
-      "bitmap",
-      "one bit per resource",
-      "0 available, 1 unavailable"
+      "process state",
+      "program counter and CPU registers",
+      "scheduling information",
+      "memory-management information",
+      "accounting and I/O status information"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Bitmap - string of n binary digits representing the status of n items",
+        "quote": "The PCB contains all information needed to manage a process",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 12
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 3
       },
       {
-        "quote": "Commonly used to represent the availability of a large number of resources (disk blocks)",
+        "quote": "Process state o New, ready, running, waiting, terminated • Program counter o Address of next instruction to execute • CPU registers",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 12
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 3
+      },
+      {
+        "quote": "Memory-management information o Memory allocated to the process • Accounting information",
+        "grade": 2,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 4
+      },
+      {
+        "quote": "I/O status information o I/O devices allocated o List of open files",
+        "grade": 2,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 4
       }
     ]
   },
   {
     "qid": "HEM-008",
-    "question": "Why does the operating system use a stack when a function is called?",
-    "type": "conceptual",
+    "question": "What happens during a context switch, and why should it be fast?",
+    "type": "multi-step",
     "split": "unassigned",
-    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "chapter": "Unit 1 – Topic 3: Process Concept",
     "student_wording": false,
     "source_visible": true,
-    "reference_answer": "A stack is LIFO: when a function is called its parameters, local variables and return address are pushed onto the stack, and returning from the call pops them off.",
+    "reference_answer": "When the CPU switches from one process to another, the OS saves the state of the current process in its PCB and loads the saved state of the next process. Context-switch time is pure overhead because no useful work is done while switching; it depends on hardware support and PCB complexity.",
     "key_points": [
-      "stack is last-in first-out",
-      "parameters, local variables and return address pushed on call",
-      "popped on return"
+      "save current process state in its PCB",
+      "load saved state of the next process",
+      "switch time is overhead, no useful work"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Parameters, local variables and the return address are pushed onto the stack when a function is called",
+        "quote": "1. Save the state of the current process in its PCB 2. Load the saved state of the next process",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 9
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 6
+      },
+      {
+        "quote": "Context switch time is overhead • No useful work is done during switching",
+        "grade": 2,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 7
+      },
+      {
+        "quote": "When the CPU changes from executing one process to another, the system performs a context switch.",
+        "grade": 1,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 4
       }
     ]
   },
   {
     "qid": "HEM-009",
-    "question": "Which data structure does Linux use to decide which task runs next?",
-    "type": "factual",
+    "question": "What happens to a child process if its parent finishes first?",
+    "type": "application",
     "split": "unassigned",
-    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "chapter": "Unit 1 – Topic 3: Process Concept",
     "student_wording": true,
     "source_visible": true,
-    "reference_answer": "A balanced binary search tree, which has O(log n) search performance.",
+    "reference_answer": "It depends on the OS. Where a child may outlive its parent, it becomes an orphan process and is adopted by init (the system process). Some operating systems do not allow a child without a parent: when the parent terminates, all its children are terminated too (cascading termination).",
     "key_points": [
-      "balanced binary search tree",
-      "O(log n) search"
+      "orphan process adopted by init",
+      "cascading termination in some OSes",
+      "depends on the operating system"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Balanced binary search tree – (a tree containing n items has at most log n levels)",
+        "quote": "Orphan process o Parent terminates before child o Child is adopted by init/system process",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 10
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 8
       },
       {
-        "quote": "Used by Linux for selecting which task to run next (CPU-Scheduling algorithm)",
+        "quote": "Some operating systems do not allow a child to exist without a parent. • If parent terminates → all children terminate • This is called cascading termination",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 10
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 8
       }
     ]
   },
   {
     "qid": "HEM-010",
-    "question": "How is peer-to-peer computing different from client-server computing?",
+    "question": "What is the difference between a zombie process and an orphan process?",
     "type": "comparative",
     "split": "unassigned",
-    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "chapter": "Unit 1 – Topic 3: Process Concept",
     "student_wording": false,
     "source_visible": true,
-    "reference_answer": "In client-server computing, servers respond to requests generated by clients. Peer-to-peer does not distinguish clients and servers: every node is a peer that can act as client, server or both.",
+    "reference_answer": "A zombie is a child that has terminated but whose parent has not yet called wait(). An orphan is a child whose parent terminated first; it is adopted by init.",
     "key_points": [
-      "client-server: servers answer client requests",
-      "P2P: no distinction between clients and servers",
-      "each node can be client, server or both"
+      "zombie: child terminated, parent has not called wait()",
+      "orphan: parent terminated before child",
+      "orphan adopted by init"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "P2P does not distinguish clients and servers",
+        "quote": "Zombie process o Child terminates o Parent has not called wait()",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 17
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 8
       },
       {
-        "quote": "Many systems now servers, responding to requests generated by clients",
-        "grade": 1,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 16
+        "quote": "Orphan process o Parent terminates before child o Child is adopted by init/system process",
+        "grade": 2,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 8
       }
     ]
   },
   {
     "qid": "HEM-011",
-    "question": "What is the difference between SaaS, PaaS and IaaS?",
-    "type": "factual",
+    "question": "In UNIX, how does a program start a different program as a separate process?",
+    "type": "application",
     "split": "unassigned",
-    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
-    "student_wording": false,
+    "chapter": "Unit 1 – Topic 3: Process Concept",
+    "student_wording": true,
     "source_visible": true,
-    "reference_answer": "SaaS provides applications over the Internet (e.g. a word processor); PaaS provides a software stack ready for application use (e.g. a database server); IaaS provides servers or storage over the Internet (e.g. storage for backup).",
+    "reference_answer": "It calls fork(), which creates a child process that is a duplicate of the parent. The child then calls exec(), which replaces its memory with the new program.",
     "key_points": [
-      "SaaS: applications",
-      "PaaS: software stack / platform",
-      "IaaS: servers or storage"
+      "fork() creates a child that duplicates the parent",
+      "exec() replaces the process memory with a new program"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Software as a Service (SaaS) – one or more applications available via the Internet",
+        "quote": "fork() creates a new process • Child process is a duplicate of the parent",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 23
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 7
       },
       {
-        "quote": "Infrastructure as a Service (IaaS) – servers or storage available over Internet",
+        "quote": "UNIX Example • fork() → creates child process • exec() → loads new program into child",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 23
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 7
       },
       {
-        "quote": "Delivers computing, storage, even apps as a service across a network",
-        "grade": 1,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 22
+        "quote": "exec() is used • Replaces the process memory with a new program",
+        "grade": 2,
+        "source_pdf": "unit1_topic3.pdf",
+        "page": 7
       }
     ]
   },
   {
     "qid": "HEM-012",
-    "question": "What makes a real-time operating system different from a normal one?",
+    "question": "Why does each device controller need its own device driver?",
     "type": "conceptual",
     "split": "unassigned",
-    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
     "student_wording": true,
     "source_visible": true,
-    "reference_answer": "A real-time OS has well-defined, fixed time constraints: processing must be done within the constraint, and the system operates correctly only if the constraints are met.",
+    "reference_answer": "Each device controller is in charge of a specific device; its device driver gives the kernel a uniform interface to it, so the rest of the OS can manage I/O the same way for every device.",
     "key_points": [
-      "fixed time constraints",
-      "processing must finish within the constraint",
-      "correct only if constraints are met"
+      "each controller manages a specific device",
+      "device driver gives a uniform interface to the kernel"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "Real-time OS has well-defined fixed time constraints",
+        "quote": "Each device controller has: • Device driver • Uniform interface to kernel",
         "grade": 2,
-        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
-        "page": 24
+        "source_pdf": "unit1_topic1.pdf",
+        "page": 9
+      },
+      {
+        "quote": "Each device controller manages a specific device",
+        "grade": 1,
+        "source_pdf": "unit1_topic1.pdf",
+        "page": 5
       }
     ]
   },
   {
     "qid": "HEM-013",
-    "question": "After a program starts an I/O operation, what are the two ways control can return to the user program?",
-    "type": "multi-step",
+    "question": "On what basis are storage systems organized into a hierarchy?",
+    "type": "factual",
     "split": "unassigned",
-    "chapter": "Unit 1 – Introduction, Computer System Organization",
+    "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
     "student_wording": false,
     "source_visible": true,
-    "reference_answer": "Either control returns only when the I/O completes (the CPU idles with a wait instruction or loop, and only one I/O request is outstanding), or control returns immediately without waiting, and the program uses a system call to wait for completion while the OS tracks devices in a device-status table.",
+    "reference_answer": "Storage systems are organized by speed, cost and volatility; faster storage is more expensive and smaller, and caching copies frequently used data into faster storage.",
     "key_points": [
-      "return only after I/O completes (wait instruction / loop)",
-      "return immediately without waiting",
-      "system call to wait; device-status table"
+      "speed",
+      "cost",
+      "volatility"
     ],
     "out_of_scope": false,
     "annotator": "Hemanth (AI-drafted, needs human review)",
     "gold_quotes": [
       {
-        "quote": "After I/O starts, control returns to user program only upon I/O completion",
+        "quote": "Storage systems are organized based on: • Speed • Cost • Volatility",
         "grade": 2,
-        "source_pdf": "UE24CS242B_d4553d6b-97b3-48a4-b885-e121f4e00cfb_20260211092109_1.pdf",
-        "page": 29
-      },
-      {
-        "quote": "After I/O starts, control returns to user program without waiting for I/O completion",
-        "grade": 2,
-        "source_pdf": "UE24CS242B_d4553d6b-97b3-48a4-b885-e121f4e00cfb_20260211092109_1.pdf",
-        "page": 29
+        "source_pdf": "unit1_topic1.pdf",
+        "page": 8
       }
     ]
   },
   {
     "qid": "HEM-014",
-    "question": "What is a semaphore and how does it prevent race conditions?",
+    "question": "What is the difference between a counting semaphore and a binary semaphore?",
     "type": "out-of-scope",
     "split": "unassigned",
     "chapter": "none",
-    "student_wording": true,
+    "student_wording": false,
     "source_visible": false,
-    "reference_answer": "Not covered in these Unit 1 topics (process synchronisation comes later in the course). The system should answer that it has no evidence.",
+    "reference_answer": "Not covered in Unit 1 topics 1-3 (semaphores come later in the course). The system should say it has no evidence.",
+    "key_points": [],
+    "out_of_scope": true,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": []
+  },
+  {
+    "qid": "HEM-015",
+    "question": "What is the difference between SaaS, PaaS and IaaS?",
+    "type": "out-of-scope",
+    "split": "unassigned",
+    "chapter": "none",
+    "student_wording": false,
+    "source_visible": false,
+    "reference_answer": "Not covered in Unit 1 topics 1-3 (cloud computing is a later topic, only in the slides). The system should say it has no evidence.",
     "key_points": [],
     "out_of_scope": true,
     "annotator": "Hemanth (AI-drafted, needs human review)",
