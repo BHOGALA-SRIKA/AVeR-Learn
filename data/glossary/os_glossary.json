@@ -1,0 +1,101 @@
+{
+  "_about": "Operating Systems glossary for query expansion. Research pair: extend this from the textbook's own index, glossary and headings. Keys and values are matched case-insensitively as whole words or phrases.",
+  "abbreviations": {
+    "os": "operating system",
+    "cpu": "central processing unit",
+    "i/o": "input output",
+    "io": "input output",
+    "dma": "direct memory access",
+    "isr": "interrupt service routine",
+    "ram": "random access memory",
+    "dram": "dynamic random access memory",
+    "rom": "read only memory",
+    "eeprom": "electrically erasable programmable read only memory",
+    "ssd": "solid state drive",
+    "hdd": "hard disk drive",
+    "pc": "program counter",
+    "pcb": "process control block",
+    "tcb": "thread control block",
+    "ipc": "interprocess communication",
+    "fcfs": "first come first served",
+    "sjf": "shortest job first",
+    "srtf": "shortest remaining time first",
+    "rr": "round robin",
+    "tlb": "translation lookaside buffer",
+    "mmu": "memory management unit",
+    "lru": "least recently used",
+    "fifo": "first in first out",
+    "vm": "virtual memory",
+    "fs": "file system",
+    "api": "application programming interface"
+  },
+  "synonyms": {
+    "processor": [
+      "cpu"
+    ],
+    "switched on": [
+      "boot",
+      "bootstrap",
+      "startup"
+    ],
+    "turned on": [
+      "boot",
+      "bootstrap",
+      "startup"
+    ],
+    "start up": [
+      "boot",
+      "bootstrap"
+    ],
+    "startup": [
+      "boot",
+      "bootstrap"
+    ],
+    "core of the os": [
+      "kernel"
+    ],
+    "heart of the os": [
+      "kernel"
+    ],
+    "without the cpu": [
+      "direct memory access",
+      "dma"
+    ],
+    "without the processor": [
+      "direct memory access",
+      "dma"
+    ],
+    "signal": [
+      "interrupt"
+    ],
+    "software interrupt": [
+      "trap",
+      "exception"
+    ],
+    "stuck": [
+      "deadlock"
+    ],
+    "waiting forever": [
+      "deadlock",
+      "starvation"
+    ],
+    "multitasking": [
+      "multiprogramming",
+      "time sharing"
+    ],
+    "context switch": [
+      "save state",
+      "restore state"
+    ],
+    "permanent storage": [
+      "secondary storage",
+      "non-volatile"
+    ],
+    "loses data when power": [
+      "volatile"
+    ],
+    "middleman": [
+      "intermediary"
+    ]
+  }
+}
