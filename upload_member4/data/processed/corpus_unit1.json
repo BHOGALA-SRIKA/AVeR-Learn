@@ -1,0 +1,442 @@
+[
+ {
+  "paragraph_id": "unit1_topic1_p00001",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 1"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00002",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+  "text": "Unit 1 – Introduction & Computer System Organization"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00003",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "Introduction",
+  "text": "Operating Systems (OS) form the backbone of modern computing systems. Every application program, from a simple calculator to complex AI software, relies on the operating system to interact with the hardware. Without an operating system, application developers would need to write hardware-specific code, making software development extremely complex and impractical."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00004",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "Need for an Operating System",
+  "text": "If an operating system were not developed, application developers would need to directly interact with hardware components such as the CPU, memory, disk, and I/O devices. This would require detailed knowledge of hardware architecture, device protocols, and low-level instructions. The operating system abstracts hardware complexity and provides a standardized interface, allowing developers to focus on solving problems rather than managing hardware."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00005",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "General Definition of an Operating System",
+  "text": "An Operating System is a program that acts as an intermediary between the user and the computer hardware. It provides a user-friendly environment in which users can easily develop and execute programs. Without an operating system: • Hardware knowledge would be mandatory for programming • Software portability would be extremely limited • Resource conflicts would be difficult to manage"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00006",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "Genesis of Operating Systems",
+  "text": "Early computers did not have operating systems. Programs were loaded manually, and only one program could run at a time. Over time, as hardware became more powerful and users demanded multitasking, operating systems evolved to manage resources efficiently and provide better usability."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00007",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 2,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 2 Operating System Goals The primary goals of an operating system are: • Execute user programs and make solving user problems easier • Make the computer system convenient to use • Use hardware efficiently • Manage system resources, including: o Memory o Processor(s) o Input/Output devices An effective OS balances user convenience with efficient hardware utilization. Why Study Operating Systems? Although only a small percentage of computer professionals design or modify operating systems, almost all software runs on top of an OS. Understanding operating systems is crucial for: • Writing efficient programs • Developing secure applications"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00008",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 2,
+  "heading_path": "",
+  "text": "• Debugging performance issues • Understanding resource behavior such as memory usage and CPU scheduling Knowledge of OS fundamentals leads to proper, efficient, effective, and secure programming. Four Components of a Computer System (Abstract View) A computer system can be divided into four major components: 1. Hardware - Provides basic computing resources such as: o CPU o Main memory"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00009",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 3 o I/O devices 2. Operating System - Controls and coordinates the use of hardware among various applications and users. 3. Application Programs - Define how system resources are used to solve user problems Examples: o Word processors o Compilers o Web browsers o Database systems o Video games 4. Users - Can be people, machines, or other computers."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00010",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "Computer System Structure",
+  "text": "The operating system sits between hardware and application programs, ensuring safe and efficient usage of system resources. What Operating Systems Do (User vs System View) From the user’s perspective: • Desire convenience • Want ease of use • Expect good performance • Do not care much about resource utilization From the system’s perspective: • Especially in shared systems (mainframes, minicomputers) • Must ensure fair resource allocation • Must maximize utilization of: o CPU time o Memory o I/O devices • No single user should monopolize resources What Operating Systems Do (Different Environments) • Dedicated systems (workstations): Have dedicated resources but"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00011",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "Computer System Structure",
+  "text": "still rely on shared servers (file, print, compute servers) • Handheld devices: Resource-constrained, optimized for: o Battery life o Usability"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00012",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 4,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 4 • Embedded systems: Often have little or no user interface Examples: o Automobiles o Medical devices o Home appliances Operating systems are designed to balance usability and resource efficiency based on the system type. System View of Operating System From a system viewpoint, the operating system serves two major roles: 1. Resource Allocator o Manages all system resources o Resolves conflicting resource requests o Ensures fairness and efficiency 2. Control Program o Controls execution of programs o Prevents errors o Prevents improper use of the computer Defining the Operating System The fundamental goal of a"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00013",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 4,
+  "heading_path": "",
+  "text": "computer system is to execute user programs and solve user problems. The operating system combines: • Resource allocation • Control mechanisms into a single piece of software. The kernel is: • The core part of the OS • The only program running at all times Everything else is either: • A system program (ships with OS) • An application program Computer System Organization A computer system consists of: • One or more CPUs"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00014",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 5,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 5 • Device controllers • Shared main memory • Common system bus The CPU and device controllers can execute concurrently, competing for memory cycles. A memory controller synchronizes access to shared memory."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00015",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 5,
+  "heading_path": "A Modern Computer System",
+  "text": "Modern systems support parallelism, concurrency, and high-speed I/O operations."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00016",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 5,
+  "heading_path": "Computer System Operation",
+  "text": "Key points: • CPU and I/O devices execute concurrently • Each device controller manages a specific device • Device controller contains: o Local buffer o Registers for control actions • Data transfer occurs: o Device → Controller buffer → Main memory After completing an operation, the device controller signals the CPU by generating an interrupt."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00017",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 5,
+  "heading_path": "Booting the System",
+  "text": "When the system starts: • The first program executed is the Bootstrap program • Stored in ROM or EEPROM • Also called firmware Functions of bootstrap: • Initializes CPU registers • Initializes memory • Initializes device controllers"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00018",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 6,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 6 • Loads the operating system kernel into memory After booting: • The first user-level process created is init • init waits for events and starts system services"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00019",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 6,
+  "heading_path": "Interrupts",
+  "text": "An operating system is interrupt-driven. • Interrupt transfers control to an Interrupt Service Routine (ISR) • Uses an interrupt vector containing addresses of service routines • CPU state (program counter, registers) is saved A trap or exception is a software-generated interrupt caused by: • Errors • User requests (system calls)"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00020",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 6,
+  "heading_path": "Interrupt Handling",
+  "text": "Steps in interrupt handling: 1. Save current CPU state 2. Identify interrupt type 3. Execute appropriate interrupt service routine 4. Restore CPU state 5. Resume execution Interrupt identification methods: • Polling • Vectored interrupt systems"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00021",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 6,
+  "heading_path": "Interrupt Timeline",
+  "text": "Shows how a single process performing output is interrupted and resumed."
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00022",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 7,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 7 Main memory: • Only large storage directly accessible by CPU • Random Access Memory (RAM) • Typically volatile Implemented using DRAM. Other memory types: •"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00023",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 7,
+  "heading_path": "ROM",
+  "text": "• EEPROM (used in smartphones to store factory-installed programs) Program Execution Model Typical instruction execution follows the Fetch–Decode–Execute cycle: 1. Fetch instruction from memory 2. Decode instruction 3. Execute instruction This repeats until program termination. This model is known as the Von Neumann architecture. Secondary Storage Secondary storage: • Extension of main memory • Non-volatile • Large capacity Types: • Hard disks o Platters, tracks, sectors o Managed by disk controller • Solid State Drives (SSD) o Faster o Non-volatile"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00024",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 8,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 8 • Flash memory o Used in cameras, PDAs"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00025",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 8,
+  "heading_path": "Storage Hierarchy",
+  "text": "Storage systems are organized based on: • Speed • Cost • Volatility Caching Caching is a fundamental principle used at many levels: • Hardware • Operating system • Software Key ideas: • Frequently used data copied to faster storage • Cache checked first • If data not present → fetched from slower storage Challenges: • Cache size • Replacement policy • Cache management I/O Structure • Storage is treated as an I/O device"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00026",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 9,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 9 • Large portion of OS code manages I/O • Focus on reliability and performance Components: • CPUs • Multiple device controllers • Common system bus Each device controller has: • Device driver • Uniform interface to kernel"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00027",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 9,
+  "heading_path": "I/O Operation Flow",
+  "text": "• Device controller maintains local buffer • Transfers data between device and memory • CPU resumes execution after I/O completion interrupt Two models: 1. CPU waits for I/O completion 2. CPU continues execution while I/O proceeds"
+ },
+ {
+  "paragraph_id": "unit1_topic1_p00028",
+  "document_id": "unit1_topic1",
+  "subject": "UNKNOWN",
+  "page_number": 9,
+  "heading_path": "Direct Memory Access (DMA)",
+  "text": "Used for high-speed I/O devices. • Data transferred directly between device and main memory • CPU involvement minimized • Only one interrupt per block transfer Improves performance significantly."
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00001",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 1"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00002",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+  "text": "Unit 1 – CPU Scheduling CPU Scheduling – Basic Concepts In a computer system with a single CPU core, only one process can execute at a time. All other processes must wait until the CPU becomes free and they are scheduled again. The main objective of multiprogramming is to: • Keep the CPU busy at all times • Maximize CPU utilization To achieve this: • Several processes are kept in main memory • When one process has to wait (usually for I/O), the OS: o Takes the CPU away from that process o Assigns the CPU to another ready process"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00003",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+  "text": "This cycle continues, ensuring that the CPU rarely remains idle. CPU Scheduling in Multicore Systems On a multicore system, the same concept is extended: • Each processing core should be kept busy • Scheduling decisions are made independently for each core • Improves overall system throughput and performance CPU Scheduling – Need for Multiprogramming In a simple system without multiprogramming: • A process executes until it must wait (typically for I/O) • During this waiting period, the CPU remains idle • CPU time is wasted and no useful work is done Multiprogramming allows the OS to: • Switch the CPU"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00004",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+  "text": "to another ready process • Use waiting time productively This makes CPU scheduling a fundamental OS function. Alternating Sequence of CPU and I/O Bursts Process execution consists of an alternating sequence of CPU bursts and I/O bursts. • CPU burst → process is executing instructions • I/O burst → process is waiting for I/O completion Maximum CPU utilization is achieved when:"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00005",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 2,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 2 • CPU bursts of one process overlap with I/O bursts of another CPU–I/O Burst Cycle • Execution pattern: o CPU burst → I/O burst → CPU burst → I/O burst → … • CPU scheduling algorithms focus mainly on: o The distribution of CPU burst times Understanding this cycle is essential for designing efficient schedulers. Histogram of CPU-Burst Times The duration of CPU bursts: • Varies widely among processes • Follows a characteristic frequency distribution Observations • I/O-bound processes o Many short CPU bursts • CPU-bound processes o Few long CPU bursts This distribution is"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00006",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 2,
+  "heading_path": "",
+  "text": "important when: • Designing • Evaluating • Comparing CPU scheduling algorithms"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00007",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 3 CPU Scheduler The CPU scheduler (short-term scheduler): • Selects a process from the ready queue • Allocates the CPU to that process Ready Queue Organization The ready queue may be organized in various ways: • FIFO queue • Priority queue • Tree • Unordered linked list Each entry in the queue is a Process Control Block (PCB). Preemptive Scheduling CPU scheduling decisions can occur when a process: 1. Switches from running → waiting 2. Switches from running → ready 3. Switches from waiting → ready 4. Terminates Scheduling Types • Cases 1 and 4 →"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00008",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "",
+  "text": "Non-preemptive • Cases 2 and 3 → Preemptive Issues in Preemptive Scheduling When preemption occurs: • Shared data access must be handled carefully • Preemption while executing in kernel mode must be considered • Interrupts may occur during critical OS operations Examples • Windows 3.x → Non-preemptive • Windows 95 onwards → Preemptive • Macintosh OS → Uses preemptive scheduling Preemptive vs Non-Preemptive Scheduling Problems with Preemptive Scheduling • Can cause race conditions"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00009",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 4,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 4 • Occurs when: o One process is preempted while updating shared data o Another process accesses inconsistent data Solution • Preemptive kernels use: o Mutex locks o Other synchronization mechanisms Most modern operating systems are: • Fully preemptive, even in kernel mode Dispatcher The dispatcher is a module that: • Gives control of the CPU to the process selected by the short-term scheduler Dispatcher Functions • Performs context switch • Switches CPU to user mode • Jumps to the correct location in the user program Dispatch Latency • Time taken to: o Stop one process"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00010",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 4,
+  "heading_path": "",
+  "text": "o Start another process • Important performance metric Scheduling Criteria Scheduling algorithms are evaluated based on the following criteria: 1. CPU Utilization o Percentage of time CPU is busy 2. Throughput o Number of processes completed per unit time 3. Turnaround Time o Time from submission to completion of a process 4. Waiting Time o Total time a process spends waiting in the ready queue 5. Response Time"
+ },
+ {
+  "paragraph_id": "unit1_topic2_p00011",
+  "document_id": "unit1_topic2",
+  "subject": "UNKNOWN",
+  "page_number": 5,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 5 o Time from request submission to first response o Important in time-sharing systems Scheduling Algorithm Optimization Criteria An ideal scheduling algorithm should aim to: • Maximize o CPU utilization o Throughput • Minimize o Turnaround time o Waiting time o Response time Different scheduling algorithms optimize different criteria based on system goals."
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00001",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 1"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00002",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+  "text": "Unit 1 – Process Concept (Process Management) Process Concept An operating system executes a variety of programs: • Batch systems → execute jobs • Time-shared systems → execute user programs or tasks In operating-system literature, the terms job and process are often used interchangeably. Process vs Program • A program is a passive entity o Stored on disk as an executable file • A process is an active entity o A program in execution A program becomes a process when: • Its executable file is loaded into memory • Execution begins (via GUI click, command line, script, etc.) One program"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00003",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 1,
+  "heading_path": "OPERATING SYSTEMS (UE24CS242B)",
+  "text": "can have multiple processes • Example: Multiple users running the same editor simultaneously Process Concept – Memory Representation A process consists of several parts in memory: 1. Text Section o Program code o Instructions to be executed 2. Current Activity o Program Counter o Processor Registers 3. Stack o Temporary data o Function parameters o Return addresses o Local variables 4. Data Section o Global and static variables"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00004",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 2,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 2 5. Heap o Dynamically allocated memory during runtime Memory Layout of a C Program This layout explains how different segments of a program are organized in memory during execution. Memory Layout of a Process"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00005",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 3 Process State As a process executes, it changes state. Common Process States 1. New o Process is being created 2. Running o Instructions are currently being executed 3. Waiting o Process is waiting for an event (e.g., I/O completion) 4. Ready o Process is waiting to be assigned to a CPU 5. Terminated o Process has finished execution Process Control Block (PCB) Each process is represented in the operating system by a Process Control Block (PCB) (also called Task Control Block). Contents of Process Control Block The PCB contains all information needed to manage a"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00006",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 3,
+  "heading_path": "",
+  "text": "process: • Process state o New, ready, running, waiting, terminated • Program counter o Address of next instruction to execute • CPU registers o Contents of all process-specific registers • CPU scheduling information"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00007",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 4,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 4 o Priority o Scheduling queue pointers • Memory-management information o Memory allocated to the process • Accounting information o CPU time used o Elapsed time o Time limits • I/O status information o I/O devices allocated o List of open files CPU Switch from Process to Process When the CPU changes from executing one process to another, the system performs a context switch. Process Scheduling The objective of process scheduling is to: • Maximize CPU utilization • Support time sharing • Ensure fairness among processes A process scheduler selects a process for execution on the"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00008",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 4,
+  "heading_path": "",
+  "text": "CPU. Scheduling Queues The operating system maintains several scheduling queues: 1. Job Queue"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00009",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 5,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 5 o All processes in the system 2. Ready Queue o Processes in main memory o Ready to execute 3. Device Queues o Processes waiting for I/O devices Processes migrate among these queues during execution. Ready Queue and I/O Device Queues Representation of Process Scheduling Schedulers Short-Term Scheduler (CPU Scheduler) • Selects the next process to execute on the CPU • Invoked very frequently (milliseconds) • Must be extremely fast • Often the only scheduler in a system"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00010",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 6,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 6 Long-Term Scheduler (Job Scheduler) • Selects processes to be admitted into the ready queue • Invoked infrequently (seconds or minutes) • Controls the degree of multiprogramming • May be slow Types of Processes Processes are broadly classified as: 1. I/O-Bound Process o Spends more time doing I/O o Many short CPU bursts 2. CPU-Bound Process o Spends more time doing computation o Few long CPU bursts The long-term scheduler tries to maintain a good mix of both. Medium-Term Scheduler A medium-term scheduler may be introduced to: • Reduce the degree of multiprogramming Swapping • Process"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00011",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 6,
+  "heading_path": "",
+  "text": "is removed from memory • Stored on disk • Later brought back to continue execution Context Switch A context switch occurs when: • CPU switches from one process to another Steps involved: 1. Save the state of the current process in its PCB 2. Load the saved state of the next process Key Points"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00012",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 7,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 7 • Context switch time is overhead • No useful work is done during switching • Time depends on: o Hardware support o PCB complexity • Some CPUs support multiple register sets to reduce switch time Operations on Processes The operating system must provide mechanisms for: • Process creation • Process termination Process Creation • A parent process can create child processes • Child processes may create further processes • Forms a process tree Each process is identified by a Process ID (PID). Resource Sharing Options • Parent and child share all resources • Child shares"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00013",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 7,
+  "heading_path": "",
+  "text": "a subset of parent’s resources • Parent and child share no resources Execution Options • Parent and child execute concurrently • Parent waits until child terminates Process Creation using fork() • fork() creates a new process • Child process is a duplicate of the parent • Address space is copied To run a different program: • exec() is used • Replaces the process memory with a new program UNIX Example • fork() → creates child process • exec() → loads new program into child"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00014",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 8,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 8 C Program – Forking Separate Process Process Termination A process terminates when: • It executes its last statement • Calls the exit() system call Termination Details • Status value returned from child to parent • Parent retrieves status using wait() • OS deallocates all process resources Parent Terminating Child Parent may terminate a child using abort() if: • Child exceeds allocated resources • Task assigned to child is no longer needed • Parent itself is terminating Cascading Termination Some operating systems do not allow a child to exist without a parent. • If parent terminates"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00015",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 8,
+  "heading_path": "",
+  "text": "→ all children terminate • This is called cascading termination • Initiated by the operating system Zombie and Orphan Processes • Zombie process o Child terminates o Parent has not called wait() • Orphan process o Parent terminates before child o Child is adopted by init/system process Important Scenarios • What happens if parent terminates before child?"
+ },
+ {
+  "paragraph_id": "unit1_topic3_p00016",
+  "document_id": "unit1_topic3",
+  "subject": "UNKNOWN",
+  "page_number": 9,
+  "heading_path": "",
+  "text": "Pavan A C (pavanac@pes.edu) 9 • What happens if child terminates before parent (parent sleeping)? • How to determine the state of a process? These are handled using process tables and system calls like wait()."
+ }
+]
