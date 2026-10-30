@@ -18,10 +18,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from src.indexing.concepts import content_tokens, extract_concepts, key
+from src.indexing.concepts import content_tokens, extract_concepts, key, plain
 from src.indexing.lexical import LexicalIndex
 from src.indexing.records import Paragraph
 from src.utils.token_counter import count_tokens
+
+# words that shape a question rather than name a topic
+QUESTION_WORDS = content_tokens(
+    "difference differences different between compare comparison versus vs similar distinguish "
+    "contrast mean meaning explain describe define definition role purpose use")
 
 DIFFICULTY_GUIDE = {
     "easy": "Ask about one definition or fact stated directly in the notes.",
@@ -53,39 +58,85 @@ class ContextRetriever:
         self.index = LexicalIndex(method=method, expand=expand)
         self.index.build(self.paragraphs)
         self.concepts = extract_concepts(self.paragraphs)
+        self.plain_text = {p.pid: plain(p.body) for p in self.paragraphs}
+        self.vocab = set().union(*(content_tokens(f"{p.heading} {p.body}") for p in self.paragraphs)) \
+            if self.paragraphs else set()
 
     def coverage(self, topic: str, text: str) -> float:
         """Share of the topic's content words that occur in ``text``."""
         q = content_tokens(topic)
         return len(q & content_tokens(text)) / len(q) if q else 0.0
 
-    def retrieve(self, topic: str, budget_tokens: int = 600, max_passages: int = 4,
-                 min_coverage: float | None = None) -> list[Passage]:
-        """Best sections for the topic within ``budget_tokens``; [] if the notes do not cover it.
+    def in_notes(self, topic: str, best_text: str) -> bool:
+        """Is the topic covered by the notes at all?
 
-        The best section must contain the topic's words: all of them for a one- or
-        two-word topic ("virtual memory" is rejected even though "memory" occurs),
-        two thirds for longer topics. Set ``min_coverage`` to override.
+        - words the notes never use ("semaphore", "SaaS") are the main signal:
+          a short topic (1-3 words) must not contain any; a longer question may
+          have up to 40% of its words missing (students' own wording varies)
+        - the best section must also contain the topic: all of a 1-2 word topic,
+          two thirds of a 3-word topic, a third of a longer question
         """
-        if min_coverage is None:
-            min_coverage = 1.0 if len(content_tokens(topic)) <= 2 else 0.67
-        hits = [h for h in self.index.search(topic, k=max_passages * 3) if h.score > 0]
+        q = content_tokens(topic) - QUESTION_WORDS  # "difference", "explain" are not the topic
+        if not q:
+            return False
+        unknown = q - self.vocab
+        if len(q) <= 3 and unknown:
+            return False
+        if len(q) > 3 and len(unknown) / len(q) > 0.4:
+            return False
+        return self._covers(q, best_text)
+
+    @staticmethod
+    def _covers(q: set[str], text: str) -> bool:
+        need = 1.0 if len(q) <= 2 else 0.67 if len(q) == 3 else 0.34
+        return len(q & content_tokens(text)) / len(q) >= need
+
+    def about(self, topic: str, pid: str) -> bool:
+        """Is this section actually about the topic (not just ranked for it)?
+        Same rule as ``in_notes``: it must contain the topic's words."""
+        q = content_tokens(topic) - QUESTION_WORDS
+        p = self.by_pid[pid]
+        return bool(q) and self._covers(q, f"{p.heading} {p.body}")
+
+    def rank(self, topic: str, k: int = 12) -> list[tuple[str, float]]:
+        """(pid, score) best first, or [] when the topic is not in the notes.
+
+        Order: sections whose heading contains the whole topic, then sections that
+        contain the topic as an exact phrase ("CPU Utilization" in Scheduling
+        Criteria), then the rest - each group by lexical (BM25F) score.
+        """
+        hits = [h for h in self.index.search(topic, k=k) if h.score > 0]
         if not hits:
             return []
-        best = self.by_pid[hits[0].pid]
-        if self.coverage(topic, f"{best.heading} {best.body}") < min_coverage:
-            return []  # only weak, partial matches: treat the topic as not in the notes
-        # sections whose heading names the topic first, then by lexical score
-        q = content_tokens(topic)
-        hits.sort(key=lambda h: -len(q & content_tokens(self.by_pid[h.pid].heading)))
+        q, phrase = content_tokens(topic), key(topic)
+        core = q - QUESTION_WORDS  # "difference between program and process" -> program, process
+        short = len(q) <= 4
+
+        def tier(pid: str) -> int:
+            p = self.by_pid[pid]
+            if short and core and core <= content_tokens(p.heading):
+                return 0
+            if short and phrase and f" {phrase} " in f" {self.plain_text[pid]} ":
+                return 1
+            return 2
+
+        ranked = sorted(((h.pid, float(h.score)) for h in hits), key=lambda x: tier(x[0]))
+        best = self.by_pid[ranked[0][0]]
+        if not self.in_notes(topic, f"{best.heading} {best.body}"):
+            return []
+        return ranked
+
+    def retrieve(self, topic: str, budget_tokens: int = 600, max_passages: int = 4) -> list[Passage]:
+        """Best sections for the topic within ``budget_tokens``; [] if the notes do not cover it."""
+        ranked = self.rank(topic, k=max_passages * 3)
         out, used = [], 0
-        for h in hits:
-            p = self.by_pid[h.pid]
+        for pid, score in ranked:
+            p = self.by_pid[pid]
             text = f"{p.heading}\n{p.body}"
             n = count_tokens(text)
             if out and used + n > budget_tokens:
                 continue
-            out.append(Passage(p.pid, p.heading, p.chapter, p.body, float(h.score),
+            out.append(Passage(p.pid, p.heading, p.chapter, p.body, score,
                                p.meta.get("source_pdf"), p.meta.get("page_start"), p.meta.get("page_end")))
             used += n
             if len(out) == max_passages:
@@ -112,6 +163,24 @@ class ContextRetriever:
         return out[:limit]
 
 
+# JSON schema for the reply; local runtimes such as Ollama can force the model to follow it
+MCQ_SCHEMA = {
+    "type": "object",
+    "properties": {"mcqs": {"type": "array", "items": {
+        "type": "object",
+        "properties": {
+            "question": {"type": "string"},
+            "options": {"type": "array", "items": {"type": "string"}, "minItems": 4, "maxItems": 4},
+            "answer": {"type": "string", "enum": ["A", "B", "C", "D"]},
+            "explanation": {"type": "string"},
+            "evidence_quote": {"type": "string"},
+        },
+        "required": ["question", "options", "answer", "explanation", "evidence_quote"],
+    }}},
+    "required": ["mcqs"],
+}
+
+
 def build_prompt(topic: str, passages: list[Passage], n: int = 3, difficulty: str = "medium",
                  hints: list[str] | None = None) -> str:
     """Instruction for the small language model. Expects JSON back (see validate.py)."""
@@ -126,8 +195,8 @@ def build_prompt(topic: str, passages: list[Passage], n: int = 3, difficulty: st
         "- The correct answer must be stated in the notes. Do not use outside knowledge.\n"
         "- Wrong options must be clearly wrong according to the notes, but believable.\n"
         "- evidence_quote must be copied exactly from the notes and must support the answer.\n"
-        "Reply with only a JSON list, each item:\n"
-        '{"question": "...", "options": ["...", "...", "...", "..."], "answer": "A", '
-        '"explanation": "...", "evidence_quote": "...", "source": "[pid]"}\n\n'
+        "Reply with only JSON in this form:\n"
+        '{"mcqs": [{"question": "...", "options": ["...", "...", "...", "..."], "answer": "A", '
+        '"explanation": "...", "evidence_quote": "...", "source": "[pid]"}]}\n\n'
         f"NOTES:\n{notes}\n"
     )

@@ -1,0 +1,2 @@
+{"_about": "Hand check of qwen2.5:1.5b MCQs from run 20261030-1854, in file order. good = correct answer key, exactly one correct option, answer stated in the notes.",
+ "qwen2.5:1.5b": [false, true, false, false, false, false, true, true, false, false, true, true, false, true, false, false, false, false]}

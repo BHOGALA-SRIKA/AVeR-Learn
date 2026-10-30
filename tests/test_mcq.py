@@ -186,7 +186,7 @@ def test_validator_rejects_two_correct_options():
                        "Process is being created", "Process has finished execution"],
            "answer": "A", "evidence_quote": "Process is waiting to be assigned to a CPU"}
     r = validate_mcq(mcq, _passages())
-    assert not r["ok"] and any("means the same" in p for p in r["problems"])
+    assert not r["ok"] and any("also correct" in p for p in r["problems"])
 
 
 def test_validator_rejects_bad_format():
@@ -202,3 +202,141 @@ def test_template_mcqs_pass_the_validator():
         r = validate_mcq({"question": m.question, "options": m.options, "answer": m.answer,
                           "evidence_quote": m.evidence["quote"]}, ps)
         assert r["ok"], (m.question, r["problems"])
+
+
+def test_long_question_with_casual_words_is_not_refused_but_unknown_topic_is():
+    cr = ContextRetriever(NOTES)
+    assert cr.retrieve("How is the dispatcher different from the scheduler, in simple words?")
+    assert cr.retrieve("What is the difference between a counting semaphore and a binary semaphore?") == []
+
+
+def test_comparison_question_prefers_the_section_naming_both():
+    notes = NOTES + [P("s8", "Process vs Program", "• A program is a passive entity\n• A process is an active entity")]
+    cr = ContextRetriever(notes)
+    assert cr.rank("What is the difference between a program and a process?")[0][0] == "s8"
+
+
+# ---- cases taken from real qwen2.5:1.5b output (run 20261030-1854) ----------
+
+def _dispatcher_passages():
+    return ContextRetriever(NOTES).retrieve("dispatcher")
+
+
+def test_validator_catches_wrong_answer_key():
+    mcq = {"question": "What is the state of a process that is waiting for an event to occur?",
+           "options": ["New", "Running", "Waiting", "Ready"], "answer": "B",
+           "evidence_quote": "3.Waiting\no Process is waiting for an event (e.g., I/O completion)"}
+    r = validate_mcq(mcq, _passages())
+    assert not r["ok"] and any("answer key" in p for p in r["problems"])
+    mcq["answer"] = "C"
+    assert validate_mcq(mcq, _passages())["ok"]
+
+
+def test_validator_catches_true_facts_offered_as_wrong_options():
+    cr = ContextRetriever(NOTES)
+    mcq = {"question": "What does the dispatcher do when it is called?",
+           "options": ["Gives control of the CPU to the process selected by the short-term scheduler",
+                       "Performs context switch", "Switches CPU to user mode", "Selects a process from the ready queue"],
+           "answer": "A",
+           "evidence_quote": "The dispatcher is a module that: Gives control of the CPU to the process selected by the short-term scheduler"}
+    r = validate_mcq(mcq, cr.retrieve("dispatcher"), cr.concepts)
+    assert not r["ok"] and any("true fact about Dispatcher" in p for p in r["problems"])
+
+
+def test_validator_cleans_model_formatting():
+    mcq = {"question": "Which state means the process is waiting to be assigned to a CPU?",
+           "options": ["A. Running", "B. Ready", "C. Waiting", "D. New"], "answer": "B",
+           "evidence_quote": "\u2018Process is waiting to be assigned to a CPU\u2019 \u2013 Unit 1, Topic 3, p3"}
+    assert validate_mcq(mcq, _passages())["ok"]
+    mcq["evidence_quote"] = "Ready: Process is waiting to be assigned to a CPU (s1, p3, evidence_quote: 'x')"
+    assert validate_mcq(mcq, _passages())["ok"]
+
+
+def test_validator_rejects_quote_with_changed_subject():
+    notes = NOTES + [P("s9", "Interrupts", "A trap or exception is a software-generated interrupt caused by:\n"
+                                         "• Errors\n• User requests (system calls)")]
+    cr = ContextRetriever(notes)
+    mcq = {"question": "What is an interrupt?",
+           "options": ["Software-generated error", "Hardware-generated error", "User request", "Process request"],
+           "answer": "A",
+           "evidence_quote": "An interrupt is a software-generated interrupt caused by: Errors, User requests (system calls)."}
+    assert not validate_mcq(mcq, cr.retrieve("interrupts"), cr.concepts)["ok"]
+
+
+def test_validator_allows_other_steps_in_order_questions():
+    notes = NOTES + [P("s9", "Interrupt Handling", "Steps in interrupt handling:\n1.Save current CPU state\n"
+                                                 "2.Identify interrupt type\n3.Execute appropriate interrupt service routine\n"
+                                                 "4.Restore CPU state\n5.Resume execution")]
+    cr = ContextRetriever(notes)
+    mcq = {"question": "What is the first step in interrupt handling?",
+           "options": ["Save current CPU state", "Identify interrupt type",
+                       "Execute appropriate interrupt service routine", "Restore CPU state"],
+           "answer": "A",
+           "evidence_quote": "Steps in interrupt handling: Save current CPU state, Identify interrupt type"}
+    r = validate_mcq(mcq, cr.retrieve("interrupt handling"), cr.concepts)
+    assert r["ok"], r["problems"]
+
+
+def test_same_words_different_phrase_is_not_flagged():
+    from src.mcq.validate import phrase_coverage
+    quote = "When the CPU changes from executing one process to another, the system performs a context switch."
+    assert phrase_coverage("Perform a CPU switch", quote) < 0.5
+    assert phrase_coverage("performs a context switch", quote) == 1.0
+
+
+# ---- evidence-locked rewrites -------------------------------------------------
+
+def _ready_mcq():
+    return next(m for m in generate_mcqs(NOTES) if m.concept == "Ready")
+
+
+def test_good_rewrite_is_accepted():
+    from src.mcq.rewrite import apply_rewrite
+    m = _ready_mcq()
+    final, problems = apply_rewrite(
+        m, "Which process state describes a process that is waiting to be assigned to a CPU?",
+        "A process in the Ready state is waiting to be assigned to a CPU.", NOTES[0].body)
+    assert problems == [] and final["rewrite_accepted"]
+    assert final["options"] == m.options and final["answer"] == m.answer  # facts never change
+
+
+def test_rewrite_that_gives_answer_away_or_changes_meaning_is_rejected():
+    from src.mcq.rewrite import check_rewrite
+    m = _ready_mcq()
+    body = NOTES[0].body
+    assert "gives the answer away" in check_rewrite(
+        m, "Is the Ready state the one where a process is waiting to be assigned to a CPU?",
+        "A process in the Ready state is waiting to be assigned to a CPU.", body)
+    assert any("meaning" in p for p in check_rewrite(
+        m, "Which state comes after the process is created?",
+        "A process in the Ready state is waiting to be assigned to a CPU.", body))
+
+
+def test_rewrite_with_made_up_explanation_keeps_template_question():
+    from src.mcq.rewrite import apply_rewrite
+    m = _ready_mcq()
+    final, problems = apply_rewrite(
+        m, "Which process state describes a process that is waiting to be assigned to a CPU?",
+        "Ready processes are kept in a red-black tree sorted by virtual runtime in Linux kernels.", NOTES[0].body)
+    assert problems and not final["rewrite_accepted"]
+    assert final["question"] == m.question and final["explanation"] == ""
+
+
+def test_long_drifting_explanation_is_rejected():
+    # real qwen2.5:1.5b output: a 4-sentence explanation that adds a wrong fact
+    from src.mcq.rewrite import check_rewrite
+    m = _ready_mcq()
+    long_one = ("The notes state that a ready process is waiting to be assigned to a CPU. This means the "
+                "scheduler will pick it. Ready processes are software-generated interrupts caused by errors. "
+                "The correct answer is A. Ready.")
+    assert "explanation too long" in check_rewrite(
+        m, "Which process state describes a process that is waiting to be assigned to a CPU?", long_one,
+        NOTES[0].body)
+    ok = "The correct answer is A. Ready. A ready process is waiting to be assigned to a CPU."
+    assert check_rewrite(m, "Which process state describes a process that is waiting to be assigned to a CPU?",
+                         ok, NOTES[0].body) == []
+
+
+def test_topic_mode_stays_on_topic():
+    mcqs = generate_for_topic(NOTES, "dispatcher", n=5)
+    assert mcqs and all(m.concept == "Dispatcher" for m in mcqs)

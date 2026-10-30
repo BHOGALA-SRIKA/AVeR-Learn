@@ -35,7 +35,6 @@ from dataclasses import asdict, dataclass, field
 
 from src.indexing.concepts import ConceptSet, content_tokens, extract_concepts, key, overlap
 from src.indexing.distractors import Candidate, NeighbourFinder, answer_supported, pick_distractors
-from src.indexing.lexical import LexicalIndex
 from src.indexing.records import Paragraph
 
 N_OPTIONS = 4
@@ -107,7 +106,7 @@ def _mentions(text: str, names: set[str]) -> bool:
         if f" {key(n)} " in low:
             return True
         nt = content_tokens(n)
-        if len(nt) >= 2 and nt <= tt:
+        if nt and nt <= tt:  # same word stems: "Interrupts" in "Interrupt transfers control"
             return True
     return False
 
@@ -295,15 +294,18 @@ def generate_mcqs(paragraphs: list[Paragraph], per_concept: int = 1,
         #     ("Dispatcher", "Context Switch"), not a title ("Need for an Operating System")
         if not _concept_like(s.name):
             continue
-        for fact in statements:
+        made_here = 0
+        for fact in statements:  # one question per fact, up to per_concept
+            if made_here >= per_concept:
+                break
             if len(fact.split()) < 4 or ":" in fact:
                 continue
-            q = f'Which of the following do the notes describe as: "{fact}"?'
+            q = f'In the notes, which of the following is described as: "{fact}"?'
             ev = next((by_pid[pid] for pid in s.pids if fact.split(":")[0] in by_pid[pid].body), para)
             mcq = identify(s.name, fact, [], s.name, s.chapter, ev, fact, q)
             if mcq:
                 made.append(mcq)
-                break
+                made_here += 1
 
     # keep the best questions per concept
     made = [m for m in made if m.difficulty in levels and m.checks["answer_in_notes"]
@@ -326,18 +328,16 @@ def generate_mcqs(paragraphs: list[Paragraph], per_concept: int = 1,
 
 def generate_for_topic(paragraphs: list[Paragraph], topic: str, n: int = 5,
                        method: str = "bm25f", levels: tuple[str, ...] = LEVELS) -> list[MCQ]:
-    """MCQs about a topic the student typed, from the sections that best match it."""
+    """MCQs about a topic the student typed, only from sections that are about it.
+
+    Fewer than ``n`` MCQs are returned rather than filling up with other topics.
+    """
+    from src.mcq.context import ContextRetriever  # here to avoid a circular import
+
     paragraphs = list(paragraphs)
-    index = LexicalIndex(method=method, expand=True)
-    index.build(paragraphs)
-    by_pid = {p.pid: p for p in paragraphs}
-    hits = [h for h in index.search(topic, k=len(paragraphs)) if h.score > 0]
-    q = content_tokens(topic)
-    # sections whose heading names the topic come first ("Common Process States" for
-    # "process states"), then by lexical score
-    heading_cov = {h.pid: len(q & content_tokens(by_pid[h.pid].heading)) / max(len(q), 1) for h in hits}
-    ranked = sorted((h.pid for h in hits), key=lambda pid: -heading_cov[pid])
+    retriever = ContextRetriever(paragraphs, method=method)
+    ranked = [pid for pid, _ in retriever.rank(topic, k=len(paragraphs)) if retriever.about(topic, pid)]
     rank = {pid: r for r, pid in enumerate(ranked)}
-    mcqs = [m for m in generate_mcqs(paragraphs, levels=levels) if m.evidence["pid"] in rank]
+    mcqs = [m for m in generate_mcqs(paragraphs, per_concept=n, levels=levels) if m.evidence["pid"] in rank]
     mcqs.sort(key=lambda m: (rank[m.evidence["pid"]], LEVEL_RANK[m.difficulty]))
     return mcqs[:n]

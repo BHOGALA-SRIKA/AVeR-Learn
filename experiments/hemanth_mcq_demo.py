@@ -17,7 +17,13 @@ import json
 import sys
 import time
 from collections import Counter
+import os
 from pathlib import Path
+
+# NumPy's maths library starts one thread (and memory buffer) per CPU core; on a laptop
+# that is also running the SLM this can fail with "OpenBLAS error: Memory allocation".
+for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ.setdefault(_var, "1")
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))

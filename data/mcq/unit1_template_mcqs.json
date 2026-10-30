@@ -378,20 +378,20 @@
     "kind": "identify",
     "difficulty": "medium",
     "concept": "Interrupts",
-    "question": "Which of the following do the notes describe as: \"An operating system is interrupt-driven.\"?",
+    "question": "In the notes, which of the following is described as: \"CPU state (program counter, registers) is saved\"?",
     "options": [
+      "Control Program",
+      "Direct Memory Access",
       "Interrupts",
-      "Dedicated systems (workstations)",
-      "Application Programs",
-      "Direct Memory Access"
+      "Solid State Drives (SSD)"
     ],
-    "answer": "A",
+    "answer": "C",
     "answer_text": "Interrupts",
     "evidence": {
       "pid": "unit1_topic1-s16",
       "heading": "Interrupts",
       "chapter": "Unit 1 – Introduction & Computer System Organization",
-      "quote": "An operating system is interrupt-driven.",
+      "quote": "CPU state (program counter, registers) is saved",
       "source_pdf": "unit1_topic1.pdf",
       "page_start": 6,
       "page_end": 6
@@ -404,14 +404,14 @@
         "pid": ""
       },
       {
-        "option": "Dedicated systems (workstations)",
-        "really_about": "Dedicated systems (workstations)",
+        "option": "Solid State Drives (SSD)",
+        "really_about": "Solid State Drives (SSD)",
         "how_found": "lexical",
         "pid": ""
       },
       {
-        "option": "Application Programs",
-        "really_about": "Application Programs",
+        "option": "Control Program",
+        "really_about": "Control Program",
         "how_found": "lexical",
         "pid": ""
       }
@@ -534,14 +534,14 @@
     "kind": "identify",
     "difficulty": "medium",
     "concept": "Caching",
-    "question": "Which of the following do the notes describe as: \"Frequently used data copied to faster storage\"?",
+    "question": "In the notes, which of the following is described as: \"Frequently used data copied to faster storage\"?",
     "options": [
       "Solid State Drives (SSD)",
-      "Flash memory",
       "Caching",
+      "Flash memory",
       "Direct Memory Access"
     ],
-    "answer": "C",
+    "answer": "B",
     "answer_text": "Caching",
     "evidence": {
       "pid": "unit1_topic1-s23",
@@ -861,14 +861,14 @@
     "kind": "identify",
     "difficulty": "medium",
     "concept": "Dispatcher",
-    "question": "Which of the following do the notes describe as: \"Gives control of the CPU to the process selected by the short-term scheduler\"?",
+    "question": "In the notes, which of the following is described as: \"Gives control of the CPU to the process selected by the short-term scheduler\"?",
     "options": [
-      "CPU-bound processes",
-      "CPU burst",
       "Dispatcher",
-      "I/O-bound processes"
+      "CPU burst",
+      "I/O-bound processes",
+      "CPU-bound processes"
     ],
-    "answer": "C",
+    "answer": "A",
     "answer_text": "Dispatcher",
     "evidence": {
       "pid": "unit1_topic2-s16",
@@ -1186,7 +1186,7 @@
     "question": "In \"Process Concept\", which term matches this description: \"execute user programs or tasks\"?",
     "options": [
       "Process",
-      "Program",
+      "Program counter",
       "Batch systems",
       "Time-shared systems"
     ],
@@ -1215,8 +1215,8 @@
         "pid": ""
       },
       {
-        "option": "Program",
-        "really_about": "Program",
+        "option": "Program counter",
+        "really_about": "Program counter",
         "how_found": "lexical",
         "pid": ""
       }
@@ -1224,7 +1224,7 @@
     "checks": {
       "answer_in_notes": true,
       "options_distinct": true,
-      "answer_length_vs_others": 2.0,
+      "answer_length_vs_others": 1.0,
       "length_gives_answer_away": false,
       "rejected_options": [],
       "human_review": "needed"
@@ -2606,14 +2606,14 @@
     "kind": "identify",
     "difficulty": "medium",
     "concept": "Context Switch",
-    "question": "Which of the following do the notes describe as: \"CPU switches from one process to another\"?",
+    "question": "In the notes, which of the following is described as: \"CPU switches from one process to another\"?",
     "options": [
-      "CPU registers",
-      "Context Switch",
+      "CPU-Bound Process",
       "Swapping",
-      "CPU-Bound Process"
+      "Context Switch",
+      "CPU registers"
     ],
-    "answer": "B",
+    "answer": "C",
     "answer_text": "Context Switch",
     "evidence": {
       "pid": "unit1_topic3-s19",
@@ -2824,12 +2824,12 @@
     "kind": "identify",
     "difficulty": "medium",
     "concept": "Cascading Termination",
-    "question": "Which of the following do the notes describe as: \"Some operating systems do not allow a child to exist without a parent.\"?",
+    "question": "In the notes, which of the following is described as: \"Some operating systems do not allow a child to exist without a parent.\"?",
     "options": [
+      "Orphan process",
       "Process Creation",
-      "Zombie process",
       "Cascading Termination",
-      "Orphan process"
+      "Zombie process"
     ],
     "answer": "C",
     "answer_text": "Cascading Termination",
@@ -2937,7 +2937,7 @@
     "options": [
       "Zombie process",
       "Common Process States",
-      "Terminated",
+      "Process Termination",
       "Orphan process"
     ],
     "answer": "A",
@@ -2959,8 +2959,8 @@
         "pid": "unit1_topic3-s32"
       },
       {
-        "option": "Terminated",
-        "really_about": "Terminated",
+        "option": "Process Termination",
+        "really_about": "Process Termination",
         "how_found": "lexical",
         "pid": ""
       },
@@ -2979,10 +2979,6 @@
       "rejected_options": [
         {
           "option": "Orphan process",
-          "reason": "repeats another option"
-        },
-        {
-          "option": "Process Termination",
           "reason": "repeats another option"
         }
       ],

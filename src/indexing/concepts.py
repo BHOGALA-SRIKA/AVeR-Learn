@@ -233,6 +233,14 @@ def parse_lines(body: str) -> list[Line]:
     return out
 
 
+def plain(text: str) -> str:
+    """Text without bullet marks or numbering, as one comparable lowercase string."""
+    lines = [ln.text for ln in parse_lines(text)]
+    joined = re.sub(r"(?:^|\s)[o•▪◦](?=\s)", " ", " ".join(lines))
+    joined = re.sub(r"(?:^|(?<=\s))\d{1,2}\s*\.\s*(?=[A-Za-z])", " ", joined)  # "1. CPU Utilization"
+    return key(joined)
+
+
 def _clean_term(term: str) -> str:
     return term.strip().strip(":").strip()
 
