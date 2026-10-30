@@ -417,6 +417,25 @@ def detect_heading_candidates(pages: list[dict]) -> None:
 
                 continue
 
+            is_bullet_item = bool(
+                re.match(
+                    r"^\s*[➢▪•●◦▫‣⁃\-–—*]\s*",
+                    text
+                )
+            )
+
+            is_indented_list_item = (
+                line["bbox"]["x0"] >= 85
+                and len(text.split()) <= 12
+            )
+
+            if is_bullet_item or is_indented_list_item:
+                line["heading_status"] = "not_heading"
+                line["heading_score"] = 0
+                line["heading_reasons"] = ["list_item"]
+                line["is_heading_candidate"] = False
+                continue
+
             # ------------------------------------------------
             # Formatting evidence: bold.
             # ------------------------------------------------

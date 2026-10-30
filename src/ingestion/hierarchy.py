@@ -96,7 +96,8 @@ def get_heading_texts(classified_headings: list[dict]) -> set[str]:
 
 def should_skip_line(
     line: dict,
-    heading_texts: set[str]
+    heading_texts: set[str],
+    page_height=None
 ) -> bool:
     """Exclude headers, metadata and heading lines from paragraphs."""
 
@@ -104,6 +105,20 @@ def should_skip_line(
 
     if not text:
         return True
+
+    bbox = line.get("bbox", {})
+
+    if re.fullmatch(r"\d{1,3}", text) and page_height:
+        y0 = bbox.get("y0", 0)
+        y1 = bbox.get("y1", 0)
+
+        if (
+            y0 <= page_height * 0.08
+            or y1 >= page_height * 0.85
+        ):
+            return True
+
+    
 
     if line.get("is_running_header", False):
         return True
@@ -134,6 +149,87 @@ def should_skip_line(
 
     return False
 
+def merge_standalone_bullets(lines: list[dict]) -> list[dict]:
+    """
+    Attach standalone bullet-marker lines to the following text line.
+
+    Only merge markers that appear immediately before text on
+    approximately the same baseline.
+    """
+
+    lines = sorted(
+        lines,
+        key=lambda line: (
+            line["bbox"]["y0"],
+            line["bbox"]["x0"]
+        )
+    )
+
+    merged = []
+    i = 0
+
+    bullet_pattern = re.compile(
+        r"^(?:[•●▪▫◦➢➤‣⁃]|[-–—]|\*|o)$"
+    )
+
+    while i < len(lines):
+
+        current = lines[i]
+        marker_text = current.get("text", "").strip()
+
+        if (
+            bullet_pattern.fullmatch(marker_text)
+            and i + 1 < len(lines)
+        ):
+            following = lines[i + 1]
+
+            vertical_difference = abs(
+                current["bbox"]["y0"]
+                - following["bbox"]["y0"]
+            )
+
+            horizontal_difference = (
+                following["bbox"]["x0"]
+                - current["bbox"]["x0"]
+            )
+
+            if (
+                vertical_difference <= 4
+                and 0 <= horizontal_difference <= 45
+            ):
+                combined = dict(following)
+
+                combined["text"] = (
+                    marker_text + " " + following["text"].strip()
+                )
+
+                combined["bbox"] = {
+                    "x0": min(
+                        current["bbox"]["x0"],
+                        following["bbox"]["x0"]
+                    ),
+                    "y0": min(
+                        current["bbox"]["y0"],
+                        following["bbox"]["y0"]
+                    ),
+                    "x1": max(
+                        current["bbox"]["x1"],
+                        following["bbox"]["x1"]
+                    ),
+                    "y1": max(
+                        current["bbox"]["y1"],
+                        following["bbox"]["y1"]
+                    )
+                }
+
+                merged.append(combined)
+                i += 2
+                continue
+
+        merged.append(current)
+        i += 1
+
+    return merged
 
 def extract_paragraph_blocks(
     page: dict,
@@ -151,10 +247,12 @@ def extract_paragraph_blocks(
 
     for line in page.get("lines", []):
 
-        if should_skip_line(line, heading_texts):
+        if should_skip_line(line, heading_texts, page.get("height")):
             continue
 
         valid_lines.append(line)
+
+    valid_lines = merge_standalone_bullets(valid_lines)
 
     valid_lines.sort(
         key=lambda line: (
@@ -260,7 +358,9 @@ def get_breadcrumb(
 
         # Paragraph content must never appear in breadcrumbs.
         if node["kind"] == "document":
-            pass
+            label = node.get("title", "").strip()
+            if label:
+                parts.append(label)
 
         elif node["kind"] == "paragraph":
             pass
@@ -470,6 +570,7 @@ def build_textbook_hierarchy(
                     parent_id = (
                         current_section
                         or current_chapter
+                        or root_id
                     )
 
                     node_id = (
@@ -502,6 +603,7 @@ def build_textbook_hierarchy(
                     current_subsection
                     or current_section
                     or current_chapter
+                    or root_id
                 )
 
                 node_id = (
