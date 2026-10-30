@@ -1,5 +1,5 @@
 {
-  "_about": "Operating Systems glossary for query expansion. Research pair: extend this from the textbook's own index, glossary and headings. Keys and values are matched case-insensitively as whole words or phrases.",
+  "_about": "Operating Systems glossary for query expansion. Research pair: extend this from the textbook's own index, glossary and headings. Keys and values are matched case-insensitively as whole words or phrases. Rule: add only entries with ONE meaning across the whole OS course (e.g. not 'signal', which is also a semaphore operation, or 'pc', which is also 'personal computer'), and never add an entry just to fix a test-set question.",
   "abbreviations": {
     "os": "operating system",
     "cpu": "central processing unit",
@@ -13,7 +13,6 @@
     "eeprom": "electrically erasable programmable read only memory",
     "ssd": "solid state drive",
     "hdd": "hard disk drive",
-    "pc": "program counter",
     "pcb": "process control block",
     "tcb": "thread control block",
     "ipc": "interprocess communication",
@@ -65,15 +64,9 @@
       "direct memory access",
       "dma"
     ],
-    "signal": [
-      "interrupt"
-    ],
     "software interrupt": [
       "trap",
       "exception"
-    ],
-    "stuck": [
-      "deadlock"
     ],
     "waiting forever": [
       "deadlock",

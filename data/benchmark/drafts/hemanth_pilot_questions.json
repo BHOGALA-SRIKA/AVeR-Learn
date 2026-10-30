@@ -1,0 +1,411 @@
+[
+  {
+    "qid": "HEM-001",
+    "question": "What are the advantages of multiprocessor systems?",
+    "type": "factual",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "Multiprocessor (parallel) systems give increased throughput, economy of scale, and increased reliability through graceful degradation or fault tolerance.",
+    "key_points": [
+      "increased throughput",
+      "economy of scale",
+      "increased reliability / graceful degradation or fault tolerance"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Increased throughput • Economy of scale • Increased reliability – graceful degradation or fault tolerance",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 5
+      }
+    ]
+  },
+  {
+    "qid": "HEM-002",
+    "question": "How is symmetric multiprocessing different from asymmetric multiprocessing?",
+    "type": "comparative",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "In asymmetric multiprocessing each processor is assigned a specific task; in symmetric multiprocessing (SMP) every processor performs all tasks as peers, with no boss-worker relationship, sharing physical memory.",
+    "key_points": [
+      "asymmetric: each processor has a specific task",
+      "symmetric: each processor performs all tasks",
+      "SMP processors are peers, no boss-worker relationship"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Asymmetric Multiprocessing – each processor is assigned a specific task. 2. Symmetric Multiprocessing – each processor performs all tasks",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 6
+      },
+      {
+        "quote": "In SMP all processors are peers; no boss– worker relationship exists between processors.",
+        "grade": 1,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 7
+      }
+    ]
+  },
+  {
+    "qid": "HEM-003",
+    "question": "Why is putting two cores on one chip better than using two separate CPU chips?",
+    "type": "conceptual",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "student_wording": true,
+    "source_visible": true,
+    "reference_answer": "On-chip communication is faster than communication between chips, and one multicore chip uses significantly less power than several single-core chips.",
+    "key_points": [
+      "on-chip communication is faster",
+      "uses less power"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "on-chip communication is faster than between-chip communication",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 8
+      },
+      {
+        "quote": "One chip with multiple cores uses significantly less power than multiple single-core chips",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 8
+      }
+    ]
+  },
+  {
+    "qid": "HEM-004",
+    "question": "If my program gets stuck in an infinite loop, how does the OS stop it from using the CPU forever?",
+    "type": "application",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "student_wording": true,
+    "source_visible": true,
+    "reference_answer": "The OS sets a timer (a counter decremented on each clock tick) that interrupts the computer after a specified period; when it reaches zero an interrupt occurs and the OS can terminate the program.",
+    "key_points": [
+      "timer interrupt after a specified period",
+      "counter decremented every clock tick",
+      "OS regains control and can terminate the program"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Timer can be used to prevent a user program from running too long (terminate the program)",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 17
+      },
+      {
+        "quote": "When counter reaches zero, an interrupt occurs",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 17
+      },
+      {
+        "quote": "Other process problems include infinite loop",
+        "grade": 1,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 14
+      }
+    ]
+  },
+  {
+    "qid": "HEM-005",
+    "question": "What happens to the mode bit when a user program makes a system call, and what happens when the call returns?",
+    "type": "multi-step",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "A system call (trap) switches the hardware from user mode to kernel mode by setting the mode bit to 0; when the request is fulfilled the system sets the mode bit back to 1 (user mode) before returning control to the user program.",
+    "key_points": [
+      "system call switches to kernel mode",
+      "mode bit set to 0 in kernel mode",
+      "mode bit set back to 1 (user mode) before returning"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "System call changes mode to kernel, return from call resets it to user",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 15
+      },
+      {
+        "quote": "hardware switches from user mode to kernel mode (changes the state of the mode bit to 0)",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 16
+      }
+    ]
+  },
+  {
+    "qid": "HEM-006",
+    "question": "What is the difference between multiprogramming and multitasking?",
+    "type": "comparative",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Computer-System Architecture, OS Structure and Operations",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "Multiprogramming keeps several jobs in memory so the CPU always has one to execute, switching when a job waits (e.g. for I/O). Multitasking (time sharing) switches between jobs so frequently that users can interact with each job while it runs, giving response times under a second.",
+    "key_points": [
+      "multiprogramming: CPU always has a job, switches when a job waits",
+      "multitasking: switches so often that users interact with each job",
+      "response time under 1 second"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Multiprogramming organizes jobs (code and data) so CPU always has one to execute",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 12
+      },
+      {
+        "quote": "CPU switches jobs so frequently that users can interact with each job while it is running",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_3c1d4774-ae09-4cc8-a598-0183fe55a685_20260211092150_1.pdf",
+        "page": 13
+      }
+    ]
+  },
+  {
+    "qid": "HEM-007",
+    "question": "How can the OS keep track of which disk blocks are free without using much memory?",
+    "type": "application",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "student_wording": true,
+    "source_visible": true,
+    "reference_answer": "With a bitmap: a string of n binary digits where each bit gives the status of one resource (0 = available, 1 = unavailable). It is commonly used for large numbers of resources such as disk blocks.",
+    "key_points": [
+      "bitmap",
+      "one bit per resource",
+      "0 available, 1 unavailable"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Bitmap - string of n binary digits representing the status of n items",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 12
+      },
+      {
+        "quote": "Commonly used to represent the availability of a large number of resources (disk blocks)",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 12
+      }
+    ]
+  },
+  {
+    "qid": "HEM-008",
+    "question": "Why does the operating system use a stack when a function is called?",
+    "type": "conceptual",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "A stack is LIFO: when a function is called its parameters, local variables and return address are pushed onto the stack, and returning from the call pops them off.",
+    "key_points": [
+      "stack is last-in first-out",
+      "parameters, local variables and return address pushed on call",
+      "popped on return"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Parameters, local variables and the return address are pushed onto the stack when a function is called",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 9
+      }
+    ]
+  },
+  {
+    "qid": "HEM-009",
+    "question": "Which data structure does Linux use to decide which task runs next?",
+    "type": "factual",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "student_wording": true,
+    "source_visible": true,
+    "reference_answer": "A balanced binary search tree, which has O(log n) search performance.",
+    "key_points": [
+      "balanced binary search tree",
+      "O(log n) search"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Balanced binary search tree – (a tree containing n items has at most log n levels)",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 10
+      },
+      {
+        "quote": "Used by Linux for selecting which task to run next (CPU-Scheduling algorithm)",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 10
+      }
+    ]
+  },
+  {
+    "qid": "HEM-010",
+    "question": "How is peer-to-peer computing different from client-server computing?",
+    "type": "comparative",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "In client-server computing, servers respond to requests generated by clients. Peer-to-peer does not distinguish clients and servers: every node is a peer that can act as client, server or both.",
+    "key_points": [
+      "client-server: servers answer client requests",
+      "P2P: no distinction between clients and servers",
+      "each node can be client, server or both"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "P2P does not distinguish clients and servers",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 17
+      },
+      {
+        "quote": "Many systems now servers, responding to requests generated by clients",
+        "grade": 1,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 16
+      }
+    ]
+  },
+  {
+    "qid": "HEM-011",
+    "question": "What is the difference between SaaS, PaaS and IaaS?",
+    "type": "factual",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "SaaS provides applications over the Internet (e.g. a word processor); PaaS provides a software stack ready for application use (e.g. a database server); IaaS provides servers or storage over the Internet (e.g. storage for backup).",
+    "key_points": [
+      "SaaS: applications",
+      "PaaS: software stack / platform",
+      "IaaS: servers or storage"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Software as a Service (SaaS) – one or more applications available via the Internet",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 23
+      },
+      {
+        "quote": "Infrastructure as a Service (IaaS) – servers or storage available over Internet",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 23
+      },
+      {
+        "quote": "Delivers computing, storage, even apps as a service across a network",
+        "grade": 1,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 22
+      }
+    ]
+  },
+  {
+    "qid": "HEM-012",
+    "question": "What makes a real-time operating system different from a normal one?",
+    "type": "conceptual",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Kernel Data Structures and Computing Environments",
+    "student_wording": true,
+    "source_visible": true,
+    "reference_answer": "A real-time OS has well-defined, fixed time constraints: processing must be done within the constraint, and the system operates correctly only if the constraints are met.",
+    "key_points": [
+      "fixed time constraints",
+      "processing must finish within the constraint",
+      "correct only if constraints are met"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "Real-time OS has well-defined fixed time constraints",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_e2df2461-52a1-44e1-bba5-5da879a80c9e_20260211092213_1_1.pdf",
+        "page": 24
+      }
+    ]
+  },
+  {
+    "qid": "HEM-013",
+    "question": "After a program starts an I/O operation, what are the two ways control can return to the user program?",
+    "type": "multi-step",
+    "split": "unassigned",
+    "chapter": "Unit 1 – Introduction, Computer System Organization",
+    "student_wording": false,
+    "source_visible": true,
+    "reference_answer": "Either control returns only when the I/O completes (the CPU idles with a wait instruction or loop, and only one I/O request is outstanding), or control returns immediately without waiting, and the program uses a system call to wait for completion while the OS tracks devices in a device-status table.",
+    "key_points": [
+      "return only after I/O completes (wait instruction / loop)",
+      "return immediately without waiting",
+      "system call to wait; device-status table"
+    ],
+    "out_of_scope": false,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": [
+      {
+        "quote": "After I/O starts, control returns to user program only upon I/O completion",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_d4553d6b-97b3-48a4-b885-e121f4e00cfb_20260211092109_1.pdf",
+        "page": 29
+      },
+      {
+        "quote": "After I/O starts, control returns to user program without waiting for I/O completion",
+        "grade": 2,
+        "source_pdf": "UE24CS242B_d4553d6b-97b3-48a4-b885-e121f4e00cfb_20260211092109_1.pdf",
+        "page": 29
+      }
+    ]
+  },
+  {
+    "qid": "HEM-014",
+    "question": "What is a semaphore and how does it prevent race conditions?",
+    "type": "out-of-scope",
+    "split": "unassigned",
+    "chapter": "none",
+    "student_wording": true,
+    "source_visible": false,
+    "reference_answer": "Not covered in these Unit 1 topics (process synchronisation comes later in the course). The system should answer that it has no evidence.",
+    "key_points": [],
+    "out_of_scope": true,
+    "annotator": "Hemanth (AI-drafted, needs human review)",
+    "gold_quotes": []
+  }
+]
