@@ -29,7 +29,8 @@ questions for evaluating the SLM, and to test the pipeline today.
 | `src/mcq/validate.py` | Checks any MCQ (SLM or human) against the notes: evidence really in the notes, answer key backed by it, no wrong option that is also true. |
 | `src/mcq/rewrite.py` | Evidence-locked mode: the SLM only rewrites the question and writes the explanation; `check_rewrite` guards it. |
 | `experiments/hemanth_mcq_demo.py` | Runs everything on the notes PDFs. |
-| `experiments/notes_sections.py` | Stand-in PDF reader until Bhavya's tree is ready. |
+| `src/indexing/tree_sections.py` | Reads Bhavya's `tree.json` (feature/member1-ingestion) as sections, repairing bullet marks, bold bullets stored as headings, wrapped lines and page numbers. |
+| `experiments/notes_sections.py` | `load_sections`: uses `data/processed/<doc>/tree.json` when present, else a stand-in PDF reader. |
 
 ## Difficulty (for adaptive learning)
 
@@ -75,6 +76,14 @@ the explanation. A rewrite that changes the meaning, gives the answer away or
 adds facts is rejected and the template question is kept, so the answer key
 stays correct whatever the model does. `slm_eval.py` compares both modes.
 
+## With Bhavya's document tree (checked 2026-10-30)
+
+On the Unit 1 notes, her tree.json read through `tree_sections.py` gives the same
+retrieval accuracy as the stand-in reader (student questions 10/13 first, 12/13 in
+top 3; off-syllabus topics refused 24/25) and 53 template MCQs (26 hard), none
+failing the checker. The scripts use her trees automatically once
+`data/processed/unit1_topic*/tree.json` exist; add `--stand-in` to compare.
+
 ## Run
 
 ```
@@ -103,5 +112,4 @@ Results go to `data/mcq/slm_eval/<date-time>/` (`report.md`, `results.json`, `re
 ## Not done yet
 
 - Human check of SLM questions (`review.csv`) for real correctness, not just grounding.
-- Using Bhavya's document tree instead of `notes_sections.py`.
 - Student-performance tracking for adaptive difficulty (this code only labels difficulty).

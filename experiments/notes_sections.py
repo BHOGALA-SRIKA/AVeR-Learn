@@ -1,6 +1,9 @@
-"""Stand-in PDF reader for the MCQ demo: notes PDF -> sections (heading + lines).
+"""Load the Unit 1 notes as sections (heading + lines) for the scripts.
 
-Bhavya's document tree replaces this in the pipeline. It only exists so the MCQ
+``load_sections`` uses Bhavya's document trees (data/processed/<doc>/tree.json,
+from feature/member1-ingestion) when they exist, through
+src/indexing/tree_sections.py. Otherwise it falls back to ``read_sections``, a
+small stand-in PDF reader. It only exists so the MCQ
 pieces can be run on the real notes today. It relies on how the notes are typed:
 headings are short bold lines, "•" starts a bullet and "o" a sub-bullet, and each
 page has a "name (email) page-number" footer that is dropped.
@@ -79,3 +82,27 @@ if __name__ == "__main__":
             print(f"== {p.pid} [{p.chapter} > {p.heading}] p{p.meta['page_start']}")
             print(p.body)
             print()
+
+
+def load_sections(pdfs: list[str] | None = None, root: Path | None = None, prefer_trees: bool = True):
+    """(sections, source) for the given PDFs (default: data/raw/unit1_topic*.pdf).
+
+    Uses data/processed/<pdf name>/tree.json for every PDF that has one, else the
+    stand-in reader. ``source`` says which was used.
+    """
+    import glob
+
+    from src.indexing.tree_sections import sections_from_tree
+
+    root = root or Path(__file__).resolve().parents[1]
+    pdfs = pdfs or sorted(glob.glob(str(root / "data" / "raw" / "unit1_topic*.pdf")))
+    out, used = [], []
+    for pdf in pdfs:
+        tree = root / "data" / "processed" / Path(pdf).stem / "tree.json"
+        if prefer_trees and tree.exists():
+            out.extend(sections_from_tree(tree))
+            used.append(f"{Path(pdf).stem}: tree.json")
+        else:
+            out.extend(read_sections(pdf))
+            used.append(f"{Path(pdf).stem}: stand-in reader")
+    return out, "; ".join(used)

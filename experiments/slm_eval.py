@@ -47,7 +47,7 @@ for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from experiments.notes_sections import read_sections  # noqa: E402
+from experiments.notes_sections import load_sections  # noqa: E402
 from src.mcq import generate_for_topic  # noqa: E402
 from src.mcq.context import MCQ_SCHEMA, ContextRetriever, build_prompt  # noqa: E402
 from src.mcq.rewrite import REWRITE_SCHEMA, apply_rewrite, build_rewrite_prompt  # noqa: E402
@@ -392,10 +392,12 @@ def main() -> None:
     ap.add_argument("--timeout", type=int, default=600, help="seconds allowed per model call")
     ap.add_argument("--gpu", action="store_true", help="let Ollama use the graphics card (default: CPU only)")
     ap.add_argument("--pdfs", nargs="*")
+    ap.add_argument("--stand-in", action="store_true", help="use the stand-in PDF reader even if tree.json exists")
     args = ap.parse_args()
 
     pdfs = args.pdfs or sorted(glob.glob(str(ROOT / "data" / "raw" / "unit1_topic*.pdf")))
-    paragraphs = [p for f in pdfs for p in read_sections(f)]
+    paragraphs, source = load_sections(pdfs, ROOT, prefer_trees=not args.stand_in)
+    print(f"Sections: {len(paragraphs)} ({source})")
     retriever = ContextRetriever(paragraphs)
     topics = QUICK_TOPICS if args.quick else TOPICS
     modes = ["free", "locked"] if args.mode == "both" else [args.mode]

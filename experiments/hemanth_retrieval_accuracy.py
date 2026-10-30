@@ -32,7 +32,7 @@ for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from experiments.notes_sections import read_sections  # noqa: E402
+from experiments.notes_sections import load_sections  # noqa: E402
 from src.indexing.concepts import content_tokens, extract_concepts  # noqa: E402
 from src.mcq.context import ContextRetriever  # noqa: E402
 
@@ -49,8 +49,10 @@ OUT_OF_SCOPE_TOPICS = [
 def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    pdfs = sys.argv[1:] or sorted(glob.glob(str(ROOT / "data" / "raw" / "unit1_topic*.pdf")))
-    paragraphs = [p for f in pdfs for p in read_sections(f)]
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    pdfs = args or sorted(glob.glob(str(ROOT / "data" / "raw" / "unit1_topic*.pdf")))
+    paragraphs, source = load_sections(pdfs, ROOT, prefer_trees="--stand-in" not in sys.argv)
+    print(f"Sections: {len(paragraphs)} ({source})")
     cr = ContextRetriever(paragraphs)
 
     def gold_pids(quotes):

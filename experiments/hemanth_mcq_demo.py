@@ -28,7 +28,7 @@ for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from experiments.notes_sections import read_sections  # noqa: E402
+from experiments.notes_sections import load_sections  # noqa: E402
 from src.mcq import generate_for_topic, generate_mcqs  # noqa: E402
 from src.mcq.context import ContextRetriever, build_prompt  # noqa: E402
 
@@ -49,13 +49,15 @@ def main() -> None:
     ap.add_argument("pdfs", nargs="*")
     ap.add_argument("--topic", default="process states")
     ap.add_argument("--out", default=str(ROOT / "data" / "mcq"))
+    ap.add_argument("--stand-in", action="store_true", help="use the stand-in PDF reader even if tree.json exists")
     args = ap.parse_args()
     pdfs = args.pdfs or sorted(glob.glob(str(ROOT / "data" / "raw" / "unit1_topic*.pdf")))
     if not pdfs:
         sys.exit("No PDFs given and none found in data/raw/unit1_topic*.pdf")
 
     t0 = time.perf_counter()
-    paragraphs = [p for f in pdfs for p in read_sections(f)]
+    paragraphs, source = load_sections(pdfs, ROOT, prefer_trees=not args.stand_in)
+    print(f"Sections from: {source}")
     t1 = time.perf_counter()
     mcqs = generate_mcqs(paragraphs)
     t2 = time.perf_counter()
