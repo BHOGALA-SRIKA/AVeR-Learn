@@ -11,6 +11,8 @@ from src.ingestion.hierarchy import build_hierarchy, validate_hierarchy
 PDF_FILES = [
     Path("data/raw/dsa.pdf"),
     Path("data/raw/unit1_topic1.pdf"),
+    Path("data/raw/unit1_topic2.pdf"),
+    Path("data/raw/unit1_topic3.pdf"),
 ]
 
 
@@ -78,7 +80,12 @@ def test_paragraph_records(pdf_path):
 
 
 def test_generated_json_files_exist():
-    for folder in ["dsa", "unit1_topic1"]:
+    for folder in [
+        "dsa",
+        "unit1_topic1",
+        "unit1_topic2",
+        "unit1_topic3",
+    ]:
         output_folder = Path("data/processed") / folder
 
         assert (output_folder / "tree.json").exists()
@@ -88,4 +95,3 @@ def test_generated_json_files_exist():
             tree = json.load(file)
 
         assert tree["nodes"]
-
