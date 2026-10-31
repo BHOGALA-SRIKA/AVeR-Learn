@@ -1,5 +1,5 @@
 {
-  "_about": "Operating Systems glossary for query expansion. Research pair: extend this from the textbook's own index, glossary and headings. Keys and values are matched case-insensitively as whole words or phrases. Rule: add only entries with ONE meaning across the whole OS course (e.g. not 'signal', which is also a semaphore operation, or 'pc', which is also 'personal computer'), and never add an entry just to fix a test-set question.",
+  "_about": "Operating Systems glossary for query expansion. FROZEN on 2026-10-31 before the final test: change it only with the team, only with terms taken from the textbook (its index, glossary or headings), and check every change on dev questions, never on test questions. Abbreviations: standard textbook abbreviations with one meaning across the course. Synonyms: only equivalences the course material itself states (e.g. 'a trap or exception is a software-generated interrupt'). Student phrasings such as 'switched on' are not allowed: an earlier version had them, and two matched pilot smoke-test questions word for word, which made the +exp smoke score invalid (see src/indexing/README.md).",
   "abbreviations": {
     "os": "operating system",
     "cpu": "central processing unit",
@@ -32,63 +32,10 @@
     "processor": [
       "cpu"
     ],
-    "switched on": [
-      "boot",
-      "bootstrap",
-      "startup"
-    ],
-    "turned on": [
-      "boot",
-      "bootstrap",
-      "startup"
-    ],
-    "start up": [
-      "boot",
-      "bootstrap"
-    ],
-    "startup": [
-      "boot",
-      "bootstrap"
-    ],
-    "core of the os": [
-      "kernel"
-    ],
-    "heart of the os": [
-      "kernel"
-    ],
-    "without the cpu": [
-      "direct memory access",
-      "dma"
-    ],
-    "without the processor": [
-      "direct memory access",
-      "dma"
-    ],
     "software interrupt": [
       "trap",
       "exception"
-    ],
-    "waiting forever": [
-      "deadlock",
-      "starvation"
-    ],
-    "multitasking": [
-      "multiprogramming",
-      "time sharing"
-    ],
-    "context switch": [
-      "save state",
-      "restore state"
-    ],
-    "permanent storage": [
-      "secondary storage",
-      "non-volatile"
-    ],
-    "loses data when power": [
-      "volatile"
-    ],
-    "middleman": [
-      "intermediary"
     ]
-  }
+  },
+  "version": "1.0-frozen-2026-10-31"
 }

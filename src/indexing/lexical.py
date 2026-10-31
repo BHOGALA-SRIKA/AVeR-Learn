@@ -223,7 +223,7 @@ class LexicalIndex:
         }
 
     def save(self, path: str | Path) -> None:
-        """Save the built index to one file (pickle). Only load files your team made."""
+        """Save the built index to one file (pickle). Only load files your team made (see ``load``)."""
         self._require()
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -231,7 +231,12 @@ class LexicalIndex:
             pickle.dump({"format": INDEX_FORMAT, "tokenizer_version": TOKENIZER_VERSION, "state": self.__dict__}, fh)
 
     def load(self, path: str | Path) -> "LexicalIndex":
-        """Load a saved index into this object and return it."""
+        """Load a saved index into this object and return it.
+
+        Saved indexes are pickle files, and loading a pickle can run code stored in
+        it. Only load files your team made (with ``save``); never load an index file
+        downloaded from elsewhere or received from someone you do not trust.
+        """
         with Path(path).open("rb") as fh:
             payload = pickle.load(fh)
         if payload.get("format") != INDEX_FORMAT:

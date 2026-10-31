@@ -178,10 +178,10 @@ def test_char_tfidf_matches_word_variants():
 
 
 def test_glossary_expands_both_directions():
-    g = Glossary({"dma": "direct memory access"}, {"switched on": ["boot"]})
+    g = Glossary({"dma": "direct memory access"}, {"software interrupt": ["trap"]})
     assert g.expand("what is DMA") == "what is DMA direct memory access"
     assert "dma" in g.expansions("explain direct memory access")
-    assert g.expansions("when the PC is switched on") == ["boot"]
+    assert g.expansions("what is a software interrupt") == ["trap"]
     assert g.expansions("dmas are fun") == []  # whole words only
 
 
@@ -191,10 +191,25 @@ def test_default_glossary_file_is_valid():
     assert all(isinstance(v, list) for v in data["synonyms"].values())
 
 
-def test_expansion_finds_dma_for_student_wording():
+def test_expansion_uses_textbook_synonym():
+    # the notes say "A trap or exception is a software-generated interrupt"
     r = ExpandedRetriever(BM25FRetriever()).fit(load_paragraphs(REAL_CORPUS))
-    top = r.search("how is data copied from disk to memory without the processor", k=1)
-    assert top[0].pid == "unit1_topic1_p00028"
+    top = r.search("what is a software interrupt", k=1)
+    assert top[0].pid == "unit1_topic1_p00019"
+
+
+def test_glossary_is_frozen_and_does_not_leak_smoke_questions():
+    """Sreeram's review (2026-10-31): two old entries matched smoke-test questions word
+    for word. No multi-word glossary phrase may appear inside a smoke-test question."""
+    from experiments.member2_lexical_check import QUESTIONS
+
+    data = json.loads((REPO / "data" / "glossary" / "os_glossary.json").read_text(encoding="utf-8"))
+    assert "frozen" in data.get("version", "")
+    phrases = [k for k in data["synonyms"] if " " in k]
+    phrases += [w for vals in data["synonyms"].values() for w in vals if " " in w]
+    for q, *_ in QUESTIONS:
+        for ph in phrases:
+            assert ph.lower() not in q.lower(), f"glossary phrase {ph!r} copies smoke question {q!r}"
 
 
 def test_rrf_formula():

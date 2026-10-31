@@ -4,7 +4,7 @@ Offline, CPU only, no embeddings. Turns uploaded notes into checked MCQs.
 
 ```
 PDF -> sections (Bhavya's tree)
-    -> ContextRetriever.retrieve(topic)      vectorless RAG: BM25F + glossary, token budget,
+    -> ContextRetriever.retrieve(topic)      vectorless RAG: BM25F, token budget,
                                              returns [] if the topic is not in the notes
     -> build_prompt(...)                     prompt for the small language model (SLM),
                                              with related terms as wrong-option hints
