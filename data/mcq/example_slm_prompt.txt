@@ -1,0 +1,41 @@
+You are writing multiple-choice questions for a student, using ONLY the course notes below.
+Topic: process states
+Number of questions: 3
+Difficulty: hard - Ask the student to tell apart closely related concepts (use the related terms as wrong options).
+Related terms you may use as wrong options: New, Running, Waiting, Ready, Terminated, Process State, Common Process States, Context Switch, Types of Processes, Zombie and Orphan Processes
+Rules:
+- Exactly 4 options, exactly one correct.
+- The correct answer must be stated in the notes. Do not use outside knowledge.
+- Wrong options must be clearly wrong according to the notes, but believable.
+- evidence_quote must be copied exactly from the notes and must support the answer.
+Reply with only JSON in this form:
+{"mcqs": [{"question": "...", "options": ["...", "...", "...", "..."], "answer": "A", "explanation": "...", "evidence_quote": "...", "source": "[pid]"}]}
+
+NOTES:
+[unit1_topic3-s05] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)
+As a process executes, it changes state.
+
+[unit1_topic3-s06] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)
+1.New
+o Process is being created
+2.Running
+o Instructions are currently being executed
+3.Waiting
+o Process is waiting for an event (e.g., I/O completion)
+4.Ready
+o Process is waiting to be assigned to a CPU
+5.Terminated
+o Process has finished execution
+
+[unit1_topic3-s19] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)
+A context switch occurs when:
+• CPU switches from one process to another
+Steps involved:
+1.Save the state of the current process in its PCB
+2.Load the saved state of the next process
+
+[unit1_topic3-s33] Unit 1 – Process Concept (Process Management) > Important Scenarios (unit1_topic3.pdf, p8)
+• What happens if parent terminates before child?
+• What happens if child terminates before parent (parent sleeping)?
+• How to determine the state of a process?
+These are handled using process tables and system calls like wait().

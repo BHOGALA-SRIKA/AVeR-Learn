@@ -1,0 +1,1010 @@
+{
+  "summary": [
+    {
+      "model": "qwen2.5:1.5b",
+      "topics_run": 6,
+      "mcqs": 18,
+      "passed": 9,
+      "pass_rate": 0.5,
+      "valid_json_rate": 1.0,
+      "evidence_made_up": 4,
+      "answer_not_supported": 2,
+      "two_correct_options": 14,
+      "format_problems": 0,
+      "seconds_per_topic": 16.0,
+      "tokens_per_second": 111.9,
+      "memory_gb": 1.17
+    },
+    {
+      "model": "gemma3:1b",
+      "topics_run": 5,
+      "mcqs": 15,
+      "passed": 1,
+      "pass_rate": 0.067,
+      "valid_json_rate": 1.0,
+      "evidence_made_up": 9,
+      "answer_not_supported": 9,
+      "two_correct_options": 4,
+      "format_problems": 0,
+      "seconds_per_topic": 16.2,
+      "tokens_per_second": 119.4,
+      "memory_gb": 0.88
+    },
+    {
+      "model": "llama3.2:1b",
+      "topics_run": 6,
+      "mcqs": 15,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "valid_json_rate": 0.833,
+      "evidence_made_up": 14,
+      "answer_not_supported": 5,
+      "two_correct_options": 17,
+      "format_problems": 3,
+      "seconds_per_topic": 69.3,
+      "tokens_per_second": 109.1,
+      "memory_gb": 1.52
+    },
+    {
+      "model": "qwen3:1.7b",
+      "topics_run": 0,
+      "mcqs": 0,
+      "passed": 0,
+      "pass_rate": 0.0,
+      "valid_json_rate": 0.0,
+      "evidence_made_up": 0,
+      "answer_not_supported": 0,
+      "two_correct_options": 0,
+      "format_problems": 0,
+      "seconds_per_topic": null,
+      "tokens_per_second": null,
+      "memory_gb": null
+    }
+  ],
+  "mcqs": [
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "interrupts",
+      "question": "What is an interrupt?",
+      "options": [
+        "A. Software-generated error",
+        "B. Hardware-generated error",
+        "C. User request",
+        "D. Process request"
+      ],
+      "answer": "A",
+      "explanation": "An interrupt is a software-generated event that causes the operating system to switch from the current process to a previously scheduled process.",
+      "evidence_quote": "An interrupt is a software-generated interrupt caused by: Errors, User requests (system calls).",
+      "ok": false,
+      "problems": [
+        "wrong option means the same as the answer: 'B. Hardware-generated error'"
+      ],
+      "evidence_pid": "unit1_topic1-s16"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "interrupts",
+      "question": "What is the first step in interrupt handling?",
+      "options": [
+        "A. Save current CPU state",
+        "B. Identify interrupt type",
+        "C. Execute appropriate interrupt service routine",
+        "D. Restore CPU state"
+      ],
+      "answer": "A",
+      "explanation": "The first step in interrupt handling is to save the current CPU state, which includes the program counter and registers.",
+      "evidence_quote": "Steps in interrupt handling: Save current CPU state, Identify interrupt type, Execute appropriate interrupt service routine, Restore CPU state, Resume execution.",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic1-s17"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "interrupts",
+      "question": "What is the purpose of interrupt identification methods?",
+      "options": [
+        "A. To identify the type of interrupt",
+        "B. To save the CPU state",
+        "C. To execute the appropriate service routine",
+        "D. To restore the CPU state"
+      ],
+      "answer": "A",
+      "explanation": "The purpose of interrupt identification methods is to identify the type of interrupt, which helps in executing the appropriate service routine.",
+      "evidence_quote": "Interrupt identification methods: Polling, Vectored interrupt systems.",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic1-s17"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "dispatcher",
+      "question": "What does the dispatcher do when it is called?",
+      "options": [
+        "A. Gives control of the CPU to the process selected by the short-term scheduler",
+        "B. Performs context switch",
+        "C. Switches CPU to user mode",
+        "D. Jumps to the correct location in the user program"
+      ],
+      "answer": "A",
+      "explanation": "The dispatcher is a module that gives control of the CPU to the process selected by the short-term scheduler.",
+      "evidence_quote": "The dispatcher is a module that: Gives control of the CPU to the process selected by the short-term scheduler",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic2-s16"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "dispatcher",
+      "question": "What is the time taken to perform when the dispatcher is called?",
+      "options": [
+        "A. Stop one process",
+        "B. Start another process",
+        "C. Switch CPU to user mode",
+        "D. Jumps to the correct location in the user program"
+      ],
+      "answer": "B",
+      "explanation": "The dispatcher is called to perform the time taken to start another process.",
+      "evidence_quote": "• Performs context switch • Switches CPU to user mode • Jumps to the correct location in the user program",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": "unit1_topic2-s17"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "dispatcher",
+      "question": "What is an important performance metric related to the dispatcher?",
+      "options": [
+        "A. Stop one process",
+        "B. Start another process",
+        "C. Switch CPU to user mode",
+        "D. Jumps to the correct location in the user program"
+      ],
+      "answer": "C",
+      "explanation": "The dispatcher is called to perform the time taken to switch CPU to user mode.",
+      "evidence_quote": "• Performs context switch • Switches CPU to user mode • Jumps to the correct location in the user program",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic2-s17"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "scheduling criteria",
+      "question": "Which scheduling criterion is primarily concerned with maximizing the CPU utilization?",
+      "options": [
+        "CPU Utilization",
+        "Throughput",
+        "Turnaround Time",
+        "Waiting Time"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is 'CPU Utilization'. According to the notes, CPU Utilization is the percentage of time the CPU is busy, which is a criterion for evaluating scheduling algorithms.",
+      "evidence_quote": "Scheduling algorithms are evaluated based on the following criteria: 1. CPU Utilization",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "scheduling criteria",
+      "question": "Which scheduling criterion is primarily concerned with minimizing the turnaround time?",
+      "options": [
+        "CPU Utilization",
+        "Throughput",
+        "Turnaround Time",
+        "Waiting Time"
+      ],
+      "answer": "C",
+      "explanation": "The correct answer is 'Turnaround Time'. The notes state that Turnaround Time is the time from submission to completion of a process, which is a criterion for evaluating scheduling algorithms.",
+      "evidence_quote": "Turnaround Time is Time from submission to completion of a process",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic2-s19"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "scheduling criteria",
+      "question": "Which scheduling criterion is primarily concerned with minimizing the waiting time?",
+      "options": [
+        "CPU Utilization",
+        "Throughput",
+        "Turnaround Time",
+        "Waiting Time"
+      ],
+      "answer": "B",
+      "explanation": "The correct answer is 'Waiting Time'. The notes state that Waiting Time is the total time a process spends waiting in the ready queue, which is a criterion for evaluating scheduling algorithms.",
+      "evidence_quote": "Waiting Time is Total time a process spends waiting in the ready queue",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic2-s19"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "process states",
+      "question": "What is the state of a process that is waiting for an event to occur?",
+      "options": [
+        "New",
+        "Running",
+        "Waiting",
+        "Ready"
+      ],
+      "answer": "B",
+      "explanation": "A process that is waiting for an event to occur is in the 'Waiting' state. This is one of the common process states described in the notes.",
+      "evidence_quote": "3.Waiting\no Process is waiting for an event (e.g., I/O completion)",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic3-s06"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "process states",
+      "question": "What is the state of a process that has finished executing?",
+      "options": [
+        "New",
+        "Running",
+        "Waiting",
+        "Terminated"
+      ],
+      "answer": "D",
+      "explanation": "A process that has finished executing is in the 'Terminated' state. This is one of the common process states described in the notes.",
+      "evidence_quote": "5.Terminated\no Process has finished execution",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic3-s06"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "process states",
+      "question": "What is the state of a process that is being created?",
+      "options": [
+        "New",
+        "Running",
+        "Waiting",
+        "Ready"
+      ],
+      "answer": "A",
+      "explanation": "A process that is being created is in the 'New' state. This is one of the common process states described in the notes.",
+      "evidence_quote": "1.New\no Process is being created",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic3-s06"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "context switch",
+      "question": "What happens during a context switch?",
+      "options": [
+        "A. The CPU switches from one process to another",
+        "B. The CPU switches from user mode to kernel mode",
+        "C. The CPU switches from one process to another and saves the state",
+        "D. The CPU switches from one process to another and loads the saved state"
+      ],
+      "answer": "C",
+      "explanation": "A context switch involves the CPU switching from one process to another and saving the state of the current process in the PCB (Process Control Block). This is the correct step during a context switch.",
+      "evidence_quote": "Context switch involves the CPU switching from one process to another and saving the state of the current process in the PCB. This is the correct step during a context switch. (unit1_topic3-s19, p6, evidence_quote: 'Context switch involves the CPU switching from one process to another and saving the state of the current process in the PCB.')",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'A. The CPU switches from one process to another'",
+        "wrong option means the same as the answer: 'D. The CPU switches from one process to another and loads the saved state'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "context switch",
+      "question": "What does the system perform when the CPU changes from executing one process to another?",
+      "options": [
+        "A. Perform a context switch",
+        "B. Perform a CPU switch",
+        "C. Perform a dispatcher function",
+        "D. Perform a user mode switch"
+      ],
+      "answer": "A",
+      "explanation": "The system performs a context switch when the CPU changes from executing one process to another. This is a correct step during a context switch.",
+      "evidence_quote": "When the CPU changes from executing one process to another, the system performs a context switch. (unit1_topic3-s09, p4, evidence_quote: 'When the CPU changes from executing one process to another, the system performs a context switch.')",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'B. Perform a CPU switch'",
+        "wrong option means the same as the answer: 'D. Perform a user mode switch'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "context switch",
+      "question": "Which of the following is a correct step during a context switch?",
+      "options": [
+        "A. The CPU switches from one process to another and saves the state",
+        "B. The CPU switches from one process to another and loads the saved state",
+        "C. The CPU switches from one process to another and saves the state and loads the saved state",
+        "D. The CPU switches from one process to another and saves the state and loads the saved state"
+      ],
+      "answer": "C",
+      "explanation": "A context switch involves the CPU switching from one process to another and saving the state of the current process in the PCB. This is followed by loading the saved state of the next process. Therefore, the correct step during a context switch is to save the state and then load the saved state.",
+      "evidence_quote": "Context switch involves the CPU switching from one process to another and saving the state of the current process in the PCB. This is followed by loading the saved state of the next process. (unit1_topic3-s19, p6, evidence_quote: 'Context switch involves the CPU switching from one process to another and saving the state of the current process in the PCB. This is followed by loading the saved state of the next process.')",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'A. The CPU switches from one process to another and saves the state'",
+        "wrong option means the same as the answer: 'B. The CPU switches from one process to another and loads the saved state'",
+        "wrong option means the same as the answer: 'D. The CPU switches from one process to another and saves the state and loads the saved state'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "zombie and orphan processes",
+      "question": "What is the primary objective of process scheduling?",
+      "options": [
+        "Maximize CPU utilization",
+        "Support time sharing",
+        "Ensure fairness among processes",
+        "None of the above"
+      ],
+      "answer": "A",
+      "explanation": "The operating system must provide mechanisms for process creation and process termination. Process creation is the process of starting a new process, while process termination is the process of ending a process. These operations are essential for managing processes and ensuring that the system can efficiently allocate CPU resources.",
+      "evidence_quote": "The objective of process scheduling is to: Maximize CPU utilization, Support time sharing, Ensure fairness among processes.",
+      "ok": false,
+      "problems": [
+        "wrong option is also stated in the evidence: 'Support time sharing'",
+        "wrong option is also stated in the evidence: 'Ensure fairness among processes'"
+      ],
+      "evidence_pid": "unit1_topic3-s10"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "zombie and orphan processes",
+      "question": "What happens to a process that is waiting for a resource that is not available?",
+      "options": [
+        "It becomes a zombie process",
+        "It becomes an orphan process",
+        "It is adopted by the init/system process",
+        "It is terminated"
+      ],
+      "answer": "A",
+      "explanation": "A process that is waiting for a resource that is not available becomes a zombie process. This is because the parent process has not called the wait() function, and the child process has not been adopted by the init/system process.",
+      "evidence_quote": "Zombie process: Child terminates, Parent has not called wait()",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes",
+        "wrong option means the same as the answer: 'It becomes an orphan process'"
+      ],
+      "evidence_pid": "unit1_topic3-s32"
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "topic": "zombie and orphan processes",
+      "question": "What is the relationship between a parent process and its child processes?",
+      "options": [
+        "Parent process creates child process",
+        "Child process creates parent process",
+        "Parent process terminates child process",
+        "Child process terminates parent process"
+      ],
+      "answer": "A",
+      "explanation": "A parent process can create child processes, and child processes may create further processes. This forms a process tree, where each process is identified by a Process ID (PID). The objective of process scheduling is to ensure fair execution of processes on the CPU.",
+      "evidence_quote": "A parent process can create child processes, Child processes may create further processes, Forms a process tree, Each process is identified by a Process ID (PID).",
+      "ok": false,
+      "problems": [
+        "wrong option means the same as the answer: 'Child process creates parent process'",
+        "wrong option means the same as the answer: 'Parent process terminates child process'",
+        "wrong option means the same as the answer: 'Child process terminates parent process'"
+      ],
+      "evidence_pid": "unit1_topic3-s22"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "dispatcher",
+      "question": "What is the primary function of the dispatcher module?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "explanation": "The dispatcher's main role is to manage the CPU allocation to processes based on the short-term scheduler.",
+      "evidence_quote": "‘The dispatcher is a module that: • Gives control of the CPU to the process selected by the short-term scheduler.’",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": "unit1_topic2-s16"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "dispatcher",
+      "question": "Which of the following best describes the function of the dispatcher?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "explanation": "The dispatcher is responsible for switching between different processes, ensuring that each process gets the time it needs.",
+      "evidence_quote": "‘• Switches CPU to user mode’” , ",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": "unit1_topic2-s17"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "scheduling criteria",
+      "question": "Which of the following is NOT a key consideration in evaluating a scheduling algorithm's effectiveness?",
+      "options": [
+        "The CPU Utilization metric is always a primary concern.",
+        "Throughput is directly proportional to CPU utilization.",
+        "Turnaround Time is a critical indicator of system performance.",
+        "Waiting Time is directly related to the number of processes in the ready queue."
+      ],
+      "answer": "A",
+      "explanation": "The notes emphasize that turnaround time and waiting time are crucial indicators of system performance, while CPU utilization is a primary concern.  Waiting time is directly related to the number of processes in the ready queue, not the overall system performance.",
+      "evidence_quote": "‘Turnaround Time is a critical indicator of system performance, while Waiting Time is directly related to the number of processes in the ready queue, not the overall system performance.’",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes",
+        "wrong option is also stated in the evidence: 'Turnaround Time is a critical indicator of system performance.'",
+        "wrong option is also stated in the evidence: 'Waiting Time is directly related to the number of processes in the ready queue.'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "scheduling criteria",
+      "question": "What does 'Throughput' primarily measure in the context of CPU scheduling?",
+      "options": [
+        "The amount of time a process spends in the ready queue.",
+        "The number of processes completed per unit time.",
+        "The total time a process spends waiting in the ready queue.",
+        "The CPU utilization of the system."
+      ],
+      "answer": "A",
+      "explanation": "The notes explicitly state that throughput measures the number of processes completed per unit time. This is the core definition of throughput.",
+      "evidence_quote": "‘Throughput is the number of processes completed per unit time.’",
+      "ok": false,
+      "problems": [
+        "wrong option is also stated in the evidence: 'The number of processes completed per unit time.'",
+        "wrong option means the same as the answer: 'The total time a process spends waiting in the ready queue.'"
+      ],
+      "evidence_pid": "unit1_topic2-s19"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "scheduling criteria",
+      "question": "A scheduling algorithm aims to maximize which of the following criteria?",
+      "options": [
+        "Response Time",
+        "Waiting Time",
+        "Throughput",
+        "CPU Utilization"
+      ],
+      "answer": "A",
+      "explanation": "The notes highlight that an ideal scheduling algorithm aims to maximize CPU utilization and throughput, which are directly related to the criteria mentioned.",
+      "evidence_quote": "‘An ideal scheduling algorithm should aim to: • Maximize CPU utilization • Throughput • Turnaround Time’",
+      "ok": true,
+      "problems": [],
+      "evidence_pid": "unit1_topic2-s20"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "scheduling criteria",
+      "question": "What is a key aspect of the CPU scheduler's role?",
+      "options": [
+        "To manage the CPU's resources effectively.",
+        "To ensure fairness among all processes.",
+        "To minimize the time spent waiting in the ready queue.",
+        "To maximize the number of processes completed."
+      ],
+      "answer": "B",
+      "explanation": "The notes emphasize the scheduler's role in selecting a process for execution, which is a core function of the CPU scheduler.",
+      "evidence_quote": "‘The CPU scheduler (short-term scheduler): • Selects a process from the ready queue’",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": "unit1_topic2-s07"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "process states",
+      "question": "What is the primary reason for a process to transition from the 'New' state?",
+      "options": [
+        "Waiting",
+        "Ready",
+        "Terminated",
+        "Running"
+      ],
+      "answer": "A",
+      "explanation": "The 'New' state signifies that a process is being created and is not yet running. It’s the initial state of process creation.",
+      "evidence_quote": "‘As a process executes, it changes state. The 'New' state represents the process being created and is not yet running.' – Unit 1, Topic 3, p3",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "process states",
+      "question": "Which of the following best describes the 'Running' state?",
+      "options": [
+        "Waiting",
+        "Ready",
+        "Terminated",
+        "New"
+      ],
+      "answer": "B",
+      "explanation": "The 'Running' state indicates that the process is currently executing instructions.",
+      "evidence_quote": "‘Instructions are currently being executed’ – Unit 1, Topic 3, p3",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "process states",
+      "question": "What does the 'Waiting' state signify?",
+      "options": [
+        "Process is running",
+        "Process is terminated",
+        "Process is ready",
+        "Process is being created"
+      ],
+      "answer": "C",
+      "explanation": "The 'Waiting' state means the process is waiting for an event or resource to become available, such as I/O completion.",
+      "evidence_quote": "‘Process is waiting for an event (e.g., I/O completion)’ – Unit 1, Topic 3, p3",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "process states",
+      "question": "The 'Terminated' state is a result of what?",
+      "options": [
+        "Process is running",
+        "Process is waiting",
+        "Process is ready",
+        "Process is being created"
+      ],
+      "answer": "D",
+      "explanation": "The 'Terminated' state signifies that the process has finished its execution and is no longer active.",
+      "evidence_quote": "‘Process has finished execution’ – Unit 1, Topic 3, p3",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "context switch",
+      "question": "What is the primary purpose of a context switch?",
+      "options": [
+        "To automatically allocate memory for each process.",
+        "To ensure that each process has the same amount of CPU time.",
+        "To transfer data between processes.",
+        "To execute a process's instructions."
+      ],
+      "answer": "A",
+      "explanation": "A context switch is a fundamental operation in operating systems that allows the CPU to switch between different processes, enabling multitasking.",
+      "evidence_quote": "‘A context switch occurs when: • CPU switches from one process to another\nSteps involved: 1.Save the state of the current process in its PCB\n2.Load the saved state of the next process””, , ",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": "unit1_topic3-s19"
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "zombie and orphan processes",
+      "question": "Which of the following best describes the behavior of a zombie process?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "C",
+      "explanation": "Zombie processes are created when a parent process terminates but the child process has not yet called its wait() method. They remain in the process table, consuming resources even though they are not actively executing any instructions.",
+      "evidence_quote": "The notes state: 'Child terminates'",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "zombie and orphan processes",
+      "question": "What happens when a parent process terminates before a child process calls its wait() method?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "B",
+      "explanation": "When a parent process terminates before a child process calls its wait() method, the child process remains in the process table, effectively becoming a zombie process.",
+      "evidence_quote": "The notes state: 'Parent terminates before child'",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "zombie and orphan processes",
+      "question": "A process is considered an orphan process when it is terminated by its parent process but has not been adopted by any process.",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "D",
+      "explanation": "An orphan process is a process that has been terminated by its parent but is not part of any process tree or system process. It remains in the process table, unused.",
+      "evidence_quote": "The notes state: 'Child processes may create further processes'",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "gemma3:1b",
+      "topic": "zombie and orphan processes",
+      "question": "What is the primary goal of process scheduling?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": "A",
+      "explanation": "The objective of process scheduling is to maximize CPU utilization, support time sharing, and ensure fairness among processes.",
+      "evidence_quote": "The notes state: 'The operating system must provide mechanisms for...'",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "interrupts",
+      "question": "What is the purpose of saving CPU state in interrupt handling?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "..."
+      ],
+      "answer": "A",
+      "explanation": "According to the notes, saving CPU state is necessary to restore it after executing an interrupt service routine.",
+      "evidence_quote": "[pid] \"An operating system is interrupt-driven. • Interrupt transfers control to an Interrupt Service Routine (ISR) • Uses an interrupt vector containing addresses of service routines • CPU state (program counter, registers) is saved\"}, ",
+      "ok": false,
+      "problems": [
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": "unit1_topic1-s16"
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "interrupts",
+      "question": "What is the correct method for identifying an interrupt?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "..."
+      ],
+      "answer": "B",
+      "explanation": "The notes state that interrupt identification methods include polling and vectored interrupt systems.",
+      "evidence_quote": "[pid] \"Interrupt identification methods: • Polling • Vectored interrupt systems\"}, ",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "interrupts",
+      "question": "What is the correct order of steps in interrupt handling?",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "..."
+      ],
+      "answer": "C",
+      "explanation": "The notes state that interrupt handling steps include saving CPU state, identifying the interrupt type, executing the interrupt service routine, restoring CPU state, and resuming execution.",
+      "evidence_quote": "[pid] \"Steps in interrupt handling: 1.Save current CPU state 2.Identify interrupt type 3.Execute appropriate interrupt service routine 4.Restore CPU state 5.Resume execution\"",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "dispatcher",
+      "question": "What is the primary function of the dispatcher in CPU scheduling?",
+      "options": [
+        "Switches CPU to kernel mode",
+        "Switches CPU to user mode",
+        "Switches CPU to kernel mode",
+        "Switches CPU to user mode"
+      ],
+      "answer": "A",
+      "explanation": "The dispatcher gives control of the CPU to the process selected by the short-term scheduler.",
+      "evidence_quote": "[pid] gives control of the CPU to the process selected by the short-term scheduler. (unit1_topic2-s16, p4)",
+      "ok": false,
+      "problems": [
+        "repeated options",
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes",
+        "wrong option means the same as the answer: 'Switches CPU to user mode'",
+        "wrong option means the same as the answer: 'Switches CPU to kernel mode'",
+        "wrong option means the same as the answer: 'Switches CPU to user mode'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "dispatcher",
+      "question": "What is the dispatcher responsible for?",
+      "options": [
+        "Switches CPU to kernel mode",
+        "Switches CPU to user mode",
+        "Switches CPU to kernel mode",
+        "Switches CPU to user mode"
+      ],
+      "answer": "B",
+      "explanation": "The dispatcher performs context switch.",
+      "evidence_quote": "The dispatcher switches CPU to user mode. (unit1_topic2-s17, p4)",
+      "ok": false,
+      "problems": [
+        "repeated options",
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'Switches CPU to kernel mode'",
+        "wrong option means the same as the answer: 'Switches CPU to kernel mode'",
+        "wrong option means the same as the answer: 'Switches CPU to user mode'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "dispatcher",
+      "question": "What is the dispatcher responsible for in terms of performance?",
+      "options": [
+        "Switches CPU to kernel mode",
+        "Switches CPU to user mode",
+        "Switches CPU to kernel mode",
+        "Switches CPU to user mode"
+      ],
+      "answer": "C",
+      "explanation": "The dispatcher switches CPU to user mode.",
+      "evidence_quote": "The dispatcher switches CPU to user mode. (unit1_topic2-s18, p4)",
+      "ok": false,
+      "problems": [
+        "repeated options",
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'Switches CPU to kernel mode'",
+        "wrong option means the same as the answer: 'Switches CPU to user mode'",
+        "wrong option means the same as the answer: 'Switches CPU to user mode'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "scheduling criteria",
+      "question": "What is the primary goal of CPU Utilization in scheduling?",
+      "options": [
+        "Minimize Waiting Time",
+        "Maximize Response Time",
+        "Ensure Fairness among Processes",
+        "Maximize Throughput"
+      ],
+      "answer": "A",
+      "explanation": "According to the notes, CPU Utilization is the percentage of time CPU is busy.",
+      "evidence_quote": "[pid]: \"CPU Utilization is the percentage of time CPU is busy\".",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "scheduling criteria",
+      "question": "What is the primary goal of Throughput in scheduling?",
+      "options": [
+        "Minimize Waiting Time",
+        "Maximize Response Time",
+        "Ensure Fairness among Processes",
+        "Maximize CPU Utilization"
+      ],
+      "answer": "B",
+      "explanation": "The notes state that Throughput is the number of processes completed per unit time.",
+      "evidence_quote": "[pid]: \"Throughput is the number of processes completed per unit time\".",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "scheduling criteria",
+      "question": "What is the primary goal of Turnaround Time in scheduling?",
+      "options": [
+        "Minimize Waiting Time",
+        "Maximize Response Time",
+        "Ensure Fairness among Processes",
+        "Maximize Throughput"
+      ],
+      "answer": "A",
+      "explanation": "The notes state that Turnaround Time is the time from submission to completion of a process.",
+      "evidence_quote": "[pid]: \"Turnaround Time is the time from submission to completion of a process\".",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "scheduling criteria",
+      "question": "What is the primary goal of Waiting Time in scheduling?",
+      "options": [
+        "Minimize Waiting Time",
+        "Maximize Response Time",
+        "Ensure Fairness among Processes",
+        "Maximize Throughput"
+      ],
+      "answer": "C",
+      "explanation": "The notes state that Waiting Time is the total time a process spends waiting in the ready queue.",
+      "evidence_quote": "[pid]: \"Waiting Time is the total time a process spends waiting in the ready queue\".",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "scheduling criteria",
+      "question": "What is the primary goal of Response Time in scheduling?",
+      "options": [
+        "Minimize Waiting Time",
+        "Maximize Response Time",
+        "Ensure Fairness among Processes",
+        "Maximize Throughput"
+      ],
+      "answer": "D",
+      "explanation": "The notes state that Response Time is the time from request submission to first response.",
+      "evidence_quote": "[pid]: \"Response Time is the time from request submission to first response\".",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "process states",
+      "question": "What is the correct state of a process when it is waiting for an event?",
+      "options": [
+        "New",
+        "Running",
+        "Waiting",
+        "Terminated"
+      ],
+      "answer": "A",
+      "explanation": "A process is in the waiting state when it is waiting for an event, as stated in the evidence_quote: \"o Process is waiting for an event (e.g., I/O completion)\".",
+      "evidence_quote": "[pid] 1. New o Process is being created 2. Running o Instructions are currently being executed 3. Waiting o Process is waiting for an event (e.g., I/O completion) 4. Readied o Process is waiting to be assigned to a CPU 5. Terminated o Process has finished execution\"}, ",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "process states",
+      "question": "What is the correct step involved in context switching?",
+      "options": [
+        "Save the state of the current process in its PCB",
+        "Load the saved state of the next process",
+        "Save the state of the next process in its PCB",
+        "Load the saved state of the current process in its PCB"
+      ],
+      "answer": "A",
+      "explanation": "The correct step involved in context switching is saving the state of the current process in its PCB, as stated in the evidence_quote: \"1.Save the state of the current process in its PCB 2.Load the saved state of the next process\".",
+      "evidence_quote": "[pid] 1. New o Process is being created 2. Running o Instructions are currently being executed 3. Waiting o Process is waiting for an event (e.g., I/O completion) 4. Readied o Process is waiting to be assigned to a CPU 5. Terminated o Process has finished execution\"}, ",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'Load the saved state of the next process'",
+        "wrong option means the same as the answer: 'Save the state of the next process in its PCB'",
+        "wrong option means the same as the answer: 'Load the saved state of the current process in its PCB'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "process states",
+      "question": "What happens if a parent process terminates before a child process?",
+      "options": [
+        "The child process is terminated",
+        "The parent process is terminated",
+        "The child process is waiting for an event",
+        "The parent process is waiting for an event"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is that the child process is waiting for an event, as stated in the evidence_quote: \"o Process is waiting for an event (e.g., I/O completion)\".",
+      "evidence_quote": "[pid] 1. New o Process is being created 2. Running o Instructions are currently being executed 3. Waiting o Process is waiting for an event (e.g., I/O completion) 4. Readied o Process is waiting to be assigned to a CPU 5. Terminated o Process has finished execution\"",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "wrong option means the same as the answer: 'The parent process is terminated'",
+        "wrong option means the same as the answer: 'The child process is waiting for an event'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "context switch",
+      "question": "What is the purpose of saving the state of a process in its PCB?",
+      "options": [
+        "... Save the state of the current process in its memory",
+        "... Save the state of the current process in its PCB",
+        "... Load the saved state of the next process",
+        "... Load the saved state of the current process in its memory"
+      ],
+      "answer": "A",
+      "explanation": "According to the notes, the correct answer is 'Save the state of the current process in its PCB'.",
+      "evidence_quote": "[pid] \"...the CPU switches from executing one process to another, the system performs a context switch...\" (unit1_topic3-s09 p4)], [pid] \"...the system performs a context switch...\" (unit1_topic3-s20 p6)], [pid] \"...the CPU switches from executing one process to another, the system performs a context switch...\" (unit1_topic3-s19 p6)]}, {",
+      "ok": false,
+      "problems": [
+        "evidence quote is not in the notes",
+        "answer is not supported by the notes",
+        "wrong option means the same as the answer: '... Save the state of the current process in its PCB'",
+        "wrong option means the same as the answer: '... Load the saved state of the next process'",
+        "wrong option means the same as the answer: '... Load the saved state of the current process in its memory'"
+      ],
+      "evidence_pid": null
+    },
+    {
+      "model": "llama3.2:1b",
+      "topic": "zombie and orphan processes",
+      "ok": false,
+      "problems": [
+        "reply was not valid JSON"
+      ],
+      "raw": "{\"mcqs\": [\n{\"question\": \"What is the purpose of a Zombie process?\", \"options\": [\"Prevent a child process from terminating\", \"Prevent a child process from being adopted by the init/system process\", \"Prevent a child process from being terminated by its parent\", \"Prevent a child process from being adopted by the init/system process\"], \"answer\": \"A\", \"explanation\": \"A Zombie process is a child process that has not been terminated by its parent, and the parent has not called wait().\", \"evidence_quote"
+    }
+  ]
+}

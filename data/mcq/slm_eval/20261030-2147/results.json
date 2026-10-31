@@ -1,0 +1,672 @@
+{
+  "summary": [
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "mcqs": 14,
+      "passed": 14,
+      "pass_rate": 1.0,
+      "rewrites_accepted": 8,
+      "rewrite_rate": 0.571,
+      "calls_failed": 0,
+      "problems": {
+        "explanation too long": 3,
+        "not a question": 1,
+        "explanation adds things not in the notes": 2
+      },
+      "seconds_per_call": 8.2,
+      "tokens_per_second": 18.6,
+      "memory_gb": 1.17
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "mcqs": 14,
+      "passed": 14,
+      "pass_rate": 1.0,
+      "rewrites_accepted": 12,
+      "rewrite_rate": 0.857,
+      "calls_failed": 0,
+      "problems": {
+        "explanation adds things not in the notes": 2
+      },
+      "seconds_per_call": 8.4,
+      "tokens_per_second": 15.8,
+      "memory_gb": 1.89
+    }
+  ],
+  "mcqs": [
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "interrupts",
+      "question": "In the notes, which of the following is described as: \"CPU state (program counter, registers) is saved\"?",
+      "template_question": "In the notes, which of the following is described as: \"CPU state (program counter, registers) is saved\"?",
+      "options": [
+        "Control Program",
+        "Direct Memory Access",
+        "Interrupts",
+        "Solid State Drives (SSD)"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "evidence_quote": "CPU state (program counter, registers) is saved",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which of the following is described as: 'CPU state (program counter, registers) is saved'?",
+      "proposed_explanation": "The correct answer is C. Interrupts. According to the course notes, interrupts are described as an operating system being interrupt-driven. They involve transferring control to an Interrupt Service Routine (ISR), using an interrupt vector containing addresses of service routines. Additionally, the notes state that the CPU state (program counter, registers) is saved during interrupts.",
+      "ok": true,
+      "problems": [
+        "explanation too long"
+      ]
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "interrupts",
+      "question": "In the notes, which of the following is described as: \"User requests (system calls)\"?",
+      "template_question": "In the notes, which of the following is described as: \"User requests (system calls)\"?",
+      "options": [
+        "Resource Allocator",
+        "Application Programs",
+        "Operating System",
+        "Interrupts"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "evidence_quote": "User requests (system calls)",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which of the following is described as: 'User requests (system calls)'",
+      "proposed_explanation": "The correct answer is D. Interrupts. According to the course notes, interrupts are described as 'User requests (system calls)'. This is because an operating system is interrupt-driven, and an interrupt is a software-generated interrupt caused by user requests or system calls.",
+      "ok": true,
+      "problems": [
+        "not a question"
+      ]
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "dispatcher",
+      "question": "Which of the following is described as: 'Gives control of the CPU to the process selected by the short-term scheduler'?",
+      "template_question": "In the notes, which of the following is described as: \"Gives control of the CPU to the process selected by the short-term scheduler\"?",
+      "options": [
+        "Dispatcher",
+        "CPU burst",
+        "I/O-bound processes",
+        "CPU-bound processes"
+      ],
+      "answer": "A",
+      "explanation": "The dispatcher is a module that gives control of the CPU to the process selected by the short-term scheduler. This is the correct answer based on the course notes provided.",
+      "evidence_quote": "Gives control of the CPU to the process selected by the short-term scheduler",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "Which of the following is described as: 'Gives control of the CPU to the process selected by the short-term scheduler'? ",
+      "proposed_explanation": "The dispatcher is a module that gives control of the CPU to the process selected by the short-term scheduler. This is the correct answer based on the course notes provided.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "scheduling criteria",
+      "question": "Which term in 'Scheduling Criteria' refers to 'Percentage of time CPU is busy'?",
+      "template_question": "In \"Scheduling Criteria\", which term matches this description: \"Percentage of time CPU is busy\"?",
+      "options": [
+        "Throughput",
+        "Waiting Time",
+        "Turnaround Time",
+        "CPU Utilization"
+      ],
+      "answer": "D",
+      "explanation": "The term that matches the description 'Percentage of time CPU is busy' in the context of 'Scheduling Criteria' is 'CPU Utilization'. This criterion evaluates the efficiency of CPU usage by measuring the percentage of time the CPU is active.",
+      "evidence_quote": "CPU Utilization: Percentage of time CPU is busy",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "Which term in 'Scheduling Criteria' refers to 'Percentage of time CPU is busy'? ",
+      "proposed_explanation": "The term that matches the description 'Percentage of time CPU is busy' in the context of 'Scheduling Criteria' is 'CPU Utilization'. This criterion evaluates the efficiency of CPU usage by measuring the percentage of time the CPU is active.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "scheduling criteria",
+      "question": "In \"Scheduling Criteria\", what does \"Response Time\" refer to?",
+      "template_question": "In \"Scheduling Criteria\", what does \"Response Time\" refer to?",
+      "options": [
+        "Total time a process spends waiting in the ready queue",
+        "Number of processes completed per unit time",
+        "Percentage of time CPU is busy",
+        "Time from request submission to first response; Important in time-sharing systems"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "evidence_quote": "Response Time: Time from request submission to first response; Important in time-sharing systems",
+      "difficulty": "hard",
+      "rewrite_accepted": false,
+      "proposed_question": "What does 'Response Time' refer to in 'Scheduling Criteria'? ",
+      "proposed_explanation": "Response Time is the time from when a request is submitted until the first response is received. This is particularly important in time-sharing systems where timely responses are crucial for user satisfaction and efficient resource management.",
+      "ok": true,
+      "problems": [
+        "explanation adds things not in the notes"
+      ]
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "scheduling criteria",
+      "question": "Which term in 'Scheduling Criteria' refers to 'Number of processes completed per unit time'?",
+      "template_question": "In \"Scheduling Criteria\", which term matches this description: \"Number of processes completed per unit time\"?",
+      "options": [
+        "Throughput",
+        "Response Time",
+        "Waiting Time",
+        "CPU Utilization"
+      ],
+      "answer": "A",
+      "explanation": "The term that matches the description 'Number of processes completed per unit time' in the context of 'Scheduling Criteria' is Throughput. Throughput is a measure of the efficiency of a system, specifically how many tasks or processes are completed in a given time period.",
+      "evidence_quote": "Throughput: Number of processes completed per unit time",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "Which term in 'Scheduling Criteria' refers to 'Number of processes completed per unit time'? ",
+      "proposed_explanation": "The term that matches the description 'Number of processes completed per unit time' in the context of 'Scheduling Criteria' is Throughput. Throughput is a measure of the efficiency of a system, specifically how many tasks or processes are completed in a given time period.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "process states",
+      "question": "Which term describes a process that is being created?",
+      "template_question": "In \"Common Process States\", which term matches this description: \"Process is being created\"?",
+      "options": [
+        "Ready",
+        "New",
+        "Waiting",
+        "Running"
+      ],
+      "answer": "B",
+      "explanation": "The correct answer is B. New because it matches the description of a process being created, as indicated in the course notes.",
+      "evidence_quote": "New: Process is being created",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "Which term describes a process that is being created?",
+      "proposed_explanation": "The correct answer is B. New because it matches the description of a process being created, as indicated in the course notes.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "process states",
+      "question": "Which term describes a process that is waiting to be assigned to a CPU?",
+      "template_question": "In \"Common Process States\", which term matches this description: \"Process is waiting to be assigned to a CPU\"?",
+      "options": [
+        "Ready",
+        "Running",
+        "New",
+        "Terminated"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is A. Ready. According to the course notes, a process is in the Ready state when it is waiting to be assigned to a CPU.",
+      "evidence_quote": "Ready: Process is waiting to be assigned to a CPU",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "Which term describes a process that is waiting to be assigned to a CPU?",
+      "proposed_explanation": "The correct answer is A. Ready. According to the course notes, a process is in the Ready state when it is waiting to be assigned to a CPU.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "process states",
+      "question": "Which term describes the state where instructions are currently being executed?",
+      "template_question": "In \"Common Process States\", which term matches this description: \"Instructions are currently being executed\"?",
+      "options": [
+        "Waiting",
+        "New",
+        "Ready",
+        "Running"
+      ],
+      "answer": "D",
+      "explanation": "The correct answer is D. Running because it matches the description of instructions being currently executed. The other options refer to different states: New (being created), Ready (waiting to be assigned to a CPU), and Terminated (finished execution).",
+      "evidence_quote": "Running: Instructions are currently being executed",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "Which term describes the state where instructions are currently being executed?",
+      "proposed_explanation": "The correct answer is D. Running because it matches the description of instructions being currently executed. The other options refer to different states: New (being created), Ready (waiting to be assigned to a CPU), and Terminated (finished execution).",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "context switch",
+      "question": "In the notes, which of the following is described as: \"CPU switches from one process to another\"?",
+      "template_question": "In the notes, which of the following is described as: \"CPU switches from one process to another\"?",
+      "options": [
+        "CPU-Bound Process",
+        "Swapping",
+        "Context Switch",
+        "CPU registers"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "evidence_quote": "CPU switches from one process to another",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which of the following describes the process where the CPU switches from one process to another?",
+      "proposed_explanation": "A context switch is described as the CPU switching from one process to another. According to the course notes, a context switch involves saving the state of the current process in its PCB (Process Control Block) and then loading the saved state of the next process. This ensures that the CPU can efficiently switch between processes without losing any information.",
+      "ok": true,
+      "problems": [
+        "explanation too long"
+      ]
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "context switch",
+      "question": "Which of the following is described as 'Load the saved state of the next process'?",
+      "template_question": "In the notes, which of the following is described as: \"Load the saved state of the next process\"?",
+      "options": [
+        "Program counter",
+        "Common Process States",
+        "exec()",
+        "Context Switch"
+      ],
+      "answer": "D",
+      "explanation": "The correct answer is D. Context Switch. According to the course notes, a context switch involves saving the state of the current process in the PCB (Process Control Block) and then loading the saved state of the next process. This process is described as 'Load the saved state of the next process'.",
+      "evidence_quote": "Load the saved state of the next process",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "Which of the following is described as 'Load the saved state of the next process'?",
+      "proposed_explanation": "The correct answer is D. Context Switch. According to the course notes, a context switch involves saving the state of the current process in the PCB (Process Control Block) and then loading the saved state of the next process. This process is described as 'Load the saved state of the next process'.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "context switch",
+      "question": "Which of the following is described as 'No useful work is done during switching'?",
+      "template_question": "In the notes, which of the following is described as: \"No useful work is done during switching\"?",
+      "options": [
+        "Scheduling Queues",
+        "Context Switch",
+        "Accounting information",
+        "Heap"
+      ],
+      "answer": "B",
+      "explanation": "The correct answer is B. Context Switch. According to the course notes, context switch time is overhead and no useful work is done during switching. This is because the notes mention that the time depends on hardware support and PCB complexity, indicating that the switching process itself does not contribute to any useful work.",
+      "evidence_quote": "No useful work is done during switching",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "Which of the following is described as 'No useful work is done during switching'? ",
+      "proposed_explanation": "The correct answer is B. Context Switch. According to the course notes, context switch time is overhead and no useful work is done during switching. This is because the notes mention that the time depends on hardware support and PCB complexity, indicating that the switching process itself does not contribute to any useful work.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "zombie and orphan processes",
+      "question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Parent terminates before child; Child is adopted by init/system process\"?",
+      "template_question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Parent terminates before child; Child is adopted by init/system process\"?",
+      "options": [
+        "Orphan process",
+        "exec()",
+        "Cascading Termination",
+        "Zombie process"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "evidence_quote": "Orphan process: Parent terminates before child; Child is adopted by init/system process",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which term describes a parent process that terminates before its child process, and the child is adopted by the init/system process?",
+      "proposed_explanation": "The correct answer is A. Orphan process. An orphan process is defined as a child process that terminates before its parent process has called the wait() function. In the context of 'Zombie and Orphan Processes', this scenario is described as a parent process terminating before its child, with the child being adopted by the init/system process.",
+      "ok": true,
+      "problems": [
+        "explanation too long"
+      ]
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "mode": "locked",
+      "topic": "zombie and orphan processes",
+      "question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Child terminates; Parent has not called wait()\"?",
+      "template_question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Child terminates; Parent has not called wait()\"?",
+      "options": [
+        "Zombie process",
+        "Common Process States",
+        "Process Termination",
+        "Orphan process"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "evidence_quote": "Zombie process: Child terminates; Parent has not called wait()",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which term describes a child process that terminates without its parent calling `wait()`?",
+      "proposed_explanation": "A zombie process is characterized by a child process terminating without its parent calling `wait()`. This means the parent has not awaited the child's termination, resulting in the child process being left in a zombie state.",
+      "ok": true,
+      "problems": [
+        "explanation adds things not in the notes"
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "interrupts",
+      "question": "In the notes, which of the following is described as: \"CPU state (program counter, registers) is saved\"?",
+      "template_question": "In the notes, which of the following is described as: \"CPU state (program counter, registers) is saved\"?",
+      "options": [
+        "Control Program",
+        "Direct Memory Access",
+        "Interrupts",
+        "Solid State Drives (SSD)"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "evidence_quote": "CPU state (program counter, registers) is saved",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which of the following is described as 'CPU state (program counter, registers) is saved' in the notes?",
+      "proposed_explanation": "The correct answer is 'Interrupts' because the notes state that when an interrupt occurs, the CPU state (program counter, registers) is saved to preserve the context before the interrupt service routine is executed. This is a key characteristic of interrupts in an operating system.",
+      "ok": true,
+      "problems": [
+        "explanation adds things not in the notes"
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "interrupts",
+      "question": "In the notes, which of the following is described as 'User requests (system calls)'?",
+      "template_question": "In the notes, which of the following is described as: \"User requests (system calls)\"?",
+      "options": [
+        "Resource Allocator",
+        "Application Programs",
+        "Operating System",
+        "Interrupts"
+      ],
+      "answer": "D",
+      "explanation": "The correct answer is D. Interrupts because the notes explicitly state that a trap or exception is a software-generated interrupt caused by user requests (system calls).",
+      "evidence_quote": "User requests (system calls)",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "In the notes, which of the following is described as 'User requests (system calls)'?",
+      "proposed_explanation": "The correct answer is D. Interrupts because the notes explicitly state that a trap or exception is a software-generated interrupt caused by user requests (system calls).",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "dispatcher",
+      "question": "Which of the following describes the module that gives control of the CPU to the process selected by the short-term scheduler?",
+      "template_question": "In the notes, which of the following is described as: \"Gives control of the CPU to the process selected by the short-term scheduler\"?",
+      "options": [
+        "Dispatcher",
+        "CPU burst",
+        "I/O-bound processes",
+        "CPU-bound processes"
+      ],
+      "answer": "A",
+      "explanation": "The dispatcher is the module that grants CPU control to the process chosen by the short-term scheduler. This is explicitly stated in the course notes.",
+      "evidence_quote": "Gives control of the CPU to the process selected by the short-term scheduler",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "Which of the following describes the module that gives control of the CPU to the process selected by the short-term scheduler?",
+      "proposed_explanation": "The dispatcher is the module that grants CPU control to the process chosen by the short-term scheduler. This is explicitly stated in the course notes.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "scheduling criteria",
+      "question": "In 'Scheduling Criteria', which term refers to the percentage of time the CPU is busy?",
+      "template_question": "In \"Scheduling Criteria\", which term matches this description: \"Percentage of time CPU is busy\"?",
+      "options": [
+        "Throughput",
+        "Waiting Time",
+        "Turnaround Time",
+        "CPU Utilization"
+      ],
+      "answer": "D",
+      "explanation": "The correct answer is CPU Utilization because it directly matches the description of the percentage of time the CPU is busy. This is explicitly stated in the course notes.",
+      "evidence_quote": "CPU Utilization: Percentage of time CPU is busy",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Scheduling Criteria', which term refers to the percentage of time the CPU is busy?",
+      "proposed_explanation": "The correct answer is CPU Utilization because it directly matches the description of the percentage of time the CPU is busy. This is explicitly stated in the course notes.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "scheduling criteria",
+      "question": "In 'Scheduling Criteria', what does 'Response Time' refer to?",
+      "template_question": "In \"Scheduling Criteria\", what does \"Response Time\" refer to?",
+      "options": [
+        "Total time a process spends waiting in the ready queue",
+        "Number of processes completed per unit time",
+        "Percentage of time CPU is busy",
+        "Time from request submission to first response; Important in time-sharing systems"
+      ],
+      "answer": "D",
+      "explanation": "Response Time is defined as the time from request submission to the first response, and it is important in time-sharing systems. This aligns with the note that Response Time refers to the time from submission to first response.",
+      "evidence_quote": "Response Time: Time from request submission to first response; Important in time-sharing systems",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Scheduling Criteria', what does 'Response Time' refer to?",
+      "proposed_explanation": "Response Time is defined as the time from request submission to the first response, and it is important in time-sharing systems. This aligns with the note that Response Time refers to the time from submission to first response.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "scheduling criteria",
+      "question": "In 'Scheduling Criteria', which term refers to the number of processes completed per unit time?",
+      "template_question": "In \"Scheduling Criteria\", which term matches this description: \"Number of processes completed per unit time\"?",
+      "options": [
+        "Throughput",
+        "Response Time",
+        "Waiting Time",
+        "CPU Utilization"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is 'Throughput' because it directly matches the definition given in the notes: 'Number of processes completed per unit time.'",
+      "evidence_quote": "Throughput: Number of processes completed per unit time",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Scheduling Criteria', which term refers to the number of processes completed per unit time?",
+      "proposed_explanation": "The correct answer is 'Throughput' because it directly matches the definition given in the notes: 'Number of processes completed per unit time.'",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "process states",
+      "question": "In 'Common Process States', which term describes a process that is being created?",
+      "template_question": "In \"Common Process States\", which term matches this description: \"Process is being created\"?",
+      "options": [
+        "Ready",
+        "New",
+        "Waiting",
+        "Running"
+      ],
+      "answer": "B",
+      "explanation": "The correct answer is 'New' because according to the course notes, the 'New' state indicates that a process is being created. This matches the description provided in the question.",
+      "evidence_quote": "New: Process is being created",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Common Process States', which term describes a process that is being created?",
+      "proposed_explanation": "The correct answer is 'New' because according to the course notes, the 'New' state indicates that a process is being created. This matches the description provided in the question.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "process states",
+      "question": "In 'Common Process States', which term describes a process that is waiting to be assigned to a CPU?",
+      "template_question": "In \"Common Process States\", which term matches this description: \"Process is waiting to be assigned to a CPU\"?",
+      "options": [
+        "Ready",
+        "Running",
+        "New",
+        "Terminated"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is 'Ready' because it matches the description of a process waiting to be assigned to a CPU, as stated in the course notes.",
+      "evidence_quote": "Ready: Process is waiting to be assigned to a CPU",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Common Process States', which term describes a process that is waiting to be assigned to a CPU?",
+      "proposed_explanation": "The correct answer is 'Ready' because it matches the description of a process waiting to be assigned to a CPU, as stated in the course notes.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "process states",
+      "question": "In 'Common Process States', which term describes a process that is currently executing instructions?",
+      "template_question": "In \"Common Process States\", which term matches this description: \"Instructions are currently being executed\"?",
+      "options": [
+        "Waiting",
+        "New",
+        "Ready",
+        "Running"
+      ],
+      "answer": "D",
+      "explanation": "The correct answer is 'Running' because it matches the description of instructions being executed. 'Running' is explicitly listed in the notes as the state where instructions are currently being executed.",
+      "evidence_quote": "Running: Instructions are currently being executed",
+      "difficulty": "hard",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Common Process States', which term describes a process that is currently executing instructions?",
+      "proposed_explanation": "The correct answer is 'Running' because it matches the description of instructions being executed. 'Running' is explicitly listed in the notes as the state where instructions are currently being executed.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "context switch",
+      "question": "Which of the following describes a situation where the CPU switches from one process to another?",
+      "template_question": "In the notes, which of the following is described as: \"CPU switches from one process to another\"?",
+      "options": [
+        "CPU-Bound Process",
+        "Swapping",
+        "Context Switch",
+        "CPU registers"
+      ],
+      "answer": "C",
+      "explanation": "The correct answer is C. Context Switch because the notes explicitly state that a context switch occurs when the CPU switches from one process to another. The other options refer to different concepts (e.g., CPU-bound processes, swapping, or CPU registers) that are not described in the notes.",
+      "evidence_quote": "CPU switches from one process to another",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "Which of the following describes a situation where the CPU switches from one process to another?",
+      "proposed_explanation": "The correct answer is C. Context Switch because the notes explicitly state that a context switch occurs when the CPU switches from one process to another. The other options refer to different concepts (e.g., CPU-bound processes, swapping, or CPU registers) that are not described in the notes.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "context switch",
+      "question": "In the notes, which of the following is described as 'Load the saved state of the next process'?",
+      "template_question": "In the notes, which of the following is described as: \"Load the saved state of the next process\"?",
+      "options": [
+        "Program counter",
+        "Common Process States",
+        "exec()",
+        "Context Switch"
+      ],
+      "answer": "D",
+      "explanation": "The correct answer is D. Context Switch because the notes explicitly state that a context switch involves saving the state of the current process and loading the saved state of the next process. This matches the description provided in the question.",
+      "evidence_quote": "Load the saved state of the next process",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "In the notes, which of the following is described as 'Load the saved state of the next process'?",
+      "proposed_explanation": "The correct answer is D. Context Switch because the notes explicitly state that a context switch involves saving the state of the current process and loading the saved state of the next process. This matches the description provided in the question.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "context switch",
+      "question": "In the notes, which of the following is described as: \"No useful work is done during switching\"?",
+      "template_question": "In the notes, which of the following is described as: \"No useful work is done during switching\"?",
+      "options": [
+        "Scheduling Queues",
+        "Context Switch",
+        "Accounting information",
+        "Heap"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "evidence_quote": "No useful work is done during switching",
+      "difficulty": "medium",
+      "rewrite_accepted": false,
+      "proposed_question": "Which of the following refers to a situation where no useful work is done during switching?",
+      "proposed_explanation": "The correct answer is B. Context Switch because the course notes explicitly state that 'No useful work is done during switching' is a key characteristic of context switches. This aligns with the question's wording.",
+      "ok": true,
+      "problems": [
+        "explanation adds things not in the notes"
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "zombie and orphan processes",
+      "question": "In 'Zombie and Orphan Processes', which term describes a situation where the parent process terminates before the child process, and the child is adopted by the init/system process?",
+      "template_question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Parent terminates before child; Child is adopted by init/system process\"?",
+      "options": [
+        "Orphan process",
+        "exec()",
+        "Cascading Termination",
+        "Zombie process"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is 'Orphan process' because it matches the description: the parent terminates before the child, and the child is adopted by the init/system process. A zombie process occurs when the child terminates but the parent has not called wait(), which is different from this scenario.",
+      "evidence_quote": "Orphan process: Parent terminates before child; Child is adopted by init/system process",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Zombie and Orphan Processes', which term describes a situation where the parent process terminates before the child process, and the child is adopted by the init/system process?",
+      "proposed_explanation": "The correct answer is 'Orphan process' because it matches the description: the parent terminates before the child, and the child is adopted by the init/system process. A zombie process occurs when the child terminates but the parent has not called wait(), which is different from this scenario.",
+      "ok": true,
+      "problems": []
+    },
+    {
+      "model": "qwen3:1.7b",
+      "mode": "locked",
+      "topic": "zombie and orphan processes",
+      "question": "In 'Zombie and Orphan Processes', which term describes a situation where the child process terminates and the parent has not called wait()?",
+      "template_question": "In \"Zombie and Orphan Processes\", which term matches this description: \"Child terminates; Parent has not called wait()\"?",
+      "options": [
+        "Zombie process",
+        "Common Process States",
+        "Process Termination",
+        "Orphan process"
+      ],
+      "answer": "A",
+      "explanation": "The correct answer is 'Zombie process' because it matches the description of a child process that terminates without the parent calling wait(), as defined in the notes.",
+      "evidence_quote": "Zombie process: Child terminates; Parent has not called wait()",
+      "difficulty": "medium",
+      "rewrite_accepted": true,
+      "proposed_question": "In 'Zombie and Orphan Processes', which term describes a situation where the child process terminates and the parent has not called wait()?",
+      "proposed_explanation": "The correct answer is 'Zombie process' because it matches the description of a child process that terminates without the parent calling wait(), as defined in the notes.",
+      "ok": true,
+      "problems": []
+    }
+  ]
+}
