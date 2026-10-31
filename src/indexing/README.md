@@ -16,14 +16,20 @@ index.save("indexes/bm25f_exp.pkl")
 index = LexicalIndex().load("indexes/bm25f_exp.pkl")
 ```
 
-Compare all methods on the pilot PDF:
+Setup and tests (Windows PowerShell or any shell, Python 3.11+):
 
 ```powershell
 pip install -r requirements.txt
-python experiments/member2_lexical_check.py
+python -m pytest -q                                   # all tests (130)
+python -m pytest -q tests/test_tokenizer.py tests/test_indexing.py tests/test_token_counter.py
+python experiments/member2_pr_checks.py               # BM25/BM25F vs reference formulas, token counts,
+                                                      # reading Bhavya's paragraphs.jsonl + tree.json
+python experiments/member2_lexical_check.py           # compare all methods on the pilot PDF
 python experiments/member2_lexical_check.py --show "what is DMA"
-python -m pytest tests/test_tokenizer.py tests/test_indexing.py
 ```
+
+`member2_pr_checks.py` reads `data/processed/<doc>/paragraphs.jsonl` and `tree.json`
+(Bhavya's ingestion output); use `--ingestion-dir PATH` if they are elsewhere.
 
 ## Files
 
@@ -130,7 +136,15 @@ This only shows the methods work and differ. The questions share many words with
 
 ## Open points for the team
 
-1. **Breadcrumb root:** if Bhavya's breadcrumbs start with the document title, set `BREADCRUMB_SKIP_ROOT = True` in `records.py`.
-2. **Tree format for `score_nodes`:** accepts a list of node dicts, a dict id → node, or an object with `.nodes`. Confirm with Bhavya's `load_tree`.
-3. **Glossary:** the seed list is small. The research pair should extend it from the textbook's index and headings, and expansion must be checked on dev questions, since it can also add noise.
-4. **Saved indexes** are pickle files: load only files the team made.
+1. **Token counts in ingestion (checked 2026-10-31):** ingestion writes `n_tokens` with its own
+   whitespace word count (`len(text.split())`), not the shared `count_tokens`, so the numbers
+   differ (e.g. "OPERATING SYSTEMS (UE24CS242B)": 3 vs 13). After this PR is merged, ingestion
+   should use `from src.utils.token_counter import count_tokens, count_breadcrumb` so that all
+   budgets use one counter. `member2_pr_checks.py` reports this check.
+2. **Breadcrumb root:** Bhavya's breadcrumbs start with the document id ("unit1_topic1 > Introduction")
+   and do not include the chapter title, so the BM25F `chapter` field currently holds the document id
+   (harmless, but it adds nothing). Either include the chapter title in breadcrumbs, as in the Interface
+   Agreement example, or set `BREADCRUMB_SKIP_ROOT = True` in `records.py`.
+3. **Tree format for `score_nodes`:** accepts a list of node dicts, a dict id → node, or an object with `.nodes`. Confirm with Bhavya's `load_tree`.
+4. **Glossary:** the seed list is small. The research pair should extend it from the textbook's index and headings, and expansion must be checked on dev questions, since it can also add noise.
+5. **Saved indexes** are pickle files: load only files the team made.
