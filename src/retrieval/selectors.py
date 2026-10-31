@@ -36,7 +36,14 @@ def select_score_ratio(query: str, tree: Any, index: Any, budget: int,
             break
         prefix.append(pid)
     include_breadcrumbs = bool(params.get("include_breadcrumbs", True))
-    return _fit_paragraphs(prefix, nodes, budget, _counter(params), include_breadcrumbs=include_breadcrumbs)
+    result = _fit_paragraphs(
+        prefix, nodes, budget, _counter(params),
+        include_breadcrumbs=include_breadcrumbs,
+    )
+    # Selection.ranked is always the complete corpus ranking; nodes contains
+    # only the score-ratio prefix that was eligible for delivery.
+    result.ranked = ranked
+    return result
 
 
 def select_score_gap(query: str, tree: Any, index: Any, budget: int,
@@ -56,7 +63,13 @@ def select_score_gap(query: str, tree: Any, index: Any, budget: int,
         largest_index = max(range(len(gaps)), key=lambda i: gaps[i])
         prefix = ranked[:largest_index + 1] if gaps[largest_index] > threshold else ranked
     include_breadcrumbs = bool(params.get("include_breadcrumbs", True))
-    return _fit_paragraphs(prefix, nodes, budget, _counter(params), include_breadcrumbs=include_breadcrumbs)
+    result = _fit_paragraphs(
+        prefix, nodes, budget, _counter(params),
+        include_breadcrumbs=include_breadcrumbs,
+    )
+    # Keep the full ranking for evaluation/debugging, not only the chosen prefix.
+    result.ranked = ranked
+    return result
 
 
 def select_adaptive_k(query: str, tree: Any, index: Any, budget: int,
@@ -107,7 +120,14 @@ def select_adaptive_k(query: str, tree: Any, index: Any, budget: int,
         chosen_k = min(n, largest_gap_index + 1 + buffer)
 
     include_breadcrumbs = bool(params.get("include_breadcrumbs", True))
-    return _fit_paragraphs(ranked[:chosen_k], nodes, budget, _counter(params), chosen_k, include_breadcrumbs)
+    result = _fit_paragraphs(
+        ranked[:chosen_k], nodes, budget, _counter(params),
+        chosen_k, include_breadcrumbs,
+    )
+    # ranked is the complete Member 2 corpus order; chosen_k only limits
+    # the evidence candidates selected for delivery.
+    result.ranked = ranked
+    return result
 
 
 def select(query: str, tree: Any, index: Any, budget: int,
