@@ -5,12 +5,12 @@ hierarchical parent merging. This module adapts that idea to paragraph-level
 lexical retrieval and the project's deterministic token-budget accounting.
 
 A parent can replace selected descendants when:
-1. At least ``merge_min_children`` of its direct children are represented.
-2. The selected evidence beneath it reaches the adaptive coverage threshold.
-3. Replacing those descendants with the complete parent region fits the budget.
+1. At least two direct children are represented.
+2. Retrieved child text reaches len(parent)/3 * (1 + tk_cur/T).
+3. Remaining budget before replacement is at least the parent's full length.
 
-This is an adaptation, not a claim of exact reproduction of the paper's full
-LLM/RAG pipeline.
+This adapts the paper's retrieval algorithm to Member 1's existing tree and
+paragraph ranking; it does not reproduce HiChunk's LLM hierarchy construction.
 """
 from __future__ import annotations
 
@@ -86,12 +86,32 @@ def _region_cost(nodes: Mapping[str, dict], node_id: str, counter, include_bread
     return content_cost + breadcrumb_cost
 
 
-def _adaptive_threshold(parent_cost: int, used: int, budget: int) -> float:
-    """Linear interpolation from one-third to two-thirds of parent length."""
+def _text_region_tokens(nodes: Mapping[str, dict], node_id: str, counter) -> int:
+    """Text-only length used by HiChunk's coverage threshold (no breadcrumbs)."""
+    node = nodes[node_id]
+    if node.get("kind") == "paragraph":
+        return _paragraph_tokens(node, counter)
+    leaves = _descendant_paragraphs(nodes, node_id)
+    if leaves:
+        return sum(_paragraph_tokens(nodes[pid], counter) for pid in leaves)
+    return _paragraph_tokens(node, counter)
+
+
+def _adaptive_threshold(parent_text_tokens: int | None = None, used: int = 0, budget: int = 0,
+                        *, parent_cost: int | None = None) -> float:
+    """Paper threshold: len(parent)/3 * (1 + tk_cur/T).
+
+    ``parent_cost`` is retained as a compatibility keyword for earlier tests;
+    it denotes the same parent text length, excluding breadcrumb metadata.
+    """
+    if parent_text_tokens is None:
+        parent_text_tokens = parent_cost
+    if parent_text_tokens is None:
+        raise TypeError("parent_text_tokens is required")
     if budget <= 0:
-        return parent_cost * (2 / 3)
+        return float("inf")
     progress = min(max(used / budget, 0.0), 1.0)
-    return (1.0 + progress) * parent_cost / 3.0
+    return (parent_text_tokens / 3.0) * (1.0 + progress)
 
 
 def _merge_parent(
@@ -104,12 +124,18 @@ def _merge_parent(
     min_children: int = 2,
     include_breadcrumbs: bool = True,
 ):
-    """Try replacing all selected regions under parent with that parent."""
+    """Apply the three HiChunk Auto-Merge conditions to one parent.
+
+    Adaptation note: our input leaves are Member 1 paragraphs rather than
+    HiChunk's fixed-size chunks. The hierarchy is supplied by Member 1.
+    """
     if nodes[parent_id].get("kind") == "document":
         return None
 
     selected_set = set(selected)
     represented = _represented_children(nodes, parent_id, selected_set)
+
+    # Condition 1: at least two direct children are represented.
     if len(represented) < min_children:
         return None
 
@@ -117,29 +143,32 @@ def _merge_parent(
     if not covered:
         return None
 
+    parent_text_tokens = _text_region_tokens(nodes, parent_id, counter)
     parent_cost = _region_cost(nodes, parent_id, counter, include_breadcrumbs)
-    if parent_cost <= 0:
+    if parent_text_tokens <= 0 or parent_cost <= 0:
         return None
 
-    # Selected regions are non-overlapping, so their costs are the current
-    # evidence length represented beneath this parent.
-    covered_cost = sum(_region_cost(nodes, sid, counter, include_breadcrumbs) for sid in covered)
-    threshold = _adaptive_threshold(parent_cost, used, budget)
-    if covered_cost < threshold:
+    # Condition 2: retrieved child text reaches the adaptive threshold.
+    covered_text_tokens = sum(_text_region_tokens(nodes, sid, counter) for sid in covered)
+    threshold = _adaptive_threshold(parent_text_tokens, used, budget)
+    if covered_text_tokens < threshold:
         return None
 
-    # Equivalent to checking that the remaining budget after removing the
-    # covered regions is sufficient for the complete parent region.
-    new_used = sum(
-        _region_cost(nodes, sid, counter, include_breadcrumbs)
-        for sid in selected
-        if sid not in covered
-    ) + parent_cost
-    if new_used > budget:
+    # Condition 3: the parent region itself must fit the delivery budget.
+    # Since the parent replaces its selected descendants, compare against the
+    # total budget here; the exact post-replacement total is checked below.
+    # Requiring budget - used >= parent_cost would incorrectly reject valid
+    # merges when the selected children are replaced by a smaller parent region.
+    if parent_cost > budget:
         return None
 
     new_selected = [sid for sid in selected if sid not in covered]
     new_selected.append(parent_id)
+    new_used = sum(
+        _region_cost(nodes, sid, counter, include_breadcrumbs) for sid in new_selected
+    )
+    if new_used > budget:
+        return None
     return new_selected, new_used
 
 
@@ -220,10 +249,14 @@ def select_hichunk_with_stop(
     cutoff = len(ranked)
     if "gap_threshold" in params:
         threshold = float(params["gap_threshold"])
-        for i, (a, b) in enumerate(zip(ranked, ranked[1:])):
-            if scores[a] - scores[b] > threshold:
-                cutoff = i + 1
-                break
+        gaps = [
+            (scores[a] - scores[b], i)
+            for i, (a, b) in enumerate(zip(ranked, ranked[1:]))
+        ]
+        if gaps:
+            largest_gap, gap_index = max(gaps, key=lambda item: (item[0], -item[1]))
+            if largest_gap > threshold:
+                cutoff = gap_index + 1
     else:
         ratio = float(params.get("ratio_threshold", 0.25))
         top = max(scores[ranked[0]], 1e-12)

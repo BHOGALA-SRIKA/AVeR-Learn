@@ -23,6 +23,12 @@ from .selectors import (
 )
 from .hichunk import select_hichunk, select_hichunk_with_stop
 from .emte import select_emte
+from .tree_baselines import (
+    select_section_then_paragraph,
+    select_best_granularity,
+    select_plain_automerge,
+    select_inex,
+)
 
 
 @dataclass
@@ -45,6 +51,10 @@ METHODS = {
     "hichunk": select_hichunk,
     "hichunk_with_stop": select_hichunk_with_stop,
     "emte": select_emte,
+    "section_then_paragraph": select_section_then_paragraph,
+    "best_granularity": select_best_granularity,
+    "plain_automerge": select_plain_automerge,
+    "inex": select_inex,
 }
 
 

@@ -8,5 +8,8 @@ __all__ = [
     "Selection", "select", "select_fixed_k", "select_score_ratio",
     "select_score_gap", "select_adaptive_k", "select_hichunk",
     "select_hichunk_with_stop", "select_emte", "emte_ablation",
-    "emte_ablation_suite",
+    "emte_ablation_suite", "select_section_then_paragraph", "select_best_granularity",
+    "select_plain_automerge", "select_inex",
 ]
+
+from .tree_baselines import (select_section_then_paragraph, select_best_granularity, select_plain_automerge, select_inex)

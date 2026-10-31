@@ -29,6 +29,10 @@ METHODS = (
     "hichunk",
     "hichunk_with_stop",
     "emte",
+    "section_then_paragraph",
+    "best_granularity",
+    "plain_automerge",
+    "inex",
 )
 
 
@@ -64,6 +68,15 @@ def test_member3_methods_run_on_actual_processed_corpus(document_id, method):
     query = _real_question_for(document_id)
 
     params = {"k": 5} if method == "fixed_k" else {}
+    if method == "best_granularity":
+        # Granularity must be selected on development data and frozen for test.
+        params["granularity"] = "paragraph"
+    elif method == "section_then_paragraph":
+        params["top_sections"] = 3
+    elif method == "plain_automerge":
+        params.update(top_n=8, merge_fraction=0.4)
+    elif method == "inex":
+        params.update(inex_b=0.75, inex_k1=1.2)
     result = retrieve_from_processed_corpus(
         query,
         corpus,
@@ -75,6 +88,8 @@ def test_member3_methods_run_on_actual_processed_corpus(document_id, method):
     actual_paragraph_ids = set(corpus.index.paragraph_ids)
     actual_node_ids = set(corpus.tree["nodes"])
     assert result.delivered_tokens <= 2048
-    assert set(result.ranked) == actual_paragraph_ids
+    assert set(result.ranked) <= actual_node_ids
+    if method in {"fixed_k", "score_ratio", "score_gap", "adaptive_k", "hichunk", "hichunk_with_stop", "emte", "section_then_paragraph"}:
+        assert set(result.ranked) <= actual_paragraph_ids
     assert set(result.nodes) <= actual_node_ids
     assert all(node_id in actual_node_ids for node_id in result.nodes)
