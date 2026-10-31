@@ -1,0 +1,37 @@
+# Compare every lexical method, with and without glossary expansion, on Unit 1.
+# Corpus: sections from Member 1's tree.json (experiments/build_corpus.py), the unit the MCQ pipeline retrieves.
+# Run:  python -m src.evaluation.evaluate_retrieval experiments/configs/unit1_all_methods.yaml
+name: unit1_all_methods
+corpus: data/processed/corpus_unit1_sections.jsonl
+questions: data/benchmark/questions.json
+split: dev            # dev while developing; switch to test ONCE for the final report
+ks: [1, 3, 5, 10]
+primary_metric: nDCG@10
+budgets: [256, 512, 1024]     # evidence tokens given to the generator
+baseline: bm25f               # the method the MCQ pipeline uses; every method is tested against it
+efficiency: true              # one fresh Python process per method (slower)
+efficiency_repeats: 5
+runs:
+  - {method: bm25}
+  - {method: bm25, expand: true}
+  - {method: bm25_headings}
+  - {method: bm25_headings, expand: true}
+  - {method: bm25f}
+  - {method: bm25f, expand: true}
+  - {method: tfidf}
+  - {method: tfidf, expand: true}
+  - {method: char_tfidf}
+  - {method: char_tfidf, expand: true}
+  - {method: ql_dirichlet}
+  - {method: ql_dirichlet, expand: true}
+  - {method: ql_jm}
+  - {method: ql_jm, expand: true}
+  - {method: rrf}
+  - {method: rrf, expand: true}
+  - {method: bm25_rm3}
+  - {method: bm25_rm3, expand: true}
+  - {method: bm25f_rm3}
+  - {method: bm25f_rm3, expand: true}
+  # Embedding baselines (not vectorless): the comparison point for the project's claim
+  - {method: dense}
+  - {method: hybrid}
