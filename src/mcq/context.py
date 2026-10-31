@@ -3,7 +3,7 @@
 Flow for one request ("make 3 MCQs on process states"):
 
 1. ``ContextRetriever.retrieve(topic)`` ranks the sections with the lexical index
-   (BM25F + OS glossary, no embeddings) and packs the best ones into a token
+   (BM25F, optional OS glossary, no embeddings) and packs the best ones into a token
    budget, so a small model's context window is not wasted.
 2. If the topic is not in the notes (e.g. "semaphores" in Unit 1) it returns no
    passages - the caller must not ask the SLM to make questions from nothing.
@@ -52,7 +52,10 @@ class Passage:
 
 
 class ContextRetriever:
-    def __init__(self, paragraphs: list[Paragraph], method: str = "bm25f", expand: bool = True) -> None:
+    def __init__(self, paragraphs: list[Paragraph], method: str = "bm25f", expand: bool = False) -> None:
+        """``expand``: OS glossary query expansion. Off by default: after the glossary was
+        frozen to textbook terms it changed little, and on Sreeram's benchmark it slightly
+        lowered BM25F (0.821 -> 0.813, old glossary). Decide on dev questions only."""
         self.paragraphs = list(paragraphs)
         self.by_pid = {p.pid: p for p in self.paragraphs}
         self.index = LexicalIndex(method=method, expand=expand)

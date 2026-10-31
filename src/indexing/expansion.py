@@ -1,12 +1,16 @@
 """Glossary-based query expansion: close the gap between student words and book words.
 
 BM25 only matches words that literally appear. A student may write "DMA"
-while the book says "direct memory access", or "when the computer is switched
-on" while the book says "bootstrap". A small course glossary fixes this
-without any neural model, fully offline:
+while the book says "direct memory access", or "software interrupt" while the
+notes say "trap". A small course glossary fixes this without any neural model,
+fully offline:
 
 - abbreviations: "dma" -> also search "direct memory access", and the reverse
-- synonyms:      "switched on" -> also search "boot bootstrap startup"
+- synonyms:      "software interrupt" -> also search "trap exception"
+
+The glossary (data/glossary/os_glossary.json) is FROZEN before the final test and
+holds only textbook terms. Entries written in students' own words ("switched on")
+were removed after review: some matched smoke-test questions word for word.
 
 The original query is always kept; expansion words are only added. Whether
 expansion helps must be measured on dev questions (it can also add noise),

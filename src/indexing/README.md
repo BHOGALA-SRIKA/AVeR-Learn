@@ -45,7 +45,7 @@ python experiments/member2_lexical_check.py --show "what is DMA"
 | `src/utils/token_counter.py` | The shared token counter for context budgets |
 | `src/indexing/records.py` | Turns paragraph records into body / heading / chapter fields |
 | `src/indexing/bm25_index.py` | The original rank_bm25 code, kept unchanged as the reference baseline |
-| `data/glossary/os_glossary.json` | Abbreviations and synonyms (research pair: extend this) |
+| `data/glossary/os_glossary.json` | Abbreviations and textbook synonyms, frozen before the final test |
 
 ## The tokenizer
 
@@ -72,7 +72,7 @@ Its rules are versioned (`TOKENIZER_VERSION`). A saved index built with a differ
 | `ql_jm` | Same, simpler smoothing | Optional comparison |
 | `rrf` | Combines the rankings of bm25f, ql_dirichlet and char_tfidf using only rank positions | Different methods fail on different questions |
 | `bm25_rm3`, `bm25f_rm3` | Searches once, takes the words most typical of the top paragraphs, and searches again with them added | Expansion from the corpus itself, no glossary needed. Can drift if the first search is wrong, and is known to be weak on small collections, so test it on dev questions |
-| `expand=True` | Adds glossary terms to the question: "DMA" → "direct memory access", "switched on" → "boot" | Bridges student words and book words, BM25's main weakness |
+| `expand=True` | Adds glossary terms to the question: "DMA" → "direct memory access", "software interrupt" → "trap" | Bridges abbreviations and textbook synonyms. Off by default; the glossary is frozen to textbook terms (see "Glossary leak" below) |
 
 ### BM25F formula (Robertson, Zaragoza & Taylor 2004)
 
@@ -128,11 +128,35 @@ Example: `LexicalIndex("bm25f", weights={"body": 1, "heading": 3, "chapter": 1},
 | --- | --- | --- | --- |
 | bm25 | 15/20 | 18/20 | 1/4 |
 | bm25f | 16/20 | 18/20 | 2/4 |
-| bm25f + expansion | 19/20 | 20/20 | 4/4 |
-| rrf + expansion | 19/20 | 20/20 | 4/4 |
+| bm25f + expansion (frozen glossary) | 17/20 | 19/20 | 2/4 |
+| rrf + expansion (frozen glossary) | 17/20 | 18/20 | 2/4 |
 | bm25f_rm3 | 16/20 | 18/20 | 2/4 |
 
 This only shows the methods work and differ. The questions share many words with the text and there are only 20, so these numbers are not results. Real comparisons need the team benchmark and Sreeram's evaluation harness.
+
+### Glossary leak (found in Sreeram's review, 2026-10-31)
+
+An earlier version of this table showed **4/4** student-wording questions at rank 1 for
+`bm25f + expansion` and `rrf + expansion`. That number was **not valid**: two glossary
+entries, "switched on" and "without the processor", copied smoke-test questions word for
+word ("What happens when the computer is switched on?", "How is data copied from disk to
+memory without the processor?"), and other entries ("turned on", "heart of the os",
+"middleman" ...) were also written in students' own words rather than taken from the
+textbook. On Sreeram's fair benchmark, expansion with that glossary slightly *lowered*
+BM25F (0.821 -> 0.813).
+
+What changed:
+
+- The glossary is **frozen** (`"version": "1.0-frozen-2026-10-31"`): standard textbook
+  abbreviations, plus only the synonyms the notes themselves state ("processor" = CPU;
+  "software interrupt" = trap / exception). All 14 student-phrasing entries were removed.
+  Change it only with the team, only from the textbook, and check changes on dev
+  questions, never on test questions.
+- `tests/test_indexing.py::test_glossary_is_frozen_and_does_not_leak_smoke_questions`
+  fails if a glossary phrase appears inside a smoke-test question again.
+- Expansion is **off by default** in `LexicalIndex` and in the MCQ retriever
+  (`ContextRetriever`). Whether to turn it on is decided on Sreeram's dev split with the
+  frozen glossary.
 
 ## Open points for the team
 
@@ -146,5 +170,5 @@ This only shows the methods work and differ. The questions share many words with
    (harmless, but it adds nothing). Either include the chapter title in breadcrumbs, as in the Interface
    Agreement example, or set `BREADCRUMB_SKIP_ROOT = True` in `records.py`.
 3. **Tree format for `score_nodes`:** accepts a list of node dicts, a dict id → node, or an object with `.nodes`. Confirm with Bhavya's `load_tree`.
-4. **Glossary:** the seed list is small. The research pair should extend it from the textbook's index and headings, and expansion must be checked on dev questions, since it can also add noise.
+4. **Glossary:** frozen on 2026-10-31 (see "Glossary leak"). Any change: only textbook terms, agreed by the team, checked on dev questions only.
 5. **Saved indexes** are pickle files: load only files the team made.
