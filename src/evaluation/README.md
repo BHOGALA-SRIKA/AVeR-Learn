@@ -5,6 +5,7 @@ Measures how well each retrieval method finds the evidence for a question, how m
 ## Run it
 
 ```powershell
+python experiments/build_corpus.py                                           # sections from Member 1's tree.json
 python experiments/build_benchmark.py                                        # merge drafts, check quotes, assign splits
 python -m src.evaluation.evaluate_retrieval experiments/configs/unit1_all_methods.yaml            # dev split
 python -m src.evaluation.evaluate_retrieval experiments/configs/unit1_all_methods.yaml --no-efficiency   # fast (~5 s)

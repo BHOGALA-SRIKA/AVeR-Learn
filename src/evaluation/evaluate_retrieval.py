@@ -40,7 +40,7 @@ from typing import Any
 
 import yaml
 
-from src.evaluation.benchmark import build_qrels, deliver, evidence_coverage, load_questions
+from src.evaluation.benchmark import build_qrels, deliver, evidence_coverage, full_text, load_questions
 from src.evaluation.dense_baseline import make_index
 from src.evaluation.metrics import evaluate_query, mean_metrics
 from src.evaluation.significance import bootstrap_ci, holm, randomization_test
@@ -68,7 +68,7 @@ def evaluate(config: dict[str, Any], split: str, out_dir: Path) -> dict[str, Any
     primary = config.get("primary_metric", f"nDCG@{max(ks)}")
 
     paragraphs = read_paragraphs(corpus)
-    texts = {p.pid: p.body for p in paragraphs}
+    texts = {p.pid: full_text(p) for p in paragraphs}
     questions = [q for q in load_questions(qpath) if split == "all" or q["split"] == split]
     judgements = build_qrels(questions, paragraphs)
     if judgements.unmatched:

@@ -7,8 +7,9 @@ small sentence-embedding model.
 - ``dense``:  BAAI/bge-small-en-v1.5 (33M parameters, 384 dimensions, ~64 MB),
   run on the CPU through ONNX Runtime (fastembed). Each paragraph (heading +
   text) becomes a vector; a question is scored by cosine similarity.
-- ``hybrid``: Reciprocal Rank Fusion of BM25 and dense (Hemanth's RRF code),
-  the standard "best of both" baseline.
+- ``hybrid``: Reciprocal Rank Fusion of BM25F and dense (Hemanth's RRF code),
+  the standard "best of both" baseline. BM25F, not BM25, so the lexical side
+  uses section headings just like the dense side does.
 
 The model is downloaded once into ``models/fastembed`` (on the first run, if
 the folder is empty) and afterwards loaded with the Hugging Face hub set to
@@ -28,7 +29,7 @@ from typing import Any, Iterable
 import numpy as np
 
 from src.indexing.base import Hit, Retriever
-from src.indexing.baselines import BM25Retriever
+from src.indexing.bm25f import BM25FRetriever
 from src.indexing.fusion import RRFRetriever
 from src.indexing.lexical import LexicalIndex
 from src.indexing.records import Paragraph, read_paragraphs, to_paragraphs
@@ -91,7 +92,7 @@ class DenseIndex:
     def build(self, paragraphs: Iterable[Any] | str | Path) -> "DenseIndex":
         items = read_paragraphs(paragraphs) if isinstance(paragraphs, (str, Path)) else to_paragraphs(paragraphs)
         dense = DenseRetriever(**self.params)
-        self._retriever = dense if self.method == "dense" else RRFRetriever([BM25Retriever(), dense])
+        self._retriever = dense if self.method == "dense" else RRFRetriever([BM25FRetriever(), dense])
         self._dense = dense
         self._retriever.fit(items)
         return self
@@ -104,7 +105,7 @@ class DenseIndex:
         The model file is shared by all PDFs and reported separately (model_bytes)."""
         with Path(path).open("wb") as fh:
             pickle.dump({"pids": self._dense.pids, "vectors": self._dense.vectors.astype(np.float32),
-                         "bm25": self._retriever.retrievers[0] if self.method == "hybrid" else None}, fh)
+                         "bm25f": self._retriever.retrievers[0] if self.method == "hybrid" else None}, fh)
 
 
 def make_index(method: str, expand: bool = False, **params: Any):
