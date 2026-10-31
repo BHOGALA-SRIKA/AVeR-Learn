@@ -1,0 +1,1294 @@
+[
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-001",
+  "question": "Why would programmers struggle if computers had no OS?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "They would have to work directly with the CPU, memory, disk and I/O devices, needing detailed hardware knowledge; portability would be very limited.",
+  "gold_quotes": [
+   {
+    "quote": "application developers would need to directly interact with hardware components such as the CPU, memory, disk, and I/O devices",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 1
+   },
+   {
+    "quote": "Hardware knowledge would be mandatory for programming • Software portability would be extremely limited",
+    "grade": 1,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-002",
+  "question": "What does the bootstrap program do?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "It initializes CPU registers, memory and device controllers, and loads the OS kernel into memory.",
+  "gold_quotes": [
+   {
+    "quote": "Functions of bootstrap: • Initializes CPU registers • Initializes memory • Initializes device controllers",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 5
+   },
+   {
+    "quote": "Loads the operating system kernel into memory",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 6
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-003",
+  "question": "How do handheld devices and embedded systems differ in what the OS is designed for?",
+  "type": "comparative",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "Handheld devices are resource-constrained and optimized for battery life and usability; embedded systems often have little or no user interface.",
+  "gold_quotes": [
+   {
+    "quote": "Handheld devices: Resource-constrained, optimized for: o Battery life o Usability",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 3
+   },
+   {
+    "quote": "Embedded systems: Often have little or no user interface",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-004",
+  "question": "What hardware parts make up a computer system's organization?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "One or more CPUs, device controllers, shared main memory and a common system bus.",
+  "gold_quotes": [
+   {
+    "quote": "A computer system consists of: • One or more CPUs",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 4
+   },
+   {
+    "quote": "Device controllers • Shared main memory • Common system bus",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-005",
+  "question": "What is the job of the memory controller?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "CPU and device controllers run concurrently and compete for memory cycles; the memory controller synchronizes access to shared memory.",
+  "gold_quotes": [
+   {
+    "quote": "The CPU and device controllers can execute concurrently, competing for memory cycles. A memory controller synchronizes access to shared memory.",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-006",
+  "question": "How does the computer figure out which device caused an interrupt?",
+  "type": "application",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "By polling, or with a vectored interrupt system that uses an interrupt vector of service-routine addresses.",
+  "gold_quotes": [
+   {
+    "quote": "Interrupt identification methods: • Polling • Vectored interrupt systems",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 6
+   },
+   {
+    "quote": "Uses an interrupt vector containing addresses of service routines",
+    "grade": 1,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 6
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-007",
+  "question": "What are the characteristics of secondary storage?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "It extends main memory, is non-volatile and has large capacity.",
+  "gold_quotes": [
+   {
+    "quote": "Secondary storage: • Extension of main memory • Non-volatile • Large capacity",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 7
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-008",
+  "question": "What are the challenges in caching?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "Cache size, replacement policy and cache management.",
+  "gold_quotes": [
+   {
+    "quote": "Challenges: • Cache size • Replacement policy • Cache management",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-009",
+  "question": "Can the computer keep running my program while a printer is busy printing?",
+  "type": "application",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "Yes, in the second I/O model the CPU continues execution while I/O proceeds, and resumes after the completion interrupt.",
+  "gold_quotes": [
+   {
+    "quote": "Two models: 1. CPU waits for I/O completion 2. CPU continues execution while I/O proceeds",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 9
+   },
+   {
+    "quote": "CPU resumes execution after I/O completion interrupt",
+    "grade": 1,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 9
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-010",
+  "question": "What does the OS do as a resource allocator?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "It manages all system resources, resolves conflicting requests and ensures fairness and efficiency.",
+  "gold_quotes": [
+   {
+    "quote": "Resource Allocator o Manages all system resources o Resolves conflicting resource requests o Ensures fairness and efficiency",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-011",
+  "question": "Why should I learn OS concepts if I will never build an operating system?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "Almost all software runs on top of an OS, so OS knowledge helps write efficient and secure programs and debug performance issues.",
+  "gold_quotes": [
+   {
+    "quote": "Although only a small percentage of computer professionals design or modify operating systems, almost all software runs on top of an OS.",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 2
+   },
+   {
+    "quote": "Writing efficient programs • Developing secure applications",
+    "grade": 1,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 2
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-012",
+  "question": "Where is EEPROM used?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "In smartphones, to store factory-installed programs; it also stores the bootstrap program.",
+  "gold_quotes": [
+   {
+    "quote": "EEPROM (used in smartphones to store factory-installed programs)",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 7
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-013",
+  "question": "What is the main objective of multiprogramming?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "To keep the CPU busy at all times and maximize CPU utilization.",
+  "gold_quotes": [
+   {
+    "quote": "The main objective of multiprogramming is to: • Keep the CPU busy at all times • Maximize CPU utilization",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-014",
+  "question": "How is CPU scheduling done on a multicore system?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Each core should be kept busy and scheduling decisions are made independently for each core.",
+  "gold_quotes": [
+   {
+    "quote": "On a multicore system, the same concept is extended: • Each processing core should be kept busy • Scheduling decisions are made independently for each core",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-015",
+  "question": "What is the difference between a CPU burst and an I/O burst?",
+  "type": "comparative",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "In a CPU burst the process executes instructions; in an I/O burst it waits for I/O completion.",
+  "gold_quotes": [
+   {
+    "quote": "CPU burst → process is executing instructions • I/O burst → process is waiting for I/O completion",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-016",
+  "question": "Do programs that mostly read and write files use the processor in short or long stretches?",
+  "type": "application",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "They are I/O-bound, so they have many short CPU bursts; CPU-bound processes have few long bursts.",
+  "gold_quotes": [
+   {
+    "quote": "I/O-bound processes o Many short CPU bursts • CPU-bound processes o Few long CPU bursts",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 2
+   },
+   {
+    "quote": "I/O-Bound Process o Spends more time doing I/O o Many short CPU bursts",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 6
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-017",
+  "question": "In what ways can the ready queue be organized?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "As a FIFO queue, priority queue, tree or unordered linked list; each entry is a PCB.",
+  "gold_quotes": [
+   {
+    "quote": "The ready queue may be organized in various ways: • FIFO queue • Priority queue • Tree • Unordered linked list",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 3
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-018",
+  "question": "What are the functions of the dispatcher?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "It performs the context switch, switches to user mode and jumps to the right location in the user program.",
+  "gold_quotes": [
+   {
+    "quote": "Dispatcher Functions • Performs context switch • Switches CPU to user mode • Jumps to the correct location in the user program",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-019",
+  "question": "What is dispatch latency?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "The time taken by the dispatcher to stop one process and start another; an important performance metric.",
+  "gold_quotes": [
+   {
+    "quote": "Dispatch Latency • Time taken to: o Stop one process",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   },
+   {
+    "quote": "o Start another process • Important performance metric",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-020",
+  "question": "Which operating systems used non-preemptive scheduling and which used preemptive?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Windows 3.x was non-preemptive; Windows 95 onwards and Macintosh OS are preemptive.",
+  "gold_quotes": [
+   {
+    "quote": "Windows 3.x → Non-preemptive • Windows 95 onwards → Preemptive • Macintosh OS → Uses preemptive scheduling",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 3
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-021",
+  "question": "Which measure matters most when users are typing and waiting for the screen to react?",
+  "type": "application",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Response time: time from request submission to first response, important in time-sharing systems.",
+  "gold_quotes": [
+   {
+    "quote": "Time from request submission to first response o Important in time-sharing systems",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-022",
+  "question": "What should a good scheduler try to keep as small as possible?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Turnaround time, waiting time and response time.",
+  "gold_quotes": [
+   {
+    "quote": "Minimize o Turnaround time o Waiting time o Response time",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-023",
+  "question": "What are the sections of a process in memory?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "Text section, current activity (program counter and registers), stack, data section and heap.",
+  "gold_quotes": [
+   {
+    "quote": "A process consists of several parts in memory: 1. Text Section o Program code",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 1
+   },
+   {
+    "quote": "Stack o Temporary data o Function parameters o Return addresses o Local variables 4. Data Section o Global and static variables",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 1
+   },
+   {
+    "quote": "Heap o Dynamically allocated memory during runtime",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 2
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-024",
+  "question": "Where do a function's local variables live while the program runs?",
+  "type": "application",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "On the stack, together with temporary data, function parameters and return addresses.",
+  "gold_quotes": [
+   {
+    "quote": "Stack o Temporary data o Function parameters o Return addresses o Local variables",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-025",
+  "question": "What states can a process be in?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "New, running, waiting, ready and terminated.",
+  "gold_quotes": [
+   {
+    "quote": "Common Process States 1. New o Process is being created 2. Running o Instructions are currently being executed 3. Waiting",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 3
+   },
+   {
+    "quote": "Ready o Process is waiting to be assigned to a CPU 5. Terminated o Process has finished execution",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 3
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-026",
+  "question": "How is the long-term scheduler different from the short-term scheduler?",
+  "type": "comparative",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "The short-term scheduler picks the next process for the CPU and runs every few milliseconds; the long-term scheduler admits processes into the ready queue, runs every few seconds or minutes and controls the degree of multiprogramming.",
+  "gold_quotes": [
+   {
+    "quote": "Short-Term Scheduler (CPU Scheduler) • Selects the next process to execute on the CPU • Invoked very frequently (milliseconds)",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 5
+   },
+   {
+    "quote": "Long-Term Scheduler (Job Scheduler) • Selects processes to be admitted into the ready queue • Invoked infrequently (seconds or minutes)",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 6
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-027",
+  "question": "What is swapping and why is it used?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "The medium-term scheduler removes a process from memory to disk and brings it back later, to reduce the degree of multiprogramming.",
+  "gold_quotes": [
+   {
+    "quote": "A medium-term scheduler may be introduced to: • Reduce the degree of multiprogramming Swapping",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 6
+   },
+   {
+    "quote": "is removed from memory • Stored on disk • Later brought back to continue execution",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 6
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-028",
+  "question": "Which scheduling queues does the operating system maintain?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "The job queue (all processes), the ready queue (in memory, ready to run) and device queues (waiting for I/O).",
+  "gold_quotes": [
+   {
+    "quote": "The operating system maintains several scheduling queues: 1. Job Queue",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 4
+   },
+   {
+    "quote": "All processes in the system 2. Ready Queue o Processes in main memory o Ready to execute 3. Device Queues o Processes waiting for I/O devices",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-029",
+  "question": "When can a parent process terminate its child?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "Using abort() when the child exceeds its resources, its task is no longer needed, or the parent is itself terminating.",
+  "gold_quotes": [
+   {
+    "quote": "Parent may terminate a child using abort() if: • Child exceeds allocated resources • Task assigned to child is no longer needed • Parent itself is terminating",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-030",
+  "question": "What is cascading termination?",
+  "type": "conceptual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "In systems that do not allow a child without a parent, when the parent terminates all its children are terminated by the OS.",
+  "gold_quotes": [
+   {
+    "quote": "Some operating systems do not allow a child to exist without a parent.",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   },
+   {
+    "quote": "all children terminate • This is called cascading termination • Initiated by the operating system",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-031",
+  "question": "How does a parent find out how its child ended?",
+  "type": "application",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "The child returns a status value, which the parent retrieves with wait().",
+  "gold_quotes": [
+   {
+    "quote": "Status value returned from child to parent • Parent retrieves status using wait()",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "dev"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-032",
+  "question": "What are the options for sharing resources between parent and child processes?",
+  "type": "factual",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "They share all resources, the child shares a subset of the parent's resources, or they share none.",
+  "gold_quotes": [
+   {
+    "quote": "Resource Sharing Options • Parent and child share all resources • Child shares",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 7
+   },
+   {
+    "quote": "a subset of parent’s resources • Parent and child share no resources",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 7
+   }
+  ],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": true,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-033",
+  "question": "How does the banker's algorithm avoid deadlock?",
+  "type": "out-of-scope",
+  "chapter": "none",
+  "reference_answer": "",
+  "gold_quotes": [],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": true,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Claude (AI-drafted, needs human review)",
+  "qid": "CL-034",
+  "question": "What is paging and how does a page table work?",
+  "type": "out-of-scope",
+  "chapter": "none",
+  "reference_answer": "",
+  "gold_quotes": [],
+  "draft_file": "claude_pilot_questions.json",
+  "split": "test"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-001",
+  "question": "What criteria are used to evaluate CPU scheduling algorithms?",
+  "type": "factual",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "CPU utilization (percentage of time the CPU is busy), throughput (processes completed per unit time), turnaround time (submission to completion), waiting time (total time in the ready queue) and response time (request to first response). A good algorithm maximizes utilization and throughput and minimizes turnaround, waiting and response time.",
+  "key_points": [
+   "CPU utilization",
+   "throughput",
+   "turnaround time",
+   "waiting time",
+   "response time"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "Scheduling algorithms are evaluated based on the following criteria: 1. CPU Utilization o Percentage of time CPU is busy 2. Throughput o Number of processes completed per unit time",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   },
+   {
+    "quote": "3. Turnaround Time o Time from submission to completion of a process 4. Waiting Time o Total time a process spends waiting in the ready queue",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   },
+   {
+    "quote": "Time from request submission to first response",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 5
+   },
+   {
+    "quote": "An ideal scheduling algorithm should aim to: • Maximize o CPU utilization o Throughput • Minimize",
+    "grade": 1,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-002",
+  "question": "Why is CPU time wasted if the OS runs only one program until it finishes?",
+  "type": "conceptual",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Without multiprogramming, a process runs until it must wait (usually for I/O); during that wait the CPU stays idle and no useful work is done. Multiprogramming lets the OS switch the CPU to another ready process so the waiting time is used productively.",
+  "key_points": [
+   "process waits for I/O",
+   "CPU stays idle during the wait",
+   "multiprogramming switches the CPU to another ready process"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "During this waiting period, the CPU remains idle • CPU time is wasted and no useful work is done",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 1
+   },
+   {
+    "quote": "Multiprogramming allows the OS to: • Switch the CPU to another ready process • Use waiting time productively",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-003",
+  "question": "How is the dispatcher different from the CPU scheduler?",
+  "type": "comparative",
+  "split": "dev",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "The CPU (short-term) scheduler selects a process from the ready queue and allocates the CPU to it. The dispatcher then gives control of the CPU to that selected process: it performs the context switch, switches to user mode and jumps to the right place in the user program. The time this takes is the dispatch latency.",
+  "key_points": [
+   "scheduler selects a process from the ready queue",
+   "dispatcher gives the CPU to the selected process",
+   "dispatcher: context switch, user mode, jump to program location"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "The CPU scheduler (short-term scheduler): • Selects a process from the ready queue • Allocates the CPU to that process",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 3
+   },
+   {
+    "quote": "The dispatcher is a module that: • Gives control of the CPU to the process selected by the short-term scheduler",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   },
+   {
+    "quote": "Performs context switch • Switches CPU to user mode • Jumps to the correct location in the user program",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-004",
+  "question": "When does a CPU scheduling decision happen, and which of those cases are preemptive?",
+  "type": "multi-step",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Scheduling decisions occur when a process (1) switches from running to waiting, (2) switches from running to ready, (3) switches from waiting to ready, or (4) terminates. Cases 1 and 4 are non-preemptive; cases 2 and 3 are preemptive.",
+  "key_points": [
+   "four situations: running→waiting, running→ready, waiting→ready, terminates",
+   "cases 1 and 4 non-preemptive",
+   "cases 2 and 3 preemptive"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "1. Switches from running → waiting 2. Switches from running → ready 3. Switches from waiting → ready 4. Terminates",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 3
+   },
+   {
+    "quote": "Cases 1 and 4 → Non-preemptive • Cases 2 and 3 → Preemptive",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 3
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-005",
+  "question": "Why can preemption mess up shared data, and how do operating systems avoid it?",
+  "type": "application",
+  "split": "dev",
+  "chapter": "Unit 1 – Topic 2: CPU Scheduling (basic concepts)",
+  "reference_answer": "Preemptive scheduling can cause race conditions: one process is preempted while updating shared data and another process then reads inconsistent data. Preemptive kernels prevent this with mutex locks and other synchronization mechanisms.",
+  "key_points": [
+   "race conditions",
+   "preempted while updating shared data, another reads inconsistent data",
+   "mutex locks / synchronization"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "Problems with Preemptive Scheduling • Can cause race conditions",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 3
+   },
+   {
+    "quote": "One process is preempted while updating shared data o Another process accesses inconsistent data",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   },
+   {
+    "quote": "Preemptive kernels use: o Mutex locks o Other synchronization mechanisms",
+    "grade": 2,
+    "source_pdf": "unit1_topic2.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-006",
+  "question": "What is the difference between a program and a process?",
+  "type": "comparative",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "A program is a passive entity, an executable file stored on disk. A process is an active entity, a program in execution. A program becomes a process when its executable is loaded into memory and execution begins, and one program can have several processes.",
+  "key_points": [
+   "program: passive, executable file on disk",
+   "process: active, program in execution",
+   "becomes a process when loaded into memory and run"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "A program is a passive entity o Stored on disk as an executable file • A process is an active entity o A program in execution",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 1
+   },
+   {
+    "quote": "A program becomes a process when: • Its executable file is loaded into memory",
+    "grade": 1,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 1
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-007",
+  "question": "What information is stored in a Process Control Block?",
+  "type": "factual",
+  "split": "dev",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "The PCB holds everything needed to manage a process: process state, program counter, CPU registers, CPU-scheduling information (priority, queue pointers), memory-management information, accounting information (CPU time used, time limits) and I/O status information (allocated devices, open files).",
+  "key_points": [
+   "process state",
+   "program counter and CPU registers",
+   "scheduling information",
+   "memory-management information",
+   "accounting and I/O status information"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "The PCB contains all information needed to manage a process",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 3
+   },
+   {
+    "quote": "Process state o New, ready, running, waiting, terminated • Program counter o Address of next instruction to execute • CPU registers",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 3
+   },
+   {
+    "quote": "Memory-management information o Memory allocated to the process • Accounting information",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 4
+   },
+   {
+    "quote": "I/O status information o I/O devices allocated o List of open files",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-008",
+  "question": "What happens during a context switch, and why should it be fast?",
+  "type": "multi-step",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "When the CPU switches from one process to another, the OS saves the state of the current process in its PCB and loads the saved state of the next process. Context-switch time is pure overhead because no useful work is done while switching; it depends on hardware support and PCB complexity.",
+  "key_points": [
+   "save current process state in its PCB",
+   "load saved state of the next process",
+   "switch time is overhead, no useful work"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "1. Save the state of the current process in its PCB 2. Load the saved state of the next process",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 6
+   },
+   {
+    "quote": "Context switch time is overhead • No useful work is done during switching",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 7
+   },
+   {
+    "quote": "When the CPU changes from executing one process to another, the system performs a context switch.",
+    "grade": 1,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 4
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-009",
+  "question": "What happens to a child process if its parent finishes first?",
+  "type": "application",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "It depends on the OS. Where a child may outlive its parent, it becomes an orphan process and is adopted by init (the system process). Some operating systems do not allow a child without a parent: when the parent terminates, all its children are terminated too (cascading termination).",
+  "key_points": [
+   "orphan process adopted by init",
+   "cascading termination in some OSes",
+   "depends on the operating system"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "Orphan process o Parent terminates before child o Child is adopted by init/system process",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   },
+   {
+    "quote": "Some operating systems do not allow a child to exist without a parent. • If parent terminates → all children terminate • This is called cascading termination",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-010",
+  "question": "What is the difference between a zombie process and an orphan process?",
+  "type": "comparative",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "A zombie is a child that has terminated but whose parent has not yet called wait(). An orphan is a child whose parent terminated first; it is adopted by init.",
+  "key_points": [
+   "zombie: child terminated, parent has not called wait()",
+   "orphan: parent terminated before child",
+   "orphan adopted by init"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "Zombie process o Child terminates o Parent has not called wait()",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   },
+   {
+    "quote": "Orphan process o Parent terminates before child o Child is adopted by init/system process",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-011",
+  "question": "In UNIX, how does a program start a different program as a separate process?",
+  "type": "application",
+  "split": "dev",
+  "chapter": "Unit 1 – Topic 3: Process Concept",
+  "reference_answer": "It calls fork(), which creates a child process that is a duplicate of the parent. The child then calls exec(), which replaces its memory with the new program.",
+  "key_points": [
+   "fork() creates a child that duplicates the parent",
+   "exec() replaces the process memory with a new program"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "fork() creates a new process • Child process is a duplicate of the parent",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 7
+   },
+   {
+    "quote": "UNIX Example • fork() → creates child process • exec() → loads new program into child",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 7
+   },
+   {
+    "quote": "exec() is used • Replaces the process memory with a new program",
+    "grade": 2,
+    "source_pdf": "unit1_topic3.pdf",
+    "page": 7
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": true,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-012",
+  "question": "Why does each device controller need its own device driver?",
+  "type": "conceptual",
+  "split": "test",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "Each device controller is in charge of a specific device; its device driver gives the kernel a uniform interface to it, so the rest of the OS can manage I/O the same way for every device.",
+  "key_points": [
+   "each controller manages a specific device",
+   "device driver gives a uniform interface to the kernel"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "Each device controller has: • Device driver • Uniform interface to kernel",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 9
+   },
+   {
+    "quote": "Each device controller manages a specific device",
+    "grade": 1,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 5
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": false,
+  "source_visible": true,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-013",
+  "question": "On what basis are storage systems organized into a hierarchy?",
+  "type": "factual",
+  "split": "dev",
+  "chapter": "Unit 1 – Topic 1: Introduction and Computer System Organization",
+  "reference_answer": "Storage systems are organized by speed, cost and volatility; faster storage is more expensive and smaller, and caching copies frequently used data into faster storage.",
+  "key_points": [
+   "speed",
+   "cost",
+   "volatility"
+  ],
+  "gold_quotes": [
+   {
+    "quote": "Storage systems are organized based on: • Speed • Cost • Volatility",
+    "grade": 2,
+    "source_pdf": "unit1_topic1.pdf",
+    "page": 8
+   }
+  ],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": true,
+  "source_visible": false,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-014",
+  "question": "What is the difference between a counting semaphore and a binary semaphore?",
+  "type": "out-of-scope",
+  "split": "test",
+  "chapter": "none",
+  "reference_answer": "Not covered in Unit 1 topics 1-3 (semaphores come later in the course). The system should say it has no evidence.",
+  "key_points": [],
+  "gold_quotes": [],
+  "draft_file": "hemanth_pilot_questions.json"
+ },
+ {
+  "out_of_scope": true,
+  "source_visible": false,
+  "student_wording": false,
+  "annotator": "Hemanth (AI-drafted, needs human review)",
+  "qid": "HEM-015",
+  "question": "What is the difference between SaaS, PaaS and IaaS?",
+  "type": "out-of-scope",
+  "split": "test",
+  "chapter": "none",
+  "reference_answer": "Not covered in Unit 1 topics 1-3 (cloud computing is a later topic, only in the slides). The system should say it has no evidence.",
+  "key_points": [],
+  "gold_quotes": [],
+  "draft_file": "hemanth_pilot_questions.json"
+ }
+]
