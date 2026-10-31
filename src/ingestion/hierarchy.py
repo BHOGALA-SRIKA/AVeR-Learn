@@ -2,7 +2,7 @@ import json
 import re
 from pathlib import Path
 from collections import defaultdict
-
+from src.utils.token_counter import count_tokens, count_breadcrumb
 
 # ============================================================
 # 1. BASIC HELPERS
@@ -24,16 +24,6 @@ def make_prefix(document_id: str) -> str:
     ).strip("_").upper()
 
     return prefix or "DOC"
-
-
-def count_tokens(text: str) -> int:
-    """
-    Approximate token count using whitespace tokenization.
-
-    This is not a model-specific tokenizer.
-    """
-
-    return len(text.split())
 
 
 def make_node(
@@ -390,7 +380,7 @@ def finalize_nodes(nodes: dict):
 
         node["breadcrumb"] = breadcrumb
 
-        node["n_tokens_breadcrumb"] = count_tokens(
+        node["n_tokens_breadcrumb"] = count_breadcrumb(
             breadcrumb
         )
 
@@ -903,7 +893,6 @@ def build_hierarchy(
         )
 
     else:
-
         paragraphs = build_textbook_hierarchy(
             extraction,
             classification,
@@ -911,6 +900,26 @@ def build_hierarchy(
             root_id,
             prefix
         )
+
+    # Use the extracted Unit title as the document's display title.
+    root_node = nodes[root_id]
+
+    unit_title = next(
+        (
+            nodes[child_id]["text"].strip()
+            for child_id in root_node["children"]
+            if nodes[child_id]["kind"] == "paragraph"
+            and re.match(
+                r"^Unit\s+\d+\s*[–—-]",
+                nodes[child_id]["text"].strip(),
+                re.IGNORECASE
+            )
+        ),
+        None
+    )
+
+    if unit_title:
+        root_node["title"] = unit_title
 
     finalize_nodes(nodes)
 
