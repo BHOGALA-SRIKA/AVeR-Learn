@@ -1,6 +1,6 @@
 """Speed and memory of one retrieval method (owner: Member 4).
 
-    python -m src.evaluation.efficiency --method bm25f --expand --corpus data/processed/corpus_unit1.json \
+    python -m src.evaluation.efficiency --method bm25f --expand --corpus data/processed/corpus_unit1_sections.jsonl \
         --questions data/benchmark/questions.json
 
 Prints one JSON line. The harness runs this in a NEW Python process for every

@@ -45,7 +45,7 @@ Walk through the 6 steps. Points to make:
 .\.venv\Scripts\python experiments/demo_evaluation.py --qid HEM-007 --no-dense
 ```
 
-Say: "When the question uses the book's words, BM25 finds the right paragraph first, in under a millisecond."
+Say: "When the question uses the book's words, BM25F finds the right section first, in under a millisecond."
 
 ## 4. Mam's own question (1 min, optional)
 
@@ -58,12 +58,13 @@ No gold answer exists for it, so only the retrieved paragraphs are shown, not me
 ## 5. The report (4 min)
 
 Show `report.html`, top to bottom:
-1. **The four tiles:** embeddings are +0.075 nDCG@10 better, but **not significantly** (p = 0.30), while being about
-   100× slower per question, 400× slower to index and 7.5× more memory, plus a 64 MB model.
-2. **Ranking quality chart:** blue = vectorless, orange = embeddings.
-3. **Student vs book wording:** on book-worded questions, char n-gram TF-IDF (0.984) beats the embedding model
-   (0.960); the gap is only on student wording.
-4. **Significance table:** no method beats BM25 after Holm correction; with 15 dev questions only large gaps can.
+1. **The four tiles:** embeddings are +0.093 nDCG@10 better than BM25F, but **not significantly** (p = 0.12), while
+   being about 40× slower per question, 430× slower to index and 12× more memory, plus a 64 MB model.
+2. **Ranking quality chart:** blue = vectorless, orange = embeddings. Methods that use section headings (BM25F,
+   BM25 with headings, RRF) are far above those that ignore them: headings from Member 1's tree matter most.
+3. **Student vs book wording:** on book-worded questions BM25F (0.939) is close to the embedding model (0.963);
+   the gap is on student wording (0.386 vs 0.617).
+4. **Significance table:** no method beats BM25F after Holm correction; with 15 dev questions only large gaps can.
 
 ## Likely questions and answers
 

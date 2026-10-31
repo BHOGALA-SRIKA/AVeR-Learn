@@ -2,7 +2,7 @@ import math
 
 import pytest
 
-from src.evaluation.benchmark import build_qrels, deliver, evidence_coverage, words
+from src.evaluation.benchmark import build_qrels, deliver, evidence_coverage, full_text, words
 from src.evaluation.metrics import (
     evaluate_query,
     mean_metrics,
@@ -86,6 +86,15 @@ def test_quotes_match_paragraphs_of_their_own_pdf_only():
                                                                "grade": 2}]}], PARAS)
     assert j.qrels["Q1"] == {"p1": 2, "p2": 1}  # p3 shares words but is from another PDF
     assert j.unmatched == [("Q2", "not in any paragraph at all here")]
+
+
+def test_heading_counts_as_part_of_the_section():
+    section = Paragraph("s1", "• Performs context switch\n• Switches CPU to user mode",
+                        heading="Dispatcher Functions", meta={"document_id": "t1"})
+    quote = {"qid": "Q3", "gold_quotes": [{"quote": "Dispatcher Functions • Performs context switch",
+                                           "grade": 2, "source_pdf": "t1.pdf"}]}
+    assert full_text(section).startswith("Dispatcher Functions\n")
+    assert build_qrels([quote], [section]).qrels["Q3"] == {"s1": 2}
 
 
 def test_delivery_stops_at_budget():

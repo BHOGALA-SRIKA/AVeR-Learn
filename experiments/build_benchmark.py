@@ -1,7 +1,7 @@
 """Merge the question drafts into the benchmark and check every gold quote (Member 4).
 
     python experiments/build_benchmark.py
-    python experiments/build_benchmark.py --corpus data/processed/corpus_unit1.json
+    python experiments/build_benchmark.py --corpus data/processed/corpus_unit1.json   # old stand-in corpus
 
 Reads every file in data/benchmark/drafts/, fills default fields, assigns a
 dev/test split, checks that each gold quote is found in the corpus, and writes:
@@ -41,7 +41,7 @@ def split_for(qid: str) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--corpus", default=str(REPO / "data" / "processed" / "corpus_unit1.json"))
+    parser.add_argument("--corpus", default=str(REPO / "data" / "processed" / "corpus_unit1_sections.jsonl"))
     args = parser.parse_args()
 
     questions = []

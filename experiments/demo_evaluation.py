@@ -29,13 +29,13 @@ sys.path.insert(0, str(REPO))
 os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
 warnings.filterwarnings("ignore")
 
-from src.evaluation.benchmark import build_qrels, deliver, evidence_coverage, load_questions  # noqa: E402
+from src.evaluation.benchmark import build_qrels, deliver, evidence_coverage, full_text, load_questions  # noqa: E402
 from src.evaluation.dense_baseline import make_index  # noqa: E402
 from src.evaluation.metrics import evaluate_query  # noqa: E402
 from src.indexing.records import read_paragraphs  # noqa: E402
 from src.utils.token_counter import count_tokens  # noqa: E402
 
-CORPUS = REPO / "data" / "processed" / "corpus_unit1.json"
+CORPUS = REPO / "data" / "processed" / "corpus_unit1_sections.jsonl"
 QUESTIONS = REPO / "data" / "benchmark" / "questions.json"
 RESULTS = REPO / "results" / "unit1_all_methods" / "dev"
 DEFAULT_QID = "CL-022"  # student wording: "What should a good scheduler try to keep as small as possible?"
@@ -53,12 +53,13 @@ def main() -> None:
     args = parser.parse_args()
 
     paragraphs = read_paragraphs(CORPUS)
-    texts = {p.pid: p.body for p in paragraphs}
+    texts = {p.pid: full_text(p) for p in paragraphs}
     questions = load_questions(QUESTIONS)
     in_scope = [q for q in questions if not q["out_of_scope"]]
 
     step(1, "The benchmark")
-    print(f"Corpus: {len(paragraphs)} paragraphs from 3 PDFs (Unit 1: intro, CPU scheduling, processes)")
+    print(f"Corpus: {len(paragraphs)} sections (heading + text) from 3 PDFs (Unit 1: intro, CPU scheduling, processes),")
+    print("        built from Member 1's tree.json with Member 2's sections_from_tree")
     print(f"Questions: {len(questions)} ({len(in_scope)} answerable, {len(questions) - len(in_scope)} out of scope)")
     print(f"  dev  {sum(q['split'] == 'dev' for q in in_scope):3d}   used while developing")
     print(f"  test {sum(q['split'] == 'test' for q in in_scope):3d}   kept hidden for the final numbers")
@@ -84,7 +85,7 @@ def main() -> None:
         print("No gold evidence: we only show what each method retrieves.")
 
     step(3, "What each method retrieves (top 3)    [GOLD] = contains the evidence")
-    methods = [("bm25", False), ("bm25f", True), ("char_tfidf", False)]
+    methods = [("bm25", False), ("bm25f", False), ("char_tfidf", False)]  # bm25f = what the MCQ pipeline uses
     if not args.no_dense:
         methods.append(("dense", False))
     rankings = {}

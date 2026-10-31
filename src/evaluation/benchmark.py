@@ -77,8 +77,13 @@ class Judgements:
     unmatched: list[tuple[str, str]]          # (qid, quote) found in no paragraph: fix the quote
 
 
+def full_text(p: Paragraph) -> str:
+    """What the generator reads for a retrieved unit: its heading, then its text."""
+    return f"{p.heading}\n{p.body}" if p.heading else p.body
+
+
 def build_qrels(questions: Iterable[dict[str, Any]], paragraphs: Sequence[Paragraph]) -> Judgements:
-    para_words = [words(p.body) for p in paragraphs]
+    para_words = [words(full_text(p)) for p in paragraphs]
     qrels: dict[str, dict[str, int]] = {}
     unmatched: list[tuple[str, str]] = []
     for q in questions:

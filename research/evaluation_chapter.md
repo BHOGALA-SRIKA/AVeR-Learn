@@ -1,7 +1,8 @@
 # Evaluation (draft, Member 4)
 
-> Draft written from the dev-split results of 31 October 2026. Numbers marked *dev* will be replaced by the
-> test-split numbers after the benchmark has been reviewed by a second person and the glossary is frozen.
+> Draft written from the dev-split results of 31 October 2026, on the section corpus built from Member 1's
+> document trees. The numbers will be replaced by the test-split numbers after the benchmark has been reviewed by
+> a second person. The glossary was frozen on 31 October 2026.
 
 ## 1. What we evaluate and why
 
@@ -22,7 +23,11 @@ hybrid of both, on the same questions, corpus and judgements.
 ## 2. Benchmark
 
 **Corpus.** Three Unit 1 Operating Systems PDFs (introduction and computer-system organisation; CPU scheduling;
-process concept), split by the project's PDF loader into 55 paragraphs.
+process concept). Member 1's ingestion turns each PDF into a document tree (`tree.json`) using font size and bold
+flags; Member 2's `sections_from_tree` joins its line-level nodes into **78 sections** (heading + body, median 32
+words, no page footers). Sections are the unit the MCQ pipeline retrieves, so they are the unit we evaluate.
+An earlier pilot used a simpler stand-in reader (55 chunks, 33 without a heading, page footers inside the text);
+on that corpus BM25F could not use headings and scored the same as BM25.
 
 **Questions.** 49 questions: 45 answerable from the PDFs and 4 out-of-scope (e.g. "What is the difference between
 SaaS, PaaS and IaaS?"), used later to test whether the system can say "not in this PDF". Each question records
@@ -31,7 +36,8 @@ its type (factual, conceptual, comparative, application, multi-step) and whether
 
 **Gold evidence as quotes.** Instead of labelling paragraph IDs, annotators copy the exact sentences that answer
 the question from the PDF and grade them: 2 = essential, 1 = helpful. The harness matches each quote to the
-paragraphs that contain it (runs of at least 3 consecutive words covering half the quote or 8 words). This keeps
+sections that contain it, heading included (runs of at least 3 consecutive words covering half the quote or 8
+words). This keeps
 the benchmark valid when the PDF loader or chunk size changes, which paragraph IDs would not. A paragraph's
 relevance grade is the highest grade of the quotes it contains.
 
@@ -68,17 +74,20 @@ relevant paragraph and are excluded from these metrics. All means are macro aver
 |---|---|
 | Vectorless (lexical) | BM25, BM25 with headings, BM25F, TF-IDF, character n-gram TF-IDF, Query Likelihood (Dirichlet, Jelinek-Mercer), RRF fusion, RM3 feedback; each with and without glossary expansion |
 | Embedding | `dense`: BAAI/bge-small-en-v1.5 (33M parameters, 384 dimensions, 64 MB ONNX model on the CPU) |
-| Hybrid | RRF of BM25 and dense |
+| Hybrid | RRF of BM25F and dense |
 
-Default parameters were used for every method (no tuning yet), so no method had an advantage from tuning.
+Default parameters were used for every method (no tuning yet), so no method had an advantage from tuning. The
+embedding model reads heading + text, and the hybrid uses BM25F, so every heading-aware method sees the same
+information.
 
 ## 5. Statistical testing
 
 All methods answer the same questions, so differences are tested per question with a **paired randomization
 test** (10,000 random sign flips of the per-question differences; Smucker, Allan & Carterette, 2007), with a
 95% bootstrap confidence interval for the mean difference. Because 21 methods are compared with the same
-baseline (BM25), p-values are corrected with the **Holm–Bonferroni** method. A difference is called significant
-only when the Holm-adjusted p < 0.05.
+baseline (BM25F, the method the MCQ pipeline uses), p-values are corrected with the **Holm–Bonferroni** method.
+A difference is called significant only when the Holm-adjusted p < 0.05. A few planned pairwise comparisons
+(headings: BM25F vs BM25; expansion: BM25F+exp vs BM25F) are also reported with their unadjusted p.
 
 ## 6. Efficiency measurement
 
@@ -93,56 +102,58 @@ Machine: Intel Core (12 logical CPUs), 16 GB RAM, Windows 11, CPU only.
 
 | Method | R@1 | R@5 | MRR@10 | nDCG@10 | AllEssential@512 |
 |---|---|---|---|---|---|
-| BM25 (baseline) | 0.622 | 0.833 | 0.840 | 0.821 | 0.800 |
-| BM25F | 0.622 | 0.833 | 0.840 | 0.821 | 0.800 |
-| BM25F + glossary expansion | 0.622 | 0.811 | 0.848 | 0.813 | 0.667 |
-| Char n-gram TF-IDF | 0.689 | 0.900 | 0.880 | 0.863 | 0.867 |
-| RRF (lexical fusion) | 0.622 | 0.833 | 0.847 | 0.828 | 0.800 |
-| BM25F + RM3 | 0.589 | 0.833 | 0.810 | 0.815 | 0.800 |
-| Query Likelihood (Dirichlet) | 0.589 | 0.833 | 0.800 | 0.794 | 0.800 |
-| Dense (bge-small) | 0.589 | 0.978 | 0.856 | **0.895** | **0.933** |
-| Hybrid (BM25 + dense) | 0.689 | 0.833 | 0.886 | 0.875 | 0.800 |
+| BM25 (text only) | 0.422 | 0.611 | 0.567 | 0.572 | 0.600 |
+| BM25 with headings pasted into the text | 0.622 | 0.767 | 0.734 | 0.749 | 0.800 |
+| **BM25F (baseline, used by the MCQ pipeline)** | 0.622 | 0.767 | 0.741 | 0.754 | 0.800 |
+| BM25F + frozen glossary expansion | 0.622 | 0.744 | 0.748 | 0.758 | 0.800 |
+| BM25F + RM3 | 0.489 | 0.867 | 0.697 | 0.740 | 0.867 |
+| RRF (lexical fusion) | 0.622 | 0.767 | 0.732 | 0.742 | 0.800 |
+| Char n-gram TF-IDF (text only) | 0.356 | 0.678 | 0.558 | 0.583 | 0.667 |
+| Query Likelihood, Dirichlet (text only) | 0.422 | 0.611 | 0.557 | 0.564 | 0.600 |
+| Dense (bge-small) | 0.556 | **1.000** | 0.783 | **0.848** | **1.000** |
+| Hybrid (BM25F + dense) | 0.622 | 0.867 | **0.786** | 0.820 | 0.933 |
 
-No method is significantly better than BM25 after Holm correction. The largest gap, dense vs BM25 (+0.075
-nDCG@10), has a 95% CI of [−0.046, +0.205] and p = 0.30.
+No method is significantly better than BM25F after Holm correction. Dense vs BM25F: +0.093 nDCG@10, 95% CI
+[−0.011, +0.205], p = 0.12 (6 questions better, 1 worse). Hybrid vs BM25F: +0.066, CI [+0.023, +0.116],
+p = 0.03 unadjusted, not significant after correction.
 
 ### 7.2 Student wording vs book wording (nDCG@10)
 
 | Method | Book wording (n = 10) | Student wording (n = 5) |
 |---|---|---|
-| BM25 | 0.913 | 0.635 |
-| Char n-gram TF-IDF | **0.984** | 0.621 |
-| Dense | 0.960 | **0.766** |
-| Hybrid | 0.961 | 0.702 |
+| BM25 (text only) | 0.683 | 0.349 |
+| BM25F | 0.939 | 0.386 |
+| Dense | **0.963** | **0.617** |
+| Hybrid | **0.963** | 0.534 |
 
 ### 7.3 Efficiency
 
-| Method | Index build (55 paragraphs) | Query (median) | Peak memory | Extra disk |
+| Method | Index build (78 sections) | Query (median) | Peak memory | Extra disk |
 |---|---|---|---|---|
-| BM25 | 7 ms | 0.07 ms | 109 MB | none |
-| BM25F + expansion | 12 ms | 0.46 ms | 109 MB | none |
-| Char n-gram TF-IDF | 88 ms | 2.9 ms | 114 MB | none |
-| Dense | 2,790 ms | 6.4 ms | 815 MB | 64 MB model |
-| Hybrid | 2,565 ms | 7.6 ms | 818 MB | 64 MB model |
+| BM25 | 6 ms | 0.06 ms | 109 MB | none |
+| BM25F | 7 ms | 0.13 ms | 110 MB | none |
+| Char n-gram TF-IDF | 29 ms | 0.79 ms | 115 MB | none |
+| Dense | 2,982 ms | 5.5 ms | 1,294 MB | 64 MB model |
+| Hybrid | 2,858 ms | 6.0 ms | 1,295 MB | 64 MB model |
 
 Peak memory includes the Python interpreter (about 105 MB) for all methods.
 
 ## 8. Discussion
 
-1. **Vectorless retrieval is competitive on book-worded questions.** Character n-gram TF-IDF (0.984) and BM25
-   (0.913) are as good as or better than the embedding model (0.960) when the question uses the book's terms.
-2. **The gap is vocabulary mismatch.** On student-worded questions the embedding model leads (0.766 vs 0.635).
+1. **Document structure matters most.** Using the section heading lifts BM25 from 0.572 to 0.754 nDCG@10
+   (BM25F; +0.18, better on 6 questions and worse on none, p = 0.03 unadjusted). Methods that ignore headings
+   (BM25 on text only, TF-IDF, Query Likelihood) lose most, because a section's topic words are often only in its
+   heading. Pasting the heading into the text gives almost the same result as formal BM25F (0.749 vs 0.754).
+2. **On book-worded questions, vectorless retrieval matches embeddings:** BM25F 0.939 vs dense 0.963.
+3. **The gap is vocabulary mismatch.** On student-worded questions the embedding model leads (0.617 vs 0.386).
    For example, "What should a good scheduler try to keep as small as possible?" has no word in common with the
    book's "Minimize: turnaround time, waiting time, response time"; every lexical method misses it.
-3. **Glossary expansion did not help on fair questions.** It lowered nDCG@10 slightly (0.821 → 0.813), because
-   the common expansions ("OS" → "operating system", "CPU" → "central processing unit") add frequent words while
-   the student phrases in the benchmark were not in the glossary. Its earlier gains came from entries matching the
-   smoke-test questions.
-4. **BM25F equals BM25 on this corpus**, because the PDF loader leaves the chapter field empty and many headings
-   missing. Structure-aware ranking can only be judged once the document tree provides those fields.
-5. **The cost of embeddings is large on a laptop:** about 400× slower indexing, about 100× slower queries,
-   about 7.5× the peak memory and a 64 MB model file, for a gain that is not statistically significant on the
-   current benchmark.
+4. **Glossary expansion has no effect once the glossary is fair** (0.754 → 0.758, 1 question better, 1 worse).
+   Its earlier gains came from entries matching the smoke-test questions. Expansion therefore stays off.
+5. **The cost of embeddings is large on a laptop:** about 430× slower indexing, about 40× slower queries, about
+   12× the peak memory and a 64 MB model file, for a gain that is not statistically significant on the
+   current benchmark. The embedding model does deliver all essential evidence within 512 tokens on every dev
+   question (BM25F: 80%), which is where its advantage would matter for the SLM.
 
 ## 9. Limitations and threats to validity
 
@@ -157,6 +168,7 @@ Peak memory includes the Python interpreter (about 105 MB) for all methods.
 ## 10. Reproducing the results
 
 ```
+python experiments/build_corpus.py
 python experiments/build_benchmark.py
 python -m src.evaluation.evaluate_retrieval experiments/configs/unit1_all_methods.yaml --split dev
 python -m src.evaluation.report_html results/unit1_all_methods/dev

@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 DENSE = {"dense", "hybrid"}
-KEY_METHODS = ["bm25", "bm25f+exp", "char_tfidf", "rrf", "dense", "hybrid"]
+KEY_METHODS = ["bm25", "bm25f", "char_tfidf", "rrf", "dense", "hybrid"]
 
 
 def family(label: str) -> str:
@@ -59,13 +59,14 @@ def render(summary: dict) -> str:
     key = [m for m in KEY_METHODS if m in res]
     s = sig.get(primary, {}).get("methods", {})
     tiles = ""
-    if {"bm25", "dense"} <= res.keys() and "efficiency" in res["bm25"]:
-        b, d = res["bm25"], res["dense"]
+    base = sig.get(primary, {}).get("baseline", "bm25")
+    if {base, "dense"} <= res.keys() and "efficiency" in res[base]:
+        b, d = res[base], res["dense"]
         be, de = b["efficiency"], d["efficiency"]
         diff = d["mean"][primary] - b["mean"][primary]
         p = s.get("dense", {}).get("p", float("nan"))
         tiles = "".join([
-            tile(f"{diff:+.3f}", f"{primary}: embeddings vs BM25",
+            tile(f"{diff:+.3f}", f"{primary}: embeddings vs {base.upper()}",
                  f"p = {p:.2f}: {'significant' if p < 0.05 else 'not significant'} on {meta['n_in_scope']} questions"),
             tile(f"{de['query_ms_median'] / be['query_ms_median']:.0f}×", "slower per question",
                  f"{be['query_ms_median']:.2f} ms vs {de['query_ms_median']:.1f} ms"),
