@@ -10,8 +10,9 @@ small sentence-embedding model.
 - ``hybrid``: Reciprocal Rank Fusion of BM25 and dense (Hemanth's RRF code),
   the standard "best of both" baseline.
 
-The model is downloaded once into ``models/fastembed`` and then loaded with
-the Hugging Face hub set to offline, so evaluation never touches the network.
+The model is downloaded once into ``models/fastembed`` (on the first run, if
+the folder is empty) and afterwards loaded with the Hugging Face hub set to
+offline, so later runs never touch the network.
 
 Building a dense index includes loading the model, because a student opening
 a PDF pays that cost too.
@@ -52,10 +53,18 @@ class DenseRetriever(Retriever):
         return {"model": self.model_name}
 
     def _fit(self, paragraphs: list[Paragraph]) -> None:
-        os.environ.setdefault("HF_HUB_OFFLINE", "1")  # never download during an experiment
+        if any(MODEL_DIR.rglob("*.onnx")):  # downloaded before: never touch the network again
+            os.environ.setdefault("HF_HUB_OFFLINE", "1")
         from fastembed import TextEmbedding
 
-        self._model = TextEmbedding(self.model_name, cache_dir=str(MODEL_DIR))
+        try:
+            self._model = TextEmbedding(self.model_name, cache_dir=str(MODEL_DIR))
+        except ValueError as exc:
+            raise RuntimeError(
+                f"Could not load {self.model_name} into {MODEL_DIR}. The first run needs internet (64 MB download). "
+                "On Windows, also keep the project in a short folder path (e.g. C:\\AVeR-Learn): the model's file "
+                "paths are long and Windows refuses paths over 260 characters."
+            ) from exc
         texts = [f"{p.heading}. {p.body}" if p.heading else p.body for p in paragraphs]
         self.vectors = _unit(np.array(list(self._model.passage_embed(texts))))
 
