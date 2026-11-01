@@ -232,6 +232,7 @@ def run_free(model, topics, backend, retriever, args, rows, context=None) -> dic
         if not passages:
             print(f"  [free {i}/{len(topics)}] {topic}: not in the notes, skipped")
             continue
+        stats["requested"] += args.n  # broken replies count as MCQs not delivered
         prompt = build_prompt(topic, passages, n=args.n, difficulty=args.difficulty,
                               hints=retriever.option_hints(passages))
         t0 = time.perf_counter()
@@ -266,6 +267,8 @@ def run_free(model, topics, backend, retriever, args, rows, context=None) -> dic
     n = stats["mcqs"]
     return {
         "model": model, "mode": "free", "mcqs": n, "passed": stats["passed"],
+        "requested": stats["requested"],
+        "passed_of_requested": round(stats["passed"] / stats["requested"], 3) if stats["requested"] else 0.0,
         "pass_rate": round(stats["passed"] / n, 3) if n else 0.0,
         "calls_failed": stats["calls_failed"],
         "valid_json_rate": round(1 - stats["bad_json"] / stats["calls"], 3) if stats["calls"] else 0.0,
@@ -377,6 +380,10 @@ def save(out_dir, summary, rows, pdfs, topics, args, refused) -> None:
             f"| {s['model']} | {s['mode']} | {s['mcqs']} | {s['passed']} ({s['pass_rate']:.0%}) | {rew} | "
             f"{p.get('wrong answer key', 0)} | {p.get('two correct options', 0)} | {p.get('evidence made up', 0)} | "
             f"{s['calls_failed']} | {s['seconds_per_call']} | {s['tokens_per_second']} | {s.get('memory_gb')} |")
+    for s in summary:
+        if s["mode"] == "free" and s.get("requested"):
+            lines.append(f"\n{s['model']} free mode: {s['passed']} of {s['requested']} requested MCQs passed "
+                         f"({s['passed_of_requested']:.0%}); replies that were not valid JSON count as not delivered.")
     lines += ["",
               "free = the SLM writes whole MCQs; locked = the engine fixes answer, options and evidence and the SLM "
               "only rewrites the question and explanation (a rejected rewrite keeps the template question).",

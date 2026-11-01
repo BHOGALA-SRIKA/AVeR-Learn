@@ -133,6 +133,21 @@ and BM25F with 8 sections catches up at 512 tokens.
 SLM with EMTE notes (laptop, Ollama): `python experiments/slm_eval.py --quick --mode free --context emte --models qwen3:1.7b --ctx 2048`
 (compare with `--context bm25f`; `--ctx 2048` halves the model's context memory). Locked mode is unchanged: the rewrite prompt uses the template MCQ's own section.
 
+**Where EMTE is used today: free mode only.** In free mode the SLM writes whole MCQs from the
+notes, and `--context emte` gives it EMTE's evidence instead of BM25F sections. Locked mode
+(the one the system uses) is unchanged: its rewrite prompt uses the template MCQ's own section.
+
+First comparison (2026-11-01, qwen3:1.7b, laptop CPU, 6 quick topics, 3 MCQs requested per topic,
+budget 600, `--ctx 2048`, `--max-tokens 1024`; `data/mcq/slm_eval/20261101-2129` and `20261101-2139`):
+
+| Notes for the SLM | Passed of 18 requested | MCQs written | Replies not valid JSON | s / call |
+|---|---|---|---|---|
+| BM25F sections | 3 (17%) | 12 | 2 of 6 topics | 60.2 |
+| EMTE | 6 (33%) | 17 | 0 | 38.0 |
+
+Same model, topics, MCQ count, budget and settings, but one run on 6 topics: too small to say
+EMTE improves MCQ quality. The full 18-topic run is the fair test. Free mode stays weak either way.
+
 ## Not done yet
 
 - Human check of SLM questions (`review.csv`) for real correctness, not just grounding.
