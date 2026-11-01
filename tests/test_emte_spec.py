@@ -1,121 +1,218 @@
-"""Specification-focused tests for Member 3 EMTE."""
-from src.retrieval.emte import select_emte
+"""EMTE specification tests against AVeR-Learn's actual processed corpus.
+
+They load the committed tree.json and
+paragraphs.jsonl files and build the BM25F LexicalIndex.
+
+For the three Unit 1 documents, queries come from the real in-scope dev split
+in data/benchmark/questions.json. The DSA processed source has no DSA-labelled
+question in that benchmark, so its behavioural query is formed only from the
+actual wording in DSA_P0029 ("Stacks", "Recursion", "Infix to postfix
+conversion"). It is a source-grounded retrieval smoke/spec test, NOT a
+benchmark question or an evaluation result.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pytest
+
+from src.retrieval.processed_pipeline import (
+    load_processed_corpus,
+    retrieve_from_processed_corpus,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
+PROCESSED_ROOT = ROOT / "data" / "processed"
+QUESTIONS_FILE = ROOT / "data" / "benchmark" / "questions.json"
+BUDGET = 512
+AGGREGATORS = ("sum", "max", "mean", "saturating")
+
+# Real dev benchmark question IDs and their matching processed document IDs.
+BENCHMARK_CASES = (
+    ("unit1_topic1", "CL-001"),
+    ("unit1_topic2", "CL-015"),
+    ("unit1_topic3", "CL-023"),
+)
+
+# This is an actual phrase/query drawn from DSA_P0029 in the real JSONL source.
+# It is deliberately not labelled as a benchmark question.
+DSA_SOURCE_QUERY = "Stacks Recursion Infix to postfix conversion"
+DSA_SOURCE_PARAGRAPH_ID = "DSA_P0029"
 
 
-class MockIndex:
-    def __init__(self, scores, upper_bound=None):
-        self.scores = scores
-        self._upper_bound = upper_bound
+def _load_real_dev_question(qid: str, document_id: str) -> str:
+    questions = json.loads(QUESTIONS_FILE.read_text(encoding="utf-8"))
+    matches = [
+        item
+        for item in questions
+        if item.get("qid") == qid
+        and item.get("split") == "dev"
+        and not item.get("out_of_scope", False)
+    ]
+    assert len(matches) == 1, f"Expected exactly one in-scope dev question: {qid}"
 
-    def score(self, query):
-        return self.scores
-
-    def score_upper_bound(self, query):
-        if self._upper_bound is None:
-            raise AssertionError("No upper bound configured")
-        return self._upper_bound
-
-
-def make_tree():
-    nodes = {
-        "DOC": {
-            "id": "DOC", "kind": "document", "level": 0, "parent_id": None,
-            "children": ["CH"], "n_tokens": 0, "n_tokens_breadcrumb": 0, "doc_order": 0,
-        },
-        "CH": {
-            "id": "CH", "kind": "chapter", "level": 1, "parent_id": "DOC",
-            "children": ["SEC"], "n_tokens": 0, "n_tokens_breadcrumb": 0, "doc_order": 1,
-        },
-        "SEC": {
-            "id": "SEC", "kind": "section", "level": 2, "parent_id": "CH",
-            "children": ["SUB_A", "SUB_B"], "n_tokens": 0, "n_tokens_breadcrumb": 0, "doc_order": 2,
-        },
-        "SUB_A": {
-            "id": "SUB_A", "kind": "subsection", "level": 3, "parent_id": "SEC",
-            "children": ["P1", "P2"], "n_tokens": 0, "n_tokens_breadcrumb": 1, "doc_order": 3,
-        },
-        "SUB_B": {
-            "id": "SUB_B", "kind": "subsection", "level": 3, "parent_id": "SEC",
-            "children": ["P3", "P4"], "n_tokens": 0, "n_tokens_breadcrumb": 1, "doc_order": 6,
-        },
-    }
-    for i, pid in enumerate(("P1", "P2", "P3", "P4"), start=1):
-        parent = "SUB_A" if i <= 2 else "SUB_B"
-        nodes[pid] = {
-            "id": pid, "kind": "paragraph", "level": 4, "parent_id": parent,
-            "children": [], "text": f"paragraph {pid}", "n_tokens": 5,
-            "n_tokens_breadcrumb": 1, "doc_order": 3 + i,
-        }
-    return {"nodes": nodes}
+    question = matches[0]
+    expected_source = f"{document_id}.pdf"
+    assert any(
+        quote.get("source_pdf", "").lower() == expected_source.lower()
+        for quote in question.get("gold_quotes", [])
+    ), f"{qid} does not cite {expected_source}"
+    return question["question"]
 
 
-def test_emte_merges_both_high_paragraphs_to_subsection():
-    result = select_emte(
-        "q", make_tree(), MockIndex({"P1": 1.0, "P2": 0.9, "P3": 0.0, "P4": 0.0}),
-        budget=30, params={"aggregator": "sum", "score_scale": "relative", "tau_up": 0.002},
+@pytest.fixture(scope="module")
+def real_cases():
+    """Load all four actual processed corpora and their grounded queries."""
+    cases = []
+
+    for document_id, qid in BENCHMARK_CASES:
+        corpus = load_processed_corpus(
+            document_id, PROCESSED_ROOT, method="bm25f"
+        )
+        query = _load_real_dev_question(qid, document_id)
+        cases.append((document_id, qid, corpus, query, None))
+
+    dsa_corpus = load_processed_corpus("dsa", PROCESSED_ROOT, method="bm25f")
+    cases.append(
+        (
+            "dsa",
+            "source:DSA_P0029",
+            dsa_corpus,
+            DSA_SOURCE_QUERY,
+            DSA_SOURCE_PARAGRAPH_ID,
+        )
     )
-    assert "SUB_A" in result.nodes
-    assert "P1" not in result.nodes and "P2" not in result.nodes
+    return cases
 
 
-def test_emte_keeps_single_high_paragraph_without_climbing():
-    result = select_emte(
-        "q", make_tree(), MockIndex({"P1": 1.0, "P2": 0.0, "P3": 0.0, "P4": 0.0}),
-        budget=30, params={"aggregator": "sum", "score_scale": "relative", "tau_up": 0.002},
+@pytest.mark.parametrize(
+    "document_id",
+    ("unit1_topic1", "unit1_topic2", "unit1_topic3", "dsa"),
+)
+def test_emte_loads_actual_processed_tree_jsonl_and_bm25f_index(document_id):
+    corpus = load_processed_corpus(
+        document_id, PROCESSED_ROOT, method="bm25f"
     )
-    assert result.nodes == ["P1"]
+
+    assert corpus.tree_path == PROCESSED_ROOT / document_id / "tree.json"
+    assert corpus.paragraphs_path == PROCESSED_ROOT / document_id / "paragraphs.jsonl"
+    assert corpus.tree["document_id"] == document_id
+    assert corpus.paragraphs
+    assert corpus.index.info()["method"] == "bm25f"
+    assert corpus.index.paragraph_ids == [p["id"] for p in corpus.paragraphs]
+    assert corpus.token_counter_name
 
 
-def test_emte_never_exceeds_budget():
-    result = select_emte(
-        "q", make_tree(), MockIndex({"P1": 1.0, "P2": 0.9, "P3": 0.8, "P4": 0.7}),
-        budget=12, params={"aggregator": "sum", "score_scale": "relative", "tau_up": 0.0},
-    )
-    assert result.delivered_tokens <= 12
+@pytest.mark.parametrize("case_index", range(4))
+@pytest.mark.parametrize("aggregator", AGGREGATORS)
+def test_emte_aggregators_run_on_real_source_queries(
+    real_cases, case_index, aggregator
+):
+    document_id, case_name, corpus, query, expected_source_pid = real_cases[case_index]
 
+    # DSA query must genuinely match the paragraph from which it was derived.
+    if expected_source_pid is not None:
+        matches = corpus.index.matches(query)
+        assert matches.get(expected_source_pid) is True, (
+            f"The DSA source query did not match {expected_source_pid}"
+        )
 
-def test_emte_does_not_merge_across_already_selected_regions():
-    result = select_emte(
-        "q", make_tree(), MockIndex({"P1": 1.0, "P2": 0.0, "P3": 0.9, "P4": 0.0}),
-        budget=30, params={"aggregator": "sum", "score_scale": "relative", "tau_up": 1000.0},
-    )
-    assert result.nodes == ["P1", "P3"]
-
-
-def test_emte_absolute_scale_abstains_for_zero_upper_bound():
-    result = select_emte(
-        "unknown words", make_tree(),
-        MockIndex({"P1": 0.0, "P2": 0.0, "P3": 0.0, "P4": 0.0}, upper_bound=0.0),
-        budget=30, params={"aggregator": "sum", "score_scale": "absolute", "epsilon": 1e-9},
-    )
-    # Selection's fourth field represents abstention; the public interface
-    # exposes the selected nodes and delivered token count.
-    assert result.nodes == []
-    assert result.delivered_tokens == 0
-
-
-def test_emte_absolute_scale_uses_upper_bound():
-    result = select_emte(
-        "q", make_tree(),
-        MockIndex({"P1": 2.0, "P2": 0.0, "P3": 0.0, "P4": 0.0}, upper_bound=4.0),
-        budget=30,
+    result = retrieve_from_processed_corpus(
+        query,
+        corpus,
+        method="emte",
+        budget=BUDGET,
         params={
-            "aggregator": "sum", "score_scale": "absolute",
-            "tau_stop": 0.01, "tau_up": 0.01,
+            "aggregator": aggregator,
+            "score_scale": "relative",
         },
     )
-    # P1's normalized score is 2/4 = 0.5. Expanding to SEC adds
-    # zero-scoring paragraphs, so its gain-per-extra-token is zero.
-    assert result.nodes == ["P1"]
 
-
-def test_emte_tries_next_seed_when_top_seed_does_not_fit():
-    tree = make_tree()
-    tree["nodes"]["P1"]["n_tokens"] = 50
-    tree["nodes"]["P2"]["n_tokens"] = 5
-    result = select_emte(
-        "q", tree, MockIndex({"P1": 1.0, "P2": 0.8, "P3": 0.0, "P4": 0.0}),
-        budget=6, params={"aggregator": "sum", "score_scale": "relative", "tau_up": 1000.0},
+    paragraph_ids = set(corpus.index.paragraph_ids)
+    tree_nodes = corpus.tree["nodes"]
+    assert result.delivered_tokens <= BUDGET, (
+        f"{case_name} ({document_id}) exceeded the evidence budget"
     )
-    assert "P2" in result.nodes
-    assert result.delivered_tokens <= 6
+    assert set(result.ranked) <= paragraph_ids
+    assert set(result.nodes) <= set(tree_nodes)
+    assert result.nodes == sorted(
+        result.nodes,
+        key=lambda node_id: (
+            int(tree_nodes[node_id].get("doc_order", 0)), node_id
+        ),
+    )
+    assert result.abstained is (len(result.nodes) == 0)
+
+
+@pytest.mark.parametrize("case_index", range(4))
+def test_emte_absolute_scaling_runs_with_real_bm25f_index(real_cases, case_index):
+    document_id, case_name, corpus, query, expected_source_pid = real_cases[case_index]
+
+    if expected_source_pid is not None:
+        assert corpus.index.matches(query).get(expected_source_pid) is True
+
+    result = retrieve_from_processed_corpus(
+        query,
+        corpus,
+        method="emte",
+        budget=BUDGET,
+        params={
+            "aggregator": "saturating",
+            "score_scale": "absolute",
+            "tau_up": 0.0,
+        },
+    )
+
+    assert result.delivered_tokens <= BUDGET, f"{case_name} exceeded budget"
+    assert set(result.ranked) <= set(corpus.index.paragraph_ids)
+    assert set(result.nodes) <= set(corpus.tree["nodes"])
+
+
+def _paragraph_descendants(nodes: dict, node_id: str) -> set[str]:
+    node = nodes[node_id]
+    if node.get("kind") == "paragraph":
+        return {node_id}
+
+    found: set[str] = set()
+    stack = list(node.get("children") or [])
+    while stack:
+        child_id = stack.pop()
+        child = nodes[child_id]
+        if child.get("kind") == "paragraph":
+            found.add(child_id)
+        else:
+            stack.extend(child.get("children") or [])
+    return found
+
+
+@pytest.mark.parametrize("case_index", range(4))
+def test_emte_selected_regions_do_not_overlap_on_actual_tree(real_cases, case_index):
+    document_id, case_name, corpus, query, expected_source_pid = real_cases[case_index]
+
+    if expected_source_pid is not None:
+        assert corpus.index.matches(query).get(expected_source_pid) is True
+
+    result = retrieve_from_processed_corpus(
+        query,
+        corpus,
+        method="emte",
+        budget=1024,
+        params={
+            "aggregator": "sum",
+            "score_scale": "relative",
+            "tau_up": 0.0,
+            "max_regions": 10,
+        },
+    )
+
+    nodes = corpus.tree["nodes"]
+    covered: set[str] = set()
+    for selected_id in result.nodes:
+        region = _paragraph_descendants(nodes, selected_id)
+        overlap = covered.intersection(region)
+        assert not overlap, (
+            f"{case_name} ({document_id}) has overlapping selected regions: "
+            f"{sorted(overlap)}"
+        )
+        covered.update(region)

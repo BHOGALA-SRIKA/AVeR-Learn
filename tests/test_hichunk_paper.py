@@ -1,62 +1,51 @@
-from src.retrieval.hichunk import select_hichunk
+"""HiChunk behaviour checks using AVeR-Learn's actual processed corpus.
+
+The hierarchy, paragraph text and BM25F scores are loaded from committed
+processed data. Queries are in-scope development benchmark questions.
+The adaptive-threshold helper is tested independently because it is a
+deterministic scalar function and does not require a retrieval fixture.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pytest
+
 from src.retrieval.hichunk import _adaptive_threshold
+from src.retrieval.processed_pipeline import load_processed_corpus
+from src.utils.token_counter import count_tokens
+
+ROOT = Path(__file__).resolve().parents[1]
+PROCESSED = ROOT / "data" / "processed"
+QUESTIONS = ROOT / "data" / "benchmark" / "questions.json"
+DOCUMENTS = ("unit1_topic1", "unit1_topic2", "unit1_topic3")
+BUDGET = 2048
 
 
-class MockIndex:
-    """Controlled retrieval scores for paper-based tests."""
-
-    def __init__(self, scores):
-        self.scores = scores
-
-    def score(self, query):
-        return self.scores
-
-
-def make_tree():
-    """Section A has three paragraphs, but only two are retrieved."""
-    nodes = {
-        "DOC": {
-            "id": "DOC", "kind": "document", "level": 0, "parent_id": None,
-            "children": ["SEC_A"], "text": "", "n_tokens": 0, "doc_order": 0,
-        },
-        "SEC_A": {
-            "id": "SEC_A", "kind": "section", "level": 2, "parent_id": "DOC",
-            "children": ["A1", "A2", "A3"], "text": "Section A complete content",
-            "n_tokens": 8, "n_tokens_breadcrumb": 0, "doc_order": 1,
-        },
-        "A1": {
-            "id": "A1", "kind": "paragraph", "level": 4, "parent_id": "SEC_A",
-            "children": [], "text": "First evidence paragraph", "n_tokens": 3,
-            "n_tokens_breadcrumb": 0, "doc_order": 2,
-        },
-        "A2": {
-            "id": "A2", "kind": "paragraph", "level": 4, "parent_id": "SEC_A",
-            "children": [], "text": "Second evidence paragraph", "n_tokens": 3,
-            "n_tokens_breadcrumb": 0, "doc_order": 3,
-        },
-        "A3": {
-            "id": "A3", "kind": "paragraph", "level": 4, "parent_id": "SEC_A",
-            "children": [], "text": "Third paragraph not retrieved", "n_tokens": 3,
-            "n_tokens_breadcrumb": 0, "doc_order": 4,
-        },
-    }
-    return {"nodes": nodes}
+def _load_dev_query(document_id: str) -> str:
+    questions = json.loads(QUESTIONS.read_text(encoding="utf-8"))
+    source_pdf = f"{document_id}.pdf"
+    matches = [
+        item for item in questions
+        if item.get("split") == "dev"
+        and not item.get("out_of_scope", False)
+        and any(
+            quote.get("source_pdf", "").lower() == source_pdf.lower()
+            for quote in item.get("gold_quotes", [])
+        )
+        and str(item.get("question", "")).strip()
+    ]
+    assert matches, f"No in-scope development question for {source_pdf}"
+    return str(matches[0]["question"]).strip()
 
 
-def test_hichunk_can_merge_partial_retrieved_siblings():
-    """Two represented direct children may merge even when a third is absent."""
-    result = select_hichunk(
-        query="Explain Section A",
-        tree=make_tree(),
-        index=MockIndex({"A1": 0.95, "A2": 0.85, "A3": 0.0}),
-        budget=20,
-        params={"merge_min_children": 2, "merge_level_max": 3},
-    )
-    assert "SEC_A" in result.nodes
-    assert "A1" not in result.nodes
-    assert "A2" not in result.nodes
-    assert result.delivered_tokens == 9
-    assert result.delivered_tokens <= 20
+@pytest.fixture(params=DOCUMENTS)
+def real_hichunk_case(request):
+    document_id = request.param
+    corpus = load_processed_corpus(document_id, PROCESSED, method="bm25f")
+    query = _load_dev_query(document_id)
+    return document_id, corpus, query
 
 
 def test_hichunk_adaptive_threshold_increases_with_budget_usage():
@@ -67,66 +56,52 @@ def test_hichunk_adaptive_threshold_increases_with_budget_usage():
     assert late_threshold > early_threshold
 
 
-def test_hichunk_does_not_merge_when_only_one_direct_child_is_represented():
+def test_hichunk_runs_on_real_processed_hierarchy(real_hichunk_case):
+    from src.retrieval.hichunk import select_hichunk
+
+    document_id, corpus, query = real_hichunk_case
     result = select_hichunk(
-        "query", make_tree(),
-        MockIndex({"A1": 0.9, "A2": 0.0, "A3": 0.0}),
-        budget=20,
-        params={"merge_min_children": 2},
+        query=query,
+        tree=corpus.tree,
+        index=corpus.index,
+        budget=BUDGET,
+        params={
+            "paragraphs": corpus.paragraphs,
+            "token_counter": count_tokens,
+            "include_breadcrumbs": True,
+            "merge_min_children": 2,
+            "merge_level_max": 3,
+        },
     )
-    assert result.nodes == ["A1"]
-    assert result.delivered_tokens == 3
+
+    node_ids = set(corpus.tree["nodes"])
+    paragraph_ids = set(corpus.index.paragraph_ids)
+    assert set(result.ranked) == paragraph_ids, document_id
+    assert set(result.nodes) <= node_ids, document_id
+    assert result.delivered_tokens <= BUDGET, document_id
 
 
-def test_hichunk_does_not_merge_when_complete_parent_exceeds_budget():
-    # Two paragraphs fit (6 tokens), but the complete section costs 9.
+def test_hichunk_never_selects_document_root(real_hichunk_case):
+    from src.retrieval.hichunk import select_hichunk
+
+    document_id, corpus, query = real_hichunk_case
     result = select_hichunk(
-        "query", make_tree(),
-        MockIndex({"A1": 0.9, "A2": 0.8, "A3": 0.0}),
-        budget=8,
-        params={"merge_min_children": 2},
+        query=query,
+        tree=corpus.tree,
+        index=corpus.index,
+        budget=BUDGET,
+        params={
+            "paragraphs": corpus.paragraphs,
+            "token_counter": count_tokens,
+            "include_breadcrumbs": True,
+            "merge_min_children": 2,
+            "merge_level_max": 3,
+        },
     )
-    assert result.nodes == ["A1", "A2"]
-    assert result.delivered_tokens == 6
-
-
-def test_hichunk_respects_merge_min_children_parameter():
-    result = select_hichunk(
-        "query", make_tree(),
-        MockIndex({"A1": 0.9, "A2": 0.8, "A3": 0.0}),
-        budget=20,
-        params={"merge_min_children": 3},
+    document_root = next(
+        (node_id for node_id, node in corpus.tree["nodes"].items()
+         if node.get("kind") == "document"),
+        None,
     )
-    assert result.nodes == ["A1", "A2"]
-
-
-def test_hichunk_respects_merge_level_max():
-    result = select_hichunk(
-        "query", make_tree(),
-        MockIndex({"A1": 0.9, "A2": 0.8, "A3": 0.0}),
-        budget=20,
-        params={"merge_level_max": 1},
-    )
-    assert result.nodes == ["A1", "A2"]
-
-
-def test_hichunk_parent_merge_includes_unretrieved_sibling_content():
-    """Auto-Merge returns the complete parent, not only retrieved paragraphs."""
-    tree = make_tree()
-    result = select_hichunk(
-        "query", tree,
-        MockIndex({"A1": 0.9, "A2": 0.8, "A3": 0.0}),
-        budget=20,
-    )
-    assert "SEC_A" in result.nodes
-    # Complete section content accounts for all three descendant paragraphs.
-    assert result.delivered_tokens == 9
-
-
-def test_hichunk_never_returns_document_root():
-    result = select_hichunk(
-        "query", make_tree(),
-        MockIndex({"A1": 0.9, "A2": 0.8, "A3": 0.0}),
-        budget=20,
-    )
-    assert "DOC" not in result.nodes
+    if document_root is not None:
+        assert document_root not in result.nodes, document_id

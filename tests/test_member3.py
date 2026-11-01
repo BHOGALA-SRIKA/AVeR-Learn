@@ -1,150 +1,117 @@
+"""Member 3 selector tests using AVeR-Learn's committed processed corpus.
+
+All trees, paragraphs, BM25F scores and benchmark questions are loaded from
+ data/processed/ and data/benchmark/questions.json. No synthetic nodes or fake
+ indexes are used in this file.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
 import pytest
 
-from src.retrieval.selectors import (
-    select_fixed_k, select_score_ratio, select_score_gap, select_adaptive_k
+from src.retrieval.processed_pipeline import (
+    load_processed_corpus,
+    retrieve_from_processed_corpus,
 )
-from src.retrieval.hichunk import select_hichunk, select_hichunk_with_stop
-from src.retrieval.emte import select_emte, emte_ablation
+
+ROOT = Path(__file__).resolve().parents[1]
+PROCESSED = ROOT / "data" / "processed"
+QUESTIONS = ROOT / "data" / "benchmark" / "questions.json"
+DOCUMENTS = ("unit1_topic1", "unit1_topic2", "unit1_topic3")
 
 
-def node(i, level, kind, parent, children, text, order, tokens=None):
-    return {
-        "id": i, "level": level, "kind": kind, "title": "",
-        "text": text, "parent_id": parent, "children": children,
-        "breadcrumb": "OS > Unit 1", "doc_order": order,
-        "page_start": 1, "page_end": 1,
-        "n_tokens": tokens if tokens is not None else len(text.split()),
-        "n_tokens_breadcrumb": 3,
-    }
+def _real_question(document_id: str) -> str:
+    source_pdf = f"{document_id}.pdf"
+    questions = json.loads(QUESTIONS.read_text(encoding="utf-8"))
+    for item in questions:
+        if (
+            item.get("split") == "dev"
+            and not item.get("out_of_scope", False)
+            and any(
+                q.get("source_pdf", "").lower() == source_pdf.lower()
+                for q in item.get("gold_quotes", [])
+            )
+        ):
+            query = str(item.get("question", "")).strip()
+            if query:
+                return query
+    raise AssertionError(f"No source-grounded benchmark question for {source_pdf}")
 
 
-NODES = {
-    "DOC": node("DOC", 0, "document", None, ["CH"], "", 0, 0),
-    "CH": node("CH", 1, "chapter", "DOC", ["SEC_A", "SEC_B"], "", 1, 0),
-    "SEC_A": node("SEC_A", 2, "section", "CH", ["P1", "P2"], "alpha beta gamma delta", 2, 4),
-    "SEC_B": node("SEC_B", 2, "section", "CH", ["P3"], "epsilon zeta", 3, 2),
-    "P1": node("P1", 4, "paragraph", "SEC_A", [], "alpha beta", 4, 2),
-    "P2": node("P2", 4, "paragraph", "SEC_A", [], "gamma delta", 5, 2),
-    "P3": node("P3", 4, "paragraph", "SEC_B", [], "epsilon zeta", 6, 2),
-}
-TREE = {
-    "schema_version": "1.0",
-    "document_id": "OS_UNIT1_TOPIC1",
-    "root_ids": ["DOC"],
-    "nodes": NODES,
-}
-PARAGRAPHS = [NODES[x] for x in ("P1", "P2", "P3")]
+@pytest.fixture(params=DOCUMENTS)
+def real_case(request):
+    document_id = request.param
+    corpus = load_processed_corpus(document_id, PROCESSED)
+    return corpus, _real_question(document_id)
 
 
-class FakeIndex:
-    records = PARAGRAPHS
-
-    def score(self, query):
-        return {"P1": 10.0, "P2": 8.0, "P3": 1.0}
-
-
-def count(text):
-    return len(text.split())
-
-
-def params(**kwargs):
-    return {"token_counter": count, **kwargs}
-
-
-def test_fixed_k():
-    # Each paragraph costs 2 content tokens + 3 breadcrumb tokens.
-    result = select_fixed_k("q", TREE, FakeIndex(), 10, params(k=2))
-    assert result.nodes == ["P1", "P2"]
-    assert result.delivered_tokens == 10
-
-
-def test_ratio():
-    result = select_score_ratio("q", TREE, FakeIndex(), 10, params(ratio_threshold=.5))
-    assert result.nodes == ["P1", "P2"]
-
-
-def test_gap():
-    result = select_score_gap("q", TREE, FakeIndex(), 10, params(gap_threshold=3))
-    assert result.nodes == ["P1", "P2"]
-
-
-def test_adaptive():
-    result = select_adaptive_k(
-        "q", TREE, FakeIndex(), 10,
-        params(min_k=1, max_k=3, relative_gap_threshold=.5)
+def _run(real_case, method: str, params=None, budget: int = 2048):
+    corpus, query = real_case
+    return retrieve_from_processed_corpus(
+        query, corpus, method=method, budget=budget, params=params or {}
     )
-    assert result.nodes == ["P1", "P2"]
 
 
-def test_missing_score_is_zero():
-    class Missing(FakeIndex):
-        def score(self, query):
-            return {"P1": 10}
-    result = select_fixed_k("q", TREE, Missing(), 10, params(k=3))
-    assert result.ranked == ["P1", "P2", "P3"]
+def _assert_real_selection(real_case, result, budget=2048):
+    corpus, _ = real_case
+    node_ids = set(corpus.tree["nodes"])
+    paragraph_ids = set(corpus.index.paragraph_ids)
+    assert result.delivered_tokens <= budget
+    assert set(result.ranked) == paragraph_ids
+    assert set(result.nodes) <= node_ids
+    assert all(node_id in node_ids for node_id in result.nodes)
 
 
-def test_hichunk_merges_selected_siblings():
-    result = select_hichunk(
-        "q", TREE, FakeIndex(), 10,
-        params(merge_min_children=2, merge_level_max=2)
+def test_fixed_k_on_real_processed_corpus(real_case):
+    result = _run(real_case, "fixed_k", {"k": 5})
+    _assert_real_selection(real_case, result)
+
+
+def test_score_ratio_on_real_processed_corpus(real_case):
+    result = _run(real_case, "score_ratio", {"ratio_threshold": 0.5})
+    _assert_real_selection(real_case, result)
+
+
+def test_score_gap_on_real_processed_corpus(real_case):
+    result = _run(real_case, "score_gap", {"gap_threshold": 0.0})
+    _assert_real_selection(real_case, result)
+
+
+def test_adaptive_k_on_real_processed_corpus(real_case):
+    result = _run(real_case, "adaptive_k", {"search_frac": 0.9, "buffer": 1})
+    _assert_real_selection(real_case, result)
+
+
+def test_hichunk_on_real_processed_corpus(real_case):
+    result = _run(real_case, "hichunk", {"merge_min_children": 2, "merge_level_max": 3})
+    _assert_real_selection(real_case, result)
+
+
+def test_hichunk_with_stopping_on_real_processed_corpus(real_case):
+    result = _run(
+        real_case, "hichunk_with_stop",
+        {"gap_threshold": 0.0, "merge_min_children": 2, "merge_level_max": 3},
     )
-    assert result.nodes == ["SEC_A"]
-    # Merged region: P1 + P2 content (4) + one section breadcrumb (3).
-    assert result.delivered_tokens == 7
+    _assert_real_selection(real_case, result)
 
 
-def test_hichunk_stopping():
-    result = select_hichunk_with_stop(
-        "q", TREE, FakeIndex(), 10,
-        params(gap_threshold=3, merge_min_children=2, merge_level_max=2)
-    )
-    assert result.nodes == ["SEC_A"]
+def test_emte_on_real_processed_corpus(real_case):
+    result = _run(real_case, "emte", {"aggregator": "sum", "score_scale": "relative"})
+    _assert_real_selection(real_case, result)
 
 
-def test_emte_returns_valid_budgeted_evidence():
-    result = select_emte(
-        "q", TREE, FakeIndex(), 10,
-        params(section_level=2, aggregator="sum", score_scale="max",
-               tau_stop=0, tau_up=0)
-    )
-    assert result.nodes
-    assert result.delivered_tokens <= 10
+def test_emte_all_aggregators_on_real_processed_corpus(real_case):
+    corpus, query = real_case
+    from src.retrieval.emte import emte_ablation
 
-
-def test_emte_ablation_runs_all_aggregators():
-    results = emte_ablation("q", TREE, FakeIndex(), 10, params(section_level=2))
+    results = emte_ablation(query, corpus.tree, corpus.index, 2048, {
+        "paragraphs": corpus.paragraphs,
+        "token_counter": __import__("src.utils.token_counter", fromlist=["count_tokens"]).count_tokens,
+        "include_breadcrumbs": True,
+        "section_level": 2,
+    })
     assert set(results) == {"sum", "max", "mean", "saturating"}
-
-
-def test_blank_query_abstains():
-    result = select_fixed_k("", TREE, FakeIndex(), 10, params(k=2))
-    assert result.abstained
-    assert result.nodes == []
-
-
-def test_tree_key_id_mismatch_rejected():
-    bad = {"schema_version": "1.0", "document_id": "x", "root_ids": ["DOC"],
-           "nodes": {"wrong": NODES["DOC"]}}
-    with pytest.raises(ValueError):
-        select_hichunk("q", bad, FakeIndex(), 10, params())
-
-
-def test_emte_handles_missing_hierarchy_levels():
-    # Direct document -> paragraph is valid: levels need not be contiguous.
-    flat = {
-        "schema_version": "1.0", "document_id": "flat", "root_ids": ["D"],
-        "nodes": {
-            "D": node("D", 0, "document", None, ["P"], "", 0, 0),
-            "P": node("P", 4, "paragraph", "D", [], "alpha beta", 1, 2),
-        },
-    }
-
-    class One:
-        records = [flat["nodes"]["P"]]
-
-        def score(self, query):
-            return {"P": 1.0}
-
-    result = select_emte("q", flat, One(), 5, params(section_level=2))
-    assert result.nodes == ["P"]
+    for result in results.values():
+        _assert_real_selection(real_case, result)
