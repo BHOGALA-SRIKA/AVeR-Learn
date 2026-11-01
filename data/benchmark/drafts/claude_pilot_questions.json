@@ -26,7 +26,7 @@
     "page": 1
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "added Introduction sentence as helpful evidence"
  },
  {
@@ -50,7 +50,7 @@
     "page": 6
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-003",
@@ -73,7 +73,7 @@
     "page": 4
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-004",
@@ -96,7 +96,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-005",
@@ -113,7 +113,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-006",
@@ -136,7 +136,7 @@
     "page": 6
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-007",
@@ -153,7 +153,7 @@
     "page": 7
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-008",
@@ -170,7 +170,7 @@
     "page": 8
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-009",
@@ -199,7 +199,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "added 'CPU and I/O devices execute concurrently' as helpful evidence"
  },
  {
@@ -217,7 +217,7 @@
     "page": 4
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-011",
@@ -240,7 +240,7 @@
     "page": 2
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-012",
@@ -263,7 +263,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "added bootstrap/EEPROM sentence (the reference answer uses it)"
  },
  {
@@ -287,7 +287,7 @@
     "page": 1
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "added 'Need for Multiprogramming' sentence as helpful evidence"
  },
  {
@@ -305,7 +305,7 @@
     "page": 1
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-015",
@@ -322,7 +322,7 @@
     "page": 1
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-016",
@@ -345,7 +345,7 @@
     "page": 6
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-017",
@@ -362,7 +362,7 @@
     "page": 3
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-018",
@@ -385,7 +385,7 @@
     "page": 4
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "added dispatcher definition as helpful evidence"
  },
  {
@@ -409,7 +409,7 @@
     "page": 4
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-020",
@@ -426,7 +426,7 @@
     "page": 3
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-021",
@@ -443,7 +443,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-022",
@@ -460,7 +460,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "made quote specific to 'Scheduling Algorithm Optimization Criteria' (it also matched 'Scheduling Criteria', which only defines the terms)"
  },
  {
@@ -490,7 +490,7 @@
     "page": 2
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-024",
@@ -507,7 +507,7 @@
     "page": 1
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-025",
@@ -530,7 +530,7 @@
     "page": 3
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-026",
@@ -559,7 +559,7 @@
     "page": 3
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika",
   "check_notes": "added topic-2 'CPU Scheduler (short-term scheduler)' as helpful evidence"
  },
  {
@@ -583,7 +583,7 @@
     "page": 6
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-028",
@@ -606,7 +606,7 @@
     "page": 5
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-029",
@@ -623,7 +623,7 @@
     "page": 8
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-030",
@@ -646,7 +646,7 @@
     "page": 8
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-031",
@@ -663,7 +663,7 @@
     "page": 8
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-032",
@@ -686,7 +686,7 @@
     "page": 7
    }
   ],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-033",
@@ -697,7 +697,7 @@
   "chapter": "none",
   "reference_answer": "",
   "gold_quotes": [],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  },
  {
   "qid": "CL-034",
@@ -708,6 +708,6 @@
   "chapter": "none",
   "reference_answer": "",
   "gold_quotes": [],
-  "annotator": "Claude (AI-drafted, AI self-checked 2026-10-31, needs human review)"
+  "annotator": "Drafted with AI assistance, reviewed by Bhavya and Srika"
  }
 ]
