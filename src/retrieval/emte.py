@@ -219,6 +219,14 @@ def select_emte(
 ) -> Selection:
     """Select evidence regions using recomputed evidence mass and budgeted ascent."""
     params = dict(params or {})
+    # EMTE is a budgeted production selector: never silently fall back to
+    # whitespace splitting. The processed-data pipeline injects Member 2's
+    # shared original-text counter (src.utils.token_counter.count_tokens).
+    if not callable(params.get("token_counter")):
+        raise ValueError(
+            "EMTE requires the shared token counter. Run through "
+            "retrieve_from_processed_corpus() or pass src.utils.token_counter.count_tokens."
+        )
     nodes, paragraph_ids, raw_scores, ranked = _prepare(query, tree, index, params)
     if not ranked or budget <= 0:
         return Selection([], ranked, 0, True)
@@ -399,3 +407,206 @@ def emte_ablation_suite(
                                     "tau_stop": tau_stop, "max_regions": max_regions}
                         results[label] = select_emte(query, tree, variant_index, budget, settings)
     return results
+
+
+
+def run_real_benchmark_question(
+    qid: str,
+    *,
+    budget: int = 512,
+    questions_path: str = "data/benchmark/questions.json",
+    processed_root: str = "data/processed",
+    params: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Run EMTE for one real question from the committed AVeR-Learn benchmark."""
+    import json
+    from pathlib import Path
+
+    from .processed_pipeline import (
+        load_processed_corpus,
+        retrieve_from_processed_corpus,
+    )
+
+    if budget <= 0:
+        raise ValueError("budget must be a positive integer")
+
+    questions_file = Path(questions_path)
+    if not questions_file.is_file():
+        raise FileNotFoundError(
+            f"Benchmark questions file not found: {questions_file}"
+        )
+
+    questions = json.loads(questions_file.read_text(encoding="utf-8"))
+    if not isinstance(questions, list):
+        raise ValueError("questions.json must contain a JSON array")
+
+    matches = [
+        item for item in questions
+        if str(item.get("qid")) == str(qid)
+    ]
+
+    if len(matches) != 1:
+        raise ValueError(
+            f"Expected exactly one real benchmark question for "
+            f"qid={qid!r}; found {len(matches)}"
+        )
+
+    question = matches[0]
+    query = str(question.get("question", "")).strip()
+
+    if not query:
+        raise ValueError(
+            f"Benchmark question {qid!r} has empty question text"
+        )
+
+    if question.get("out_of_scope"):
+        raise ValueError(
+            f"Benchmark question {qid!r} is marked out_of_scope"
+        )
+
+    source_pdfs = {
+        str(quote.get("source_pdf", "")).strip()
+        for quote in question.get("gold_quotes", [])
+        if quote.get("source_pdf")
+    }
+
+    if len(source_pdfs) != 1:
+        raise ValueError(
+            "A real benchmark question must identify exactly one source_pdf; "
+            f"found {sorted(source_pdfs)} for {qid!r}"
+        )
+
+    source_pdf = next(iter(source_pdfs))
+
+    if not source_pdf.lower().endswith(".pdf"):
+        raise ValueError(
+            f"Unexpected source_pdf value: {source_pdf!r}"
+        )
+
+    document_id = Path(source_pdf).stem
+
+    corpus = load_processed_corpus(
+        document_id,
+        processed_root,
+        method="bm25f",
+        expand=False,
+    )
+
+    result = retrieve_from_processed_corpus(
+        query,
+        corpus,
+        method="emte",
+        budget=budget,
+        params=dict(params or {}),
+    )
+
+    node_map = corpus.tree["nodes"]
+
+    paragraph_map = {
+        paragraph["id"]: paragraph
+        for paragraph in corpus.paragraphs
+    }
+
+    selected_evidence = []
+
+    for node_id in result.nodes:
+        node = node_map[node_id]
+
+        if node.get("kind") == "paragraph":
+            paragraph_ids = [node_id]
+        else:
+            paragraph_ids = []
+            stack = list(node.get("children", []))
+
+            while stack:
+                child_id = stack.pop()
+                child = node_map[child_id]
+
+                if child.get("kind") == "paragraph":
+                    paragraph_ids.append(child_id)
+                else:
+                    stack.extend(
+                        reversed(child.get("children", []))
+                    )
+
+        paragraph_ids.sort(
+            key=lambda pid: node_map[pid].get("doc_order", 0)
+        )
+
+        evidence_text = "\n\n".join(
+            paragraph_map[pid].get("text", "")
+            for pid in paragraph_ids
+            if pid in paragraph_map
+        )
+
+        selected_evidence.append({
+            "id": node_id,
+            "kind": node.get("kind"),
+            "title": node.get("title"),
+            "breadcrumb": node.get("breadcrumb", ""),
+            "text": evidence_text,
+            "paragraph_ids": paragraph_ids,
+        })
+
+    return {
+        "qid": str(qid),
+        "split": question.get("split"),
+        "question": query,
+        "document_id": document_id,
+        "processed_tree": str(corpus.tree_path),
+        "processed_paragraphs": str(corpus.paragraphs_path),
+        "index": corpus.index.info(),
+        "token_counter": corpus.token_counter_name,
+        "method": "emte",
+        "parameters": dict(params or {}),
+        "budget": budget,
+        "selected_node_ids": result.nodes,
+        "ranked_paragraph_ids": result.ranked,
+        "delivered_tokens": result.delivered_tokens,
+        "abstained": result.abstained,
+        "selected_evidence": selected_evidence,
+    }
+
+
+def main() -> None:
+    """CLI: python -m src.retrieval.emte --qid CL-001 --budget 512"""
+    import argparse
+    import json
+
+    parser = argparse.ArgumentParser(
+        description="Run EMTE against a real AVeR-Learn benchmark question and processed corpus."
+    )
+    parser.add_argument("--qid", required=True, help="qid from data/benchmark/questions.json")
+    parser.add_argument("--budget", type=int, default=512, help="shared-counter token budget")
+    parser.add_argument("--questions", default="data/benchmark/questions.json")
+    parser.add_argument("--processed-root", default="data/processed")
+    parser.add_argument("--aggregator", choices=("sum", "max", "mean", "saturating"), default="saturating")
+    parser.add_argument("--score-scale", choices=("relative", "absolute", "max", "sum", "none"), default="relative")
+    parser.add_argument("--tau-stop", type=float, default=0.0)
+    parser.add_argument("--tau-up", type=float, default=0.0)
+    parser.add_argument("--max-candidates", type=int, default=30)
+    parser.add_argument("--max-regions", type=int, default=None)
+    args = parser.parse_args()
+
+    if args.budget <= 0:
+        parser.error("--budget must be a positive integer")
+
+    result = run_real_benchmark_question(
+        args.qid,
+        budget=args.budget,
+        questions_path=args.questions,
+        processed_root=args.processed_root,
+        params={
+            "aggregator": args.aggregator,
+            "score_scale": args.score_scale,
+            "tau_stop": args.tau_stop,
+            "tau_up": args.tau_up,
+            "max_candidates": args.max_candidates,
+            "max_regions": args.max_regions,
+        },
+    )
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()
