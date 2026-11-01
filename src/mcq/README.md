@@ -109,6 +109,30 @@ python experiments/slm_eval.py                         # all 18 topics
 Results go to `data/mcq/slm_eval/<date-time>/` (`report.md`, `results.json`, `review.csv`).
 `python experiments/slm_eval.py --backend mock` tests the script without any model.
 
+## EMTE as the context for the SLM (Srika's selector)
+
+`src/mcq/emte_context.py`: `EmteContext.retrieve(topic, budget_tokens)` gives the SLM its notes
+through Srika's EMTE (`src/retrieval/emte.py`) over Bhavya's paragraph trees of all uploaded
+PDFs, instead of whole BM25F sections. Topics not in the notes are still refused first.
+
+`python experiments/emte_context_eval.py` (no model, CPU) checks, for the 18 SLM topics, whether
+the context contains the evidence of the topic's template MCQs (the checker's own rule) and how
+many tokens it costs. Result (`results/mcq_context/summary.md`):
+
+| Budget | BM25F sections (max 4) | BM25F sections (max 8) | EMTE |
+|---|---|---|---|
+| 256 tokens | 43/48 evidence | 43/48 | **44/48** |
+| 384 tokens | 43/48 | 43/48 | **46/48** |
+| 512 tokens | 43/48 | **48/48** | 47/48 |
+
+EMTE finds more evidence than today's BM25F packing (max 4 sections) at every budget and
+refuses 4/4 off-syllabus topics, while staying light: about 8 ms per topic and about 4 MB
+to build, no model. It does not use fewer tokens than BM25F sections at the same budget,
+and BM25F with 8 sections catches up at 512 tokens.
+
+SLM with EMTE notes (laptop, Ollama): `python experiments/slm_eval.py --quick --mode free --context emte --models qwen3:1.7b --ctx 2048`
+(compare with `--context bm25f`; `--ctx 2048` halves the model's context memory). Locked mode is unchanged: the rewrite prompt uses the template MCQ's own section.
+
 ## Not done yet
 
 - Human check of SLM questions (`review.csv`) for real correctness, not just grounding.

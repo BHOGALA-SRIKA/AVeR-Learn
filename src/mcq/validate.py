@@ -48,11 +48,32 @@ _QUOTED = re.compile(r"[‘“\"']([^‘’“”\"]{8,}?)[’”\"'](?=\s|$|[.,
 _WRAP = "\"'‘’“”"
 
 
+# source tags the prompt shows next to each passage, which small models copy into the quote:
+# "[UNIT1_TOPIC2_S018]", "(unit1_topic2.pdf, p4)", "(Unit 1 – CPU Scheduling > Dispatcher ...)", "source:"
+_ID_TAG = re.compile(r"[\[(][^\[\]()]*(?:\b[A-Z0-9]+_[A-Z0-9_]*[SP]\d{2,}\b|\.pdf\b|\bsource\s*:)[^\[\]()]*[\])]", re.I)
+_PID = re.compile(r"\[\s*pid\s*\]", re.I)  # the placeholder from the prompt's JSON example
+_CRUMB = re.compile(r"\([^()]*\s>\s[^()]*\)")
+_SOURCE_TAIL = re.compile(r"[,;]?\s*\bsource\s*:?\s*$", re.I)
+
+
+def _strip_source_tags(text: str) -> str:
+    text = text.replace("\\n", "\n")
+    for _ in range(3):
+        text = _ID_TAG.sub(" ", text)
+        text = _PID.sub(" ", text)
+        text = _CRUMB.sub(" ", text)
+    lines = [ln for ln in text.splitlines() if ln.strip() and not re.fullmatch(r"[\s.,;:()\[\]]*", ln)]
+    # a leftover cite line ("Unit 1 – CPU Scheduling > Dispatcher") is not notes text
+    lines = [ln for ln in lines if " > " not in ln] or lines
+    return _SOURCE_TAIL.sub("", " ".join(ln.strip() for ln in lines)).strip()
+
+
 def clean_quote(text: str) -> str:
     """The quoted notes text without what the model wrapped around it:
     "The notes state: 'Child terminates'" and "'Process has finished execution' -
-    Unit 1, Topic 3, p3" both become the bare quote; citation tails are dropped."""
-    text = str(text or "").strip()
+    Unit 1, Topic 3, p3" both become the bare quote; citation tails and copied source
+    tags ("[UNIT1_TOPIC1_S016]", "(unit1_topic2.pdf, p4)") are dropped."""
+    text = _strip_source_tags(str(text or "").strip())
     for _ in range(3):
         text = _CITATION.sub("", text).strip()
         text = _DASH_CITATION.sub("", text).strip()

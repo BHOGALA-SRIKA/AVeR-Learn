@@ -73,8 +73,12 @@ class ModelError(Exception):
 
 
 class Ollama:
-    def __init__(self, host: str, timeout: int, cpu_only: bool = True) -> None:
+    def __init__(self, host: str, timeout: int, cpu_only: bool = True, num_ctx: int = 4096,
+                 max_tokens: int = 1024) -> None:
         self.host, self.timeout, self.cpu_only = host.rstrip("/"), timeout, cpu_only
+        self.num_ctx = num_ctx  # smaller = less memory for the model's context
+        # a small model can get stuck repeating itself; stop it after this many tokens
+        self.max_tokens = max_tokens
 
     def _call(self, path: str, payload: dict | None = None) -> dict:
         data = json.dumps(payload).encode() if payload is not None else None
@@ -92,7 +96,7 @@ class Ollama:
     def generate(self, model: str, prompt: str, schema: dict) -> dict:
         payload = {
             "model": model, "prompt": prompt, "stream": False, "format": schema,
-            "options": {"temperature": 0.2, "seed": 42, "num_ctx": 4096},
+            "options": {"temperature": 0.2, "seed": 42, "num_ctx": self.num_ctx, "num_predict": self.max_tokens},
             "keep_alive": "10m",
         }
         if self.cpu_only:
@@ -217,12 +221,14 @@ def problem_kind(problem: str) -> str:
 
 # --------------------------------------------------------------------- runs
 
-def run_free(model, topics, backend, retriever, args, rows) -> dict:
+def run_free(model, topics, backend, retriever, args, rows, context=None) -> dict:
+    """``context``: where the notes for the prompt come from (default: ``retriever``,
+    BM25F sections; ``EmteContext`` for Srika's EMTE)."""
     stats, kinds = Counter(), Counter()
     seconds = gen = 0.0
     tokens = 0
     for i, topic in enumerate(topics, 1):
-        passages = retriever.retrieve(topic)
+        passages = (context or retriever).retrieve(topic, budget_tokens=args.budget)
         if not passages:
             print(f"  [free {i}/{len(topics)}] {topic}: not in the notes, skipped")
             continue
@@ -357,6 +363,7 @@ def save(out_dir, summary, rows, pdfs, topics, args, refused) -> None:
         "",
         f"Notes: {', '.join(Path(p).name for p in pdfs)}. Topics: {len(topics)}, {args.n} MCQs per topic. "
         f"Device: {'GPU allowed' if getattr(args, 'gpu', False) else 'CPU only'}. "
+        f"Free-mode notes: {getattr(args, 'context', 'bm25f')}, budget {getattr(args, 'budget', 600)} tokens. "
         f"Topics not in the notes refused before the SLM: {len(refused)}/{len(NOT_IN_NOTES)}.",
         "",
         "| Model | Mode | MCQs | Passed checker | Rewrites accepted | Wrong answer key | Two correct options | "
@@ -393,19 +400,32 @@ def main() -> None:
     ap.add_argument("--gpu", action="store_true", help="let Ollama use the graphics card (default: CPU only)")
     ap.add_argument("--pdfs", nargs="*")
     ap.add_argument("--stand-in", action="store_true", help="use the stand-in PDF reader even if tree.json exists")
+    ap.add_argument("--context", choices=["bm25f", "emte"], default="bm25f",
+                    help="free mode: notes for the prompt from BM25F sections or from EMTE (needs tree.json)")
+    ap.add_argument("--budget", type=int, default=600, help="free mode: token budget for the notes")
+    ap.add_argument("--ctx", type=int, default=4096,
+                    help="model context size in tokens; 2048 needs less memory (enough for --budget 600)")
+    ap.add_argument("--max-tokens", type=int, default=1024,
+                    help="longest reply allowed; stops a model that keeps repeating itself")
     args = ap.parse_args()
 
     pdfs = args.pdfs or sorted(glob.glob(str(ROOT / "data" / "raw" / "unit1_topic*.pdf")))
     paragraphs, source = load_sections(pdfs, ROOT, prefer_trees=not args.stand_in)
     print(f"Sections: {len(paragraphs)} ({source})")
     retriever = ContextRetriever(paragraphs)
+    context = None
+    if args.context == "emte":
+        from src.mcq.emte_context import EmteContext
+        docs = [Path(p).stem for p in pdfs]
+        context = EmteContext(docs, retriever, ROOT / "data" / "processed")
+        print(f"Free-mode notes from EMTE over {', '.join(docs)}")
     topics = QUICK_TOPICS if args.quick else TOPICS
     modes = ["free", "locked"] if args.mode == "both" else [args.mode]
 
     if args.backend == "mock":
         backend, models = Mock(paragraphs), ["mock"]
     else:
-        backend = Ollama(args.host, args.timeout, cpu_only=not args.gpu)
+        backend = Ollama(args.host, args.timeout, cpu_only=not args.gpu, num_ctx=args.ctx, max_tokens=args.max_tokens)
         try:
             have = backend.available()
         except (ModelError, urllib.error.URLError, OSError):
@@ -433,7 +453,7 @@ def main() -> None:
             for mode in modes:
                 print(f"\n=== {model} ({mode})")
                 if mode == "free":
-                    s = run_free(model, topics, backend, retriever, args, rows)
+                    s = run_free(model, topics, backend, retriever, args, rows, context)
                 else:
                     s = run_locked(model, topics, backend, retriever, paragraphs, args, rows)
                 s["memory_gb"] = backend.memory_gb(model)
