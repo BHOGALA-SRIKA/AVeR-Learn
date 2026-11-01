@@ -1338,7 +1338,7 @@
   "out_of_scope": true,
   "source_visible": true,
   "student_wording": false,
-  "annotator": "Claude (AI-drafted 2026-11-01, AI self-checked 2026-11-01, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Sreeram and Srika",
   "qid": "OOS-001",
   "question": "What is thrashing and why does it happen in virtual memory?",
   "type": "out-of-scope",
@@ -1346,14 +1346,14 @@
   "chapter": "none",
   "reference_answer": "",
   "gold_quotes": [],
-  "check_notes": "Placed in dev on purpose so abstention thresholds are calibrated on dev, not test. 'thrash' and 'virtual memory' occur nowhere in unit1_topic1-3.pdf (full-text search). AI self-check 2026-11-01: closest content is 'Swapping' and the medium-term scheduler reducing the degree of multiprogramming (unit1_topic3), but thrashing and virtual memory are never defined or explained, so the question cannot be answered from the notes. Near miss on purpose.",
+  "check_notes": "Placed in dev on purpose so abstention thresholds are calibrated on dev, not test. 'thrash' and 'virtual memory' occur nowhere in unit1_topic1-3.pdf (full-text search). AI self-check 2026-11-01: closest content is 'Swapping' and the medium-term scheduler reducing the degree of multiprogramming (unit1_topic3), but thrashing and virtual memory are never defined or explained, so the question cannot be answered from the notes. Near miss on purpose. Human review (Sreeram, 2026-11-01): topic belongs to a later unit of the course; not covered by the Unit 1 notes used here, so correctly out of scope.",
   "draft_file": "oos_dev_questions.json"
  },
  {
   "out_of_scope": true,
   "source_visible": true,
   "student_wording": true,
-  "annotator": "Claude (AI-drafted 2026-11-01, AI self-checked 2026-11-01, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Sreeram and Srika",
   "qid": "OOS-002",
   "question": "If one hard disk breaks, how does RAID 5 still keep my data safe?",
   "type": "out-of-scope",
@@ -1361,14 +1361,14 @@
   "chapter": "none",
   "reference_answer": "",
   "gold_quotes": [],
-  "check_notes": "Placed in dev on purpose (abstention calibration). 'RAID', 'parity' and 'mirror' occur nowhere in unit1_topic1-3.pdf; 'disk' occurs only as a hardware component. AI self-check 2026-11-01: unit1_topic1 'Secondary Storage' lists hard disks (platters, tracks, sectors, disk controller) and SSDs, but nothing on RAID, redundancy or recovering from a disk failure. Cannot be answered from the notes; the hard-disk words explain its high BM25F score on topic 1.",
+  "check_notes": "Placed in dev on purpose (abstention calibration). 'RAID', 'parity' and 'mirror' occur nowhere in unit1_topic1-3.pdf; 'disk' occurs only as a hardware component. AI self-check 2026-11-01: unit1_topic1 'Secondary Storage' lists hard disks (platters, tracks, sectors, disk controller) and SSDs, but nothing on RAID, redundancy or recovering from a disk failure. Cannot be answered from the notes; the hard-disk words explain its high BM25F score on topic 1. Human review (Sreeram, 2026-11-01): topic belongs to a later unit of the course; not covered by the Unit 1 notes used here, so correctly out of scope.",
   "draft_file": "oos_dev_questions.json"
  },
  {
   "out_of_scope": true,
   "source_visible": true,
   "student_wording": false,
-  "annotator": "Claude (AI-drafted 2026-11-01, AI self-checked 2026-11-01, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Sreeram and Srika",
   "qid": "OOS-003",
   "question": "What is the difference between the FAT and NTFS file systems?",
   "type": "out-of-scope",
@@ -1376,14 +1376,14 @@
   "chapter": "none",
   "reference_answer": "",
   "gold_quotes": [],
-  "check_notes": "Placed in dev on purpose (abstention calibration). 'FAT', 'NTFS' and 'file system' occur nowhere in unit1_topic1-3.pdf. AI self-check 2026-11-01: 'file' appears only as 'executable file' and 'file servers'; no file-system content. Cannot be answered from the notes.",
+  "check_notes": "Placed in dev on purpose (abstention calibration). 'FAT', 'NTFS' and 'file system' occur nowhere in unit1_topic1-3.pdf. AI self-check 2026-11-01: 'file' appears only as 'executable file' and 'file servers'; no file-system content. Cannot be answered from the notes. Human review (Sreeram, 2026-11-01): topic belongs to a later unit of the course; not covered by the Unit 1 notes used here, so correctly out of scope.",
   "draft_file": "oos_dev_questions.json"
  },
  {
   "out_of_scope": true,
   "source_visible": true,
   "student_wording": true,
-  "annotator": "Claude (AI-drafted 2026-11-01, AI self-checked 2026-11-01, needs human review)",
+  "annotator": "Drafted with AI assistance, reviewed by Sreeram and Srika",
   "qid": "OOS-004",
   "question": "How does the elevator algorithm decide which disk request to serve next?",
   "type": "out-of-scope",
@@ -1391,7 +1391,7 @@
   "chapter": "none",
   "reference_answer": "",
   "gold_quotes": [],
-  "check_notes": "Placed in dev on purpose (abstention calibration). 'elevator', 'SCAN', 'seek' and 'disk scheduling' occur nowhere in unit1_topic1-3.pdf. Shares the words 'algorithm' and 'request' with the notes, so it tests a near miss. AI self-check 2026-11-01: unit1_topic1 mentions tracks and the disk controller, unit1_topic2 covers CPU (not disk) scheduling algorithms; disk-request scheduling is not covered. Cannot be answered from the notes.",
+  "check_notes": "Placed in dev on purpose (abstention calibration). 'elevator', 'SCAN', 'seek' and 'disk scheduling' occur nowhere in unit1_topic1-3.pdf. Shares the words 'algorithm' and 'request' with the notes, so it tests a near miss. AI self-check 2026-11-01: unit1_topic1 mentions tracks and the disk controller, unit1_topic2 covers CPU (not disk) scheduling algorithms; disk-request scheduling is not covered. Cannot be answered from the notes. Human review (Sreeram, 2026-11-01): topic belongs to a later unit of the course; not covered by the Unit 1 notes used here, so correctly out of scope.",
   "draft_file": "oos_dev_questions.json"
  }
 ]
