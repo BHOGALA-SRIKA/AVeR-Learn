@@ -2,9 +2,9 @@
  "meta": {
   "experiment": "unit1_all_methods",
   "split": "dev",
-  "date_utc": "2026-10-31T08:49:29+00:00",
+  "date_utc": "2026-11-01T07:45:49+00:00",
   "n_in_scope": 15,
-  "n_out_of_scope": 0,
+  "n_out_of_scope": 4,
   "n_paragraphs": 78,
   "corpus": {
    "path": "data/processed/corpus_unit1_sections.jsonl",
@@ -12,7 +12,7 @@
   },
   "questions": {
    "path": "data/benchmark/questions.json",
-   "sha256": "829652be4a07da88"
+   "sha256": "4147a14f0cbff455"
   },
   "glossary_sha256": "e5b0bbdc9c0a5668",
   "tokenizer_version": "1.0: nfkc, lowercase, hyphen-join, i/o-kept, lucene+question stopwords, snowball-english",
@@ -177,21 +177,26 @@
      "nDCG@10": 0.6757926632434555
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    2.5618820190429688,
+    3.212892532348633,
+    2.223268508911133,
+    2.6066012382507324
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 8.6435999837704,
-    "query_ms_median": 0.05509995389729738,
-    "query_ms_p95": 0.11249998351559043,
+    "n_queries": 53,
+    "build_ms": 5.0737999845296144,
+    "query_ms_median": 0.040599959902465343,
+    "query_ms_p95": 0.059500045608729124,
     "index_bytes": 65718,
     "model_bytes": 0,
-    "build_alloc_mb": 0.2134714126586914,
-    "baseline_mb": 108.8203125,
-    "process_peak_mb": 109.609375,
+    "build_alloc_mb": 0.21379756927490234,
+    "baseline_mb": 109.72265625,
+    "process_peak_mb": 110.52734375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -254,21 +259,26 @@
      "nDCG@10": 0.6594264440470233
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    2.5618820190429688,
+    3.212892532348633,
+    2.223268508911133,
+    2.6066012382507324
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 11.143599986098707,
-    "query_ms_median": 0.24540000595152378,
-    "query_ms_p95": 0.4699999699369073,
+    "n_queries": 53,
+    "build_ms": 8.69850005256012,
+    "query_ms_median": 0.19970000721514225,
+    "query_ms_p95": 0.5090000340715051,
     "index_bytes": 70067,
     "model_bytes": 0,
-    "build_alloc_mb": 0.2158660888671875,
-    "baseline_mb": 108.8046875,
-    "process_peak_mb": 109.5078125,
+    "build_alloc_mb": 0.2157764434814453,
+    "baseline_mb": 109.421875,
+    "process_peak_mb": 110.296875,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -330,21 +340,26 @@
      "nDCG@10": 0.9288345697591741
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    2.572854518890381,
+    3.271681785583496,
+    2.535308361053467,
+    2.616170883178711
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25_headings",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 11.555399978533387,
-    "query_ms_median": 0.089599983766675,
-    "query_ms_p95": 0.18710002768784761,
+    "n_queries": 53,
+    "build_ms": 5.567899963352829,
+    "query_ms_median": 0.03980001201853156,
+    "query_ms_p95": 0.058699981309473515,
     "index_bytes": 67073,
     "model_bytes": 0,
-    "build_alloc_mb": 0.22155380249023438,
-    "baseline_mb": 108.46484375,
-    "process_peak_mb": 109.45703125,
+    "build_alloc_mb": 0.22203445434570312,
+    "baseline_mb": 109.8515625,
+    "process_peak_mb": 110.69140625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -407,21 +422,26 @@
      "nDCG@10": 0.8827007889556063
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    2.572854518890381,
+    3.271681785583496,
+    2.535308361053467,
+    2.616170883178711
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25_headings",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 12.51359999878332,
-    "query_ms_median": 0.18149998504668474,
-    "query_ms_p95": 0.6184999947436154,
+    "n_queries": 53,
+    "build_ms": 6.455300026573241,
+    "query_ms_median": 0.181600044015795,
+    "query_ms_p95": 0.3866999759338796,
     "index_bytes": 71442,
     "model_bytes": 0,
-    "build_alloc_mb": 0.22329998016357422,
-    "baseline_mb": 108.828125,
-    "process_peak_mb": 109.56640625,
+    "build_alloc_mb": 0.22414302825927734,
+    "baseline_mb": 109.78125,
+    "process_peak_mb": 110.5625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -483,21 +503,26 @@
      "nDCG@10": 0.9375
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    2.5618819174126766,
+    3.2128923044225415,
+    3.25174325790052,
+    2.606601076265009
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25f",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 12.207200052216649,
-    "query_ms_median": 0.1563999685458839,
-    "query_ms_p95": 0.602399988565594,
+    "n_queries": 53,
+    "build_ms": 10.944299981929362,
+    "query_ms_median": 0.2440999960526824,
+    "query_ms_p95": 0.7044000085443258,
     "index_bytes": 65838,
     "model_bytes": 0,
-    "build_alloc_mb": 0.19272899627685547,
-    "baseline_mb": 109.109375,
-    "process_peak_mb": 110.00390625,
+    "build_alloc_mb": 0.19277381896972656,
+    "baseline_mb": 109.77734375,
+    "process_peak_mb": 110.5390625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -560,21 +585,26 @@
      "nDCG@10": 0.9375
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    2.5618819174126766,
+    3.2128923044225415,
+    3.25174325790052,
+    2.606601076265009
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25f",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 12.929800024721771,
-    "query_ms_median": 0.40989997796714306,
-    "query_ms_p95": 0.7981999660842121,
+    "n_queries": 53,
+    "build_ms": 5.986700009088963,
+    "query_ms_median": 0.3108000382781029,
+    "query_ms_p95": 0.7673000218346715,
     "index_bytes": 70188,
     "model_bytes": 0,
-    "build_alloc_mb": 0.19432449340820312,
-    "baseline_mb": 108.828125,
-    "process_peak_mb": 109.88671875,
+    "build_alloc_mb": 0.1948528289794922,
+    "baseline_mb": 109.8984375,
+    "process_peak_mb": 110.78515625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -636,21 +666,26 @@
      "nDCG@10": 0.6921588824398877
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.37216362613531084,
+    0.16493826574597045,
+    0.22714367043080666,
+    0.18741336468160624
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "tfidf",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 11.480199988000095,
-    "query_ms_median": 1.3464000076055527,
-    "query_ms_p95": 2.1288000280037522,
+    "n_queries": 53,
+    "build_ms": 6.088299967814237,
+    "query_ms_median": 1.3913000002503395,
+    "query_ms_p95": 2.4009000044316053,
     "index_bytes": 63011,
     "model_bytes": 0,
-    "build_alloc_mb": 0.1332569122314453,
-    "baseline_mb": 108.2578125,
-    "process_peak_mb": 109.484375,
+    "build_alloc_mb": 0.1336688995361328,
+    "baseline_mb": 109.65625,
+    "process_peak_mb": 110.55859375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -713,21 +748,26 @@
      "nDCG@10": 0.6921588824398877
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.37216362613531084,
+    0.16493826574597045,
+    0.22714367043080666,
+    0.18741336468160624
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "tfidf",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 12.003200012259185,
-    "query_ms_median": 1.3637999654747546,
-    "query_ms_p95": 3.4277999657206237,
+    "n_queries": 53,
+    "build_ms": 6.818499998189509,
+    "query_ms_median": 1.5926000196486712,
+    "query_ms_p95": 2.5280999834649265,
     "index_bytes": 67370,
     "model_bytes": 0,
-    "build_alloc_mb": 0.13461875915527344,
-    "baseline_mb": 108.6953125,
-    "process_peak_mb": 109.546875,
+    "build_alloc_mb": 0.13410377502441406,
+    "baseline_mb": 109.86328125,
+    "process_peak_mb": 110.7734375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -789,21 +829,26 @@
      "nDCG@10": 0.6460251016363199
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.2360631211305874,
+    0.15437085124921582,
+    0.2380031155458372,
+    0.20874009151525985
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "char_tfidf",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 55.13610003981739,
-    "query_ms_median": 1.7163999727927148,
-    "query_ms_p95": 3.2682999735698104,
+    "n_queries": 53,
+    "build_ms": 54.17760001728311,
+    "query_ms_median": 1.762899977620691,
+    "query_ms_p95": 2.7943000313825905,
     "index_bytes": 432012,
     "model_bytes": 0,
-    "build_alloc_mb": 1.7963275909423828,
-    "baseline_mb": 108.70703125,
-    "process_peak_mb": 114.18359375,
+    "build_alloc_mb": 1.796224594116211,
+    "baseline_mb": 109.92578125,
+    "process_peak_mb": 115.2890625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -866,21 +911,26 @@
      "nDCG@10": 0.6460251016363199
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.2360631211305874,
+    0.15437085124921582,
+    0.2380031155458372,
+    0.20874009151525985
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "char_tfidf",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 60.19360001664609,
-    "query_ms_median": 2.0680000307038426,
-    "query_ms_p95": 3.6454000510275364,
+    "n_queries": 53,
+    "build_ms": 46.817699971143156,
+    "query_ms_median": 1.8748999573290348,
+    "query_ms_p95": 2.9827000107616186,
     "index_bytes": 436370,
     "model_bytes": 0,
-    "build_alloc_mb": 1.7976913452148438,
-    "baseline_mb": 108.78125,
-    "process_peak_mb": 114.42578125,
+    "build_alloc_mb": 1.7964601516723633,
+    "baseline_mb": 110.08203125,
+    "process_peak_mb": 115.390625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -942,21 +992,26 @@
      "nDCG@10": 0.6671272330026297
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    -9.071092374437306,
+    -50.72298220071294,
+    -20.74144156639084,
+    -29.90489160932087
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "ql_dirichlet",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 5.371800041757524,
-    "query_ms_median": 0.7690999773330986,
-    "query_ms_p95": 2.2907000384293497,
+    "n_queries": 53,
+    "build_ms": 5.7891999604180455,
+    "query_ms_median": 0.5461000255309045,
+    "query_ms_p95": 2.058899961411953,
     "index_bytes": 65142,
     "model_bytes": 0,
-    "build_alloc_mb": 0.1389141082763672,
-    "baseline_mb": 108.55859375,
-    "process_peak_mb": 109.40234375,
+    "build_alloc_mb": 0.1388111114501953,
+    "baseline_mb": 109.61328125,
+    "process_peak_mb": 110.53125,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1019,21 +1074,26 @@
      "nDCG@10": 0.6507610138061974
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    -9.071092374437306,
+    -50.72298220071294,
+    -20.74144156639084,
+    -29.90489160932087
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "ql_dirichlet",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 5.274800001643598,
-    "query_ms_median": 0.9194000158458948,
-    "query_ms_p95": 2.270099997986108,
+    "n_queries": 53,
+    "build_ms": 7.154499995522201,
+    "query_ms_median": 0.9612999856472015,
+    "query_ms_p95": 2.0821000216528773,
     "index_bytes": 69508,
     "model_bytes": 0,
-    "build_alloc_mb": 0.14043903350830078,
-    "baseline_mb": 108.78125,
-    "process_peak_mb": 109.79296875,
+    "build_alloc_mb": 0.14054203033447266,
+    "baseline_mb": 109.7734375,
+    "process_peak_mb": 110.6171875,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1095,21 +1155,26 @@
      "nDCG@10": 0.6671272330026297
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    -8.159715369215217,
+    -50.53958829278781,
+    -19.53091972437806,
+    -29.259832969988757
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "ql_jm",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 2.207399986218661,
-    "query_ms_median": 0.2674999996088445,
-    "query_ms_p95": 0.5246999789960682,
+    "n_queries": 53,
+    "build_ms": 3.8160999538376927,
+    "query_ms_median": 0.5206000059843063,
+    "query_ms_p95": 2.0096999942325056,
     "index_bytes": 65143,
     "model_bytes": 0,
-    "build_alloc_mb": 0.13875961303710938,
-    "baseline_mb": 109.0,
-    "process_peak_mb": 109.7265625,
+    "build_alloc_mb": 0.13845062255859375,
+    "baseline_mb": 110.1484375,
+    "process_peak_mb": 111.0859375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1172,21 +1237,26 @@
      "nDCG@10": 0.6757926632434554
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    -8.159715369215217,
+    -50.53958829278781,
+    -19.53091972437806,
+    -29.259832969988757
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "ql_jm",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 3.537899989169091,
-    "query_ms_median": 0.5702999769710004,
-    "query_ms_p95": 1.1855000047944486,
+    "n_queries": 53,
+    "build_ms": 3.4491000114940107,
+    "query_ms_median": 0.8394999895244837,
+    "query_ms_p95": 2.250799967441708,
     "index_bytes": 69500,
     "model_bytes": 0,
-    "build_alloc_mb": 0.1405353546142578,
-    "baseline_mb": 108.58203125,
-    "process_peak_mb": 109.52734375,
+    "build_alloc_mb": 0.14058685302734375,
+    "baseline_mb": 109.625,
+    "process_peak_mb": 110.375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1248,21 +1318,26 @@
      "nDCG@10": 0.9375
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.04918032786885246,
+    0.04891591750396616,
+    0.04891591750396616,
+    0.04841188524590164
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "rrf",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 137.97779998276383,
-    "query_ms_median": 9.62299999082461,
-    "query_ms_p95": 11.993199994321913,
+    "n_queries": 53,
+    "build_ms": 57.58739996235818,
+    "query_ms_median": 2.669300010893494,
+    "query_ms_p95": 4.968199995346367,
     "index_bytes": 518616,
     "model_bytes": 0,
-    "build_alloc_mb": 2.028317451477051,
-    "baseline_mb": 108.59765625,
-    "process_peak_mb": 115.484375,
+    "build_alloc_mb": 2.0282325744628906,
+    "baseline_mb": 109.921875,
+    "process_peak_mb": 116.921875,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1325,21 +1400,26 @@
      "nDCG@10": 0.8913662191964322
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.04918032786885246,
+    0.04891591750396616,
+    0.04891591750396616,
+    0.04841188524590164
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "rrf",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 88.07749999687076,
-    "query_ms_median": 7.2805999661795795,
-    "query_ms_p95": 10.030799952801317,
+    "n_queries": 53,
+    "build_ms": 85.89500002563,
+    "query_ms_median": 2.8484000358730555,
+    "query_ms_p95": 7.729000004474074,
     "index_bytes": 522993,
     "model_bytes": 0,
-    "build_alloc_mb": 2.030642509460449,
-    "baseline_mb": 108.4609375,
-    "process_peak_mb": 114.99609375,
+    "build_alloc_mb": 2.0289382934570312,
+    "baseline_mb": 110.08984375,
+    "process_peak_mb": 116.5625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1401,21 +1481,26 @@
      "nDCG@10": 0.6594264440470233
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.6706992660753762,
+    0.3707686408952411,
+    0.46426042449017785,
+    0.4214876959230943
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25_rm3",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 15.001799969468266,
-    "query_ms_median": 0.8540999842807651,
-    "query_ms_p95": 1.3747999910265207,
+    "n_queries": 53,
+    "build_ms": 8.45110003137961,
+    "query_ms_median": 0.3562999772839248,
+    "query_ms_p95": 0.6949999951757491,
     "index_bytes": 79025,
     "model_bytes": 0,
-    "build_alloc_mb": 0.214874267578125,
-    "baseline_mb": 108.75,
-    "process_peak_mb": 109.8203125,
+    "build_alloc_mb": 0.21550941467285156,
+    "baseline_mb": 109.625,
+    "process_peak_mb": 110.62890625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1478,21 +1563,26 @@
      "nDCG@10": 0.6594264440470233
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.6066522155993019,
+    0.3707686408952411,
+    0.46426042449017785,
+    0.4214876959230943
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25_rm3",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 15.698799979873002,
-    "query_ms_median": 1.108700002077967,
-    "query_ms_p95": 1.6904999502003193,
+    "n_queries": 53,
+    "build_ms": 7.667600002605468,
+    "query_ms_median": 0.9704999974928796,
+    "query_ms_p95": 1.9381000311113894,
     "index_bytes": 83373,
     "model_bytes": 0,
-    "build_alloc_mb": 0.21738529205322266,
-    "baseline_mb": 108.85546875,
-    "process_peak_mb": 109.80078125,
+    "build_alloc_mb": 0.21760272979736328,
+    "baseline_mb": 110.00390625,
+    "process_peak_mb": 111.05078125,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1554,21 +1644,26 @@
      "nDCG@10": 0.9538662191964322
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.5825421113004734,
+    0.3818720111458518,
+    0.4986710623437911,
+    0.4602226747526999
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25f_rm3",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 19.95280000846833,
-    "query_ms_median": 0.9942000033333898,
-    "query_ms_p95": 1.8690999713726342,
+    "n_queries": 53,
+    "build_ms": 9.515299985650927,
+    "query_ms_median": 0.4002999630756676,
+    "query_ms_p95": 0.8010999881662428,
     "index_bytes": 79742,
     "model_bytes": 0,
-    "build_alloc_mb": 0.19522953033447266,
-    "baseline_mb": 108.59375,
-    "process_peak_mb": 109.640625,
+    "build_alloc_mb": 0.19464969635009766,
+    "baseline_mb": 110.03125,
+    "process_peak_mb": 111.15234375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1631,21 +1726,26 @@
      "nDCG@10": 0.9077324383928644
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.5184950633651564,
+    0.3818720111458518,
+    0.4986710623437911,
+    0.4602226747526999
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "bm25f_rm3",
     "expand": true,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 19.80129996081814,
-    "query_ms_median": 0.950200017541647,
-    "query_ms_p95": 2.1782999974675477,
+    "n_queries": 53,
+    "build_ms": 8.969300019089133,
+    "query_ms_median": 0.7245000451803207,
+    "query_ms_p95": 2.115999988745898,
     "index_bytes": 84091,
     "model_bytes": 0,
-    "build_alloc_mb": 0.19616222381591797,
-    "baseline_mb": 108.4140625,
-    "process_peak_mb": 109.33984375,
+    "build_alloc_mb": 0.19622516632080078,
+    "baseline_mb": 109.89453125,
+    "process_peak_mb": 110.890625,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1707,21 +1807,26 @@
      "nDCG@10": 0.9538662191964322
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.6956496834754944,
+    0.6256542205810547,
+    0.6503645181655884,
+    0.7132118940353394
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "dense",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 3694.835999980569,
-    "query_ms_median": 7.656999980099499,
-    "query_ms_p95": 10.711400012951344,
+    "n_queries": 53,
+    "build_ms": 3200.287700048648,
+    "query_ms_median": 6.253500003367662,
+    "query_ms_p95": 7.741899986285716,
     "index_bytes": 121578,
     "model_bytes": 67181330,
     "build_alloc_mb": 0.6209325790405273,
-    "baseline_mb": 108.5390625,
-    "process_peak_mb": 1293.8359375,
+    "baseline_mb": 109.87109375,
+    "process_peak_mb": 1294.7578125,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   },
@@ -1783,21 +1888,26 @@
      "nDCG@10": 0.9538662191964322
     }
    },
-   "oos_top1_score": [],
+   "oos_top1_score": [
+    0.03131881575727918,
+    0.03177805800756621,
+    0.030834914611005692,
+    0.03149801587301587
+   ],
    "inscope_top1_score_median": null,
    "efficiency": {
     "method": "hybrid",
     "expand": false,
     "n_paragraphs": 78,
-    "n_queries": 49,
-    "build_ms": 3375.1134000485763,
-    "query_ms_median": 6.989500019699335,
-    "query_ms_p95": 8.923199959099293,
+    "n_queries": 53,
+    "build_ms": 3168.3031999855302,
+    "query_ms_median": 6.934100005310029,
+    "query_ms_p95": 8.52059997851029,
     "index_bytes": 185290,
     "model_bytes": 67181330,
-    "build_alloc_mb": 0.7065210342407227,
-    "baseline_mb": 108.48046875,
-    "process_peak_mb": 1293.5,
+    "build_alloc_mb": 0.7067461013793945,
+    "baseline_mb": 109.9453125,
+    "process_peak_mb": 1296.109375,
     "machine": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0"
    }
   }

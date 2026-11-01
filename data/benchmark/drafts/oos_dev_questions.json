@@ -1,0 +1,54 @@
+[
+ {
+  "qid": "OOS-001",
+  "question": "What is thrashing and why does it happen in virtual memory?",
+  "type": "out-of-scope",
+  "student_wording": false,
+  "out_of_scope": true,
+  "split": "dev",
+  "chapter": "none",
+  "reference_answer": "",
+  "gold_quotes": [],
+  "annotator": "Claude (AI-drafted 2026-11-01, needs human review)",
+  "check_notes": "Placed in dev on purpose so abstention thresholds are calibrated on dev, not test. 'thrash' and 'virtual memory' occur nowhere in unit1_topic1-3.pdf (full-text search)."
+ },
+ {
+  "qid": "OOS-002",
+  "question": "If one hard disk breaks, how does RAID 5 still keep my data safe?",
+  "type": "out-of-scope",
+  "student_wording": true,
+  "out_of_scope": true,
+  "split": "dev",
+  "chapter": "none",
+  "reference_answer": "",
+  "gold_quotes": [],
+  "annotator": "Claude (AI-drafted 2026-11-01, needs human review)",
+  "check_notes": "Placed in dev on purpose (abstention calibration). 'RAID', 'parity' and 'mirror' occur nowhere in unit1_topic1-3.pdf; 'disk' occurs only as a hardware component."
+ },
+ {
+  "qid": "OOS-003",
+  "question": "What is the difference between the FAT and NTFS file systems?",
+  "type": "out-of-scope",
+  "student_wording": false,
+  "out_of_scope": true,
+  "split": "dev",
+  "chapter": "none",
+  "reference_answer": "",
+  "gold_quotes": [],
+  "annotator": "Claude (AI-drafted 2026-11-01, needs human review)",
+  "check_notes": "Placed in dev on purpose (abstention calibration). 'FAT', 'NTFS' and 'file system' occur nowhere in unit1_topic1-3.pdf."
+ },
+ {
+  "qid": "OOS-004",
+  "question": "How does the elevator algorithm decide which disk request to serve next?",
+  "type": "out-of-scope",
+  "student_wording": true,
+  "out_of_scope": true,
+  "split": "dev",
+  "chapter": "none",
+  "reference_answer": "",
+  "gold_quotes": [],
+  "annotator": "Claude (AI-drafted 2026-11-01, needs human review)",
+  "check_notes": "Placed in dev on purpose (abstention calibration). 'elevator', 'SCAN', 'seek' and 'disk scheduling' occur nowhere in unit1_topic1-3.pdf. Shares the words 'algorithm' and 'request' with the notes, so it tests a near miss."
+ }
+]

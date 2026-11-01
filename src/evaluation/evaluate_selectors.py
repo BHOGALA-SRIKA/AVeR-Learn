@@ -23,7 +23,9 @@ paragraphs.jsonl for that document, Member 2's BM25F index, Member 3's
 current MCQ pipeline on the same document: BM25F over Member 1's sections,
 delivered top-down until the budget is full.
 
-Out-of-scope questions have no gold quotes; for them only abstention is reported.
+Out-of-scope questions have no gold quotes; each is run on every document and
+only abstention is reported, together with how well a threshold on the top raw
+BM25F score (EMTE's ``min_raw_score``) would separate them from in-scope ones.
 """
 
 from __future__ import annotations
@@ -48,6 +50,9 @@ from src.evaluation.significance import holm, randomization_test
 from src.indexing.records import read_paragraphs
 from src.retrieval.processed_pipeline import load_processed_corpus, retrieve_from_processed_corpus
 from src.utils.token_counter import count_tokens, counter_name
+
+
+THRESHOLDS = [0, 1.0, 1.5, 1.7, 2.0, 2.5, 3.0, 4.0]  # min_raw_score values shown in the summary
 
 
 def machine() -> str:
@@ -133,6 +138,15 @@ def evaluate(config: dict[str, Any], split: str, out_dir: Path) -> dict[str, Any
     print(f"{split}: {len(in_scope)} in-scope, {len(questions) - len(in_scope)} out-of-scope questions; "
           f"documents {', '.join(corpora)}")
 
+    # The evidence an abstention threshold (EMTE's min_raw_score) would look at
+    top_scores: dict[str, dict[str, float]] = {"in_scope": {}, "out_of_scope": {}}
+    for q in questions:
+        if q.get("out_of_scope"):
+            for doc in config.get("oos_documents", []):
+                top_scores["out_of_scope"][f"{q['qid']}|{doc}"] = max(corpora[doc].index.score(q["question"]).values())
+        else:
+            top_scores["in_scope"][q["qid"]] = max(corpora[document_of(q)].index.score(q["question"]).values())
+
     rows: list[dict[str, Any]] = []
     results: dict[str, Any] = {}
     for run in config["runs"]:
@@ -198,7 +212,7 @@ def evaluate(config: dict[str, Any], split: str, out_dir: Path) -> dict[str, Any
         writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
-    return {"results": results, "build_ms": build_ms}
+    return {"results": results, "build_ms": build_ms, "top_scores": top_scores}
 
 
 def compare(results: dict[str, Any], baseline: str, metric: str) -> dict[str, Any]:
@@ -250,11 +264,23 @@ def summary_md(name: str, split: str, out: dict[str, Any], tests: dict[str, Any]
     oos_any = any(r["out_of_scope"] for r in results.values())
     lines += ["", "## Out-of-scope questions (should abstain)", ""]
     if oos_any:
-        lines += [f"| Selector | abstained | mean tokens@{primary_budget} delivered |", "|---|---:|---:|"]
+        lines += ["Each out-of-scope question is run on every document. A good selector abstains on these "
+                  "and not on in-scope questions.", "",
+                  f"| Selector | out-of-scope abstained (right) | in-scope abstained (wrong) | "
+                  f"tokens@{primary_budget} given for out-of-scope |", "|---|---:|---:|---:|"]
         for label, r in results.items():
-            o = r["out_of_scope"].values()
+            o, i = r["out_of_scope"].values(), r["per_query"].values()
             lines.append(f"| {label} | {sum(m[f'abstained@{primary_budget}'] for m in o):.0f}/{len(o)} | "
+                         f"{sum(m[f'abstained@{primary_budget}'] for m in i):.0f}/{len(i)} | "
                          f"{statistics.fmean(m[f'tokens@{primary_budget}'] for m in o):.0f} |")
+        top = out["top_scores"]
+        lines += ["", "### Can a score threshold separate them? (top raw BM25F paragraph score)", "",
+                  "| min_raw_score | out-of-scope abstained (right) | in-scope abstained (wrong) |", "|---:|---:|---:|"]
+        for t in THRESHOLDS:
+            lines.append(f"| {t} | {sum(s < t for s in top['out_of_scope'].values())}/{len(top['out_of_scope'])} | "
+                         f"{sum(s < t for s in top['in_scope'].values())}/{len(top['in_scope'])} |")
+        lines += ["", "In-scope top scores: " + ", ".join(f"{s:.2f}" for s in sorted(top["in_scope"].values())),
+                  "", "Out-of-scope top scores: " + ", ".join(f"{s:.2f}" for s in sorted(top["out_of_scope"].values()))]
     else:
         lines.append(f"No out-of-scope questions in the {split} split.")
     return "\n".join(lines) + "\n"
