@@ -21,7 +21,9 @@ run on the document its gold quotes come from (Member 1's tree.json and
 paragraphs.jsonl for that document, Member 2's BM25F index, Member 3's
 ``retrieve_from_processed_corpus``). The reference row ``flat_sections`` is the
 current MCQ pipeline on the same document: BM25F over Member 1's sections,
-delivered top-down until the budget is full.
+delivered top-down until the budget is full. A question whose quotes come from
+several PDFs is run on the PDF with most of its essential quotes and scored on
+that PDF's quotes only.
 
 Out-of-scope questions have no gold quotes; each is run on every document and
 only abstention is reported, together with how well a threshold on the top raw
@@ -64,10 +66,22 @@ def label_of(run: dict[str, Any]) -> str:
 
 
 def document_of(question: dict[str, Any]) -> str:
-    sources = {Path(g["source_pdf"]).stem for g in question.get("gold_quotes") or []}
-    if len(sources) != 1:
-        raise ValueError(f"{question['qid']}: gold quotes come from {sorted(sources)}; need exactly one document")
-    return sources.pop()
+    """The PDF a question is run on: the one holding most of its essential quotes (ties: alphabetical)."""
+    quotes = question.get("gold_quotes") or []
+    if not quotes:
+        raise ValueError(f"{question['qid']}: in-scope question without gold quotes")
+    essential = [g for g in quotes if g["grade"] >= 2] or quotes
+    counts: dict[str, int] = {}
+    for g in essential:
+        doc = Path(g["source_pdf"]).stem
+        counts[doc] = counts.get(doc, 0) + 1
+    return min(counts, key=lambda d: (-counts[d], d))
+
+
+def on_document(question: dict[str, Any], document: str) -> dict[str, Any]:
+    """The question with only the gold quotes from ``document`` (the app sees one uploaded PDF)."""
+    return {**question, "gold_quotes": [g for g in question["gold_quotes"]
+                                        if Path(g["source_pdf"]).stem == document]}
 
 
 def region_text(nodes: dict[str, dict], node_id: str) -> str:
@@ -175,10 +189,11 @@ def evaluate(config: dict[str, Any], split: str, out_dir: Path) -> dict[str, Any
                     m[f"regions@{b}"] = len(texts)
                     m[f"abstained@{b}"] = float(abstained)
                     if not q.get("out_of_scope"):
-                        cov = evidence_coverage(q, list(range(len(texts))), dict(enumerate(texts)))
+                        gq = on_document(q, doc)
+                        cov = evidence_coverage(gq, list(range(len(texts))), dict(enumerate(texts)))
                         m[f"cov@{b}"] = cov["coverage"]
                         m[f"allEss@{b}"] = cov["all_essential"]
-                        m[f"gold_share@{b}"] = gold_share(q, texts)
+                        m[f"gold_share@{b}"] = gold_share(gq, texts)
                 if q.get("out_of_scope"):
                     oos[f"{q['qid']}|{doc}"] = m
                 else:

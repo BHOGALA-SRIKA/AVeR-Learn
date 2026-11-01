@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.evaluation.evaluate_selectors import document_of, gold_share, region_text
+from src.evaluation.evaluate_selectors import document_of, gold_share, on_document, region_text
 from src.evaluation.evaluate_retrieval import REPO
 
 
@@ -13,10 +13,16 @@ def test_gold_share_by_hand():
     assert gold_share(q, []) == 0.0
 
 
-def test_document_of_needs_one_source():
-    assert document_of({"qid": "a", "gold_quotes": [{"source_pdf": "unit1_topic2.pdf"}]}) == "unit1_topic2"
+def test_document_of_picks_pdf_with_most_essential_quotes():
+    assert document_of({"qid": "a", "gold_quotes": [{"source_pdf": "unit1_topic2.pdf", "grade": 2}]}) == "unit1_topic2"
+    q = {"qid": "b", "gold_quotes": [{"source_pdf": "y.pdf", "grade": 2}, {"source_pdf": "y.pdf", "grade": 2},
+                                     {"source_pdf": "x.pdf", "grade": 2}, {"source_pdf": "x.pdf", "grade": 1}]}
+    assert document_of(q) == "y"
+    assert [g["source_pdf"] for g in on_document(q, "x")["gold_quotes"]] == ["x.pdf", "x.pdf"]
+    tie = {"qid": "c", "gold_quotes": [{"source_pdf": "y.pdf", "grade": 2}, {"source_pdf": "x.pdf", "grade": 2}]}
+    assert document_of(tie) == "x"
     with pytest.raises(ValueError):
-        document_of({"qid": "b", "gold_quotes": [{"source_pdf": "x.pdf"}, {"source_pdf": "y.pdf"}]})
+        document_of({"qid": "d", "gold_quotes": []})
 
 
 def test_region_text_on_real_tree():

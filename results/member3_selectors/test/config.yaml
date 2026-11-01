@@ -1,0 +1,39 @@
+# Compare Member 3's evidence selectors (EMTE and its 10 baselines) on Unit 1.
+# Each question is run on the document its gold quotes come from (one uploaded PDF).
+# Run:  python -m src.evaluation.evaluate_selectors experiments/configs/member3_selectors.yaml
+name: member3_selectors
+questions: data/benchmark/questions.json
+sections_corpus: data/processed/corpus_unit1_sections.jsonl   # for the flat_sections reference row
+split: dev            # dev while developing; switch to test ONCE for the final report
+budgets: [256, 512, 1024]
+primary_budget: 512
+baseline: emte        # the proposed method; every other selector is tested against it
+# Out-of-scope questions have no source document; they are run on every Unit 1 document.
+oos_documents: [unit1_topic1, unit1_topic2, unit1_topic3]
+runs:
+  - {method: flat_sections}        # current MCQ pipeline: BM25F sections until the budget is full
+  - {method: fixed_k}
+  - {method: score_ratio}
+  - {method: score_gap}
+  - {method: adaptive_k}
+  - {method: section_then_paragraph}
+  - {method: best_granularity, label: granularity=paragraph, params: {granularity: paragraph}}
+  - {method: best_granularity, label: granularity=subsection, params: {granularity: subsection}}
+  - {method: best_granularity, label: granularity=section, params: {granularity: section}}
+  - {method: plain_automerge}
+  - {method: hichunk}
+  - {method: hichunk_with_stop}
+  - {method: inex}
+  - {method: emte}
+  # EMTE ablations (dev only)
+  - {method: emte, label: emte(agg=sum), params: {aggregator: sum}}
+  - {method: emte, label: emte(agg=max), params: {aggregator: max}}
+  - {method: emte, label: emte(agg=mean), params: {aggregator: mean}}
+  - {method: emte, label: emte(max_regions=1), params: {max_regions: 1}}
+  - {method: emte, label: emte(tau_up=0.002), params: {tau_up: 0.002}}
+  - {method: emte, label: emte(tau_up=0.01), params: {tau_up: 0.01}}
+  # Abstention: EMTE answers "not in the notes" when no paragraph scores min_raw_score or more.
+  # Dev result: no threshold separates out-of-scope from student-worded questions, so EMTE keeps min_raw_score = 0.
+  - {method: emte, label: emte(min_raw_score=1.7), params: {min_raw_score: 1.7}}
+  - {method: emte, label: emte(min_raw_score=2.0), params: {min_raw_score: 2.0}}
+  - {method: emte, label: emte(min_raw_score=2.5), params: {min_raw_score: 2.5}}

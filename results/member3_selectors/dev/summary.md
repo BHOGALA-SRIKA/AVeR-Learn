@@ -62,31 +62,31 @@ Evidence selectors on one document per question. Token counter: `approx-v1`. Sig
 
 | Selector | median ms | p95 ms | peak alloc MB |
 |---|---:|---:|---:|
-| flat_sections | 5.48 | 13.90 | 0.2 |
-| fixed_k | 4.58 | 6.61 | 0.4 |
-| score_ratio | 4.19 | 6.79 | 0.4 |
-| score_gap | 4.48 | 7.16 | 0.4 |
-| adaptive_k | 4.65 | 7.05 | 0.4 |
-| section_then_paragraph | 8.08 | 14.35 | 0.4 |
-| granularity=paragraph | 23.33 | 55.38 | 0.3 |
-| granularity=subsection | 1.76 | 5.40 | 0.2 |
-| granularity=section | 6.76 | 10.97 | 0.3 |
-| plain_automerge | 8.41 | 15.29 | 0.3 |
-| hichunk | 8.85 | 40.56 | 0.4 |
-| hichunk_with_stop | 7.91 | 16.85 | 0.8 |
-| inex | 45.64 | 83.55 | 0.4 |
-| emte | 26.19 | 61.70 | 0.4 |
-| emte(agg=sum) | 29.28 | 55.21 | 0.4 |
-| emte(agg=max) | 27.19 | 55.35 | 0.4 |
-| emte(agg=mean) | 45.95 | 126.87 | 0.4 |
-| emte(max_regions=1) | 10.45 | 13.71 | 0.4 |
-| emte(tau_up=0.002) | 34.06 | 88.35 | 0.4 |
-| emte(tau_up=0.01) | 54.46 | 128.67 | 0.4 |
-| emte(min_raw_score=1.7) | 11.61 | 27.24 | 0.4 |
-| emte(min_raw_score=2.0) | 8.45 | 27.64 | 0.4 |
-| emte(min_raw_score=2.5) | 7.07 | 18.98 | 0.4 |
+| flat_sections | 12.02 | 25.77 | 0.2 |
+| fixed_k | 7.42 | 9.39 | 0.4 |
+| score_ratio | 8.06 | 9.93 | 0.4 |
+| score_gap | 8.45 | 13.31 | 0.4 |
+| adaptive_k | 8.29 | 11.26 | 0.4 |
+| section_then_paragraph | 13.74 | 21.99 | 0.4 |
+| granularity=paragraph | 44.62 | 84.90 | 0.3 |
+| granularity=subsection | 4.35 | 8.42 | 0.2 |
+| granularity=section | 13.11 | 16.68 | 0.3 |
+| plain_automerge | 16.10 | 20.74 | 0.3 |
+| hichunk | 19.08 | 75.75 | 0.4 |
+| hichunk_with_stop | 19.55 | 33.92 | 0.8 |
+| inex | 84.28 | 143.25 | 0.4 |
+| emte | 51.62 | 95.62 | 0.4 |
+| emte(agg=sum) | 29.90 | 89.13 | 0.4 |
+| emte(agg=max) | 40.24 | 77.49 | 0.4 |
+| emte(agg=mean) | 93.04 | 223.49 | 0.4 |
+| emte(max_regions=1) | 16.01 | 20.23 | 0.4 |
+| emte(tau_up=0.002) | 54.10 | 143.38 | 0.4 |
+| emte(tau_up=0.01) | 92.82 | 208.70 | 0.4 |
+| emte(min_raw_score=1.7) | 18.15 | 55.97 | 0.4 |
+| emte(min_raw_score=2.0) | 15.68 | 54.51 | 0.4 |
+| emte(min_raw_score=2.5) | 11.13 | 30.70 | 0.4 |
 
-Index build per document (Member 1 files + Member 2 BM25F): unit1_topic1 50 ms, unit1_topic2 36 ms, unit1_topic3 94 ms
+Index build per document (Member 1 files + Member 2 BM25F): unit1_topic1 93 ms, unit1_topic2 76 ms, unit1_topic3 132 ms
 
 ## Out-of-scope questions (should abstain)
 
