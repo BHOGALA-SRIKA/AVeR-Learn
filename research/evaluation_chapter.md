@@ -102,56 +102,58 @@ Machine: Intel Core (12 logical CPUs), 16 GB RAM, Windows 11, CPU only.
 
 | Method | R@1 | R@5 | MRR@10 | nDCG@10 | AllEssential@512 |
 |---|---|---|---|---|---|
-| BM25 (text only) | 0.422 | 0.611 | 0.567 | 0.572 | 0.600 |
-| BM25 with headings pasted into the text | 0.622 | 0.767 | 0.734 | 0.749 | 0.800 |
-| **BM25F (baseline, used by the MCQ pipeline)** | 0.622 | 0.767 | 0.741 | 0.754 | 0.800 |
-| BM25F + frozen glossary expansion | 0.622 | 0.744 | 0.748 | 0.758 | 0.800 |
-| BM25F + RM3 | 0.489 | 0.867 | 0.697 | 0.740 | 0.867 |
-| RRF (lexical fusion) | 0.622 | 0.767 | 0.732 | 0.742 | 0.800 |
-| Char n-gram TF-IDF (text only) | 0.356 | 0.678 | 0.558 | 0.583 | 0.667 |
-| Query Likelihood, Dirichlet (text only) | 0.422 | 0.611 | 0.557 | 0.564 | 0.600 |
-| Dense (bge-small) | 0.556 | **1.000** | 0.783 | **0.848** | **1.000** |
-| Hybrid (BM25F + dense) | 0.622 | 0.867 | **0.786** | 0.820 | 0.933 |
+| BM25 (text only) | 0.456 | 0.667 | 0.656 | 0.598 | 0.600 |
+| BM25 with headings pasted into the text | 0.589 | 0.789 | 0.757 | 0.765 | 0.800 |
+| **BM25F (baseline, used by the MCQ pipeline)** | 0.589 | 0.789 | 0.763 | 0.770 | 0.800 |
+| BM25F + frozen glossary expansion | 0.589 | 0.767 | 0.763 | 0.773 | 0.800 |
+| BM25F + RM3 | 0.456 | 0.856 | 0.712 | 0.739 | 0.867 |
+| RRF (lexical fusion) | 0.589 | 0.789 | 0.745 | 0.748 | 0.800 |
+| Char n-gram TF-IDF (text only) | 0.389 | 0.700 | 0.625 | 0.600 | 0.667 |
+| Query Likelihood, Dirichlet (text only) | 0.456 | 0.667 | 0.646 | 0.590 | 0.600 |
+| Dense (bge-small) | 0.544 | **1.000** | 0.817 | **0.854** | **1.000** |
+| Hybrid (BM25F + dense) | **0.611** | 0.922 | **0.844** | 0.836 | 0.933 |
 
-No method is significantly better than BM25F after Holm correction. Dense vs BM25F: +0.093 nDCG@10, 95% CI
-[−0.011, +0.205], p = 0.12 (6 questions better, 1 worse). Hybrid vs BM25F: +0.066, CI [+0.023, +0.116],
+No method is significantly better than BM25F after Holm correction. Dense vs BM25F: +0.084 nDCG@10, 95% CI
+[−0.020, +0.198], p = 0.15 (6 questions better, 1 worse). Hybrid vs BM25F: +0.066, CI [+0.027, +0.111],
 p = 0.03 unadjusted, not significant after correction.
 
 ### 7.2 Student wording vs book wording (nDCG@10)
 
 | Method | Book wording (n = 10) | Student wording (n = 5) |
 |---|---|---|
-| BM25 (text only) | 0.683 | 0.349 |
-| BM25F | 0.939 | 0.386 |
-| Dense | **0.963** | **0.617** |
-| Hybrid | **0.963** | 0.534 |
+| BM25 (text only) | 0.711 | 0.373 |
+| BM25F | 0.939 | 0.433 |
+| Dense | **0.963** | **0.636** |
+| Hybrid | **0.963** | 0.582 |
 
 ### 7.3 Efficiency
 
 | Method | Index build (78 sections) | Query (median) | Peak memory | Extra disk |
 |---|---|---|---|---|
-| BM25 | 6 ms | 0.06 ms | 109 MB | none |
-| BM25F | 7 ms | 0.13 ms | 110 MB | none |
-| Char n-gram TF-IDF | 29 ms | 0.79 ms | 115 MB | none |
-| Dense | 2,982 ms | 5.5 ms | 1,294 MB | 64 MB model |
-| Hybrid | 2,858 ms | 6.0 ms | 1,295 MB | 64 MB model |
+| BM25 | 9 ms | 0.06 ms | 110 MB | none |
+| BM25F | 12 ms | 0.16 ms | 110 MB | none |
+| Char n-gram TF-IDF | 55 ms | 1.7 ms | 114 MB | none |
+| Dense | 3,695 ms | 7.7 ms | 1,294 MB | 64 MB model |
+| Hybrid | 3,375 ms | 7.0 ms | 1,294 MB | 64 MB model |
 
-Peak memory includes the Python interpreter (about 105 MB) for all methods.
+Peak memory includes the Python interpreter (about 105 MB) for all methods. Timings vary between runs on a
+laptop (an earlier run measured 7 ms / 0.13 ms for BM25F and 2,982 ms / 5.5 ms for dense); the ratios stay in
+the same range.
 
 ## 8. Discussion
 
-1. **Document structure matters most.** Using the section heading lifts BM25 from 0.572 to 0.754 nDCG@10
-   (BM25F; +0.18, better on 6 questions and worse on none, p = 0.03 unadjusted). Methods that ignore headings
+1. **Document structure matters most.** Using the section heading lifts BM25 from 0.598 to 0.770 nDCG@10
+   (BM25F; +0.17, better on 6 questions and worse on none, p = 0.03 unadjusted). Methods that ignore headings
    (BM25 on text only, TF-IDF, Query Likelihood) lose most, because a section's topic words are often only in its
-   heading. Pasting the heading into the text gives almost the same result as formal BM25F (0.749 vs 0.754).
+   heading. Pasting the heading into the text gives almost the same result as formal BM25F (0.765 vs 0.770).
 2. **On book-worded questions, vectorless retrieval matches embeddings:** BM25F 0.939 vs dense 0.963.
-3. **The gap is vocabulary mismatch.** On student-worded questions the embedding model leads (0.617 vs 0.386).
+3. **The gap is vocabulary mismatch.** On student-worded questions the embedding model leads (0.636 vs 0.433).
    For example, "What should a good scheduler try to keep as small as possible?" has no word in common with the
    book's "Minimize: turnaround time, waiting time, response time"; every lexical method misses it.
-4. **Glossary expansion has no effect once the glossary is fair** (0.754 → 0.758, 1 question better, 1 worse).
+4. **Glossary expansion has no effect once the glossary is fair** (0.770 → 0.773, 1 question better, 1 worse).
    Its earlier gains came from entries matching the smoke-test questions. Expansion therefore stays off.
-5. **The cost of embeddings is large on a laptop:** about 430× slower indexing, about 40× slower queries, about
-   12× the peak memory and a 64 MB model file, for a gain that is not statistically significant on the
+5. **The cost of embeddings is large on a laptop:** about 300–430× slower indexing, about 40–50× slower queries,
+   about 12× the peak memory and a 64 MB model file, for a gain that is not statistically significant on the
    current benchmark. The embedding model does deliver all essential evidence within 512 tokens on every dev
    question (BM25F: 80%), which is where its advantage would matter for the SLM.
 
@@ -159,8 +161,11 @@ Peak memory includes the Python interpreter (about 105 MB) for all methods.
 
 - **Small benchmark.** With 15 dev questions only very large differences can be significant; the test split
   (30 questions) and more units are needed.
-- **AI-drafted questions.** Most questions and gold quotes were drafted with AI assistance and are pending human
-  review; annotator names are recorded per question.
+- **AI-drafted questions.** Most questions and gold quotes were drafted with AI assistance. All 55 gold quotes
+  were checked automatically to appear word for word on the stated PDF page, and every question's judged sections
+  were compared with the top sections retrieved by BM25F and the embedding model; seven questions gained or lost
+  a judged section as a result (recorded in `check_notes`). A human review by a team member who did not develop
+  any compared method is still pending; the review status is recorded per question.
 - **One subject, one lecturer's notes.** Results may differ for textbooks with longer paragraphs.
 - **Default parameters.** No method was tuned; tuning on dev may change the ranking.
 - **Timings** are from one laptop and vary by a few percent between runs.

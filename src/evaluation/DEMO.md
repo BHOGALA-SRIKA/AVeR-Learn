@@ -58,12 +58,13 @@ No gold answer exists for it, so only the retrieved paragraphs are shown, not me
 ## 5. The report (4 min)
 
 Show `report.html`, top to bottom:
-1. **The four tiles:** embeddings are +0.093 nDCG@10 better than BM25F, but **not significantly** (p = 0.12), while
-   being about 40× slower per question, 430× slower to index and 12× more memory, plus a 64 MB model.
+1. **The four tiles:** embeddings are +0.084 nDCG@10 better than BM25F, but **not significantly** (p = 0.15), while
+   being tens of times slower per question, hundreds of times slower to index and about 12× more memory, plus a
+   64 MB model (the exact ratios vary a little between runs on a laptop).
 2. **Ranking quality chart:** blue = vectorless, orange = embeddings. Methods that use section headings (BM25F,
    BM25 with headings, RRF) are far above those that ignore them: headings from Member 1's tree matter most.
 3. **Student vs book wording:** on book-worded questions BM25F (0.939) is close to the embedding model (0.963);
-   the gap is on student wording (0.386 vs 0.617).
+   the gap is on student wording (0.433 vs 0.636).
 4. **Significance table:** no method beats BM25F after Holm correction; with 15 dev questions only large gaps can.
 
 ## Likely questions and answers
