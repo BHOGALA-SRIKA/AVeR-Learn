@@ -9,6 +9,7 @@ python experiments/build_corpus.py                                           # s
 python experiments/build_benchmark.py                                        # merge drafts, check quotes, assign splits
 python -m src.evaluation.evaluate_retrieval experiments/configs/unit1_all_methods.yaml            # dev split
 python -m src.evaluation.evaluate_retrieval experiments/configs/unit1_all_methods.yaml --no-efficiency   # fast (~5 s)
+python -m src.evaluation.evaluate_selectors experiments/configs/member3_selectors.yaml           # Member 3 selectors (EMTE etc.)
 python -m pytest tests/test_evaluation.py
 ```
 
@@ -23,6 +24,7 @@ Results go to `results/<experiment>/<split>/summary.md` (tables for the report),
 | `significance.py` | Paired randomization test, bootstrap confidence interval, Holm correction |
 | `efficiency.py` | Build time, query latency, index size, peak memory (one fresh process per method) |
 | `evaluate_retrieval.py` | The harness: config → runs → tables |
+| `evaluate_selectors.py` | Member 3's selectors (EMTE and baselines) on one document per question: evidence delivered within a budget, gold share, tokens, abstention, speed |
 | `experiments/build_benchmark.py` | Builds `data/benchmark/questions.json` and `qrels.trec` from `data/benchmark/drafts/` |
 | `experiments/configs/*.yaml` | One file per experiment |
 
