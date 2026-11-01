@@ -228,6 +228,10 @@ def select_emte(
             "retrieve_from_processed_corpus() or pass src.utils.token_counter.count_tokens."
         )
     nodes, paragraph_ids, raw_scores, ranked = _prepare(query, tree, index, params)
+    min_raw_score = float(params.get("min_raw_score", 0.0))
+
+    if not math.isfinite(min_raw_score) or min_raw_score < 0:
+        raise ValueError("min_raw_score must be a finite non-negative number")
     if not ranked or budget <= 0:
         return Selection([], ranked, 0, True)
 
@@ -247,13 +251,21 @@ def select_emte(
             raise ValueError("max_regions must be >= 1 or None")
     include_breadcrumbs = bool(params.get("include_breadcrumbs", True))
 
+    # Filter using original BM25F raw scores before score scaling.
+    eligible_ranked = [
+      pid for pid in ranked
+      if float(raw_scores.get(pid, 0.0)) >= min_raw_score
+]
+
+
     scores = _scale_scores(query, index, raw_scores, score_scale, params)
-    if score_scale == "absolute" and max(scores.values(), default=0.0) < epsilon:
-        return Selection([], ranked, 0, True)
+
+    if score_scale == "absolute" and max((scores.get(pid, 0.0) for pid in eligible_ranked),default=0.0) < epsilon:
+         return Selection([], ranked, 0, True)
 
     candidates = {
         pid: scores[pid]
-        for pid in ranked[:max_candidates]
+        for pid in eligible_ranked[:max_candidates]
         if scores.get(pid, 0.0) >= epsilon
     }
     if not candidates:
@@ -584,6 +596,7 @@ def main() -> None:
     parser.add_argument("--score-scale", choices=("relative", "absolute", "max", "sum", "none"), default="relative")
     parser.add_argument("--tau-stop", type=float, default=0.0)
     parser.add_argument("--tau-up", type=float, default=0.0)
+    parser.add_argument("--min-raw-score",type=float,default=0.0,help="Minimum original BM25F raw score; 0 disables filtering",)
     parser.add_argument("--max-candidates", type=int, default=30)
     parser.add_argument("--max-regions", type=int, default=None)
     args = parser.parse_args()
@@ -601,6 +614,7 @@ def main() -> None:
             "score_scale": args.score_scale,
             "tau_stop": args.tau_stop,
             "tau_up": args.tau_up,
+            "min_raw_score": args.min_raw_score,
             "max_candidates": args.max_candidates,
             "max_regions": args.max_regions,
         },
