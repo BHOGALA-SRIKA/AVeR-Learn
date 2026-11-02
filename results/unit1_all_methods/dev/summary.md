@@ -1,6 +1,6 @@
 # unit1_all_methods (dev split)
 
-15 in-scope questions, 0 out-of-scope, 78 paragraphs. Tokenizer 1.0: nfkc, lowercase, hyphen-join, i/o-kept, lucene+question stopwords, snowball-english, token counter approx-v1, run 2026-10-31T08:49:29+00:00. Sorted by nDCG@10.
+15 in-scope questions, 4 out-of-scope, 78 paragraphs. Tokenizer 1.0: nfkc, lowercase, hyphen-join, i/o-kept, lucene+question stopwords, snowball-english, token counter approx-v1, run 2026-11-01T07:45:49+00:00. Sorted by nDCG@10.
 
 ## Ranking quality
 
@@ -89,32 +89,32 @@ cov = share of the essential gold-quote words delivered; allEss = share of quest
 
 Machine: Intel64 Family 6 Model 154 Stepping 3, GenuineIntel | 12 CPUs | 16 GB RAM | Windows-10-10.0.26300-SP0
 
-index KB = what is stored per PDF; model MB = model file shared by all PDFs (0 for lexical). Process peak MB includes Python itself (baseline about 109 MB).
+index KB = what is stored per PDF; model MB = model file shared by all PDFs (0 for lexical). Process peak MB includes Python itself (baseline about 110 MB).
 
 | method | build ms | query ms (median) | query ms (p95) | index KB | model MB | build alloc MB | process peak MB |
 |---|---|---|---|---|---|---|---|
-| dense | 3694.836 | 7.657 | 10.711 | 118.729 | 64.069 | 0.621 | 1293.836 |
-| hybrid | 3375.113 | 6.990 | 8.923 | 180.947 | 64.069 | 0.707 | 1293.500 |
-| bm25f+exp | 12.930 | 0.410 | 0.798 | 68.543 | 0.000 | 0.194 | 109.887 |
-| bm25f | 12.207 | 0.156 | 0.602 | 64.295 | 0.000 | 0.193 | 110.004 |
-| bm25_headings | 11.555 | 0.090 | 0.187 | 65.501 | 0.000 | 0.222 | 109.457 |
-| rrf | 137.978 | 9.623 | 11.993 | 506.461 | 0.000 | 2.028 | 115.484 |
-| bm25_headings+exp | 12.514 | 0.181 | 0.618 | 69.768 | 0.000 | 0.223 | 109.566 |
-| bm25f_rm3 | 19.953 | 0.994 | 1.869 | 77.873 | 0.000 | 0.195 | 109.641 |
-| rrf+exp | 88.077 | 7.281 | 10.031 | 510.735 | 0.000 | 2.031 | 114.996 |
-| bm25f_rm3+exp | 19.801 | 0.950 | 2.178 | 82.120 | 0.000 | 0.196 | 109.340 |
-| tfidf+exp | 12.003 | 1.364 | 3.428 | 65.791 | 0.000 | 0.135 | 109.547 |
-| tfidf | 11.480 | 1.346 | 2.129 | 61.534 | 0.000 | 0.133 | 109.484 |
-| ql_jm+exp | 3.538 | 0.570 | 1.186 | 67.871 | 0.000 | 0.141 | 109.527 |
-| char_tfidf+exp | 60.194 | 2.068 | 3.645 | 426.143 | 0.000 | 1.798 | 114.426 |
-| char_tfidf | 55.136 | 1.716 | 3.268 | 421.887 | 0.000 | 1.796 | 114.184 |
-| bm25 | 8.644 | 0.055 | 0.112 | 64.178 | 0.000 | 0.213 | 109.609 |
-| ql_jm | 2.207 | 0.267 | 0.525 | 63.616 | 0.000 | 0.139 | 109.727 |
-| bm25+exp | 11.144 | 0.245 | 0.470 | 68.425 | 0.000 | 0.216 | 109.508 |
-| bm25_rm3+exp | 15.699 | 1.109 | 1.690 | 81.419 | 0.000 | 0.217 | 109.801 |
-| ql_dirichlet | 5.372 | 0.769 | 2.291 | 63.615 | 0.000 | 0.139 | 109.402 |
-| ql_dirichlet+exp | 5.275 | 0.919 | 2.270 | 67.879 | 0.000 | 0.140 | 109.793 |
-| bm25_rm3 | 15.002 | 0.854 | 1.375 | 77.173 | 0.000 | 0.215 | 109.820 |
+| dense | 3200.288 | 6.254 | 7.742 | 118.729 | 64.069 | 0.621 | 1294.758 |
+| hybrid | 3168.303 | 6.934 | 8.521 | 180.947 | 64.069 | 0.707 | 1296.109 |
+| bm25f+exp | 5.987 | 0.311 | 0.767 | 68.543 | 0.000 | 0.195 | 110.785 |
+| bm25f | 10.944 | 0.244 | 0.704 | 64.295 | 0.000 | 0.193 | 110.539 |
+| bm25_headings | 5.568 | 0.040 | 0.059 | 65.501 | 0.000 | 0.222 | 110.691 |
+| rrf | 57.587 | 2.669 | 4.968 | 506.461 | 0.000 | 2.028 | 116.922 |
+| bm25_headings+exp | 6.455 | 0.182 | 0.387 | 69.768 | 0.000 | 0.224 | 110.562 |
+| bm25f_rm3 | 9.515 | 0.400 | 0.801 | 77.873 | 0.000 | 0.195 | 111.152 |
+| rrf+exp | 85.895 | 2.848 | 7.729 | 510.735 | 0.000 | 2.029 | 116.562 |
+| bm25f_rm3+exp | 8.969 | 0.725 | 2.116 | 82.120 | 0.000 | 0.196 | 110.891 |
+| tfidf+exp | 6.818 | 1.593 | 2.528 | 65.791 | 0.000 | 0.134 | 110.773 |
+| tfidf | 6.088 | 1.391 | 2.401 | 61.534 | 0.000 | 0.134 | 110.559 |
+| ql_jm+exp | 3.449 | 0.839 | 2.251 | 67.871 | 0.000 | 0.141 | 110.375 |
+| char_tfidf+exp | 46.818 | 1.875 | 2.983 | 426.143 | 0.000 | 1.796 | 115.391 |
+| char_tfidf | 54.178 | 1.763 | 2.794 | 421.887 | 0.000 | 1.796 | 115.289 |
+| bm25 | 5.074 | 0.041 | 0.060 | 64.178 | 0.000 | 0.214 | 110.527 |
+| ql_jm | 3.816 | 0.521 | 2.010 | 63.616 | 0.000 | 0.138 | 111.086 |
+| bm25+exp | 8.699 | 0.200 | 0.509 | 68.425 | 0.000 | 0.216 | 110.297 |
+| bm25_rm3+exp | 7.668 | 0.970 | 1.938 | 81.419 | 0.000 | 0.218 | 111.051 |
+| ql_dirichlet | 5.789 | 0.546 | 2.059 | 63.615 | 0.000 | 0.139 | 110.531 |
+| ql_dirichlet+exp | 7.154 | 0.961 | 2.082 | 67.879 | 0.000 | 0.141 | 110.617 |
+| bm25_rm3 | 8.451 | 0.356 | 0.695 | 77.173 | 0.000 | 0.216 | 110.629 |
 
 ## Is it better than bm25f? (nDCG@10, n = 15 questions)
 

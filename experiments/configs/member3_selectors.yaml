@@ -32,3 +32,8 @@ runs:
   - {method: emte, label: emte(max_regions=1), params: {max_regions: 1}}
   - {method: emte, label: emte(tau_up=0.002), params: {tau_up: 0.002}}
   - {method: emte, label: emte(tau_up=0.01), params: {tau_up: 0.01}}
+  # Abstention: EMTE answers "not in the notes" when no paragraph scores min_raw_score or more.
+  # Dev result: no threshold separates out-of-scope from student-worded questions, so EMTE keeps min_raw_score = 0.
+  - {method: emte, label: emte(min_raw_score=1.7), params: {min_raw_score: 1.7}}
+  - {method: emte, label: emte(min_raw_score=2.0), params: {min_raw_score: 2.0}}
+  - {method: emte, label: emte(min_raw_score=2.5), params: {min_raw_score: 2.5}}
