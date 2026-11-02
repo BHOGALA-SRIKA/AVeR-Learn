@@ -1,0 +1,3075 @@
+{
+  "sections_from": "unit1_topic1: tree.json; unit1_topic2: tree.json; unit1_topic3: tree.json",
+  "setup": {
+    "bm25f": {
+      "build_ms": 117.0,
+      "build_peak_alloc_mb": 0.31
+    },
+    "emte": {
+      "build_ms": 352.1,
+      "build_peak_alloc_mb": 4.36
+    }
+  },
+  "summary": [
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "evidence_found": 43,
+      "evidence_total": 48,
+      "evidence_rate": 0.896,
+      "prompt_tokens_mean": 259.3,
+      "on_topic_share": 0.757,
+      "passages_mean": 3.6,
+      "ms_median": 0.31,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "evidence_found": 43,
+      "evidence_total": 48,
+      "evidence_rate": 0.896,
+      "prompt_tokens_mean": 343.1,
+      "on_topic_share": 0.648,
+      "passages_mean": 4.9,
+      "ms_median": 0.65,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "evidence_found": 44,
+      "evidence_total": 48,
+      "evidence_rate": 0.917,
+      "prompt_tokens_mean": 334.6,
+      "on_topic_share": 0.712,
+      "passages_mean": 4.8,
+      "ms_median": 6.47,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "evidence_found": 43,
+      "evidence_total": 48,
+      "evidence_rate": 0.896,
+      "prompt_tokens_mean": 271.3,
+      "on_topic_share": 0.755,
+      "passages_mean": 3.6,
+      "ms_median": 0.36,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "evidence_found": 43,
+      "evidence_total": 48,
+      "evidence_rate": 0.896,
+      "prompt_tokens_mean": 453.8,
+      "on_topic_share": 0.559,
+      "passages_mean": 6.3,
+      "ms_median": 0.52,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "evidence_found": 46,
+      "evidence_total": 48,
+      "evidence_rate": 0.958,
+      "prompt_tokens_mean": 457.9,
+      "on_topic_share": 0.602,
+      "passages_mean": 6.3,
+      "ms_median": 9.16,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "evidence_found": 43,
+      "evidence_total": 48,
+      "evidence_rate": 0.896,
+      "prompt_tokens_mean": 271.3,
+      "on_topic_share": 0.755,
+      "passages_mean": 3.6,
+      "ms_median": 0.37,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "evidence_found": 48,
+      "evidence_total": 48,
+      "evidence_rate": 1.0,
+      "prompt_tokens_mean": 497,
+      "on_topic_share": 0.546,
+      "passages_mean": 6.6,
+      "ms_median": 0.43,
+      "refused": 4,
+      "refused_total": 4
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "evidence_found": 47,
+      "evidence_total": 48,
+      "evidence_rate": 0.979,
+      "prompt_tokens_mean": 540.8,
+      "on_topic_share": 0.558,
+      "passages_mean": 6.7,
+      "ms_median": 7.57,
+      "refused": 4,
+      "refused_total": 4
+    }
+  ],
+  "per_topic": [
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 290,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.68,
+      "context": [
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017]  > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 328,
+      "on_topic_share": 0.363,
+      "passages": 4,
+      "ms": 0.45,
+      "context": [
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC3_S002]  > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S019]  > Program Execution Model (unit1_topic1.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 293,
+      "on_topic_share": 0.083,
+      "passages": 4,
+      "ms": 0.32,
+      "context": [
+        "[UNIT1_TOPIC1_S021]  > Storage Hierarchy (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 86,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.23,
+      "context": [
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 312,
+      "on_topic_share": 0.468,
+      "passages": 4,
+      "ms": 0.4,
+      "context": [
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "device controller",
+      "evidence_found": 0,
+      "evidence_total": 5,
+      "prompt_tokens": 330,
+      "on_topic_share": 0.876,
+      "passages": 4,
+      "ms": 0.53,
+      "context": [
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 309,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.42,
+      "context": [
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S003]  > CPU Scheduling in Multicore Systems (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 147,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 0.25,
+      "context": [
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020]  > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 322,
+      "on_topic_share": 0.675,
+      "passages": 4,
+      "ms": 0.31,
+      "context": [
+        "[UNIT1_TOPIC2_S021]  > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022]  > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "preemptive scheduling",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 245,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.28,
+      "context": [
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_SS001]  > Examples (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 354,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.33,
+      "context": [
+        "[UNIT1_TOPIC2_S006]  > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 272,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.31,
+      "context": [
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 315,
+      "on_topic_share": 0.874,
+      "passages": 4,
+      "ms": 0.3,
+      "context": [
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011]  > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 230,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.28,
+      "context": [
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S022]  > Key Points (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 262,
+      "on_topic_share": 0.664,
+      "passages": 4,
+      "ms": 0.3,
+      "context": [
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 109,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.22,
+      "context": [
+        "[UNIT1_TOPIC3_S026]  > Execution Options (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 229,
+      "on_topic_share": 0.282,
+      "passages": 4,
+      "ms": 0.28,
+      "context": [
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 235,
+      "on_topic_share": 0.339,
+      "passages": 4,
+      "ms": 0.25,
+      "context": [
+        "[UNIT1_TOPIC3_S033]  > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032]  > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S030]  > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031]  > Termination Details (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 361,
+      "on_topic_share": 1.0,
+      "passages": 5,
+      "ms": 0.36,
+      "context": [
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017]  > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 377,
+      "on_topic_share": 0.332,
+      "passages": 5,
+      "ms": 0.74,
+      "context": [
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC3_S002]  > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S019]  > Program Execution Model (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 380,
+      "on_topic_share": 0.063,
+      "passages": 5,
+      "ms": 0.27,
+      "context": [
+        "[UNIT1_TOPIC1_S021]  > Storage Hierarchy (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 86,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.21,
+      "context": [
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 380,
+      "on_topic_share": 0.392,
+      "passages": 5,
+      "ms": 0.77,
+      "context": [
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "device controller",
+      "evidence_found": 0,
+      "evidence_total": 5,
+      "prompt_tokens": 369,
+      "on_topic_share": 0.851,
+      "passages": 5,
+      "ms": 0.79,
+      "context": [
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S014]  > Ready Queue and I/O Device Queues (unit1_topic3.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 376,
+      "on_topic_share": 1.0,
+      "passages": 5,
+      "ms": 0.68,
+      "context": [
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S003]  > CPU Scheduling in Multicore Systems (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 147,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 0.21,
+      "context": [
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020]  > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 371,
+      "on_topic_share": 0.618,
+      "passages": 5,
+      "ms": 0.71,
+      "context": [
+        "[UNIT1_TOPIC2_S021]  > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022]  > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "preemptive scheduling",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 453,
+      "on_topic_share": 0.652,
+      "passages": 8,
+      "ms": 0.42,
+      "context": [
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_SS001]  > Examples (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S013]  > Scheduling Types (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S017]  > Solution (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 354,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.76,
+      "context": [
+        "[UNIT1_TOPIC2_S006]  > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 400,
+      "on_topic_share": 0.7,
+      "passages": 6,
+      "ms": 0.64,
+      "context": [
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 381,
+      "on_topic_share": 0.755,
+      "passages": 5,
+      "ms": 0.68,
+      "context": [
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011]  > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 405,
+      "on_topic_share": 0.507,
+      "passages": 6,
+      "ms": 0.29,
+      "context": [
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S022]  > Key Points (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 422,
+      "on_topic_share": 0.454,
+      "passages": 7,
+      "ms": 0.66,
+      "context": [
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S014]  > Ready Queue and I/O Device Queues (unit1_topic3.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 109,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.23,
+      "context": [
+        "[UNIT1_TOPIC3_S026]  > Execution Options (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 428,
+      "on_topic_share": 0.146,
+      "passages": 7,
+      "ms": 0.75,
+      "context": [
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "bm25f_8",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 376,
+      "on_topic_share": 0.202,
+      "passages": 6,
+      "ms": 0.49,
+      "context": [
+        "[UNIT1_TOPIC3_S033]  > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032]  > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S030]  > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031]  > Termination Details (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 402,
+      "on_topic_share": 1.0,
+      "passages": 6,
+      "ms": 7.63,
+      "context": [
+        "[UNIT1_TOPIC2_P0098] Unit 1 – CPU Scheduling > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S015] Unit 1 – Introduction & Computer System Organization > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016] Unit 1 – Introduction & Computer System Organization > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017] Unit 1 – Introduction & Computer System Organization > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_P0278] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_P0288] Unit 1 – Introduction & Computer System Organization > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 350,
+      "on_topic_share": 0.399,
+      "passages": 4,
+      "ms": 5.44,
+      "context": [
+        "[UNIT1_TOPIC3_S002] Unit 1 – Process Concept (Process Management) > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0039] Unit 1 – Process Concept (Process Management) > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S014] Unit 1 – Introduction & Computer System Organization > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S019] Unit 1 – Introduction & Computer System Organization > Program Execution Model (unit1_topic1.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 237,
+      "on_topic_share": 0.125,
+      "passages": 3,
+      "ms": 4.08,
+      "context": [
+        "[UNIT1_TOPIC1_S018] Unit 1 – Introduction & Computer System Organization > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S020] Unit 1 – Introduction & Computer System Organization > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S021] Unit 1 – Introduction & Computer System Organization > Storage Hierarchy (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 96,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 2.62,
+      "context": [
+        "[UNIT1_TOPIC1_S022] Unit 1 – Introduction & Computer System Organization > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 349,
+      "on_topic_share": 0.476,
+      "passages": 4,
+      "ms": 5.19,
+      "context": [
+        "[UNIT1_TOPIC3_S005] Unit 1 – Process Concept (Process Management) > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S018] Unit 1 – Introduction & Computer System Organization > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S025] Unit 1 – Introduction & Computer System Organization > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "device controller",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 351,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 6.45,
+      "context": [
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_P0137] Unit 1 – Introduction & Computer System Organization > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_P0157] Unit 1 – Introduction & Computer System Organization > Booting the System (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 439,
+      "on_topic_share": 1.0,
+      "passages": 7,
+      "ms": 8.16,
+      "context": [
+        "[UNIT1_TOPIC2_P0001] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S005] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_P0084] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_P0135] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 165,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 4.21,
+      "context": [
+        "[UNIT1_TOPIC2_S018] Unit 1 – CPU Scheduling > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019] Unit 1 – CPU Scheduling > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020] Unit 1 – CPU Scheduling > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 352,
+      "on_topic_share": 0.692,
+      "passages": 4,
+      "ms": 5.38,
+      "context": [
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022] Unit 1 – CPU Scheduling > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "preemptive scheduling",
+      "evidence_found": 0,
+      "evidence_total": 1,
+      "prompt_tokens": 371,
+      "on_topic_share": 0.733,
+      "passages": 6,
+      "ms": 6.98,
+      "context": [
+        "[UNIT1_TOPIC2_P0069] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S013] Unit 1 – CPU Scheduling > Scheduling Types (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014] Unit 1 – CPU Scheduling > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016] Unit 1 – CPU Scheduling > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S017] Unit 1 – CPU Scheduling > Solution (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 2,
+      "evidence_total": 5,
+      "prompt_tokens": 391,
+      "on_topic_share": 0.75,
+      "passages": 6,
+      "ms": 6.96,
+      "context": [
+        "[UNIT1_TOPIC2_S006] Unit 1 – CPU Scheduling > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007] Unit 1 – CPU Scheduling > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S008] Unit 1 – CPU Scheduling > Histogram of CPU-Burst Times (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_P0058] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_P0061] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC1_P0281] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 401,
+      "on_topic_share": 0.936,
+      "passages": 6,
+      "ms": 6.6,
+      "context": [
+        "[UNIT1_TOPIC3_S006] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_P0182] Unit 1 – Introduction & Computer System Organization > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_P0221] Unit 1 – Introduction & Computer System Organization > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S035] Unit 1 – Process Concept (Process Management) > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 378,
+      "on_topic_share": 0.945,
+      "passages": 5,
+      "ms": 6.46,
+      "context": [
+        "[UNIT1_TOPIC3_S009] Unit 1 – Process Concept (Process Management) > Each process is represented in the operating system by a Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011] Unit 1 – CPU Scheduling > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_P0108] Unit 1 – Process Concept (Process Management) > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_P0123] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 384,
+      "on_topic_share": 0.73,
+      "passages": 6,
+      "ms": 6.73,
+      "context": [
+        "[UNIT1_TOPIC2_P0031] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC3_S011] Unit 1 – Process Concept (Process Management) > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S019] Unit 1 – CPU Scheduling > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S021] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S022] Unit 1 – Process Concept (Process Management) > Key Points (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 401,
+      "on_topic_share": 0.571,
+      "passages": 6,
+      "ms": 6.59,
+      "context": [
+        "[UNIT1_TOPIC2_P0061] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_P0069] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC3_S017] Unit 1 – Process Concept (Process Management) > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019] Unit 1 – Process Concept (Process Management) > Medium-Term Scheduler (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 134,
+      "on_topic_share": 1.0,
+      "passages": 2,
+      "ms": 3.46,
+      "context": [
+        "[UNIT1_TOPIC3_S027] Unit 1 – Process Concept (Process Management) > Process Creation using fork() (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S028] Unit 1 – Process Concept (Process Management) > UNIX Example (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 432,
+      "on_topic_share": 0.212,
+      "passages": 7,
+      "ms": 7.07,
+      "context": [
+        "[UNIT1_TOPIC3_P0002] Unit 1 – Process Concept (Process Management) > Unit 1 – Process Concept (Process Management) (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S006] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S012] Unit 1 – Process Concept (Process Management) > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_P0112] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S024] Unit 1 – Process Concept (Process Management) > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034] Unit 1 – Process Concept (Process Management) > Zombie and Orphan Processes (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 256,
+      "method": "emte",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 389,
+      "on_topic_share": 0.255,
+      "passages": 6,
+      "ms": 6.49,
+      "context": [
+        "[UNIT1_TOPIC3_P0049] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031] Unit 1 – Process Concept (Process Management) > Termination Details (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032] Unit 1 – Process Concept (Process Management) > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S033] Unit 1 – Process Concept (Process Management) > Cascading Termination (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 290,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.3,
+      "context": [
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017]  > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 358,
+      "on_topic_share": 0.32,
+      "passages": 4,
+      "ms": 0.39,
+      "context": [
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC3_S002]  > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S011]  > Defining the Operating System (unit1_topic1.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 293,
+      "on_topic_share": 0.083,
+      "passages": 4,
+      "ms": 0.27,
+      "context": [
+        "[UNIT1_TOPIC1_S021]  > Storage Hierarchy (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 86,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.22,
+      "context": [
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 375,
+      "on_topic_share": 0.352,
+      "passages": 4,
+      "ms": 0.36,
+      "context": [
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S002]  > Need for an Operating System (unit1_topic1.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "device controller",
+      "evidence_found": 0,
+      "evidence_total": 5,
+      "prompt_tokens": 376,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 386,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.4,
+      "context": [
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S001]  > CPU Scheduling – Basic Concepts (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 147,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 0.24,
+      "context": [
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020]  > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 322,
+      "on_topic_share": 0.675,
+      "passages": 4,
+      "ms": 0.42,
+      "context": [
+        "[UNIT1_TOPIC2_S021]  > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022]  > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "preemptive scheduling",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 245,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.44,
+      "context": [
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_SS001]  > Examples (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 354,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.44,
+      "context": [
+        "[UNIT1_TOPIC2_S006]  > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 272,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.32,
+      "context": [
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 315,
+      "on_topic_share": 0.874,
+      "passages": 4,
+      "ms": 0.4,
+      "context": [
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011]  > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 230,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.39,
+      "context": [
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S022]  > Key Points (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 262,
+      "on_topic_share": 0.664,
+      "passages": 4,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 109,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.27,
+      "context": [
+        "[UNIT1_TOPIC3_S026]  > Execution Options (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 229,
+      "on_topic_share": 0.282,
+      "passages": 4,
+      "ms": 0.31,
+      "context": [
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 235,
+      "on_topic_share": 0.339,
+      "passages": 4,
+      "ms": 0.33,
+      "context": [
+        "[UNIT1_TOPIC3_S033]  > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032]  > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S030]  > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031]  > Termination Details (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 547,
+      "on_topic_share": 1.0,
+      "passages": 7,
+      "ms": 0.41,
+      "context": [
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017]  > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 558,
+      "on_topic_share": 0.216,
+      "passages": 7,
+      "ms": 0.74,
+      "context": [
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC3_S002]  > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S011]  > Defining the Operating System (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S019]  > Program Execution Model (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S001]  > Process Concept (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 380,
+      "on_topic_share": 0.063,
+      "passages": 5,
+      "ms": 0.28,
+      "context": [
+        "[UNIT1_TOPIC1_S021]  > Storage Hierarchy (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 86,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.21,
+      "context": [
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 556,
+      "on_topic_share": 0.261,
+      "passages": 7,
+      "ms": 0.83,
+      "context": [
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S002]  > Need for an Operating System (unit1_topic1.pdf, p1)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "device controller",
+      "evidence_found": 0,
+      "evidence_total": 5,
+      "prompt_tokens": 556,
+      "on_topic_share": 0.739,
+      "passages": 7,
+      "ms": 0.8,
+      "context": [
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 527,
+      "on_topic_share": 1.0,
+      "passages": 6,
+      "ms": 0.76,
+      "context": [
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S001]  > CPU Scheduling – Basic Concepts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S003]  > CPU Scheduling in Multicore Systems (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 147,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 0.25,
+      "context": [
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020]  > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 544,
+      "on_topic_share": 0.462,
+      "passages": 8,
+      "ms": 0.46,
+      "context": [
+        "[UNIT1_TOPIC2_S021]  > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022]  > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S014]  > Ready Queue and I/O Device Queues (unit1_topic3.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "preemptive scheduling",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 471,
+      "on_topic_share": 0.598,
+      "passages": 8,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_SS001]  > Examples (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S013]  > Scheduling Types (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S017]  > Solution (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 581,
+      "on_topic_share": 0.698,
+      "passages": 8,
+      "ms": 0.73,
+      "context": [
+        "[UNIT1_TOPIC2_S006]  > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S008]  > Histogram of CPU-Burst Times (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC3_S014]  > Ready Queue and I/O Device Queues (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 581,
+      "on_topic_share": 0.441,
+      "passages": 8,
+      "ms": 0.5,
+      "context": [
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_DOCUMENT]  >  (unit1_topic3.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 553,
+      "on_topic_share": 0.507,
+      "passages": 7,
+      "ms": 0.88,
+      "context": [
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011]  > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 405,
+      "on_topic_share": 0.507,
+      "passages": 6,
+      "ms": 0.67,
+      "context": [
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S022]  > Key Points (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 529,
+      "on_topic_share": 0.32,
+      "passages": 8,
+      "ms": 0.56,
+      "context": [
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S001]  > Process Concept (unit1_topic3.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 109,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC3_S026]  > Execution Options (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 519,
+      "on_topic_share": 0.115,
+      "passages": 8,
+      "ms": 0.53,
+      "context": [
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "bm25f_8",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 519,
+      "on_topic_share": 0.142,
+      "passages": 8,
+      "ms": 0.44,
+      "context": [
+        "[UNIT1_TOPIC3_S033]  > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032]  > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S030]  > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031]  > Termination Details (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S019]  > Program Execution Model (unit1_topic1.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 522,
+      "on_topic_share": 1.0,
+      "passages": 7,
+      "ms": 7.94,
+      "context": [
+        "[UNIT1_TOPIC2_S014] Unit 1 – CPU Scheduling > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_P0144] Unit 1 – Introduction & Computer System Organization > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S015] Unit 1 – Introduction & Computer System Organization > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016] Unit 1 – Introduction & Computer System Organization > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017] Unit 1 – Introduction & Computer System Organization > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_P0278] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S025] Unit 1 – Introduction & Computer System Organization > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 599,
+      "on_topic_share": 0.328,
+      "passages": 9,
+      "ms": 9.78,
+      "context": [
+        "[UNIT1_TOPIC3_S002] Unit 1 – Process Concept (Process Management) > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S003] Unit 1 – Process Concept (Process Management) > One program can have multiple processes (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0024] Unit 1 – Process Concept (Process Management) > Process Concept – Memory Representation (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0027] Unit 1 – Process Concept (Process Management) > Process Concept – Memory Representation (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005] Unit 1 – Process Concept (Process Management) > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC3_P0055] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_P0118] Unit 1 – Introduction & Computer System Organization > Defining the Operating System (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S014] Unit 1 – Introduction & Computer System Organization > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S019] Unit 1 – Introduction & Computer System Organization > Program Execution Model (unit1_topic1.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 237,
+      "on_topic_share": 0.125,
+      "passages": 3,
+      "ms": 4.34,
+      "context": [
+        "[UNIT1_TOPIC1_S018] Unit 1 – Introduction & Computer System Organization > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S020] Unit 1 – Introduction & Computer System Organization > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S021] Unit 1 – Introduction & Computer System Organization > Storage Hierarchy (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 96,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 4.24,
+      "context": [
+        "[UNIT1_TOPIC1_S022] Unit 1 – Introduction & Computer System Organization > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 464,
+      "on_topic_share": 0.341,
+      "passages": 5,
+      "ms": 9.29,
+      "context": [
+        "[UNIT1_TOPIC3_S004] Unit 1 – Process Concept (Process Management) > Process Concept – Memory Representation (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005] Unit 1 – Process Concept (Process Management) > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S018] Unit 1 – Introduction & Computer System Organization > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S025] Unit 1 – Introduction & Computer System Organization > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "device controller",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 552,
+      "on_topic_share": 0.993,
+      "passages": 7,
+      "ms": 13.41,
+      "context": [
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S013] Unit 1 – Introduction & Computer System Organization > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_P0157] Unit 1 – Introduction & Computer System Organization > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_P0265] Unit 1 – Introduction & Computer System Organization > I/O Structure (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_P0269] Unit 1 – Introduction & Computer System Organization > I/O Structure (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_P0270] Unit 1 – Introduction & Computer System Organization > I/O Structure (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 593,
+      "on_topic_share": 1.0,
+      "passages": 8,
+      "ms": 13.42,
+      "context": [
+        "[UNIT1_TOPIC2_P0001] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S005] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_P0149] Unit 1 – CPU Scheduling > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 165,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 6.73,
+      "context": [
+        "[UNIT1_TOPIC2_S018] Unit 1 – CPU Scheduling > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019] Unit 1 – CPU Scheduling > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020] Unit 1 – CPU Scheduling > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 467,
+      "on_topic_share": 0.572,
+      "passages": 6,
+      "ms": 10.92,
+      "context": [
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022] Unit 1 – CPU Scheduling > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "preemptive scheduling",
+      "evidence_found": 0,
+      "evidence_total": 1,
+      "prompt_tokens": 558,
+      "on_topic_share": 0.511,
+      "passages": 9,
+      "ms": 16.06,
+      "context": [
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S013] Unit 1 – CPU Scheduling > Scheduling Types (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014] Unit 1 – CPU Scheduling > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S016] Unit 1 – CPU Scheduling > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S017] Unit 1 – CPU Scheduling > Solution (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_P0134] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 4,
+      "evidence_total": 5,
+      "prompt_tokens": 530,
+      "on_topic_share": 0.655,
+      "passages": 7,
+      "ms": 13.48,
+      "context": [
+        "[UNIT1_TOPIC2_S006] Unit 1 – CPU Scheduling > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007] Unit 1 – CPU Scheduling > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S008] Unit 1 – CPU Scheduling > Histogram of CPU-Burst Times (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_P0115] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_P0256] Unit 1 – Introduction & Computer System Organization > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 543,
+      "on_topic_share": 0.579,
+      "passages": 7,
+      "ms": 13.33,
+      "context": [
+        "[UNIT1_TOPIC3_S006] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_P0171] Unit 1 – Introduction & Computer System Organization > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016] Unit 1 – Introduction & Computer System Organization > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S020] Unit 1 – Introduction & Computer System Organization > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S035] Unit 1 – Process Concept (Process Management) > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 520,
+      "on_topic_share": 0.581,
+      "passages": 6,
+      "ms": 7.89,
+      "context": [
+        "[UNIT1_TOPIC3_S009] Unit 1 – Process Concept (Process Management) > Each process is represented in the operating system by a Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011] Unit 1 – CPU Scheduling > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S011] Unit 1 – Introduction & Computer System Organization > Defining the Operating System (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC3_S017] Unit 1 – Process Concept (Process Management) > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_P0123] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 453,
+      "on_topic_share": 0.507,
+      "passages": 6,
+      "ms": 6.27,
+      "context": [
+        "[UNIT1_TOPIC2_S005] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC3_S011] Unit 1 – Process Concept (Process Management) > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S019] Unit 1 – CPU Scheduling > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S021] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S022] Unit 1 – Process Concept (Process Management) > Key Points (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 605,
+      "on_topic_share": 0.355,
+      "passages": 9,
+      "ms": 8.89,
+      "context": [
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S009] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_P0084] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC3_S017] Unit 1 – Process Concept (Process Management) > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S018] Unit 1 – CPU Scheduling > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S019] Unit 1 – Process Concept (Process Management) > Medium-Term Scheduler (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 134,
+      "on_topic_share": 1.0,
+      "passages": 2,
+      "ms": 3.58,
+      "context": [
+        "[UNIT1_TOPIC3_S027] Unit 1 – Process Concept (Process Management) > Process Creation using fork() (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S028] Unit 1 – Process Concept (Process Management) > UNIX Example (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 636,
+      "on_topic_share": 0.136,
+      "passages": 10,
+      "ms": 9.26,
+      "context": [
+        "[UNIT1_TOPIC3_P0002] Unit 1 – Process Concept (Process Management) > Unit 1 – Process Concept (Process Management) (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0012] Unit 1 – Process Concept (Process Management) > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0015] Unit 1 – Process Concept (Process Management) > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S006] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S011] Unit 1 – Process Concept (Process Management) > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S012] Unit 1 – Process Concept (Process Management) > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S018] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S024] Unit 1 – Process Concept (Process Management) > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034] Unit 1 – Process Concept (Process Management) > Zombie and Orphan Processes (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 384,
+      "method": "emte",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 568,
+      "on_topic_share": 0.157,
+      "passages": 8,
+      "ms": 9.05,
+      "context": [
+        "[UNIT1_TOPIC3_S007] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031] Unit 1 – Process Concept (Process Management) > Termination Details (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032] Unit 1 – Process Concept (Process Management) > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC1_P0207] Unit 1 – Introduction & Computer System Organization > Program Execution Model (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S033] Unit 1 – Process Concept (Process Management) > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034] Unit 1 – Process Concept (Process Management) > Zombie and Orphan Processes (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 290,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.39,
+      "context": [
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017]  > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 358,
+      "on_topic_share": 0.32,
+      "passages": 4,
+      "ms": 0.4,
+      "context": [
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC3_S002]  > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S011]  > Defining the Operating System (unit1_topic1.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 293,
+      "on_topic_share": 0.083,
+      "passages": 4,
+      "ms": 0.29,
+      "context": [
+        "[UNIT1_TOPIC1_S021]  > Storage Hierarchy (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 86,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.23,
+      "context": [
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 375,
+      "on_topic_share": 0.352,
+      "passages": 4,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S002]  > Need for an Operating System (unit1_topic1.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "device controller",
+      "evidence_found": 0,
+      "evidence_total": 5,
+      "prompt_tokens": 376,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.32,
+      "context": [
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 386,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.43,
+      "context": [
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S001]  > CPU Scheduling – Basic Concepts (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 147,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 0.24,
+      "context": [
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020]  > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 322,
+      "on_topic_share": 0.675,
+      "passages": 4,
+      "ms": 0.36,
+      "context": [
+        "[UNIT1_TOPIC2_S021]  > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022]  > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "preemptive scheduling",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 245,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.31,
+      "context": [
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_SS001]  > Examples (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 354,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.4,
+      "context": [
+        "[UNIT1_TOPIC2_S006]  > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 272,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.3,
+      "context": [
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 315,
+      "on_topic_share": 0.874,
+      "passages": 4,
+      "ms": 3.03,
+      "context": [
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011]  > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 230,
+      "on_topic_share": 1.0,
+      "passages": 4,
+      "ms": 0.35,
+      "context": [
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S022]  > Key Points (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 262,
+      "on_topic_share": 0.664,
+      "passages": 4,
+      "ms": 0.55,
+      "context": [
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 109,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC3_S026]  > Execution Options (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 229,
+      "on_topic_share": 0.282,
+      "passages": 4,
+      "ms": 0.41,
+      "context": [
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 235,
+      "on_topic_share": 0.339,
+      "passages": 4,
+      "ms": 0.38,
+      "context": [
+        "[UNIT1_TOPIC3_S033]  > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032]  > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S030]  > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031]  > Termination Details (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 547,
+      "on_topic_share": 1.0,
+      "passages": 7,
+      "ms": 0.38,
+      "context": [
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017]  > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 702,
+      "on_topic_share": 0.165,
+      "passages": 8,
+      "ms": 0.77,
+      "context": [
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC3_S002]  > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S011]  > Defining the Operating System (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S019]  > Program Execution Model (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S003]  > General Definition of an Operating System (unit1_topic1.pdf, p1)",
+        "[UNIT1_TOPIC3_S001]  > Process Concept (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC1_S004]  > Genesis of Operating Systems (unit1_topic1.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 380,
+      "on_topic_share": 0.063,
+      "passages": 5,
+      "ms": 0.48,
+      "context": [
+        "[UNIT1_TOPIC1_S021]  > Storage Hierarchy (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 86,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.36,
+      "context": [
+        "[UNIT1_TOPIC1_S022]  > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 661,
+      "on_topic_share": 0.214,
+      "passages": 8,
+      "ms": 0.66,
+      "context": [
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S018]  > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S002]  > Need for an Operating System (unit1_topic1.pdf, p1)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S005]  > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC3_S004]  > Process Concept – Memory Representation (unit1_topic3.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "device controller",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 677,
+      "on_topic_share": 0.945,
+      "passages": 7,
+      "ms": 1.05,
+      "context": [
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_S014]  > Booting the System (unit1_topic1.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 658,
+      "on_topic_share": 1.0,
+      "passages": 8,
+      "ms": 0.59,
+      "context": [
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S001]  > CPU Scheduling – Basic Concepts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S003]  > CPU Scheduling in Multicore Systems (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_DOCUMENT]  >  (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 147,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 0.24,
+      "context": [
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020]  > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 592,
+      "on_topic_share": 0.393,
+      "passages": 8,
+      "ms": 0.45,
+      "context": [
+        "[UNIT1_TOPIC2_S021]  > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022]  > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S013]  > Scheduling Queues (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "preemptive scheduling",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 471,
+      "on_topic_share": 0.598,
+      "passages": 8,
+      "ms": 0.37,
+      "context": [
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014]  > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S016]  > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_SS001]  > Examples (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S013]  > Scheduling Types (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S017]  > Solution (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 689,
+      "on_topic_share": 0.525,
+      "passages": 8,
+      "ms": 0.5,
+      "context": [
+        "[UNIT1_TOPIC2_S006]  > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007]  > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S008]  > Histogram of CPU-Burst Times (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC1_S024]  > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC1_S023]  > I/O Structure (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 599,
+      "on_topic_share": 0.426,
+      "passages": 8,
+      "ms": 0.43,
+      "context": [
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC1_S016]  > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S015]  > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S020]  > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 656,
+      "on_topic_share": 0.417,
+      "passages": 8,
+      "ms": 0.43,
+      "context": [
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010]  > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011]  > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC1_S025]  > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_S013]  > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S012]  > Computer System Organization (unit1_topic1.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 405,
+      "on_topic_share": 0.507,
+      "passages": 6,
+      "ms": 0.42,
+      "context": [
+        "[UNIT1_TOPIC3_S021]  > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S019]  > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S022]  > Key Points (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S005]  > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 529,
+      "on_topic_share": 0.32,
+      "passages": 8,
+      "ms": 0.48,
+      "context": [
+        "[UNIT1_TOPIC3_S017]  > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S019]  > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S010]  > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016]  > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S018]  > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S009]  > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S001]  > Process Concept (unit1_topic3.pdf, p1)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 109,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 0.29,
+      "context": [
+        "[UNIT1_TOPIC3_S026]  > Execution Options (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 519,
+      "on_topic_share": 0.115,
+      "passages": 8,
+      "ms": 0.39,
+      "context": [
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S024]  > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S012]  > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S006]  > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007]  > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S008]  > Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S011]  > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S018]  > Types of Processes (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "bm25f_8",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 519,
+      "on_topic_share": 0.142,
+      "passages": 8,
+      "ms": 0.42,
+      "context": [
+        "[UNIT1_TOPIC3_S033]  > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032]  > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S030]  > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031]  > Termination Details (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034]  > Zombie and Orphan Processes (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S035]  > Important Scenarios (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC2_S012]  > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S019]  > Program Execution Model (unit1_topic1.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "interrupts",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 613,
+      "on_topic_share": 1.0,
+      "passages": 7,
+      "ms": 8.05,
+      "context": [
+        "[UNIT1_TOPIC2_S014] Unit 1 – CPU Scheduling > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S013] Unit 1 – Introduction & Computer System Organization > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S015] Unit 1 – Introduction & Computer System Organization > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016] Unit 1 – Introduction & Computer System Organization > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S017] Unit 1 – Introduction & Computer System Organization > Interrupt Timeline (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S024] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)",
+        "[UNIT1_TOPIC1_S025] Unit 1 – Introduction & Computer System Organization > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "bootstrap program",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 749,
+      "on_topic_share": 0.223,
+      "passages": 10,
+      "ms": 10.89,
+      "context": [
+        "[UNIT1_TOPIC3_S002] Unit 1 – Process Concept (Process Management) > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S003] Unit 1 – Process Concept (Process Management) > One program can have multiple processes (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0024] Unit 1 – Process Concept (Process Management) > Process Concept – Memory Representation (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_P0027] Unit 1 – Process Concept (Process Management) > Process Concept – Memory Representation (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC1_P0032] Unit 1 – Introduction & Computer System Organization > Operating System Goals (unit1_topic1.pdf, p2)",
+        "[UNIT1_TOPIC3_S005] Unit 1 – Process Concept (Process Management) > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_P0118] Unit 1 – Introduction & Computer System Organization > Defining the Operating System (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S014] Unit 1 – Introduction & Computer System Organization > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S019] Unit 1 – Introduction & Computer System Organization > Program Execution Model (unit1_topic1.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "storage hierarchy",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 237,
+      "on_topic_share": 0.125,
+      "passages": 3,
+      "ms": 4.62,
+      "context": [
+        "[UNIT1_TOPIC1_S018] Unit 1 – Introduction & Computer System Organization > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S020] Unit 1 – Introduction & Computer System Organization > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC1_S021] Unit 1 – Introduction & Computer System Organization > Storage Hierarchy (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "caching",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 96,
+      "on_topic_share": 1.0,
+      "passages": 1,
+      "ms": 2.79,
+      "context": [
+        "[UNIT1_TOPIC1_S022] Unit 1 – Introduction & Computer System Organization > Caching (unit1_topic1.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "direct memory access",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 464,
+      "on_topic_share": 0.341,
+      "passages": 5,
+      "ms": 5.78,
+      "context": [
+        "[UNIT1_TOPIC3_S004] Unit 1 – Process Concept (Process Management) > Process Concept – Memory Representation (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S005] Unit 1 – Process Concept (Process Management) > Memory Layout of a C Program (unit1_topic3.pdf, p2)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S018] Unit 1 – Introduction & Computer System Organization > Storage Structure – Main Memory (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S025] Unit 1 – Introduction & Computer System Organization > Direct Memory Access (DMA) (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "device controller",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 634,
+      "on_topic_share": 1.0,
+      "passages": 6,
+      "ms": 7.08,
+      "context": [
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC1_S013] Unit 1 – Introduction & Computer System Organization > Computer System Operation (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S014] Unit 1 – Introduction & Computer System Organization > Booting the System (unit1_topic1.pdf, p5)",
+        "[UNIT1_TOPIC1_S023] Unit 1 – Introduction & Computer System Organization > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_P0274] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "CPU scheduler",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 730,
+      "on_topic_share": 1.0,
+      "passages": 9,
+      "ms": 11.67,
+      "context": [
+        "[UNIT1_TOPIC2_P0001] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S005] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007] Unit 1 – CPU Scheduling > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022] Unit 1 – CPU Scheduling > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "dispatcher",
+      "evidence_found": 1,
+      "evidence_total": 1,
+      "prompt_tokens": 165,
+      "on_topic_share": 1.0,
+      "passages": 3,
+      "ms": 4.32,
+      "context": [
+        "[UNIT1_TOPIC2_S018] Unit 1 – CPU Scheduling > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S019] Unit 1 – CPU Scheduling > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S020] Unit 1 – CPU Scheduling > Dispatch Latency (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "scheduling criteria",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 467,
+      "on_topic_share": 0.572,
+      "passages": 6,
+      "ms": 6.54,
+      "context": [
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022] Unit 1 – CPU Scheduling > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "preemptive scheduling",
+      "evidence_found": 0,
+      "evidence_total": 1,
+      "prompt_tokens": 720,
+      "on_topic_share": 0.331,
+      "passages": 10,
+      "ms": 10.08,
+      "context": [
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S013] Unit 1 – CPU Scheduling > Scheduling Types (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S014] Unit 1 – CPU Scheduling > Issues in Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC2_S016] Unit 1 – CPU Scheduling > Problems with Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S017] Unit 1 – CPU Scheduling > Solution (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC2_S022] Unit 1 – CPU Scheduling > Scheduling Algorithm Optimization Criteria (unit1_topic2.pdf, p5)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "CPU and I/O bursts",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 688,
+      "on_topic_share": 0.611,
+      "passages": 8,
+      "ms": 8.14,
+      "context": [
+        "[UNIT1_TOPIC2_P0024] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S006] Unit 1 – CPU Scheduling > Alternating Sequence of CPU and I/O Bursts (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S007] Unit 1 – CPU Scheduling > CPU–I/O Burst Cycle (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S008] Unit 1 – CPU Scheduling > Histogram of CPU-Burst Times (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S009] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC3_S018] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_S023] Unit 1 – Introduction & Computer System Organization > I/O Structure (unit1_topic1.pdf, p8)",
+        "[UNIT1_TOPIC1_S024] Unit 1 – Introduction & Computer System Organization > I/O Operation Flow (unit1_topic1.pdf, p9)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "process states",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 763,
+      "on_topic_share": 0.427,
+      "passages": 10,
+      "ms": 10.64,
+      "context": [
+        "[UNIT1_TOPIC3_P0002] Unit 1 – Process Concept (Process Management) > Unit 1 – Process Concept (Process Management) (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S006] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S021] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_P0152] Unit 1 – Process Concept (Process Management) > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC1_S015] Unit 1 – Introduction & Computer System Organization > Interrupts (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC1_S016] Unit 1 – Introduction & Computer System Organization > Interrupt Handling (unit1_topic1.pdf, p6)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC1_S020] Unit 1 – Introduction & Computer System Organization > Secondary Storage (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S035] Unit 1 – Process Concept (Process Management) > Important Scenarios (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "process control block",
+      "evidence_found": 5,
+      "evidence_total": 5,
+      "prompt_tokens": 590,
+      "on_topic_share": 0.459,
+      "passages": 6,
+      "ms": 6.85,
+      "context": [
+        "[UNIT1_TOPIC3_S009] Unit 1 – Process Concept (Process Management) > Each process is represented in the operating system by a Process Control Block (PCB) (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S010] Unit 1 – Process Concept (Process Management) > Contents of Process Control Block (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S011] Unit 1 – CPU Scheduling > Ready Queue Organization (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC1_S011] Unit 1 – Introduction & Computer System Organization > Defining the Operating System (unit1_topic1.pdf, p4)",
+        "[UNIT1_TOPIC3_S017] Unit 1 – Process Concept (Process Management) > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC1_S012] Unit 1 – Introduction & Computer System Organization > Computer System Organization (unit1_topic1.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "context switch",
+      "evidence_found": 4,
+      "evidence_total": 4,
+      "prompt_tokens": 453,
+      "on_topic_share": 0.507,
+      "passages": 6,
+      "ms": 6.58,
+      "context": [
+        "[UNIT1_TOPIC2_S005] Unit 1 – CPU Scheduling > CPU Scheduling – Need for Multiprogramming (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC3_S011] Unit 1 – Process Concept (Process Management) > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S019] Unit 1 – CPU Scheduling > Dispatcher Functions (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S021] Unit 1 – Process Concept (Process Management) > Context Switch (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S022] Unit 1 – Process Concept (Process Management) > Key Points (unit1_topic3.pdf, p6)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "long-term scheduler",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 756,
+      "on_topic_share": 0.245,
+      "passages": 10,
+      "ms": 10.31,
+      "context": [
+        "[UNIT1_TOPIC2_P0002] Unit 1 – CPU Scheduling > Unit 1 – CPU Scheduling (unit1_topic2.pdf, p1)",
+        "[UNIT1_TOPIC2_S009] Unit 1 – CPU Scheduling > Observations (unit1_topic2.pdf, p2)",
+        "[UNIT1_TOPIC2_S010] Unit 1 – CPU Scheduling > CPU Scheduler (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S016] Unit 1 – Process Concept (Process Management) > Short-Term Scheduler (CPU Scheduler) (unit1_topic3.pdf, p5)",
+        "[UNIT1_TOPIC3_S017] Unit 1 – Process Concept (Process Management) > Long-Term Scheduler (Job Scheduler) (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S018] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S018] Unit 1 – CPU Scheduling > Dispatcher (unit1_topic2.pdf, p4)",
+        "[UNIT1_TOPIC3_S019] Unit 1 – Process Concept (Process Management) > Medium-Term Scheduler (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC2_S021] Unit 1 – CPU Scheduling > Scheduling Criteria (unit1_topic2.pdf, p4)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "fork and exec",
+      "evidence_found": 0,
+      "evidence_total": 0,
+      "prompt_tokens": 134,
+      "on_topic_share": 1.0,
+      "passages": 2,
+      "ms": 4.09,
+      "context": [
+        "[UNIT1_TOPIC3_S027] Unit 1 – Process Concept (Process Management) > Process Creation using fork() (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S028] Unit 1 – Process Concept (Process Management) > UNIX Example (unit1_topic3.pdf, p7)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "zombie and orphan processes",
+      "evidence_found": 2,
+      "evidence_total": 2,
+      "prompt_tokens": 747,
+      "on_topic_share": 0.093,
+      "passages": 10,
+      "ms": 11.15,
+      "context": [
+        "[UNIT1_TOPIC3_P0002] Unit 1 – Process Concept (Process Management) > Unit 1 – Process Concept (Process Management) (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S002] Unit 1 – Process Concept (Process Management) > Process vs Program (unit1_topic3.pdf, p1)",
+        "[UNIT1_TOPIC3_S006] Unit 1 – Process Concept (Process Management) > Process State (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S007] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC3_S011] Unit 1 – Process Concept (Process Management) > CPU Switch from Process to Process (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S012] Unit 1 – Process Concept (Process Management) > Process Scheduling (unit1_topic3.pdf, p4)",
+        "[UNIT1_TOPIC3_S018] Unit 1 – Process Concept (Process Management) > Types of Processes (unit1_topic3.pdf, p6)",
+        "[UNIT1_TOPIC3_S024] Unit 1 – Process Concept (Process Management) > Process Creation (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034] Unit 1 – Process Concept (Process Management) > Zombie and Orphan Processes (unit1_topic3.pdf, p8)"
+      ]
+    },
+    {
+      "budget": 512,
+      "method": "emte",
+      "topic": "cascading termination",
+      "evidence_found": 3,
+      "evidence_total": 3,
+      "prompt_tokens": 728,
+      "on_topic_share": 0.107,
+      "passages": 9,
+      "ms": 9.18,
+      "context": [
+        "[UNIT1_TOPIC3_S007] Unit 1 – Process Concept (Process Management) > Common Process States (unit1_topic3.pdf, p3)",
+        "[UNIT1_TOPIC2_S012] Unit 1 – CPU Scheduling > Preemptive Scheduling (unit1_topic2.pdf, p3)",
+        "[UNIT1_TOPIC3_S026] Unit 1 – Process Concept (Process Management) > Execution Options (unit1_topic3.pdf, p7)",
+        "[UNIT1_TOPIC3_S030] Unit 1 – Process Concept (Process Management) > Process Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S031] Unit 1 – Process Concept (Process Management) > Termination Details (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S032] Unit 1 – Process Concept (Process Management) > Parent Terminating Child (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC1_S019] Unit 1 – Introduction & Computer System Organization > Program Execution Model (unit1_topic1.pdf, p7)",
+        "[UNIT1_TOPIC3_S033] Unit 1 – Process Concept (Process Management) > Cascading Termination (unit1_topic3.pdf, p8)",
+        "[UNIT1_TOPIC3_S034] Unit 1 – Process Concept (Process Management) > Zombie and Orphan Processes (unit1_topic3.pdf, p8)"
+      ]
+    }
+  ]
+}
